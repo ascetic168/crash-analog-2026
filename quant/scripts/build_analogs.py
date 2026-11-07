@@ -292,8 +292,9 @@ for d, v in nd.items():
         p10.append(v["p10_eventual_max_dd"]); ns.append(v["n_episodes"])
 ax.plot(xs, med, "o-", label="median eventual max DD")
 ax.plot(xs, p10, "s--", label="deep tail (10th pct) eventual max DD")
-ax.axvline(13.6, color="tab:red", lw=1.5)
-ax.text(14.0, -25, "NDX now (-13.6%)", color="tab:red", fontsize=9)
+cur_dd = abs(float(named_df.loc[named_df.episode == "NDX 2026 (live)", "max_dd"].iloc[0]))
+ax.axvline(cur_dd, color="tab:red", lw=1.5)
+ax.text(cur_dd + 0.4, -25, f"NDX now ({-cur_dd:.1f}%)", color="tab:red", fontsize=9)
 for x, m, n in zip(xs, med, ns):
     ax.annotate(f"n={n}", (x, m), textcoords="offset points", xytext=(0, 8), fontsize=8, ha="center")
 ax.set_xlabel("drawdown depth when measured (%)")

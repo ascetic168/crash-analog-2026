@@ -7,3 +7,7 @@ quant/data/
 pdf_build/
 html_build/
 *.pyc
+pdf_build_quant/body.html
+pdf_build_quant/body.pdf
+pdf_build_quant/cover.pdf
+pdf_build_quant/pages/
