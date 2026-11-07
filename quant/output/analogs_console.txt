@@ -1,0 +1,57 @@
+=== named episodes ===
+           episode  peak_date trough_date  max_dd  months_to_trough  months_to_recover
+SPX 1929 (monthly) 1929-09-01  1932-06-01   -84.8              33.0              300.9
+          SPX 1973 1973-01-11  1974-10-03   -48.2              20.7               91.6
+          SPX 1987 1987-08-25  1987-12-04   -33.5               3.3               24.2
+          SPX 2000 2000-03-24  2002-10-09   -49.1              30.5               91.2
+          SPX 2007 2007-10-09  2009-03-09   -56.8              17.0               66.7
+          NDX 2000 2000-03-27  2002-10-07   -82.9              30.4              197.1
+          NDX 2021 2021-11-19  2022-12-28   -35.6              13.3               26.4
+   NDX 2026 (live) 2026-10-06  2026-11-05   -14.7               1.0                NaN
+        TAIEX 2000 2000-02-17  2001-10-03   -66.2              19.5              209.4
+ TAIEX 2026 (live) 2026-10-06  2026-11-06   -20.3               1.0                NaN
+       Nikkei 1989 1989-12-29  2009-03-10   -81.9             230.3              410.0
+ CSCO 2000 (stock) 2000-03-27  2002-10-08   -89.3              30.4              314.1
+  NVDA 2026 (live) 2026-10-06  2026-11-05   -24.1               1.0                NaN
+
+=== mined episodes (count) ===
+  NDX: 35 episodes >= threshold; max dd -82.9% .. -10.2%
+  TAIEX: 8 episodes >= threshold; max dd -66.2% .. -16.4%
+  NVDA: 17 episodes >= threshold; max dd -89.7% .. -20.2%
+
+=== conditional stats (median eventual max DD after touching depth d) ===
+  [NDX]
+    at -10%: n=35  median eventual  -14.2%  p10(deep)  -30.9%  median m2t  0.4m 1y fwd +24.6%
+    at -15%: n=15  median eventual  -22.9%  p10(deep)  -38.2%  median m2t  0.2m 1y fwd +31.2%
+    at -20%: n= 8  median eventual  -30.4%  p10(deep)  -52.8%  median m2t  0.8m 1y fwd +40.1%
+    at -25%: n= 5  median eventual  -35.6%  p10(deep)  -65.7%  median m2t  1.6m 1y fwd +13.7%
+    at -30%: n= 4  median eventual  -37.8%  p10(deep)  -70.0%  median m2t  3.4m 1y fwd +28.6%
+  [TAIEX]
+    at -10%: n= 8  median eventual  -28.7%  p10(deep)  -52.0%  median m2t  4.4m 1y fwd +0.4%
+    at -15%: n= 8  median eventual  -28.7%  p10(deep)  -52.0%  median m2t  3.9m 1y fwd +9.0%
+    at -20%: n= 6  median eventual  -30.1%  p10(deep)  -56.0%  median m2t  1.9m 1y fwd +17.9%
+    at -25%: n= 5  median eventual  -31.6%  p10(deep)  -58.1%  median m2t  1.0m 1y fwd +18.1%
+    at -30%: n= 3  median eventual  -45.9%  p10(deep)  -62.1%  median m2t  5.4m 1y fwd +14.8%
+  [NVDA]
+    at -10%: n=17  median eventual  -36.9%  p10(deep)  -74.7%  median m2t  2.3m 1y fwd +25.3%
+    at -15%: n=17  median eventual  -36.9%  p10(deep)  -74.7%  median m2t  1.9m 1y fwd +27.5%
+    at -20%: n=17  median eventual  -36.9%  p10(deep)  -74.7%  median m2t  1.1m 1y fwd +34.2%
+    at -25%: n=13  median eventual  -51.9%  p10(deep)  -81.6%  median m2t  1.0m 1y fwd +10.4%
+    at -30%: n=11  median eventual  -53.9%  p10(deep)  -85.1%  median m2t  2.0m 1y fwd +26.6%
+
+=== NDX episodes starting with CAPE>35 ===
+  peak 1998-07-20  CAPE 38.3  eventual -23.0%  1y fwd 67.3%
+  peak 1999-02-01  CAPE 40.4  eventual -11.4%  1y fwd 118.1%
+  peak 1999-04-09  CAPE 42.7  eventual -11.9%  1y fwd 82.1%
+  peak 1999-04-26  CAPE 42.7  eventual -11.6%  1y fwd 55.0%
+  peak 1999-07-16  CAPE 43.8  eventual -12.0%  1y fwd 64.2%
+  peak 2000-01-03  CAPE 43.8  eventual -11.9%  1y fwd -32.1%
+  peak 2000-01-21  CAPE 43.8  eventual -10.5%  1y fwd -23.6%
+  peak 2000-03-27  CAPE 43.2  eventual -82.9%  1y fwd -65.7%
+  peak 2021-02-12  CAPE 35.1  eventual -10.9%  1y fwd 7.9%
+  peak 2021-11-19  CAPE 38.6  eventual -35.6%  1y fwd -21.7%
+  peak 2024-07-10  CAPE 35.4  eventual -13.6%  1y fwd 23.4%
+  peak 2025-02-19  CAPE 37.2  eventual -22.9%  1y fwd 28.4%
+  peak 2025-10-29  CAPE 39.2  eventual -12.1%  1y fwd None%
+  peak 2026-06-02  CAPE 40.2  eventual -11.3%  1y fwd None%
+  peak 2026-10-06  CAPE 40.7  eventual -14.7%  1y fwd None%
