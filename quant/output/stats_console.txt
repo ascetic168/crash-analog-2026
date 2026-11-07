@@ -1,0 +1,53 @@
+=== LPPLS confidence (rolling windows) ===
+  NDX: qual 18/18  conf<=6m 1.0  tc by month: {'2026-08': 2, '2026-09': 10, '2026-10': 4, '2026-11': 2}
+  NVDA: qual 18/18  conf<=6m 1.0  tc by month: {'2026-07': 2, '2026-10': 1, '2026-11': 11, '2026-12': 4}
+  TAIEX: qual 18/18  conf<=6m 0.39  tc by month: {'2027-01': 12, '2027-02': 3, '2027-03': 1, '2027-04': 1, '2027-05': 1}
+=== GSY basket run-ups (equal-$, measured at 2026-10-06) ===
+  ai_infra             2y=  223.8%  slope8m= 0.75  >=100%: True  n=8
+  hyperscaler          2y=   32.4%  slope8m= 0.72  >=100%: False  n=3
+  full_ai              2y=  207.1%  slope8m= 0.67  >=100%: True  n=13
+  dotcom_1999_cisco    2y=  124.6%  slope8m= 0.58  >=100%: True  n=1
+
+=== LPPL: lppl_validation_ndx1999 ===
+  1997-01-02 -> 1999-03-31  qual=15  tc_best=1999-08-10 tc_qual=1999-08-10
+      best:      m=0.10 w=10.43 B=-4.640 rmse=0.0630
+      qualifying: tc=1999-08-10 m=0.10 w=10.43 B=-4.640 rmse=0.0630
+  1997-01-02 -> 1999-06-30  qual=15  tc_best=1999-09-23 tc_qual=1999-09-23
+      best:      m=0.72 w=4.20 B=-0.703 rmse=0.0672
+      qualifying: tc=1999-09-23 m=0.72 w=4.20 B=-0.703 rmse=0.0672
+  1997-01-02 -> 1999-09-30  qual=15  tc_best=2000-01-02 tc_qual=2000-01-02
+      best:      m=0.90 w=4.74 B=-0.552 rmse=0.0659
+      qualifying: tc=2000-01-02 m=0.90 w=4.74 B=-0.552 rmse=0.0659
+  1997-01-02 -> 1999-12-31  qual=15  tc_best=2001-01-19 tc_qual=2001-01-19
+      best:      m=0.10 w=9.68 B=-9.927 rmse=0.0645
+      qualifying: tc=2001-01-19 m=0.10 w=9.68 B=-9.927 rmse=0.0645
+  1997-01-02 -> 2000-03-27  qual=15  tc_best=2001-01-21 tc_qual=2001-01-21
+      best:      m=0.10 w=9.56 B=-9.987 rmse=0.0631
+      qualifying: tc=2001-01-21 m=0.10 w=9.56 B=-9.987 rmse=0.0631
+
+=== LPPL: lppl_ndx_2026 ===
+  2023-01-03 -> 2026-10-06  qual=15  tc_best=2026-10-09 tc_qual=2026-10-09
+      best:      m=0.90 w=6.45 B=-0.253 rmse=0.0434
+      qualifying: tc=2026-10-09 m=0.90 w=6.45 B=-0.253 rmse=0.0434
+  2023-01-03 -> 2026-11-06  qual=15  tc_best=2026-11-09 tc_qual=2026-11-09
+      best:      m=0.90 w=6.94 B=-0.251 rmse=0.0446
+      qualifying: tc=2026-11-09 m=0.90 w=6.94 B=-0.251 rmse=0.0446
+  2024-06-03 -> 2026-11-06  qual=15  tc_best=2027-02-17 tc_qual=2027-02-17
+      best:      m=0.90 w=10.14 B=-0.258 rmse=0.0406
+      qualifying: tc=2027-02-17 m=0.90 w=10.14 B=-0.258 rmse=0.0406
+
+=== LPPL: lppl_nvda_2026 ===
+  2022-10-14 -> 2026-11-06  qual=15  tc_best=2028-05-06 tc_qual=2028-05-06
+      best:      m=0.90 w=4.20 B=-0.890 rmse=0.1367
+      qualifying: tc=2028-05-06 m=0.90 w=4.20 B=-0.890 rmse=0.1367
+  2024-06-03 -> 2026-11-06  qual=15  tc_best=2027-02-17 tc_qual=2027-02-17
+      best:      m=0.90 w=10.50 B=-0.385 rmse=0.0836
+      qualifying: tc=2027-02-17 m=0.90 w=10.50 B=-0.385 rmse=0.0836
+
+=== LPPL: lppl_twii_2026 ===
+  2023-01-03 -> 2026-11-06  qual=15  tc_best=2027-05-20 tc_qual=2027-05-20
+      best:      m=0.10 w=5.28 B=-5.924 rmse=0.0540
+      qualifying: tc=2027-05-20 m=0.10 w=5.28 B=-5.924 rmse=0.0540
+  2024-06-03 -> 2026-11-06  qual=15  tc_best=2028-05-06 tc_qual=2028-05-06
+      best:      m=0.90 w=7.45 B=-0.466 rmse=0.0472
+      qualifying: tc=2028-05-06 m=0.90 w=7.45 B=-0.466 rmse=0.0472
