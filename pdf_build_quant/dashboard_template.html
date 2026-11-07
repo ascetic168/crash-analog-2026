@@ -1,0 +1,378 @@
+<div id="crash-analog-dashboard">
+
+  <div class="viz-grid" id="cad-stats">
+    <div class="card viz-stat"><span class="text-muted">Shiller CAPE（2026-10）</span><span class="viz-stat-value tabular-nums">40.71</span><span class="text-muted">1871 年起 99 百分位</span></div>
+    <div class="card viz-stat"><span class="text-muted">非金融市值 / GDP（Z.1）</span><span class="viz-stat-value tabular-nums">2.55</span><span class="text-muted">1945 年以來最高（2000Q1 僅 1.63）</span></div>
+    <div class="card viz-stat"><span class="text-muted">名目 ECY = 1/CAPE − GS10</span><span class="viz-stat-value tabular-nums">−2.78%</span><span class="text-muted">史上第 3 低（僅 3% 日子更貴）</span></div>
+    <div class="card viz-stat"><span class="text-muted">自 2026-10-06 峰頂回檔</span><span class="viz-stat-value tabular-nums">NDX −14.7%</span><span class="text-muted">TAIEX −20.3% · NVDA −24.1% · SPX −5.7%</span></div>
+  </div>
+
+  <div class="nav nav-pills" role="tablist" aria-label="儀表板面板">
+    <button class="nav-link active" id="cad-tab-paths" role="tab" aria-controls="cad-panel-paths" aria-selected="true" type="button">崩盤軌跡對齊</button>
+    <button class="nav-link" id="cad-tab-cond" role="tab" aria-controls="cad-panel-cond" aria-selected="false" type="button">條件化統計</button>
+    <button class="nav-link" id="cad-tab-lppl" role="tab" aria-controls="cad-panel-lppl" aria-selected="false" type="button">LPPL 臨界時點</button>
+    <button class="nav-link" id="cad-tab-scen" role="tab" aria-controls="cad-panel-scen" aria-selected="false" type="button">情境機率</button>
+  </div>
+
+  <div id="cad-panel-paths" role="tabpanel" aria-labelledby="cad-tab-paths">
+    <h3>歷史崩盤軌跡（按距峰頂月數對齊；粗線＝2026 進行中）</h3>
+    <div class="viz-row" id="cad-path-legend" role="group" aria-label="切換顯示的崩盤案例"></div>
+    <div id="cad-paths-wrap" style="position:relative;">
+      <svg id="cad-paths-svg" role="img" aria-label="歷史崩盤後的回檔路徑折線圖，按距峰頂月數對齊"></svg>
+      <div class="tooltip" role="tooltip" hidden></div>
+    </div>
+    <p class="text-small text-muted">資料：Yahoo Finance 日收盤＋Shiller 月資料（1929）。游標移到圖上可讀取各案例在該月數的回檔深度。</p>
+  </div>
+
+  <div id="cad-panel-cond" role="tabpanel" aria-labelledby="cad-tab-cond" hidden>
+    <h3>觸及 −X% 深度後的終點分布（中位數與深尾 p10）</h3>
+    <div id="cad-cond-wrap"></div>
+    <p class="text-small text-muted">樣本：NDX 1985–2026 共 35 個 ≥10% 回檔、TAIEX 8 個 ≥15%、NVDA 17 個 ≥20%。紅虛線＝當前位置。1 年前向報酬中位數：NDX +31.2%、TAIEX +17.9%、NVDA +34.2%。</p>
+  </div>
+
+  <div id="cad-panel-lppl" role="tabpanel" aria-labelledby="cad-tab-lppl" hidden>
+    <h3>LPPL 臨界時點 tc 分布（滾動窗口擬合）</h3>
+    <div id="cad-lppl-wrap"></div>
+    <h3>方法驗證：NDX 1997–2000（真實峰頂 2000-03-27）</h3>
+    <div id="cad-lppl-val"></div>
+    <p class="text-small text-muted">信心指標＝通過篩選的擬合中，tc 落在窗口結束後 6 個月內的比例。NDX/NVDA 的 tc 叢集落在已發生峰頂附近（事後擬合性質）；TAIEX 的 2027-01 為真前向估計。</p>
+  </div>
+
+  <div id="cad-panel-scen" role="tabpanel" aria-labelledby="cad-tab-scen" hidden>
+    <h3>未來 12–24 個月情境機率（三條數據流整合，附推論依據）</h3>
+    <div id="cad-scen-wrap"></div>
+    <div id="cad-scen-table"></div>
+    <p class="text-small text-muted">時點分布：2026Q4 內見到本輪終點約 50%；累計至 2027H1 約 80–85%（LPPL tc 叢集＋歷史峰→谷 13–20 個月）。</p>
+  </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+<script>
+(() => {
+  const ROOT = document.getElementById("crash-analog-dashboard");
+  if (!ROOT || typeof d3 === "undefined") return;
+
+  const DATA = /*__DATA__*/{};
+
+  const cssVar = (name) => getComputedStyle(document.documentElement).getPropertyValue(name).trim() || "#888";
+  let PAL = {};
+  const refreshPalette = () => {
+    PAL = {
+      s: [1, 2, 3, 4, 5, 6].map(i => cssVar("--viz-series-" + i)),
+      fg: cssVar("--foreground"), mut: cssVar("--muted-foreground"),
+      border: cssVar("--border"), pop: cssVar("--popover"), popFg: cssVar("--popover-foreground"),
+      red: cssVar("--destructive"),
+    };
+  };
+  refreshPalette();
+
+  const PATH_META = [
+    { ep: "NDX 2026 (live)", label: "NDX 2026（進行中）", live: true },
+    { ep: "TAIEX 2026 (live)", label: "TAIEX 2026（進行中）", live: true },
+    { ep: "NVDA 2026 (live)", label: "NVDA 2026（進行中）", live: true },
+    { ep: "NDX 2000", label: "NDX 2000" },
+    { ep: "SPX 2000", label: "SPX 2000" },
+    { ep: "TAIEX 2000", label: "TAIEX 2000" },
+    { ep: "CSCO 2000 (stock)", label: "CSCO 2000（個股）" },
+    { ep: "Nikkei 1989", label: "日經 1989" },
+    { ep: "SPX 1929 (monthly)", label: "SPX 1929" },
+    { ep: "SPX 1973", label: "SPX 1973" },
+    { ep: "SPX 1987", label: "SPX 1987" },
+    { ep: "SPX 2007", label: "SPX 2007" },
+    { ep: "NDX 2021", label: "NDX 2021" },
+  ];
+  const HOR = 60; // months shown
+  const visible = new Set(PATH_META.map(d => d.ep));
+
+  // ────────────────────────────── panel 1: aligned paths
+  const svgPaths = d3.select("#cad-paths-svg");
+  const pathsWrap = document.getElementById("cad-paths-wrap");
+  const tooltip = pathsWrap.querySelector(".tooltip");
+
+  function drawPaths() {
+    const W = Math.max(pathsWrap.clientWidth, 320), H = Math.max(320, Math.min(430, W * 0.5));
+    const M = { t: 14, r: 14, b: 34, l: 46 };
+    svgPaths.attr("viewBox", `0 0 ${W} ${H}`).attr("width", W).attr("height", H);
+    svgPaths.selectAll("*").remove();
+    const x = d3.scaleLinear().domain([0, HOR]).range([M.l, W - M.r]);
+    const ys = [];
+    PATH_META.forEach(m => (DATA.paths[m.ep] || []).forEach(p => { if (p[0] <= HOR) ys.push(p[1]); }));
+    const y = d3.scaleLinear().domain([d3.min(ys) - 3, 4]).range([H - M.b, M.t]);
+    const g = svgPaths.append("g");
+    // frame + grid
+    g.append("rect").attr("data-chart-frame", "").attr("x", M.l).attr("y", M.t)
+      .attr("width", W - M.l - M.r).attr("height", H - M.t - M.b)
+      .attr("fill", "none").attr("stroke", PAL.border).attr("stroke-width", 1);
+    const yTicks = H < 360 ? [-30, -60, -90] : [-10, -30, -50, -70, -90];
+    yTicks.forEach(v => {
+      g.append("line").attr("x1", M.l).attr("x2", W - M.r).attr("y1", y(v)).attr("y2", y(v))
+        .attr("stroke", PAL.border).attr("stroke-width", 0.6).attr("stroke-dasharray", "2 3");
+      g.append("text").attr("x", M.l - 6).attr("y", y(v)).attr("dy", "0.32em").attr("text-anchor", "end")
+        .attr("font-size", 11).attr("fill", PAL.mut).text(v + "%");
+    });
+    const xTicks = W < 420 ? [0, 12, 24, 36, 48] : [0, 6, 12, 18, 24, 30, 36, 42, 48, 54, 60];
+    xTicks.forEach(v => {
+      g.append("text").attr("x", x(v)).attr("y", H - M.b + 16).attr("text-anchor", "middle")
+        .attr("font-size", 11).attr("fill", PAL.mut).text(v + "月");
+    });
+    g.append("text").attr("class", "axis-title").attr("data-axis", "x").attr("x", W - M.r)
+      .attr("y", H - M.b + 16).attr("text-anchor", "end").attr("font-size", 11).attr("fill", PAL.fg).text("距峰頂時間");
+    g.append("text").attr("class", "axis-title").attr("data-axis", "y").attr("x", M.l)
+      .attr("y", M.t - 4).attr("text-anchor", "start").attr("font-size", 11).attr("fill", PAL.fg).text("自峰頂回檔深度");
+    const line = d3.line().x(d => x(d[0])).y(d => y(d[1]));
+    const clipId = "cad-paths-clip";
+    const defs = svgPaths.append("defs");
+    defs.append("clipPath").attr("id", clipId)
+      .append("rect").attr("x", M.l).attr("y", M.t)
+      .attr("width", W - M.l - M.r).attr("height", H - M.t - M.b);
+    const gSeries = g.append("g").attr("clip-path", `url(#${clipId})`);
+    const idx = new Map(); // ep -> points (for hover)
+    PATH_META.forEach((m, i) => {
+      if (!visible.has(m.ep)) return;
+      // the analog story ends at recovery: cut the path at its first non-negative month
+      const all = (DATA.paths[m.ep] || []).filter(p => p[0] <= HOR);
+      const cut = all.findIndex(p => p[1] >= 0);
+      const pts = cut >= 0 ? all.slice(0, cut + 1) : all;
+      idx.set(m.ep, pts);
+      const col = m.live ? PAL.s[i % 3] : PAL.mut;
+      gSeries.append("path").attr("d", line(pts)).attr("fill", "none").attr("stroke", col)
+        .attr("stroke-width", m.live ? 2.6 : 1.2).attr("stroke-opacity", m.live ? 1 : 0.75)
+        .attr("stroke-dasharray", m.live ? null : "3 2");
+    });
+    // cross-series hover overlay
+    const ov = g.append("rect").attr("data-chart-hit", "").attr("data-chart-hover-overlay", "cross-series")
+      .attr("x", M.l).attr("y", M.t).attr("width", W - M.l - M.r).attr("height", H - M.t - M.b)
+      .attr("fill", "transparent");
+    const guide = g.append("line").attr("data-chart-hover-guide", "").attr("y1", M.t).attr("y2", H - M.b)
+      .attr("stroke", PAL.border).attr("stroke-width", 1).style("display", "none");
+    const bis = d3.bisector(d => d[0]).center;
+    ov.on("pointermove", (ev) => {
+      const [mx] = d3.pointer(ev, g.node());
+      const xv = Math.max(0, Math.min(HOR, Math.round(x.invert(mx))));
+      guide.attr("x1", x(xv)).attr("x2", x(xv)).style("display", null);
+      const rows = [];
+      PATH_META.forEach(m => {
+        if (!visible.has(m.ep)) return;
+        const pts = idx.get(m.ep);
+        if (!pts || !pts.length) return;
+        const i = Math.min(bis(pts, xv), pts.length - 1);
+        rows.push({ label: m.label, v: pts[i][1], live: m.live });
+      });
+      rows.sort((a, b) => a.v - b.v);
+      svgPaths.selectAll("circle[data-chart-hover-marker]").remove();
+      rows.forEach(r => {
+        const col = r.live ? PAL.s[0] : PAL.mut;
+        g.append("circle").attr("data-chart-hover-marker", "").attr("cx", x(xv))
+          .attr("cy", y(r.v)).attr("r", 3).attr("fill", col);
+      });
+      tooltip.hidden = false;
+      tooltip.innerHTML = `<b>第 ${xv} 個月</b><br>` + rows.map(r =>
+        `<span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:${r.live ? PAL.s[0] : PAL.mut};margin-right:5px;"></span>${r.label}：${r.v.toFixed(1)}%`).join("<br>");
+      const rect = pathsWrap.getBoundingClientRect();
+      let tx = ev.clientX - rect.left + 14, ty = ev.clientY - rect.top + 14;
+      if (tx + 190 > rect.width) tx -= 210;
+      tooltip.style.left = tx + "px"; tooltip.style.top = ty + "px";
+    });
+    ov.on("pointerleave", () => {
+      guide.style("display", "none");
+      svgPaths.selectAll("circle[data-chart-hover-marker]").remove();
+      tooltip.hidden = true;
+    });
+  }
+
+  // legend toggle buttons
+  const legend = document.getElementById("cad-path-legend");
+  PATH_META.forEach((m, i) => {
+    const b = document.createElement("button");
+    b.type = "button"; b.setAttribute("aria-pressed", "true");
+    b.style.cssText = "background:none;border:none;cursor:pointer;padding:2px 6px;font:inherit;color:var(--foreground);display:inline-flex;align-items:center;gap:5px;";
+    const sw = document.createElement("span");
+    sw.style.cssText = `width:10px;height:10px;border-radius:2px;background:${m.live ? "var(--viz-series-" + (i % 3 + 1) + ")" : "var(--muted-foreground)"};opacity:${m.live ? 1 : 0.6};`;
+    b.appendChild(sw);
+    b.appendChild(document.createTextNode(m.label));
+    if (m.live) b.style.fontWeight = "500";
+    b.addEventListener("click", () => {
+      if (visible.has(m.ep) && visible.size > 1) { visible.delete(m.ep); b.setAttribute("aria-pressed", "false"); sw.style.opacity = 0.25; }
+      else { visible.add(m.ep); b.setAttribute("aria-pressed", "true"); sw.style.opacity = m.live ? 1 : 0.6; }
+      drawPaths();
+    });
+    legend.appendChild(b);
+  });
+
+  // ────────────────────────────── panel 2: conditional small multiples
+  function drawCond() {
+    const wrap = document.getElementById("cad-cond-wrap");
+    wrap.innerHTML = "";
+    const assets = [
+      { key: "NDX", label: "NASDAQ-100（n=35）", cur: 14.7 },
+      { key: "TAIEX", label: "TAIEX 加權指數（n=8）", cur: 20.3 },
+      { key: "NVDA", label: "NVIDIA（n=17）", cur: 24.1 },
+    ];
+    const cur = { NDX: (DATA.live.NDX || {}).drawdown_pct, TAIEX: (DATA.live.TAIEX || {}).drawdown_pct, NVDA: (DATA.live.NVDA || {}).drawdown_pct };
+    assets.forEach(a => {
+      a.cur = Math.abs(cur[a.key] != null ? cur[a.key] : a.cur);
+      const W = Math.max(wrap.clientWidth || 600, 320), H = 200, M = { t: 26, r: 54, b: 30, l: 46 };
+      const div = document.createElement("div");
+      div.style.cssText = "position:relative;";
+      wrap.appendChild(div);
+      const svg = d3.select(div).append("svg").attr("viewBox", `0 0 ${W} ${H}`).attr("width", W).attr("height", H)
+        .attr("role", "img").attr("aria-label", a.label + "：觸及深度對終點深度");
+      const ptsM = [], ptsP = [];
+      Object.entries((DATA.conditional[a.key] || {})).forEach(([d, s]) => {
+        ptsM.push([+d, s.median_eventual_max_dd]); ptsP.push([+d, s.p10_eventual_max_dd]);
+      });
+      const x = d3.scaleLinear().domain([8, 32]).range([M.l, W - M.r]);
+      const y = d3.scaleLinear().domain([d3.min(ptsP.map(p => p[1])) - 5, -8]).range([H - M.b, M.t]);
+      svg.append("rect").attr("data-chart-frame", "").attr("x", M.l).attr("y", M.t)
+        .attr("width", W - M.l - M.r).attr("height", H - M.t - M.b)
+        .attr("fill", "none").attr("stroke", PAL.border).attr("stroke-width", 1);
+      [-20, -30, -40, -50, -60, -70, -80].forEach(v => {
+        if (y(v) < M.t || y(v) > H - M.b) return;
+        svg.append("line").attr("x1", M.l).attr("x2", W - M.r).attr("y1", y(v)).attr("y2", y(v))
+          .attr("stroke", PAL.border).attr("stroke-width", 0.6).attr("stroke-dasharray", "2 3");
+        svg.append("text").attr("x", M.l - 5).attr("y", y(v)).attr("dy", "0.32em").attr("text-anchor", "end")
+          .attr("font-size", 11).attr("fill", PAL.mut).text(v + "%");
+      });
+      (W < 420 ? [10, 20, 30] : [10, 15, 20, 25, 30]).forEach(v => {
+        svg.append("text").attr("x", x(v)).attr("y", H - M.b + 16).attr("text-anchor", "middle")
+          .attr("font-size", 11).attr("fill", PAL.mut).text("−" + v + "%");
+      });
+      svg.append("text").attr("x", M.l).attr("y", 12).attr("font-size", 11).attr("fill", PAL.fg)
+        .text(a.label);
+      svg.append("text").attr("class", "axis-title").attr("data-axis", "x").attr("x", W - M.r)
+        .attr("y", H - M.b + 16).attr("text-anchor", "end").attr("font-size", 11).attr("fill", PAL.fg).text("觸及深度");
+      const line = d3.line().x(d => x(d[0])).y(d => y(d[1]));
+      const addSeries = (pts, col, dash, name) => {
+        svg.append("path").attr("d", line(pts)).attr("fill", "none").attr("stroke", col)
+          .attr("stroke-width", 2).attr("stroke-dasharray", dash);
+        pts.forEach(p => {
+          svg.append("circle").attr("cx", x(p[0])).attr("cy", y(p[1])).attr("r", 3.2).attr("fill", col)
+            .attr("data-tooltip", `${name}：觸及 −${p[0]}% 後終點 ${p[1].toFixed(1)}%`);
+        });
+      };
+      addSeries(ptsP, PAL.s[5], "4 3", "深尾 p10");
+      addSeries(ptsM, PAL.s[0], null, "中位數");
+      // current depth marker
+      svg.append("line").attr("x1", x(a.cur)).attr("x2", x(a.cur)).attr("y1", M.t).attr("y2", H - M.b)
+        .attr("stroke", PAL.red).attr("stroke-width", 1.2).attr("stroke-dasharray", "3 3");
+      svg.append("text").attr("x", x(a.cur) + 4).attr("y", M.t + 12).attr("font-size", 11).attr("fill", PAL.red)
+        .text(`現在 −${a.cur.toFixed(1)}%`);
+      // legend once (on first)
+    });
+    // single shared legend
+    const lg = document.createElement("div");
+    lg.className = "viz-row";
+    lg.innerHTML = `<button type="button" aria-pressed="true" style="background:none;border:none;cursor:pointer;font:inherit;color:var(--foreground);display:inline-flex;align-items:center;gap:5px;"><span style="width:12px;height:3px;background:var(--viz-series-1);"></span>中位數終點</button>
+      <button type="button" aria-pressed="true" style="background:none;border:none;cursor:pointer;font:inherit;color:var(--foreground);display:inline-flex;align-items:center;gap:5px;"><span style="width:12px;height:3px;background:var(--viz-series-6);"></span>深尾（10% 最深情境）</button>
+      <button type="button" aria-pressed="true" style="background:none;border:none;cursor:pointer;font:inherit;color:var(--foreground);display:inline-flex;align-items:center;gap:5px;"><span style="width:12px;height:0;border-top:2px dashed var(--destructive);"></span>當前位置</button>`;
+    wrap.appendChild(lg);
+  }
+
+  // ────────────────────────────── panel 3: LPPL tc clusters
+  function drawLppl() {
+    const wrap = document.getElementById("cad-lppl-wrap");
+    wrap.innerHTML = "";
+    const rows = [
+      { key: "NDX", label: "NDX（信心 1.0）", note: "臨界點已於 2026-10-06 觸發" },
+      { key: "NVDA", label: "NVDA（信心 1.0）", note: "tc 叢集＝現在（2026-11～12）" },
+      { key: "TAIEX", label: "TAIEX（信心 0.39）", note: "真前向估計：2027-01 前後" },
+    ];
+    rows.forEach(r => {
+      const counts = (DATA.lppls[r.key] || {}).counts || {};
+      const months = Object.keys(counts).sort();
+      const W = Math.max(wrap.clientWidth || 600, 320), H = 140, M = { t: 36, r: 12, b: 26, l: 12 };
+      const div = document.createElement("div");
+      div.style.cssText = "position:relative;";
+      wrap.appendChild(div);
+      const svg = d3.select(div).append("svg").attr("viewBox", `0 0 ${W} ${H}`).attr("width", W).attr("height", H)
+        .attr("role", "img").attr("aria-label", r.label + " 的 tc 月份分布");
+      const total = d3.sum(months, m => counts[m]);
+      const maxV = d3.max(months, m => counts[m]);
+      const bw = (W - M.l - M.r) / Math.max(months.length, 1);
+      const scale = d3.scaleLinear().domain([0, maxV]).range([H - M.b, M.t]);
+      months.forEach((m, i) => {
+        const v = counts[m];
+        const bh = H - M.b - scale(v);
+        const col = `var(--viz-series-${(i % 6) + 1})`;
+        svg.append("rect").attr("x", M.l + i * bw + 3).attr("y", scale(v))
+          .attr("width", Math.max(bw - 6, 8)).attr("height", Math.max(bh, 1)).attr("fill", col).attr("opacity", 0.85)
+          .attr("data-tooltip", `${r.label}：tc 落在 ${m} 的窗口數 ${v}/${total}`);
+        svg.append("text").attr("x", M.l + i * bw + bw / 2).attr("y", scale(v) - 4)
+          .attr("text-anchor", "middle").attr("font-size", 11).attr("fill", PAL.fg).text(v);
+        svg.append("text").attr("x", M.l + i * bw + bw / 2).attr("y", H - M.b + 15)
+          .attr("text-anchor", "middle").attr("font-size", 11).attr("fill", PAL.mut).text(m);
+      });
+      svg.append("text").attr("x", M.l).attr("y", 12).attr("font-size", 11).attr("fill", PAL.fg)
+        .html(`${r.label}　<tspan fill="${PAL.mut}">${r.note}（通過篩選 ${total}/${(DATA.lppls[r.key] || {}).windows} 窗口）</tspan>`);
+    });
+    // validation table
+    const val = document.getElementById("cad-lppl-val");
+    const rowsV = (DATA.lppl_validation || []).map(w =>
+      `<tr><td class="text-nowrap">${w.end}</td><td class="text-nowrap tabular-nums">${w.tc || "—"}</td><td class="tabular-nums">${w.qual}</td></tr>`);
+    val.innerHTML = `<table class="table table-sm"><thead><tr><th>擬合窗口截止</th><th>tc 估計</th><th>通過篩選擬合數</th></tr></thead><tbody>${rowsV.join("")}</tbody></table>
+      <p class="text-small text-muted">真實峰頂：2000-03-27。模型依窗口成熟逐漸逼近真實峰頂（誤差帶 ±3–6 個月）。</p>`;
+  }
+
+  // ────────────────────────────── panel 4: scenarios
+  function drawScen() {
+    const wrap = document.getElementById("cad-scen-wrap");
+    wrap.innerHTML = "";
+    const scen = [
+      { name: "A. 修正後再創高", lo: 20, hi: 25, proto: "1999-08 / 2024-07", trig: "NVDA 財報強、capex 上調" },
+      { name: "B. 產業泡沫去化（基準）", lo: 45, hi: 55, proto: "2000-03 稀釋版", trig: "capex 指引下修、營收不及預期" },
+      { name: "C. 系統性去槓桿", lo: 15, hi: 25, proto: "2000 電信＋2008", trig: "債務鏈斷裂（Oracle/CoreWeave）" },
+      { name: "D. 泡沫延續再跑一年", lo: 5, hi: 10, proto: "1999 全年", trig: "流動性轉寬鬆" },
+    ];
+    const W = Math.max(wrap.clientWidth || 600, 320), rowH = 44, H = rowH * scen.length + 24;
+    const labelW = Math.min(200, Math.max(120, W * 0.34));
+    const M = { l: labelW, r: 62 };
+    const x = d3.scaleLinear().domain([0, 60]).range([M.l, W - M.r]);
+    const svg = d3.select(wrap).append("svg").attr("viewBox", `0 0 ${W} ${H}`).attr("width", W).attr("height", H)
+      .attr("role", "img").attr("aria-label", "四個情境的機率區間");
+    [0, 10, 20, 30, 40, 50, 60].forEach(v => {
+      svg.append("text").attr("x", x(v)).attr("y", 14).attr("text-anchor", "middle")
+        .attr("font-size", 11).attr("fill", PAL.mut).text(v + "%");
+    });
+    scen.forEach((s, i) => {
+      const y = 28 + i * rowH;
+      const col = `var(--viz-series-${i + 1})`;
+      svg.append("text").attr("x", M.l - 8).attr("y", y + 14).attr("text-anchor", "end")
+        .attr("font-size", 11).attr("fill", PAL.fg).text(s.name);
+      svg.append("rect").attr("x", x(s.lo)).attr("y", y + 4).attr("width", Math.max(x(s.hi) - x(s.lo), 2))
+        .attr("height", 12).attr("fill", col).attr("opacity", 0.8)
+        .attr("data-tooltip", `${s.name}：機率 ${s.lo}–${s.hi}%（原型 ${s.proto}）`);
+      svg.append("text").attr("x", x(s.hi) + 6).attr("y", y + 14).attr("dy", "0.35em")
+        .attr("font-size", 11).attr("fill", PAL.fg).text(`${s.lo}–${s.hi}%`);
+    });
+    const tb = document.getElementById("cad-scen-table");
+    tb.innerHTML = `<table class="table table-sm"><thead><tr><th>情境</th><th>歷史原型</th><th>NDX 終點</th><th>TAIEX 終點</th><th>觸發條件</th></tr></thead><tbody>
+      <tr><td>A. 修正後再創高</td><td>1999-08 / 2024-07</td><td class="tabular-nums">−15～−25% 後新高</td><td class="tabular-nums">−25% 後重返 4.5 萬+</td><td>NVDA 財報強、capex 上調</td></tr>
+      <tr><td>B. 產業泡沫去化（基準）</td><td>2000-03 稀釋版</td><td class="tabular-nums">−30～−45%</td><td class="tabular-nums">−35～−55%（32,000–26,000）</td><td>capex 指引下修、營收不及預期</td></tr>
+      <tr><td>C. 系統性去槓桿</td><td>2000 電信＋2008</td><td class="tabular-nums">−50～−70%</td><td class="tabular-nums">−55～−66%（≈22,000）</td><td>債務鏈斷裂（Oracle/CoreWeave）</td></tr>
+      <tr><td>D. 泡沫延續</td><td>1999 全年</td><td class="tabular-nums">先 +10~20% 再崩</td><td class="tabular-nums">先創新高</td><td>流動性轉寬鬆</td></tr></tbody></table>`;
+  }
+
+  // ────────────────────────────── wiring
+  drawPaths();
+  drawCond();
+  drawLppl();
+  drawScen();
+
+  const ro = new ResizeObserver(() => { drawPaths(); });
+  ro.observe(pathsWrap);
+  let lastW = 0;
+  const ro2 = new ResizeObserver((es) => {
+    const w = Math.round(es[0].contentRect.width);
+    if (Math.abs(w - lastW) > 40) { lastW = w; drawCond(); drawLppl(); drawScen(); }
+  });
+  ro2.observe(ROOT);
+
+  // redraw hidden panels when their tab becomes visible
+  ROOT.querySelectorAll('[role="tab"]').forEach(t => {
+    t.addEventListener("click", () => {
+      setTimeout(() => { drawCond(); drawLppl(); drawScen(); drawPaths(); }, 60);
+    });
+  });
+})();
+</script>

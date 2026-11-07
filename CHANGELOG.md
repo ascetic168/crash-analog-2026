@@ -57,3 +57,21 @@ Format based on [Keep a Changelog](https://keepachangelog.com/); versioning: pat
     revenue, credit spreads, Fed path) with pp-level effects
   - comparison against Klement/Grantham/Hussman/Slok/Dalio/UBS/Huang and
     full limitations section
+
+## [0.1.6] - 2026-11-08
+
+### Added — interactive dashboard
+- `quant/scripts/bundle_dashboard_data.py`: condenses all pipeline outputs into
+  `quant/output/dashboard_data.json` (13 KB) for the inline visualization
+- inline dashboard fragment (crash-analog-dashboard.html, session visualization
+  directory, authored per the visualize skill): 4 stat cards + 4 tab panels
+  - 崩盤軌跡對齊: D3 line chart, per-episode toggle chips, cross-series hover
+    tooltip, paths truncated at peak-recovery (post-recovery gains no longer
+    escape the frame)
+  - 條件化統計: three small multiples (median + deep tail p10 + current marker)
+  - LPPL 臨界時點: tc monthly clusters per asset + 1999 validation table
+  - 情境機率: A-D probability range bars + scenario table
+- preview tooling: `pdf_build_quant/dashboard_template.html` (literal fragment
+  source with data token) + `preview/make_preview.py` (light-theme wrapper for
+  headless screenshots)
+- visual gate: 3 rounds of visual-judge, all four panels pass
