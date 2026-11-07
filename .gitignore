@@ -1,0 +1,9 @@
+# quant pipeline: never commit venv, raw downloads, build dirs
+quant/.venv/
+quant/data/downloads/
+quant/__pycache__/
+quant/**/__pycache__/
+quant/data/
+pdf_build/
+html_build/
+*.pyc
