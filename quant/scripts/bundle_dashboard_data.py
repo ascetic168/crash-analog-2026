@@ -54,6 +54,23 @@ data["lppl_validation"] = [
     for w in stats["lppl_validation_ndx1999"]
 ]
 
+# coherent scenario posterior
+post = json.loads((OUT / "scenario_posterior.json").read_text(encoding="utf-8"))
+data["scenarios"] = {
+    "partition": post["partition"],
+    "ndx": [{"key": k, "m": post["posterior"][k]["median"], "lo": post["posterior"][k]["q10"],
+             "hi": post["posterior"][k]["q90"], "pt": post["posterior"][k]["point"]}
+            for k in ("E1", "E2", "E3", "E4")],
+    "taiex": [{"key": k, "m": post["taiex"]["marginal"][k]["median"], "lo": post["taiex"]["marginal"][k]["q10"],
+               "hi": post["taiex"]["marginal"][k]["q90"], "pt": post["taiex"]["marginal"][k]["point"]}
+              for k in ("E1", "E2", "E3", "E4")],
+    "nvda": [{"key": k, "m": post["nvda"]["f"][k], "lo": None, "hi": None, "pt": post["nvda"]["f"][k]}
+             for k in ("E1", "E2", "E3", "E4")],
+    "timing": post["timing"],
+    "sens": [{"name": n, "e4": v["E4"]} for n, v in post["sensitivity"].items()],
+    "k": post["dirichlet_k"],
+}
+
 # metrics snapshot
 met = json.loads((OUT / "metrics_current.json").read_text(encoding="utf-8"))
 data["live"] = met["live_drawdowns"]

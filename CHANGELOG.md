@@ -75,3 +75,30 @@ Format based on [Keep a Changelog](https://keepachangelog.com/); versioning: pat
   source with data token) + `preview/make_preview.py` (light-theme wrapper for
   headless screenshots)
 - visual gate: 3 rounds of visual-judge, all four panels pass
+
+## [0.1.7] - 2026-11-08
+
+### Changed — coherent scenario posterior (fixes the sum-to-1 critique)
+- `quant/scripts/build_scenario_posterior.py`: replaces the report's old
+  independently-guessed scenario ranges (which summed to 85-115%) with a
+  coherent construction:
+  - mutually exclusive & exhaustive partition by NDX eventual max drawdown
+    (E1 > -15 / E2 -15~-25 / E3 -25~-40 / E4 <= -40; E4 boundary = GSY
+    crash definition)
+  - three evidence streams each give a normalized vector: empirical
+    frequencies (n=15 all episodes, n=4 high-CAPE subset), GSY-implied
+    (sector 0.65 x dilution 0.75), explicit weights 0.45/0.25/0.30
+  - pooled point vector sums to 1.000 exactly (in-code assertion)
+  - uncertainty = Dirichlet(k=24) marginals; reported intervals are 80%
+    quantiles of the SAME joint distribution (any draw sums to 1)
+  - honest stream disagreement surfaced: pure empirical P(E4)=6.7% vs pure
+    GSY 48.8%, baseline 23.9%; sensitivity table spans the choices
+  - TAIEX empirical (n=5, live excluded): 5/5 deepened past -25%;
+    P(terminal <= -25%) = 97.3% [84.9, 99.9] (Jeffreys-smoothed)
+  - NVDA empirical (n=16): P(terminal <= -25%) = 82.6% [68.3, 92.4]
+  - timing restated as a normalized partition (50/32.5/17.5)
+- report: new section 5.0 (method), 5.1-5.4 rewritten on the posterior,
+  summary line updated, old A-D labels mapped to E1-E4 everywhere
+- PDF rebuilt (19 pages), section-5 pages pass visual-judge
+- dashboard scenario panel now renders the posterior (interval bars +
+  median ticks + coherent table); passes visual-judge

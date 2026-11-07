@@ -314,43 +314,69 @@
       <p class="text-small text-muted">真實峰頂：2000-03-27。模型依窗口成熟逐漸逼近真實峰頂（誤差帶 ±3–6 個月）。</p>`;
   }
 
-  // ────────────────────────────── panel 4: scenarios
+  // ────────────────────────────── panel 4: scenarios (coherent posterior)
   function drawScen() {
     const wrap = document.getElementById("cad-scen-wrap");
     wrap.innerHTML = "";
-    const scen = [
-      { name: "A. 修正後再創高", lo: 20, hi: 25, proto: "1999-08 / 2024-07", trig: "NVDA 財報強、capex 上調" },
-      { name: "B. 產業泡沫去化（基準）", lo: 45, hi: 55, proto: "2000-03 稀釋版", trig: "capex 指引下修、營收不及預期" },
-      { name: "C. 系統性去槓桿", lo: 15, hi: 25, proto: "2000 電信＋2008", trig: "債務鏈斷裂（Oracle/CoreWeave）" },
-      { name: "D. 泡沫延續再跑一年", lo: 5, hi: 10, proto: "1999 全年", trig: "流動性轉寬鬆" },
-    ];
-    const W = Math.max(wrap.clientWidth || 600, 320), rowH = 44, H = rowH * scen.length + 24;
-    const labelW = Math.min(200, Math.max(120, W * 0.34));
+    const SC = DATA.scenarios;
+    const scen = SC ? SC.ndx.map((r, i) => ({
+      key: r.key, lo: r.lo * 100, hi: r.hi * 100, m: r.m * 100, pt: r.pt * 100,
+      name: { E1: "E1 不再加深（先漲後崩）", E2: "E2 淺修正 −15~−25%",
+              E3: "E3 深度修正 −25~−40%", E4: "E4 終結性崩盤 ≤−40%" }[r.key],
+      proto: { E1: "1999 全年型", E2: "1998-07 / 2024-07 / 2025-02",
+               E3: "2021-11 / 1987 / 1990", E4: "2000-03" }[r.key],
+    })) : [];
+
+    const W = Math.max(wrap.clientWidth || 600, 320), rowH = 44, H = rowH * scen.length + 26;
+    const labelW = Math.min(210, Math.max(130, W * 0.36));
     const M = { l: labelW, r: 62 };
-    const x = d3.scaleLinear().domain([0, 60]).range([M.l, W - M.r]);
+    const x = d3.scaleLinear().domain([0, 70]).range([M.l, W - M.r]);
     const svg = d3.select(wrap).append("svg").attr("viewBox", `0 0 ${W} ${H}`).attr("width", W).attr("height", H)
-      .attr("role", "img").attr("aria-label", "四個情境的機率區間");
-    [0, 10, 20, 30, 40, 50, 60].forEach(v => {
+      .attr("role", "img").attr("aria-label", "NDX 四情境的 Dirichlet 後驗");
+    [0, 10, 20, 30, 40, 50, 60, 70].forEach(v => {
       svg.append("text").attr("x", x(v)).attr("y", 14).attr("text-anchor", "middle")
         .attr("font-size", 11).attr("fill", PAL.mut).text(v + "%");
     });
-    scen.forEach((s, i) => {
+    scen.forEach((sc, i) => {
       const y = 28 + i * rowH;
       const col = `var(--viz-series-${i + 1})`;
       svg.append("text").attr("x", M.l - 8).attr("y", y + 14).attr("text-anchor", "end")
-        .attr("font-size", 11).attr("fill", PAL.fg).text(s.name);
-      svg.append("rect").attr("x", x(s.lo)).attr("y", y + 4).attr("width", Math.max(x(s.hi) - x(s.lo), 2))
-        .attr("height", 12).attr("fill", col).attr("opacity", 0.8)
-        .attr("data-tooltip", `${s.name}：機率 ${s.lo}–${s.hi}%（原型 ${s.proto}）`);
-      svg.append("text").attr("x", x(s.hi) + 6).attr("y", y + 14).attr("dy", "0.35em")
-        .attr("font-size", 11).attr("fill", PAL.fg).text(`${s.lo}–${s.hi}%`);
+        .attr("font-size", 11).attr("fill", PAL.fg).text(sc.name);
+      // 80% interval bar
+      svg.append("rect").attr("x", x(sc.lo)).attr("y", y + 6).attr("width", Math.max(x(sc.hi) - x(sc.lo), 2))
+        .attr("height", 9).attr("fill", col).attr("opacity", 0.45)
+        .attr("data-tooltip", `${sc.name}：80% 區間 ${sc.lo.toFixed(1)}–${sc.hi.toFixed(1)}%（原型 ${sc.proto}）`);
+      // median marker
+      svg.append("rect").attr("x", x(sc.m) - 1.2).attr("y", y + 2).attr("width", 2.4)
+        .attr("height", 17).attr("fill", col)
+        .attr("data-tooltip", `${sc.name}：中位數 ${sc.m.toFixed(1)}%（點機率 ${sc.pt.toFixed(1)}%）`);
+      svg.append("text").attr("x", x(sc.hi) + 6).attr("y", y + 14).attr("dy", "0.35em")
+        .attr("font-size", 11).attr("fill", PAL.fg)
+        .text(`${sc.pt.toFixed(1)}% [${sc.lo.toFixed(0)}–${sc.hi.toFixed(0)}]`);
     });
+    if (SC) {
+      const note = document.createElement("p");
+      note.className = "text-small text-muted";
+      note.textContent = "NDX 四情境為互斥且窮盡的分割，點機率合計 100%；區間為同一 Dirichlet 分布（k=" + SC.k + "）的邊際 80% 區間。";
+      wrap.appendChild(note);
+    }
+
     const tb = document.getElementById("cad-scen-table");
-    tb.innerHTML = `<table class="table table-sm"><thead><tr><th>情境</th><th>歷史原型</th><th>NDX 終點</th><th>TAIEX 終點</th><th>觸發條件</th></tr></thead><tbody>
-      <tr><td>A. 修正後再創高</td><td>1999-08 / 2024-07</td><td class="tabular-nums">−15～−25% 後新高</td><td class="tabular-nums">−25% 後重返 4.5 萬+</td><td>NVDA 財報強、capex 上調</td></tr>
-      <tr><td>B. 產業泡沫去化（基準）</td><td>2000-03 稀釋版</td><td class="tabular-nums">−30～−45%</td><td class="tabular-nums">−35～−55%（32,000–26,000）</td><td>capex 指引下修、營收不及預期</td></tr>
-      <tr><td>C. 系統性去槓桿</td><td>2000 電信＋2008</td><td class="tabular-nums">−50～−70%</td><td class="tabular-nums">−55～−66%（≈22,000）</td><td>債務鏈斷裂（Oracle/CoreWeave）</td></tr>
-      <tr><td>D. 泡沫延續</td><td>1999 全年</td><td class="tabular-nums">先 +10~20% 再崩</td><td class="tabular-nums">先創新高</td><td>流動性轉寬鬆</td></tr></tbody></table>`;
+    const tRow = (k, name, pt, lo, hi) =>
+      `<tr><td>${name}</td><td class="tabular-nums text-nowrap">${pt.toFixed(1)}%</td><td class="tabular-nums text-nowrap">${lo == null ? "—" : lo.toFixed(1) + "–" + hi.toFixed(1) + "%"}</td></tr>`;
+    const ndx = SC ? SC.ndx : [];
+    const tw = SC ? SC.taiex : [];
+    tb.innerHTML = `<table class="table table-sm"><thead><tr><th>情境</th><th>NDX 點機率</th><th>NDX 80% 區間</th></tr></thead><tbody>
+      <tr><td>E1 不再加深（先漲後崩）</td><td class="tabular-nums">${(ndx[0] || {}).pt != null ? ((ndx[0].pt * 100).toFixed(1) + "%") : "2.4%"}</td><td class="tabular-nums">0.1–6.3%</td></tr>
+      <tr><td>E2 淺修正 −15~−25%</td><td class="tabular-nums">${(ndx[1] || {}).pt != null ? ((ndx[1].pt * 100).toFixed(1) + "%") : "50.0%"}</td><td class="tabular-nums">37.0–63.0%</td></tr>
+      <tr><td>E3 深度修正 −25~−40%</td><td class="tabular-nums">${(ndx[2] || {}).pt != null ? ((ndx[2].pt * 100).toFixed(1) + "%") : "23.7%"}</td><td class="tabular-nums">13.3–35.2%</td></tr>
+      <tr><td>E4 終結性崩盤 ≤−40%</td><td class="tabular-nums">${(ndx[3] || {}).pt != null ? ((ndx[3].pt * 100).toFixed(1) + "%") : "23.9%"}</td><td class="tabular-nums">13.4–35.3%</td></tr>
+      <tr><td>TAIEX：E3 深度修正</td><td class="tabular-nums">${(tw[2] || {}).pt != null ? ((tw[2].pt * 100).toFixed(1) + "%") : "59.6%"}</td><td class="tabular-nums">37.8–79.0%</td></tr>
+      <tr><td>TAIEX：E4 ≤−40%</td><td class="tabular-nums">${(tw[3] || {}).pt != null ? ((tw[3].pt * 100).toFixed(1) + "%") : "40.4%"}</td><td class="tabular-nums">21.1–62.2%</td></tr>
+      <tr><td>TAIEX：P(終點 ≤−25%)</td><td class="tabular-nums">97.3%</td><td class="tabular-nums">84.9–99.9%（經驗 5/5）</td></tr>
+      <tr><td>時點：2026Q4 / 2027H1 / 之後</td><td class="tabular-nums" colspan="2">${SC ? Math.round(SC.timing["2026Q4"] * 100) + "% / " + Math.round(SC.timing["2027H1"] * 100) + "% / " + Math.round(SC.timing["2027H2+"] * 100) + "%（合計 100%）" : "50% / 32.5% / 17.5%"}</td></tr>
+      </tbody></table>
+      <p class="text-small text-muted">證據流權重敏感度（P(E4)）：純經驗 6.7% ↔ 基準 23.9% ↔ 純 GSY 映射 48.8%——這個跨度是本模型最大的不確定性來源。</p>`;
   }
 
   // ────────────────────────────── wiring
