@@ -40,3 +40,20 @@ Format based on [Keep a Changelog](https://keepachangelog.com/); versioning: pat
 - Live drawdowns from the common 2026-10-06 peak: NDX −13.6%, TAIEX −20.3%, NVDA −22.0%,
   SPX −5.7%
 - Output: `quant/output/metrics_current.json`
+
+## [0.1.4] - 2026-11-08
+
+### Added — integrated inference report (output layer)
+- `量化類比推論報告_20261108.md`: synthesis of all four layers into a
+  drawdown x timing probability matrix:
+  - scenarios A-D with transparent probability weights (20-25% / 45-55% /
+    15-25% / 5-10%) each traceable to data-stream provenance
+  - direct quantitative statements: P(NDX >= -30% in 12m) ~ 55-70%,
+    P(NDX >= -40% in 24m) ~ 40-60%, P(TAIEX <= 32,000) ~ 55-70%, UBS'
+    22,000 equals the measured deep tail (p10 = -56.0%)
+  - timing distribution from LPPL clusters (NDX critical point triggered
+    2026-10-06; NVDA 2026-11; TAIEX 2027-01)
+  - sensitivity table (NVDA earnings, depreciation accounting, OpenAI
+    revenue, credit spreads, Fed path) with pp-level effects
+  - comparison against Klement/Grantham/Hussman/Slok/Dalio/UBS/Huang and
+    full limitations section
