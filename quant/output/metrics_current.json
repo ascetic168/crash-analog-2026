@@ -1,0 +1,179 @@
+{
+  "as_of": "2026-11-06",
+  "cape": {
+    "now": 40.710608577487044,
+    "percentile_since_1871": 98.9,
+    "peaks": {
+      "1929-09": {
+        "cape": 32.56378859877672,
+        "ecy_nom": -0.3224375836982136,
+        "ecy_real": -0.6033364601027076,
+        "gs10": 3.3933333333333335
+      },
+      "1973-01": {
+        "cape": 18.712530467302436,
+        "ecy_nom": -1.1159873249245367,
+        "ecy_real": 2.8971705698123067,
+        "gs10": 6.46
+      },
+      "1987-08": {
+        "cape": 18.32690724585634,
+        "ecy_nom": -3.303541981279481,
+        "ecy_real": 5.38926847623686,
+        "gs10": 8.76
+      },
+      "2000-03": {
+        "cape": 43.22074843996588,
+        "ecy_nom": -3.946296429158297,
+        "ecy_real": -0.6440431269049953,
+        "gs10": 6.26
+      },
+      "2007-10": {
+        "cape": 27.320648130462015,
+        "ecy_nom": -0.8697647258411174,
+        "ecy_real": 2.0594431949509633,
+        "gs10": 4.53
+      },
+      "2021-11": {
+        "cape": 38.582627497719216,
+        "ecy_nom": 1.03184007118,
+        "ecy_real": 3.3179206086860766,
+        "gs10": 1.56
+      },
+      "2026-10 (now)": {
+        "cape": 40.710608577487044,
+        "ecy_nom": -2.783637801197107,
+        "ecy_real": 1.106979377544378,
+        "gs10": 5.24
+      }
+    },
+    "ecy_nom_percentile": 3.1,
+    "ecy_real_percentile": 17.0
+  },
+  "mv_gdp": {
+    "now_nonfin_mv_gdp": 2.55,
+    "percentile_since_1945": 99.7,
+    "by_date": {
+      "2000-03": {
+        "nonfin_mv_gdp": 1.626,
+        "margin_gdp": 0.026
+      },
+      "2007-10": {
+        "nonfin_mv_gdp": 1.149,
+        "margin_gdp": 0.018
+      },
+      "2021-11": {
+        "nonfin_mv_gdp": 2.187,
+        "margin_gdp": 0.021
+      },
+      "2026-04 (now)": {
+        "nonfin_mv_gdp": 2.55,
+        "margin_gdp": 0.023
+      }
+    },
+    "margin_gdp_now": 0.023,
+    "margin_gdp_percentile_since_1945": 98.3
+  },
+  "gsy_runups": {
+    "NDX 2026 (now)": {
+      "peak_date": "2026-10-06",
+      "peak": 31224.470703125,
+      "ret_2y_pct": 55.8,
+      "slope_8m": 0.55,
+      "passes_100pct": false
+    },
+    "NDX 2000-03": {
+      "peak_date": "2000-03-27",
+      "peak": 4704.72998046875,
+      "ret_2y_pct": 288.3,
+      "slope_8m": 0.686,
+      "passes_100pct": true
+    },
+    "NDX 2021-11": {
+      "peak_date": "2021-11-19",
+      "peak": 16573.33984375,
+      "ret_2y_pct": 98.8,
+      "slope_8m": 0.45,
+      "passes_100pct": false
+    },
+    "TAIEX 2026 (now)": {
+      "peak_date": "2026-10-06",
+      "peak": 49822.55078125,
+      "ret_2y_pct": 123.4,
+      "slope_8m": 0.656,
+      "passes_100pct": true
+    },
+    "TAIEX 2000": {
+      "peak_date": "2000-02-17",
+      "peak": 10202.1533203125,
+      "ret_2y_pct": 16.2,
+      "slope_8m": 1.358,
+      "passes_100pct": false
+    },
+    "NVDA 2026 (now)": {
+      "peak_date": "2026-10-06",
+      "peak": 239.24000549316406,
+      "ret_2y_pct": 92.0,
+      "slope_8m": 0.473,
+      "passes_100pct": false
+    },
+    "CSCO 2000-03": {
+      "peak_date": "2000-03-27",
+      "peak": 51.13507080078125,
+      "ret_2y_pct": 592.4,
+      "slope_8m": 0.709,
+      "passes_100pct": true
+    },
+    "SPX 1929-09 (monthly)": {
+      "peak_date": "1929-09-01",
+      "peak": 31.3,
+      "ret_2y_pct": 84.8,
+      "slope_8m": 0.448,
+      "passes_100pct": false
+    },
+    "SPX 1973-01": {
+      "peak_date": "1973-01-11",
+      "peak": 120.23999786376953,
+      "ret_2y_pct": 30.7,
+      "slope_8m": 0.512,
+      "passes_100pct": false
+    },
+    "SPX 2000-03": {
+      "peak_date": "2000-03-24",
+      "peak": 1527.4599609375,
+      "ret_2y_pct": 38.2,
+      "slope_8m": 0.404,
+      "passes_100pct": false
+    },
+    "SPX 2007-10": {
+      "peak_date": "2007-10-09",
+      "peak": 1565.1500244140625,
+      "ret_2y_pct": 30.9,
+      "slope_8m": 0.344,
+      "passes_100pct": false
+    }
+  },
+  "cape_expansion_2y_pct": {
+    "2000-03": 19.1,
+    "2021-11": 29.3,
+    "2026-10 (now)": 11.3
+  },
+  "live_drawdowns": {
+    "NDX": {
+      "peak": "2026-10-06",
+      "drawdown_pct": -13.6
+    },
+    "TAIEX": {
+      "peak": "2026-10-06",
+      "drawdown_pct": -20.3
+    },
+    "NVDA": {
+      "peak": "2026-10-06",
+      "drawdown_pct": -22.0
+    },
+    "SPX": {
+      "peak": "2026-10-06",
+      "drawdown_pct": -5.7
+    }
+  }
+}
