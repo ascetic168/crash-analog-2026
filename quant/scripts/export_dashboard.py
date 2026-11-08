@@ -1,12 +1,15 @@
 # -*- coding: utf-8 -*-
-"""Export the inline dashboard fragment as a standalone, offline-capable HTML
-file (d3 embedded, self-contained light theme). Output: quant/dashboard/index.html
+"""Export the dashboard template as a standalone, offline-capable HTML file
+(d3 embedded, self-contained light theme). Output: quant/dashboard/index.html
 """
+import json
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 QUANT = HERE.parent
-FRAG = Path(r"C:\Users\charl\.zcode\v2\visualizations\b3dec255754e2cb0904fe24c83211394d9d3bdc7372c0cd180660d21c51b23f7\crash-analog-dashboard.html")
+REPO = QUANT.parent
+TEMPLATE = REPO / "pdf_build_quant" / "dashboard_template.html"
+DATAJS = QUANT / "output" / "dashboard_data.json"
 D3 = QUANT / "data" / "downloads" / "_d3.min.js"
 OUT = QUANT / "dashboard" / "index.html"
 D3_URL = "https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"
@@ -70,7 +73,11 @@ document.addEventListener("click", (ev) => {
 });
 """
 
-frag = FRAG.read_text(encoding="utf-8")
+frag = TEMPLATE.read_text(encoding="utf-8")
+# substitute the /*__DATA__*/ token with the bundled dashboard data
+data = json.loads(DATAJS.read_text(encoding="utf-8"))
+data_s = json.dumps(data, ensure_ascii=False, separators=(",", ":"))
+frag = frag.replace("const DATA = /*__DATA__*/{};", "const DATA = " + data_s + ";")
 # embed d3 inline for offline use
 d3js = D3.read_text(encoding="utf-8")
 frag = frag.replace('<script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>',
@@ -83,10 +90,10 @@ OUT.write_text(f"""<!doctype html>
 <title>崩盤類比儀表板 · Crash Analog Dashboard</title>
 <style>{THEME}</style>
 </head><body>
-<h1>崩盤類比儀表板</h1>
-<p class="muted">2026 年 AI 行情 vs 1929/1973/1987/2000/2007/2021 · 資料截至 2026-11-06 · 作者 Charlie Chu · 數字可由 quant/ 管線重現</p>
+<h1 data-i18n="doc_h1">崩盤類比儀表板</h1>
+<p class="muted" data-i18n="doc_subtitle">2026 年 AI 行情 vs 1929/1973/1987/2000/2007/2021 · 資料截至 2026-11-06 · 作者 Charlie Chu · 數字可由 quant/ 管線重現</p>
 {frag}
-<footer>以四層量化管線（資料 → 指標 → 類比 → 統計）產出 · 非投資建議</footer>
+<footer data-i18n="doc_footer">以四層量化管線（資料 → 指標 → 類比 → 統計）產出 · 非投資建議</footer>
 <script>{TABS_JS}</script>
 </body></html>""", encoding="utf-8")
 print(f"standalone dashboard: {OUT} ({OUT.stat().st_size:,} bytes)")

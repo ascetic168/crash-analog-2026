@@ -39,9 +39,11 @@ h3{font-size:16px;font-weight:500;margin:14px 0 8px}
 footer{margin-top:18px;color:var(--muted-foreground);font-size:12px}
 </style>
 </head><body>
-<h1>崩盤類比儀表板</h1>
-<p class="muted">2026 年 AI 行情 vs 1929/1973/1987/2000/2007/2021 · 資料截至 2026-11-06 · 作者 Charlie Chu · 數字可由 quant/ 管線重現</p>
+<h1 data-i18n="doc_h1">崩盤類比儀表板</h1>
+<p class="muted" data-i18n="doc_subtitle">2026 年 AI 行情 vs 1929/1973/1987/2000/2007/2021 · 資料截至 2026-11-06 · 作者 Charlie Chu · 數字可由 quant/ 管線重現</p>
 <style>
+.cad-langbar{display:flex;justify-content:flex-end;gap:6px;margin:0 0 10px}
+.cad-langbar .nav-link{padding:3px 10px;font-size:12px}
 .cad-intro{margin-bottom:14px;font-size:13.5px}
 .cad-intro p{margin:6px 0}
 .cad-guide{border:1px solid var(--border);background:var(--card);border-radius:10px;margin:0 0 10px;font-size:13px}
@@ -58,34 +60,40 @@ footer{margin-top:18px;color:var(--muted-foreground);font-size:12px}
 </style>
 <div id="crash-analog-dashboard">
 
+  <div class="cad-langbar" role="group" aria-label="Language / 語言 / 语言">
+    <button type="button" class="nav-link cad-lang" data-lang="hant">繁體中文</button>
+    <button type="button" class="nav-link cad-lang" data-lang="hans">简体中文</button>
+    <button type="button" class="nav-link cad-lang" data-lang="en">English</button>
+  </div>
+
   <div class="card cad-intro">
-    <p>💡 <b>白話導讀：</b>這個儀表板在回答一個問題——「這波 AI 行情，像歷史上哪些崩盤？之後會怎樣？」目前兩個關鍵事實：(1) 估值貴到百年歷史的極端等級（CAPE 40.71，比 99% 的日子都貴）；(2) 市場已經開始跌（自 10 月峰頂 NDX 已回檔約 14%、TAIEX 約 20%）。我們的估計方式不是預言，而是把「歷史上走到類似位置之後，實際發生了什麼」換算成機率。</p>
-    <p>上方四張數字卡＝市場體檢摘要；四個頁籤依序回答：<b>歷史怎麼跌 → 通常跌多深 → 模型說何時轉折 → 綜合機率多少</b>。每張圖上方都有「這張圖怎麼看」的圖解（可收合）；看不懂的名詞請開最右邊的「名詞解釋」頁籤；滑鼠移到圖上可以讀出數字。</p>
+    <p data-i18n="intro_p1"></p>
+    <p data-i18n="intro_p2"></p>
   </div>
 
   <div class="viz-grid" id="cad-stats">
-    <div class="card viz-stat"><span class="text-muted">Shiller CAPE（2026-10）<span class="cad-info" data-tooltip="股價 ÷ 過去十年平均通膨調整盈餘，越高越貴。40.71＝1871 年以來第 99 百分位，比 99% 的日子都貴，屬 1929／2000 年等級。">ⓘ</span></span><span class="viz-stat-value tabular-nums" id="cad-v-cape">40.71</span><span class="text-muted" id="cad-c-cape">1871 年起 99 百分位</span></div>
-    <div class="card viz-stat"><span class="text-muted">非金融市值 / GDP（Z.1）<span class="cad-info" data-tooltip="全美股市總市值 ÷ GDP（俗稱巴菲特指標的聯準會口徑）。2.55＝1945 年以來最高；2000 年網路泡沫高點也只有 1.63。">ⓘ</span></span><span class="viz-stat-value tabular-nums" id="cad-v-mvgdp">2.55</span><span class="text-muted">1945 年以來最高（2000Q1 僅 1.63）</span></div>
-    <div class="card viz-stat"><span class="text-muted">名目 ECY = 1/CAPE − GS10<span class="cad-info" data-tooltip="股票的盈餘收益率（1/CAPE）減去 10 年公債利率＝「持有股票相對債券多賺多少」。負越多＝股票相對債券越貴。−2.78% 是史上第 3 低。">ⓘ</span></span><span class="viz-stat-value tabular-nums" id="cad-v-ecy">−2.78%</span><span class="text-muted">史上第 3 低（僅 3% 日子更貴）</span></div>
-    <div class="card viz-stat"><span class="text-muted">自 2026-10-06 峰頂回檔<span class="cad-info" id="cad-info-dd" data-tooltip="從 10 月 6 日高點跌下來的幅度（截至 2026-11-06）：NDX（那斯達克 100）−13.6%、TAIEX（台股加權）−20.3%、NVDA（輝達）−22.0%、SPX（標普 500）−5.7%。">ⓘ</span></span><span class="viz-stat-value tabular-nums" id="cad-v-dd">NDX −13.6%</span><span class="text-muted" id="cad-s-dd">TAIEX −20.3% · NVDA −22.0% · SPX −5.7%</span></div>
+    <div class="card viz-stat"><span class="text-muted"><span data-i18n="kpi1_label"></span><span class="cad-info" data-i18n-tip="kpi1_tip">ⓘ</span></span><span class="viz-stat-value tabular-nums" id="cad-v-cape">40.71</span><span class="text-muted" id="cad-c-cape"></span></div>
+    <div class="card viz-stat"><span class="text-muted"><span data-i18n="kpi2_label"></span><span class="cad-info" data-i18n-tip="kpi2_tip">ⓘ</span></span><span class="viz-stat-value tabular-nums" id="cad-v-mvgdp">2.55</span><span class="text-muted" data-i18n="kpi2_cap"></span></div>
+    <div class="card viz-stat"><span class="text-muted"><span data-i18n="kpi3_label"></span><span class="cad-info" data-i18n-tip="kpi3_tip">ⓘ</span></span><span class="viz-stat-value tabular-nums" id="cad-v-ecy">−2.78%</span><span class="text-muted" data-i18n="kpi3_cap"></span></div>
+    <div class="card viz-stat"><span class="text-muted"><span data-i18n="kpi4_label"></span><span class="cad-info" id="cad-info-dd">ⓘ</span></span><span class="viz-stat-value tabular-nums" id="cad-v-dd">NDX −13.6%</span><span class="text-muted" id="cad-s-dd">TAIEX −20.3% · NVDA −22.0% · SPX −5.7%</span></div>
   </div>
 
   <div class="nav nav-pills" role="tablist" aria-label="儀表板面板">
-    <button class="nav-link active" id="cad-tab-paths" role="tab" aria-controls="cad-panel-paths" aria-selected="true" type="button">崩盤軌跡對齊</button>
-    <button class="nav-link" id="cad-tab-cond" role="tab" aria-controls="cad-panel-cond" aria-selected="false" type="button">條件化統計</button>
-    <button class="nav-link" id="cad-tab-lppl" role="tab" aria-controls="cad-panel-lppl" aria-selected="false" type="button">LPPL 臨界時點</button>
-    <button class="nav-link" id="cad-tab-scen" role="tab" aria-controls="cad-panel-scen" aria-selected="false" type="button">情境機率</button>
-    <button class="nav-link" id="cad-tab-gloss" role="tab" aria-controls="cad-panel-gloss" aria-selected="false" type="button">名詞解釋</button>
+    <button class="nav-link active" id="cad-tab-paths" role="tab" aria-controls="cad-panel-paths" aria-selected="true" type="button" data-i18n="tab_paths"></button>
+    <button class="nav-link" id="cad-tab-cond" role="tab" aria-controls="cad-panel-cond" aria-selected="false" type="button" data-i18n="tab_cond"></button>
+    <button class="nav-link" id="cad-tab-lppl" role="tab" aria-controls="cad-panel-lppl" aria-selected="false" type="button" data-i18n="tab_lppl"></button>
+    <button class="nav-link" id="cad-tab-scen" role="tab" aria-controls="cad-panel-scen" aria-selected="false" type="button" data-i18n="tab_scen"></button>
+    <button class="nav-link" id="cad-tab-gloss" role="tab" aria-controls="cad-panel-gloss" aria-selected="false" type="button" data-i18n="tab_gloss"></button>
   </div>
 
   <div id="cad-panel-paths" role="tabpanel" aria-labelledby="cad-tab-paths">
-    <h3>歷史崩盤軌跡（按距峰頂月數對齊；粗線＝2026 進行中）</h3>
+    <h3 data-i18n="paths_h3"></h3>
     <details class="cad-guide" open>
-      <summary>這張圖怎麼看？</summary>
+      <summary data-i18n="guide_how"></summary>
       <div class="cad-guide-body">
-        <p><b>怎麼讀：</b>每條線是一場崩盤「從最高點算起」的走勢——往右＝距峰頂過了幾個月，往下＝跌得越深。粗彩色線是 2026 進行中的三個標的，灰色虛線是歷史案例（點上方標籤可開關）。滑鼠移到圖上會出現直線，同時列出所有案例「在那個月份」各跌到多深。</p>
-        <p><b>現在的位置：</b>這波截至 2026-11-06 才走到「第 1 個月」附近（NDX 約 −14%）。目前跌幅在歷史上並不稀奇——真正分歧的是「接下來」：有的案例幾個月內收復（如 1987、2021），有的持續下跌 2–3 年（如 2000、1973）。</p>
-        <p class="cad-tldr"><b>一句話重點：</b>現在的跌幅本身不稀奇，稀奇的是估值等級（見上方數字卡）。歷史劇本走到這裡之後分歧極大——所以才需要後面幾頁的統計，而不是只看這張圖講故事。</p>
+        <p data-i18n="guide1_read"></p>
+        <p data-i18n="guide1_now"></p>
+        <p class="cad-tldr" data-i18n="guide1_tldr"></p>
       </div>
     </details>
     <div class="viz-row" id="cad-path-legend" role="group" aria-label="切換顯示的崩盤案例"></div>
@@ -93,84 +101,84 @@ footer{margin-top:18px;color:var(--muted-foreground);font-size:12px}
       <svg id="cad-paths-svg" role="img" aria-label="歷史崩盤後的回檔路徑折線圖，按距峰頂月數對齊"></svg>
       <div class="tooltip" role="tooltip" hidden></div>
     </div>
-    <p class="text-small text-muted">資料：Yahoo Finance 日收盤＋Shiller 月資料（1929）。游標移到圖上可讀取各案例在該月數的回檔深度。</p>
+    <p class="text-small text-muted" data-i18n="paths_cap"></p>
   </div>
 
   <div id="cad-panel-cond" role="tabpanel" aria-labelledby="cad-tab-cond" hidden>
-    <h3>觸及 −X% 深度後的終點分布（中位數與深尾 p10）</h3>
+    <h3 data-i18n="cond_h3"></h3>
     <details class="cad-guide" open>
-      <summary>這張圖怎麼看？</summary>
+      <summary data-i18n="guide_how"></summary>
       <div class="cad-guide-body">
-        <p><b>怎麼讀：</b>這頁回答一個很直覺的問題——「歷史上跌到某個深度之後，<b>最後</b>到底跌到多深才見底？」三張小圖各是一個標的：X 軸＝當時已跌到的深度，Y 軸＝最終谷底（自峰頂起算）。實線＝<b>中位數</b>（一半的經驗比這淺、一半比這深），紫虛線＝<b>最慘 10%</b> 的情況（p10 深尾），紅虛線＝現在的位置。滑鼠移到圓點上可讀數字。</p>
-        <p><b>現在的位置：</b>NDX 跌約 14%：歷史上跌到 −15% 左右時，最終谷底中位數約 −23%（通常還會再深一點）、最慘 10% 約 −38%。TAIEX 跌約 20% → 中位數約 −30%、深尾約 −56%。NVDA 跌約 22% → 中位數約 −37%、深尾約 −75%（個股波動遠大於指數）。</p>
-        <p class="cad-tldr"><b>一句話重點：</b>越早止跌、結局越溫和；但「跌 15–20% 還沒止跌」時，歷史經驗顯示進一步下探的空間會變大。這是分布、不是保證——同類回檔之後 1 年，中位數報酬仍是正的（NDX +31.2%）。</p>
+        <p data-i18n="guide2_read"></p>
+        <p data-i18n="guide2_now"></p>
+        <p class="cad-tldr" data-i18n="guide2_tldr"></p>
       </div>
     </details>
     <div id="cad-cond-wrap"></div>
-    <p class="text-small text-muted">樣本：NDX 1985–2026 共 35 個 ≥10% 回檔、TAIEX 8 個 ≥15%、NVDA 17 個 ≥20%。紅虛線＝當前位置。1 年前向報酬中位數：NDX +31.2%、TAIEX +17.9%、NVDA +34.2%。</p>
+    <p class="text-small text-muted" data-i18n="cond_cap"></p>
   </div>
 
   <div id="cad-panel-lppl" role="tabpanel" aria-labelledby="cad-tab-lppl" hidden>
-    <h3>LPPL 臨界時點 tc 分布（滾動窗口擬合）</h3>
+    <h3 data-i18n="lppl_h3"></h3>
     <details class="cad-guide" open>
-      <summary>這張圖怎麼看？</summary>
+      <summary data-i18n="guide_how"></summary>
       <div class="cad-guide-body">
-        <p><b>怎麼讀：</b>LPPL 是偵測「泡沫臨界」的數學模型——當漲勢出現「越漲越快」的加速形態，模型會估出一個臨界時點 <b>tc</b>（轉折最可能發生的時間）。我們用「滾動窗口」每個月重複擬合一次，把每次估出的 tc 畫成長條：<b>長條越集中的月份，代表越多個窗口指向那裡</b>。信心＝通過篩選的擬合中，tc 落在窗口結束後 6 個月內的比例。</p>
-        <p><b>誠實聲明：</b>NDX 與 NVDA 的 tc 叢集（2026-10～12）是在峰頂<b>已經發生後</b>才擬合出來的，屬事後驗證性質；真正「往前看」的只有 TAIEX（估 2027-01 前後）。下方驗證表示範 1999 年 NDX：模型約領先 3–6 個月逐漸逼近真實峰頂（2000-03-27），誤差帶 ±3–6 個月。</p>
-        <p class="cad-tldr"><b>一句話重點：</b>LPPL 只回答「何時可能轉折」，不回答「會跌多深」。它的角色是輔助時點判斷，不是精確預言。</p>
+        <p data-i18n="guide3_read"></p>
+        <p data-i18n="guide3_honest"></p>
+        <p class="cad-tldr" data-i18n="guide3_tldr"></p>
       </div>
     </details>
     <div id="cad-lppl-wrap"></div>
-    <h3>方法驗證：NDX 1997–2000（真實峰頂 2000-03-27）</h3>
+    <h3 data-i18n="lppl_val_h3"></h3>
     <div id="cad-lppl-val"></div>
-    <p class="text-small text-muted">信心指標＝通過篩選的擬合中，tc 落在窗口結束後 6 個月內的比例。NDX/NVDA 的 tc 叢集落在已發生峰頂附近（事後擬合性質）；TAIEX 的 2027-01 為真前向估計。</p>
+    <p class="text-small text-muted" data-i18n="lppl_cap"></p>
   </div>
 
   <div id="cad-panel-scen" role="tabpanel" aria-labelledby="cad-tab-scen" hidden>
-    <h3>未來 12–24 個月情境機率（三條數據流整合，附推論依據）</h3>
+    <h3 data-i18n="scen_h3"></h3>
     <details class="cad-guide" open>
-      <summary>這張圖怎麼看？</summary>
+      <summary data-i18n="guide_how"></summary>
       <div class="cad-guide-body">
-        <p><b>怎麼讀：</b>這頁把前面所有證據整合成四個互斥的「劇本」，機率合計 100%：E1 不再加深（回檔不破 −15%）、E2 淺修正 −15~−25%、E3 深度修正 −25~−40%、E4 終結性崩盤 ≤−40%。E1 的精確定義＝未來 24 個月自峰頂起算的最大回檔<b>從未深過 −15%</b>——先漲上去之後若再回檔，只要不破 −15% 仍屬 E1；一旦跌破就歸 E2–E4。每條橫條中間的深色刻度＝<b>點機率</b>（單一最佳估計），淺色長條＝<b>80% 區間</b>（把模型自身的不確定性算進去後，機率有八成落在這個範圍）。滑鼠移上可讀數字。</p>
-        <p><b>現在的結論：</b>以 NDX 而言，最可能是 E2 淺修正（約 50%），但 E3＋E4 合計約 48%——「淺修正收場」與「還有更深一段」幾乎五五波。時間上：約 50% 的機率本輪終點出現在 2026Q4、累計到 2027H1 約 80–85%。台股類比的經驗更嚴峻：終點 ≤−25% 的機率約 97%。</p>
-        <p class="cad-tldr"><b>一句話重點：</b>模型不是預言，是把「歷史走到同樣位置後發生什麼」換算成機率。最可能劇本是淺修正，但深度下修的風險（約一半）大到不能忽視——下方表格的證據權重敏感度就是模型自己承認的最大不確定性。</p>
+        <p data-i18n="guide4_read"></p>
+        <p data-i18n="guide4_concl"></p>
+        <p class="cad-tldr" data-i18n="guide4_tldr"></p>
       </div>
     </details>
     <div id="cad-scen-wrap"></div>
     <div id="cad-scen-table"></div>
-    <p class="text-small text-muted">時點分布：2026Q4 內見到本輪終點約 50%；累計至 2027H1 約 80–85%（LPPL tc 叢集＋歷史峰→谷 13–20 個月）。</p>
+    <p class="text-small text-muted" data-i18n="scen_timing_cap"></p>
   </div>
 
   <div id="cad-panel-gloss" role="tabpanel" aria-labelledby="cad-tab-gloss" hidden>
-    <h3>名詞解釋（白話版）</h3>
-    <p class="text-small text-muted">看圖時卡住的詞都收在這裡。想深究方法與完整推論，請讀《量化類比推論報告》。</p>
+    <h3 data-i18n="gloss_h3"></h3>
+    <p class="text-small text-muted" data-i18n="gloss_intro"></p>
     <table class="table">
       <tbody>
-        <tr class="cad-gloss-group"><td colspan="2">標的與圖表名詞</td></tr>
-        <tr><td class="text-nowrap"><b>NDX</b>（NASDAQ-100）</td><td>美國那斯達克 100 指數，集中大型科技股。</td></tr>
-        <tr><td class="text-nowrap"><b>SPX</b>（S&P 500）</td><td>美國標普 500 大盤指數。</td></tr>
-        <tr><td class="text-nowrap"><b>TAIEX</b></td><td>台灣加權股價指數。</td></tr>
-        <tr><td class="text-nowrap"><b>NVDA</b></td><td>輝達（NVIDIA）個股。個股波動遠大於指數。</td></tr>
-        <tr><td class="text-nowrap"><b>峰頂／谷底／回檔</b></td><td>回檔＝從最高點跌下來的幅度；谷底＝這一波的最低點；「終點深度」＝谷底相對峰頂的總跌幅。</td></tr>
-        <tr><td class="text-nowrap"><b>對齊（軌跡對齊）</b></td><td>把每場崩盤都從「峰頂第 0 月」開始畫，不同年代的崩盤才能疊在同一張圖互相比較。</td></tr>
-        <tr class="cad-gloss-group"><td colspan="2">估值指標（上方四張數字卡）</td></tr>
-        <tr><td class="text-nowrap"><b>Shiller CAPE</b></td><td>股價 ÷ 過去十年平均通膨調整盈餘。越高＝越貴。40 以上在 150 年歷史中極罕見，過去只出現在 1929、2000 年前後。</td></tr>
-        <tr><td class="text-nowrap"><b>百分位</b></td><td>「歷史上有多少比例的日子比現在便宜」。99 百分位＝只有 1% 的日子比現在更貴。</td></tr>
-        <tr><td class="text-nowrap"><b>ECY（超額 CAPE 收益率）</b></td><td>1/CAPE 減 10 年公債利率＝「股票相對債券多給多少補償」。數字越低（負越多）＝股票相對越貴。</td></tr>
-        <tr><td class="text-nowrap"><b>市值 / GDP（Z.1）</b></td><td>全美股市總市值除以 GDP（聯準會 Z.1 報告口徑，俗稱巴菲特指標）。2.55＝1945 年以來最高。</td></tr>
-        <tr><td class="text-nowrap"><b>GSY 泡沫特徵</b></td><td>學術泡沫辨識法（Greenwood–Shleifer–You 2019）：兩年漲幅大＋近期加速＋達到歷史極端百分位，三者同時滿足時，歷史上常接著崩盤。</td></tr>
-        <tr class="cad-gloss-group"><td colspan="2">統計名詞</td></tr>
-        <tr><td class="text-nowrap"><b>中位數</b></td><td>排序後中間那個值。不受少數極端案例拉扯，比平均更適合描述「典型經驗」。</td></tr>
-        <tr><td class="text-nowrap"><b>p10（深尾）</b></td><td>最慘 10% 情況的分界線。p10＝−38% 代表：十次裡有一次會跌到 −38% 或更深。</td></tr>
-        <tr><td class="text-nowrap"><b>1 年前向報酬</b></td><td>觸發條件之後持有一年的報酬。中位數＋31.2%＝一半的經驗一年後賺超過 31.2%。</td></tr>
-        <tr><td class="text-nowrap"><b>點機率／80% 區間</b></td><td>點機率＝模型給的單一最佳估計；80% 區間＝把模型自身的不確定性算進去後，真值有八成落在這個範圍。</td></tr>
-        <tr class="cad-gloss-group"><td colspan="2">模型名詞</td></tr>
-        <tr><td class="text-nowrap"><b>LPPL</b></td><td>對數週期冪律模型：偵測漲勢「越漲越快」的泡沫形態，並估出轉折時點。只預測「何時」，不預測「多深」。</td></tr>
-        <tr><td class="text-nowrap"><b>tc（臨界時點）</b></td><td>LPPL 估計行情轉折最可能發生的時間。不是精確日期，是一段叢集範圍。</td></tr>
-        <tr><td class="text-nowrap"><b>滾動窗口擬合</b></td><td>每個月往後推一次、用最近幾年資料重新擬合一次。多個窗口都指向同一時段＝較可信。</td></tr>
-        <tr><td class="text-nowrap"><b>信心指標</b></td><td>通過篩選的擬合中，tc 落在窗口結束後 6 個月內的比例。1.0＝全部指向近期。</td></tr>
-        <tr><td class="text-nowrap"><b>Dirichlet 後驗</b></td><td>把「四個劇本的機率」當成一個整體分布來估（合計必為 100%），避免各情境分開估時加總不等於 100%。</td></tr>
-        <tr><td class="text-nowrap"><b>E1–E4 情境</b></td><td>E1＝未來 24 個月最大回檔不深於 −15%（不再加深；先漲後再回檔只要不破線都算）／E2 淺修正 −15~−25%／E3 深度修正 −25~−40%／E4 終結性崩盤 ≤−40%。</td></tr>
+        <tr class="cad-gloss-group"><td colspan="2" data-i18n="gloss_g1"></td></tr>
+        <tr><td class="text-nowrap" data-i18n="gloss_t_ndx"></td><td data-i18n="gloss_d_ndx"></td></tr>
+        <tr><td class="text-nowrap" data-i18n="gloss_t_spx"></td><td data-i18n="gloss_d_spx"></td></tr>
+        <tr><td class="text-nowrap" data-i18n="gloss_t_taiex"></td><td data-i18n="gloss_d_taiex"></td></tr>
+        <tr><td class="text-nowrap" data-i18n="gloss_t_nvda"></td><td data-i18n="gloss_d_nvda"></td></tr>
+        <tr><td class="text-nowrap" data-i18n="gloss_t_ptd"></td><td data-i18n="gloss_d_ptd"></td></tr>
+        <tr><td class="text-nowrap" data-i18n="gloss_t_align"></td><td data-i18n="gloss_d_align"></td></tr>
+        <tr class="cad-gloss-group"><td colspan="2" data-i18n="gloss_g2"></td></tr>
+        <tr><td class="text-nowrap" data-i18n="gloss_t_cape"></td><td data-i18n="gloss_d_cape"></td></tr>
+        <tr><td class="text-nowrap" data-i18n="gloss_t_pct"></td><td data-i18n="gloss_d_pct"></td></tr>
+        <tr><td class="text-nowrap" data-i18n="gloss_t_ecy"></td><td data-i18n="gloss_d_ecy"></td></tr>
+        <tr><td class="text-nowrap" data-i18n="gloss_t_mvgdp"></td><td data-i18n="gloss_d_mvgdp"></td></tr>
+        <tr><td class="text-nowrap" data-i18n="gloss_t_gsy"></td><td data-i18n="gloss_d_gsy"></td></tr>
+        <tr class="cad-gloss-group"><td colspan="2" data-i18n="gloss_g3"></td></tr>
+        <tr><td class="text-nowrap" data-i18n="gloss_t_med"></td><td data-i18n="gloss_d_med"></td></tr>
+        <tr><td class="text-nowrap" data-i18n="gloss_t_p10"></td><td data-i18n="gloss_d_p10"></td></tr>
+        <tr><td class="text-nowrap" data-i18n="gloss_t_fwd"></td><td data-i18n="gloss_d_fwd"></td></tr>
+        <tr><td class="text-nowrap" data-i18n="gloss_t_pi"></td><td data-i18n="gloss_d_pi"></td></tr>
+        <tr class="cad-gloss-group"><td colspan="2" data-i18n="gloss_g4"></td></tr>
+        <tr><td class="text-nowrap" data-i18n="gloss_t_lppl"></td><td data-i18n="gloss_d_lppl"></td></tr>
+        <tr><td class="text-nowrap" data-i18n="gloss_t_tc"></td><td data-i18n="gloss_d_tc"></td></tr>
+        <tr><td class="text-nowrap" data-i18n="gloss_t_roll"></td><td data-i18n="gloss_d_roll"></td></tr>
+        <tr><td class="text-nowrap" data-i18n="gloss_t_conf"></td><td data-i18n="gloss_d_conf"></td></tr>
+        <tr><td class="text-nowrap" data-i18n="gloss_t_dir"></td><td data-i18n="gloss_d_dir"></td></tr>
+        <tr><td class="text-nowrap" data-i18n="gloss_t_e14"></td><td data-i18n="gloss_d_e14"></td></tr>
       </tbody>
     </table>
   </div>
@@ -187,6 +195,542 @@ footer{margin-top:18px;color:var(--muted-foreground);font-size:12px}
 
   const DATA = {"paths":{"CSCO 2000 (stock)":[[0.0,-17.4],[1.0,-3.4],[2.0,-13.4],[3.0,-28.9],[4.0,-20.6],[5.0,-18.3],[6.0,-14.3],[7.0,-31.0],[8.0,-32.7],[9.0,-40.2],[10.0,-52.2],[11.0,-53.2],[12.0,-70.4],[13.0,-80.2],[14.0,-78.8],[15.0,-75.9],[16.0,-77.3],[17.0,-76.0],[18.0,-79.6],[19.0,-84.8],[20.0,-78.9],[21.0,-74.5],[22.0,-77.4],[23.0,-75.3],[24.0,-82.2],[25.0,-78.9],[26.0,-81.7],[27.0,-80.3],[28.0,-82.6],[29.0,-83.5],[30.0,-82.7],[31.0,-86.9],[32.0,-86.0],[33.0,-81.4],[34.0,-83.6],[35.0,-83.3],[36.0,-82.5],[37.0,-83.8],[38.0,-81.3],[39.0,-79.5],[40.0,-79.0],[41.0,-75.7],[42.0,-76.1],[43.0,-75.5],[44.0,-73.9],[45.0,-71.6],[46.0,-69.7],[47.0,-67.9],[48.0,-71.1],[49.0,-70.6],[50.0,-73.9],[51.0,-72.1],[52.0,-70.4],[53.0,-73.9],[54.0,-76.6],[55.0,-77.4],[56.0,-76.0],[57.0,-76.6],[58.0,-75.9],[59.0,-77.5],[60.0,-78.2],[61.0,-77.7],[62.0,-78.4],[63.0,-75.8],[64.0,-76.2],[65.0,-76.1],[66.0,-78.0],[67.0,-77.6],[68.0,-78.2],[69.0,-78.1],[70.0,-78.6],[71.0,-76.8],[72.0,-74.7],[73.0,-72.9],[74.0,-73.8],[75.0,-75.4],[76.0,-75.6],[77.0,-77.7],[78.0,-72.5],[79.0,-71.3],[80.0,-69.9],[81.0,-66.4],[82.0,-65.9],[83.0,-66.8],[84.0,-67.6]],"NDX 2000":[[0.0,-9.3],[1.0,-6.5],[2.0,-19.8],[3.0,-29.3],[4.0,-20.0],[5.0,-23.3],[6.0,-13.3],[7.0,-24.1],[8.0,-30.2],[9.0,-46.7],[10.0,-50.2],[11.0,-44.9],[12.0,-59.4],[13.0,-66.6],[14.0,-60.6],[15.0,-61.7],[16.0,-61.1],[17.0,-64.2],[18.0,-68.8],[19.0,-75.2],[20.0,-71.0],[21.0,-66.1],[22.0,-66.5],[23.0,-67.1],[24.0,-71.1],[25.0,-69.1],[26.0,-72.9],[27.0,-74.3],[28.0,-77.7],[29.0,-79.6],[30.0,-80.0],[31.0,-82.3],[32.0,-79.0],[33.0,-76.3],[34.0,-79.1],[35.0,-79.1],[36.0,-78.5],[37.0,-78.3],[38.0,-76.5],[39.0,-74.5],[40.0,-74.5],[41.0,-72.9],[42.0,-71.5],[43.0,-72.3],[44.0,-69.9],[45.0,-69.7],[46.0,-68.8],[47.0,-68.3],[48.0,-68.7],[49.0,-69.4],[50.0,-70.2],[51.0,-68.8],[52.0,-67.8],[53.0,-70.2],[54.0,-70.9],[55.0,-70.0],[56.0,-68.4],[57.0,-66.6],[58.0,-65.5],[59.0,-67.7],[60.0,-67.9],[61.0,-68.5],[62.0,-69.8],[63.0,-67.2],[64.0,-68.3],[65.0,-65.9],[66.0,-66.4],[67.0,-66.0],[68.0,-66.4],[69.0,-64.4],[70.0,-65.0],[71.0,-63.6],[72.0,-64.5],[73.0,-63.8],[74.0,-63.9],[75.0,-66.4],[76.0,-66.5],[77.0,-67.9],[78.0,-66.4],[79.0,-64.8],[80.0,-63.2],[81.0,-61.9],[82.0,-62.7],[83.0,-61.9],[84.0,-62.6]],"NDX 2021":[[0.0,-4.4],[1.0,-2.6],[2.0,-1.5],[3.0,-9.9],[4.0,-14.1],[5.0,-10.5],[6.0,-22.4],[7.0,-23.7],[8.0,-30.6],[9.0,-21.9],[10.0,-26.0],[11.0,-33.8],[12.0,-31.2],[13.0,-27.4],[14.0,-34.0],[15.0,-27.0],[16.0,-27.3],[17.0,-20.5],[18.0,-20.1],[19.0,-14.0],[20.0,-8.4],[21.0,-4.9],[22.0,-6.5],[23.0,-11.2],[24.0,-13.1],[25.0,-3.8],[26.0,1.5],[27.0,3.4],[28.0,8.9],[29.0,10.1],[30.0,5.2],[31.0,11.8],[32.0,18.8],[33.0,16.8],[34.0,18.1],[35.0,21.0],[36.0,20.0],[37.0,26.3],[38.0,26.8],[39.0,29.6],[40.0,26.0],[41.0,16.3],[42.0,18.1],[43.0,28.8],[44.0,36.8],[45.0,40.1],[46.0,41.3],[47.0,48.9],[48.0,56.0]],"NDX 2026 (live)":[[0.0,-2.6],[1.0,-9.1],[2.0,-13.6],[3.0,-13.6],[4.0,-13.6],[5.0,-13.6],[6.0,-13.6],[7.0,-13.6],[8.0,-13.6],[9.0,-13.6],[10.0,-13.6],[11.0,-13.6],[12.0,-13.6],[13.0,-13.6],[14.0,-13.6],[15.0,-13.6],[16.0,-13.6],[17.0,-13.6],[18.0,-13.6],[19.0,-13.6],[20.0,-13.6],[21.0,-13.6],[22.0,-13.6],[23.0,-13.6],[24.0,-13.6]],"NVDA 2026 (live)":[[0.0,-4.5],[1.0,-14.5],[2.0,-22.0],[3.0,-22.0],[4.0,-22.0],[5.0,-22.0],[6.0,-22.0],[7.0,-22.0],[8.0,-22.0],[9.0,-22.0],[10.0,-22.0],[11.0,-22.0],[12.0,-22.0],[13.0,-22.0],[14.0,-22.0],[15.0,-22.0],[16.0,-22.0],[17.0,-22.0],[18.0,-22.0],[19.0,-22.0],[20.0,-22.0],[21.0,-22.0],[22.0,-22.0],[23.0,-22.0],[24.0,-22.0]],"Nikkei 1989":[[0.0,-4.2],[1.0,0.0],[2.0,-11.1],[3.0,-11.1],[4.0,-23.0],[5.0,-24.0],[6.0,-14.9],[7.0,-17.9],[8.0,-20.2],[9.0,-33.2],[10.0,-46.1],[11.0,-35.3],[12.0,-42.3],[13.0,-38.7],[14.0,-32.1],[15.0,-32.1],[16.0,-32.4],[17.0,-32.9],[18.0,-33.7],[19.0,-40.2],[20.0,-38.0],[21.0,-42.6],[22.0,-38.5],[23.0,-35.2],[24.0,-41.7],[25.0,-40.9],[26.0,-45.2],[27.0,-45.2],[28.0,-50.3],[29.0,-55.3],[30.0,-52.9],[31.0,-59.0],[32.0,-59.1],[33.0,-53.6],[34.0,-55.3],[35.0,-56.9],[36.0,-54.6],[37.0,-56.5],[38.0,-56.4],[39.0,-56.4],[40.0,-52.2],[41.0,-46.2],[42.0,-47.2],[43.0,-49.7],[44.0,-47.6],[45.0,-46.0],[46.0,-48.3],[47.0,-49.4],[48.0,-57.8],[49.0,-55.2],[50.0,-48.6],[51.0,-48.6],[52.0,-50.9],[53.0,-49.3],[54.0,-46.1],[55.0,-47.0],[56.0,-47.5],[57.0,-47.0],[58.0,-49.7],[59.0,-48.6],[60.0,-51.0],[61.0,-49.3],[62.0,-56.2],[63.0,-56.2],[64.0,-58.5],[65.0,-56.8],[66.0,-60.3],[67.0,-62.7],[68.0,-57.1],[69.0,-53.4],[70.0,-54.0],[71.0,-54.6],[72.0,-51.8],[73.0,-48.9],[74.0,-48.3],[75.0,-48.3],[76.0,-45.0],[77.0,-43.4],[78.0,-43.6],[79.0,-42.1],[80.0,-46.8],[81.0,-48.2],[82.0,-44.6],[83.0,-47.4],[84.0,-46.0],[85.0,-50.2],[86.0,-52.3],[87.0,-52.3],[88.0,-53.7],[89.0,-50.8],[90.0,-48.4],[91.0,-47.1],[92.0,-47.8],[93.0,-53.2],[94.0,-54.0],[95.0,-57.7],[96.0,-57.3],[97.0,-60.8],[98.0,-56.7],[99.0,-56.7],[100.0,-57.5],[101.0,-59.8],[102.0,-59.7],[103.0,-59.3],[104.0,-57.9],[105.0,-63.7],[106.0,-65.6],[107.0,-65.1],[108.0,-61.8],[109.0,-64.4],[110.0,-63.1],[111.0,-63.1],[112.0,-59.3],[113.0,-57.1],[114.0,-58.6],[115.0,-55.0],[116.0,-54.1],[117.0,-55.2],[118.0,-54.8],[119.0,-53.9],[120.0,-52.3],[121.0,-51.3],[122.0,-48.7],[123.0,-48.7],[124.0,-47.7],[125.0,-53.8],[126.0,-58.0],[127.0,-55.3],[128.0,-59.6],[129.0,-56.7],[130.0,-59.5],[131.0,-62.6],[132.0,-62.4],[133.0,-64.6],[134.0,-66.9],[135.0,-66.9],[136.0,-66.6],[137.0,-64.2],[138.0,-65.9],[139.0,-66.7],[140.0,-69.5],[141.0,-72.5],[142.0,-74.9],[143.0,-73.4],[144.0,-72.5],[145.0,-72.9],[146.0,-72.8],[147.0,-72.8],[148.0,-71.7],[149.0,-70.5],[150.0,-69.8],[151.0,-72.7],[152.0,-74.6],[153.0,-75.3],[154.0,-75.9],[155.0,-77.8],[156.0,-76.3],[157.0,-78.0],[158.0,-78.5],[159.0,-78.5],[160.0,-79.5]],"SPX 1929 (monthly)":[[0.0,-3.8],[1.0,0.0],[2.0,-10.6],[3.0,-34.2],[4.0,-31.6],[5.0,-30.6],[6.0,-26.3],[7.0,-23.5],[8.0,-18.7],[9.0,-23.5],[10.0,-31.2],[11.0,-32.7],[12.0,-33.6],[13.0,-33.6],[14.0,-42.7],[15.0,-46.9],[16.0,-50.4],[17.0,-48.9],[18.0,-45.0],[19.0,-44.0],[20.0,-49.3],[21.0,-54.2],[22.0,-55.7],[23.0,-54.2],[24.0,-55.6],[25.0,-62.2],[26.0,-67.3],[27.0,-66.8],[28.0,-73.0],[29.0,-73.5],[30.0,-73.7],[31.0,-73.6],[32.0,-79.9],[33.0,-82.4],[34.0,-84.8],[35.0,-84.0],[36.0,-75.9],[37.0,-73.6],[38.0,-77.3],[39.0,-77.5],[40.0,-78.2],[41.0,-77.3],[42.0,-80.0],[43.0,-80.1],[44.0,-78.0],[45.0,-71.7],[46.0,-66.8],[47.0,-64.1],[48.0,-65.9]],"SPX 1973":[[0.0,-1.8],[1.0,-3.5],[2.0,-7.1],[3.0,-7.3],[4.0,-11.0],[5.0,-12.7],[6.0,-13.3],[7.0,-10.0],[8.0,-13.3],[9.0,-9.8],[10.0,-9.9],[11.0,-20.2],[12.0,-18.9],[13.0,-19.7],[14.0,-20.0],[15.0,-21.8],[16.0,-24.9],[17.0,-27.4],[18.0,-28.5],[19.0,-34.0],[20.0,-40.0],[21.0,-47.2],[22.0,-38.5],[23.0,-41.8],[24.0,-43.0],[25.0,-36.0],[26.0,-32.1],[27.0,-30.7],[28.0,-27.4],[29.0,-24.2],[30.0,-20.8],[31.0,-26.2],[32.0,-27.7],[33.0,-30.2],[34.0,-25.9],[35.0,-24.1],[36.0,-25.0],[37.0,-16.1],[38.0,-17.1],[39.0,-14.5],[40.0,-15.5],[41.0,-16.7],[42.0,-13.3],[43.0,-14.0],[44.0,-14.4],[45.0,-12.5],[46.0,-14.4],[47.0,-15.1],[48.0,-10.6]],"SPX 1987":[[0.0,-5.4],[1.0,-2.1],[2.0,-4.4],[3.0,-25.2],[4.0,-31.6],[5.0,-26.6],[6.0,-23.7],[7.0,-20.5],[8.0,-23.1],[9.0,-22.4],[10.0,-22.2],[11.0,-18.8],[12.0,-19.2],[13.0,-22.3],[14.0,-19.3],[15.0,-17.2],[16.0,-18.7],[17.0,-17.5],[18.0,-11.7],[19.0,-14.2],[20.0,-12.4],[21.0,-8.1],[22.0,-4.8],[23.0,-5.6],[24.0,2.8],[25.0,4.4],[26.0,3.7],[27.0,1.1],[28.0,2.7],[29.0,4.9],[30.0,-2.3],[31.0,-1.4],[32.0,0.9],[33.0,-1.8],[34.0,7.3],[35.0,6.3],[36.0,5.8],[37.0,-4.2],[38.0,-9.1],[39.0,-9.7],[40.0,-4.3],[41.0,-1.9],[42.0,2.1],[43.0,9.0],[44.0,11.4],[45.0,11.5],[46.0,15.8],[47.0,10.2],[48.0,15.2]],"SPX 2000":[[0.0,-10.5],[1.0,-1.9],[2.0,-4.9],[3.0,-7.0],[4.0,-4.8],[5.0,-6.3],[6.0,-0.6],[7.0,-6.0],[8.0,-6.4],[9.0,-13.9],[10.0,-13.6],[11.0,-10.6],[12.0,-18.8],[13.0,-24.0],[14.0,-18.2],[15.0,-17.8],[16.0,-19.8],[17.0,-20.7],[18.0,-25.8],[19.0,-31.9],[20.0,-30.6],[21.0,-25.4],[22.0,-24.8],[23.0,-26.0],[24.0,-27.5],[25.0,-24.9],[26.0,-29.5],[27.0,-30.1],[28.0,-35.2],[29.0,-40.3],[30.0,-40.0],[31.0,-46.6],[32.0,-42.0],[33.0,-38.7],[34.0,-42.4],[35.0,-44.0],[36.0,-44.9],[37.0,-44.5],[38.0,-40.0],[39.0,-36.9],[40.0,-36.2],[41.0,-35.2],[42.0,-34.0],[43.0,-34.8],[44.0,-31.2],[45.0,-30.7],[46.0,-27.2],[47.0,-25.9],[48.0,-25.0],[49.0,-26.3],[50.0,-27.5],[51.0,-26.6],[52.0,-25.3],[53.0,-27.9],[54.0,-27.7],[55.0,-27.0],[56.0,-26.0],[57.0,-23.2],[58.0,-20.7],[59.0,-22.7],[60.0,-21.2],[61.0,-22.7],[62.0,-24.3],[63.0,-22.0],[64.0,-22.0],[65.0,-19.2],[66.0,-20.1],[67.0,-19.6],[68.0,-21.0],[69.0,-18.2],[70.0,-18.3],[71.0,-16.2],[72.0,-16.2],[73.0,-15.2],[74.0,-14.2],[75.0,-16.8],[76.0,-16.8],[77.0,-16.4],[78.0,-14.6],[79.0,-12.5],[80.0,-9.8],[81.0,-8.3],[82.0,-7.1],[83.0,-5.8],[84.0,-7.9]],"SPX 2007":[[0.0,-2.5],[1.0,-1.0],[2.0,-5.4],[3.0,-6.2],[4.0,-11.9],[5.0,-15.0],[6.0,-15.5],[7.0,-11.5],[8.0,-10.5],[9.0,-18.2],[10.0,-19.0],[11.0,-18.0],[12.0,-25.5],[13.0,-38.1],[14.0,-42.7],[15.0,-42.3],[16.0,-47.2],[17.0,-53.0],[18.0,-49.0],[19.0,-44.2],[20.0,-41.3],[21.0,-41.3],[22.0,-36.9],[23.0,-34.8],[24.0,-32.5],[25.0,-33.8],[26.0,-30.0],[27.0,-28.8],[28.0,-31.4],[29.0,-29.4],[30.0,-25.3],[31.0,-24.2],[32.0,-30.4],[33.0,-34.1],[34.0,-29.6],[35.0,-33.0],[36.0,-27.1],[37.0,-24.4],[38.0,-24.6],[39.0,-19.6],[40.0,-17.8],[41.0,-15.2],[42.0,-15.3],[43.0,-12.9],[44.0,-14.1],[45.0,-15.6],[46.0,-17.4],[47.0,-22.1],[48.0,-27.7]],"TAIEX 2000":[[0.0,-4.5],[1.0,-7.5],[2.0,-3.4],[3.0,-13.5],[4.0,-12.4],[5.0,-19.0],[6.0,-20.5],[7.0,-25.3],[8.0,-37.0],[9.0,-45.7],[10.0,-48.5],[11.0,-53.5],[12.0,-41.8],[13.0,-44.4],[14.0,-43.2],[15.0,-47.2],[16.0,-50.5],[17.0,-52.1],[18.0,-57.3],[19.0,-55.8],[20.0,-64.4],[21.0,-61.7],[22.0,-56.5],[23.0,-45.6],[24.0,-42.4],[25.0,-44.2],[26.0,-39.5],[27.0,-40.5],[28.0,-44.4],[29.0,-49.5],[30.0,-51.6],[31.0,-53.3],[32.0,-58.9],[33.0,-55.1],[34.0,-54.5],[35.0,-56.4],[36.0,-50.8],[37.0,-56.6],[38.0,-57.6],[39.0,-59.3],[40.0,-55.3],[41.0,-52.2],[42.0,-47.9],[43.0,-44.6],[44.0,-45.0],[45.0,-40.7],[46.0,-43.4],[47.0,-42.3],[48.0,-37.5]],"TAIEX 2026 (live)":[[0.0,-3.8],[1.0,-9.3],[2.0,-20.3],[3.0,-20.3],[4.0,-20.3],[5.0,-20.3],[6.0,-20.3],[7.0,-20.3],[8.0,-20.3],[9.0,-20.3],[10.0,-20.3],[11.0,-20.3],[12.0,-20.3],[13.0,-20.3],[14.0,-20.3],[15.0,-20.3],[16.0,-20.3],[17.0,-20.3],[18.0,-20.3],[19.0,-20.3],[20.0,-20.3],[21.0,-20.3],[22.0,-20.3],[23.0,-20.3],[24.0,-20.3]]},"named":[{"episode":"SPX 1929 (monthly)","peak_date":"1929-09-01","trough_date":"1932-06-01","max_dd":-84.8,"months_to_trough":33.0,"months_to_recover":300.9},{"episode":"SPX 1973","peak_date":"1973-01-11","trough_date":"1974-10-03","max_dd":-48.2,"months_to_trough":20.7,"months_to_recover":91.6},{"episode":"SPX 1987","peak_date":"1987-08-25","trough_date":"1987-12-04","max_dd":-33.5,"months_to_trough":3.3,"months_to_recover":24.2},{"episode":"SPX 2000","peak_date":"2000-03-24","trough_date":"2002-10-09","max_dd":-49.1,"months_to_trough":30.5,"months_to_recover":91.2},{"episode":"SPX 2007","peak_date":"2007-10-09","trough_date":"2009-03-09","max_dd":-56.8,"months_to_trough":17.0,"months_to_recover":66.7},{"episode":"NDX 2000","peak_date":"2000-03-27","trough_date":"2002-10-07","max_dd":-82.9,"months_to_trough":30.4,"months_to_recover":197.1},{"episode":"NDX 2021","peak_date":"2021-11-19","trough_date":"2022-12-28","max_dd":-35.6,"months_to_trough":13.3,"months_to_recover":26.4},{"episode":"NDX 2026 (live)","peak_date":"2026-10-06","trough_date":"2026-11-05","max_dd":-14.7,"months_to_trough":1.0,"months_to_recover":NaN},{"episode":"TAIEX 2000","peak_date":"2000-02-17","trough_date":"2001-10-03","max_dd":-66.2,"months_to_trough":19.5,"months_to_recover":209.4},{"episode":"TAIEX 2026 (live)","peak_date":"2026-10-06","trough_date":"2026-11-06","max_dd":-20.3,"months_to_trough":1.0,"months_to_recover":NaN},{"episode":"Nikkei 1989","peak_date":"1989-12-29","trough_date":"2009-03-10","max_dd":-81.9,"months_to_trough":230.3,"months_to_recover":410.0},{"episode":"CSCO 2000 (stock)","peak_date":"2000-03-27","trough_date":"2002-10-08","max_dd":-89.3,"months_to_trough":30.4,"months_to_recover":314.1},{"episode":"NVDA 2026 (live)","peak_date":"2026-10-06","trough_date":"2026-11-05","max_dd":-24.1,"months_to_trough":1.0,"months_to_recover":NaN}],"conditional":{"NDX":{"10":{"n_episodes":35,"median_eventual_max_dd":-14.2,"p10_eventual_max_dd":-30.939999999999998,"median_months_to_trough":0.4,"median_fwd_1y":24.6},"15":{"n_episodes":15,"median_eventual_max_dd":-22.9,"p10_eventual_max_dd":-38.18,"median_months_to_trough":0.2,"median_fwd_1y":31.2},"20":{"n_episodes":8,"median_eventual_max_dd":-30.45,"p10_eventual_max_dd":-52.8,"median_months_to_trough":0.75,"median_fwd_1y":40.1},"25":{"n_episodes":5,"median_eventual_max_dd":-35.6,"p10_eventual_max_dd":-65.7,"median_months_to_trough":1.6,"median_fwd_1y":13.7},"30":{"n_episodes":4,"median_eventual_max_dd":-37.75,"p10_eventual_max_dd":-70.0,"median_months_to_trough":3.35,"median_fwd_1y":28.65}},"TAIEX":{"10":{"n_episodes":8,"median_eventual_max_dd":-28.7,"p10_eventual_max_dd":-51.989999999999995,"median_months_to_trough":4.4,"median_fwd_1y":0.40000000000000036},"15":{"n_episodes":8,"median_eventual_max_dd":-28.7,"p10_eventual_max_dd":-51.989999999999995,"median_months_to_trough":3.9,"median_fwd_1y":8.950000000000001},"20":{"n_episodes":6,"median_eventual_max_dd":-30.15,"p10_eventual_max_dd":-56.05,"median_months_to_trough":1.95,"median_fwd_1y":17.9},"25":{"n_episodes":5,"median_eventual_max_dd":-31.6,"p10_eventual_max_dd":-58.08,"median_months_to_trough":1.0,"median_fwd_1y":18.1},"30":{"n_episodes":3,"median_eventual_max_dd":-45.9,"p10_eventual_max_dd":-62.14,"median_months_to_trough":5.4,"median_fwd_1y":14.8}},"NVDA":{"10":{"n_episodes":17,"median_eventual_max_dd":-36.9,"p10_eventual_max_dd":-74.72,"median_months_to_trough":2.3,"median_fwd_1y":25.3},"15":{"n_episodes":17,"median_eventual_max_dd":-36.9,"p10_eventual_max_dd":-74.72,"median_months_to_trough":1.9,"median_fwd_1y":27.5},"20":{"n_episodes":17,"median_eventual_max_dd":-36.9,"p10_eventual_max_dd":-74.72,"median_months_to_trough":1.1,"median_fwd_1y":34.2},"25":{"n_episodes":13,"median_eventual_max_dd":-51.9,"p10_eventual_max_dd":-81.63999999999999,"median_months_to_trough":1.0,"median_fwd_1y":10.4},"30":{"n_episodes":11,"median_eventual_max_dd":-53.9,"p10_eventual_max_dd":-85.1,"median_months_to_trough":2.0,"median_fwd_1y":26.6}},"NDX_high_cape":{"n10":15,"n20":4}},"gsy":{"ai_infra":{"ret2y":223.8,"slope8m":0.746,"passes":true,"n":8},"hyperscaler":{"ret2y":32.4,"slope8m":0.72,"passes":false,"n":3},"full_ai":{"ret2y":207.1,"slope8m":0.672,"passes":true,"n":13},"dotcom_1999_cisco":{"ret2y":124.6,"slope8m":0.583,"passes":true,"n":1}},"lppls":{"NDX":{"qual":18,"windows":18,"conf":1.0,"counts":{"2026-08":2,"2026-09":10,"2026-10":4,"2026-11":2}},"NVDA":{"qual":18,"windows":18,"conf":1.0,"counts":{"2026-07":2,"2026-10":1,"2026-11":11,"2026-12":4}},"TAIEX":{"qual":18,"windows":18,"conf":0.39,"counts":{"2027-01":12,"2027-02":3,"2027-03":1,"2027-04":1,"2027-05":1}}},"lppl_validation":[{"end":"1999-03-31","tc":"1999-08-10","qual":15},{"end":"1999-06-30","tc":"1999-09-23","qual":15},{"end":"1999-09-30","tc":"2000-01-02","qual":15},{"end":"1999-12-31","tc":"2001-01-19","qual":15},{"end":"2000-03-27","tc":"2001-01-21","qual":15}],"scenarios":{"partition":{"E1":"NDX 未來 24 個月終點深度 > -15%（不再加深；先漲後再回檔不破線仍計入此類）","E2":"-15% ~ -25%（淺修正：1998/2024-07/2025-02 型）","E3":"-25% ~ -40%（深度修正：2021/1987 型）","E4":"<= -40%（終結性崩盤：2000 型；與 GSY 崩盤定義同界）"},"ndx":[{"key":"E1","m":0.0126,"lo":0.0007,"hi":0.063,"pt":0.024},{"key":"E2","m":0.5,"lo":0.3701,"hi":0.6299,"pt":0.5},{"key":"E3","m":0.2299,"lo":0.1328,"hi":0.3517,"pt":0.2372},{"key":"E4","m":0.2314,"lo":0.134,"hi":0.3534,"pt":0.2388}],"taiex":[{"key":"E1","m":0.0272,"lo":0.001,"hi":0.1511,"pt":0.0},{"key":"E2","m":0.0272,"lo":0.001,"hi":0.1511,"pt":0.0},{"key":"E3","m":0.5957,"lo":0.3784,"hi":0.7895,"pt":0.6},{"key":"E4","m":0.4043,"lo":0.2105,"hi":0.6216,"pt":0.4}],"nvda":[{"key":"E1","m":0.0,"lo":null,"hi":null,"pt":0.0},{"key":"E2","m":0.1875,"lo":null,"hi":null,"pt":0.1875},{"key":"E3","m":0.375,"lo":null,"hi":null,"pt":0.375},{"key":"E4","m":0.4375,"lo":null,"hi":null,"pt":0.4375}],"timing":{"2026Q4":0.5,"2027H1":0.325,"2027H2+":0.175},"sens":[{"name":"pure_empirical (w3=0)","e4":0.06666666666666667},{"name":"pure_GSY (w3=1)","e4":0.48750000000000004},{"name":"half_GSY (w3=0.15)","e4":0.203125},{"name":"baseline (w3=0.30)","e4":0.23875000000000002},{"name":"GSY_low (sector 0.50, delta 0.60)","e4":0.1825}],"k":24},"live":{"NDX":{"peak":"2026-10-06","drawdown_pct":-13.6},"TAIEX":{"peak":"2026-10-06","drawdown_pct":-20.3},"NVDA":{"peak":"2026-10-06","drawdown_pct":-22.0},"SPX":{"peak":"2026-10-06","drawdown_pct":-5.7}},"cape_now":40.710608577487044,"cape_pct":98.9,"mv_gdp_now":2.55,"mv_gdp_pct":99.7,"ecy_now":-2.783637801197107,"margin_gdp":0.023,"cape_eves":{"1929-09":32.56378859877672,"1973-01":18.712530467302436,"1987-08":18.32690724585634,"2000-03":43.22074843996588,"2007-10":27.320648130462015,"2021-11":38.582627497719216,"2026-10 (now)":40.710608577487044}};
 
+  /* ────────────────────────────── i18n ────────────────────────────── */
+  const I18N = {
+    hant: {
+      doc_title: "崩盤類比儀表板 · Crash Analog Dashboard",
+      doc_h1: "崩盤類比儀表板",
+      doc_subtitle: "2026 年 AI 行情 vs 1929/1973/1987/2000/2007/2021 · 資料截至 2026-11-06 · 作者 Charlie Chu · 數字可由 quant/ 管線重現",
+      doc_footer: "以四層量化管線（資料 → 指標 → 類比 → 統計）產出 · 非投資建議",
+      intro_p1: "💡 <b>白話導讀：</b>這個儀表板在回答一個問題——「這波 AI 行情，像歷史上哪些崩盤？之後會怎樣？」目前兩個關鍵事實：(1) 估值貴到百年歷史的極端等級（CAPE 40.71，比 99% 的日子都貴）；(2) 市場已經開始跌（自 10 月峰頂 NDX 已回檔約 14%、TAIEX 約 20%）。我們的估計方式不是預言，而是把「歷史上走到類似位置之後，實際發生了什麼」換算成機率。",
+      intro_p2: "上方四張數字卡＝市場體檢摘要；四個頁籤依序回答：<b>歷史怎麼跌 → 通常跌多深 → 模型說何時轉折 → 綜合機率多少</b>。每張圖上方都有「這張圖怎麼看」的圖解（可收合）；看不懂的名詞請開最右邊的「名詞解釋」頁籤；滑鼠移到圖上可以讀出數字。",
+      kpi1_label: "Shiller CAPE（2026-10）",
+      kpi1_tip: "股價 ÷ 過去十年平均通膨調整盈餘，越高越貴。40.71＝1871 年以來第 99 百分位，比 99% 的日子都貴，屬 1929／2000 年等級。",
+      kpi_cap_cape: "1871 年起 {p} 百分位",
+      kpi2_label: "非金融市值 / GDP（Z.1）",
+      kpi2_tip: "全美股市總市值 ÷ GDP（俗稱巴菲特指標的聯準會口徑）。2.55＝1945 年以來最高；2000 年網路泡沫高點也只有 1.63。",
+      kpi2_cap: "1945 年以來最高（2000Q1 僅 1.63）",
+      kpi3_label: "名目 ECY = 1/CAPE − GS10",
+      kpi3_tip: "股票的盈餘收益率（1/CAPE）減去 10 年公債利率＝「持有股票相對債券多賺多少」。負越多＝股票相對債券越貴。−2.78% 是史上第 3 低。",
+      kpi3_cap: "史上第 3 低（僅 3% 日子更貴）",
+      kpi4_label: "自 2026-10-06 峰頂回檔",
+      kpi4_tip: "從 10 月 6 日高點跌下來的幅度（截至 2026-11-06）：NDX（那斯達克 100）{n}、TAIEX（台股加權）{t}、NVDA（輝達）{v}、SPX（標普 500）{s}。",
+      tab_paths: "崩盤軌跡對齊",
+      tab_cond: "條件化統計",
+      tab_lppl: "LPPL 臨界時點",
+      tab_scen: "情境機率",
+      tab_gloss: "名詞解釋",
+      paths_h3: "歷史崩盤軌跡（按距峰頂月數對齊；粗線＝2026 進行中）",
+      cond_h3: "觸及 −X% 深度後的終點分布（中位數與深尾 p10）",
+      lppl_h3: "LPPL 臨界時點 tc 分布（滾動窗口擬合）",
+      lppl_val_h3: "方法驗證：NDX 1997–2000（真實峰頂 2000-03-27）",
+      scen_h3: "未來 12–24 個月情境機率（三條數據流整合，附推論依據）",
+      gloss_h3: "名詞解釋（白話版）",
+      guide_how: "這張圖怎麼看？",
+      guide1_read: "<b>怎麼讀：</b>每條線是一場崩盤「從最高點算起」的走勢——往右＝距峰頂過了幾個月，往下＝跌得越深。粗彩色線是 2026 進行中的三個標的，灰色虛線是歷史案例（點上方標籤可開關）。滑鼠移到圖上會出現直線，同時列出所有案例「在那個月份」各跌到多深。",
+      guide1_now: "<b>現在的位置：</b>這波截至 2026-11-06 才走到「第 1 個月」附近（NDX 約 −14%）。目前跌幅在歷史上並不稀奇——真正分歧的是「接下來」：有的案例幾個月內收復（如 1987、2021），有的持續下跌 2–3 年（如 2000、1973）。",
+      guide1_tldr: "<b>一句話重點：</b>現在的跌幅本身不稀奇，稀奇的是估值等級（見上方數字卡）。歷史劇本走到這裡之後分歧極大——所以才需要後面幾頁的統計，而不是只看這張圖講故事。",
+      guide2_read: "<b>怎麼讀：</b>這頁回答一個很直覺的問題——「歷史上跌到某個深度之後，<b>最後</b>到底跌到多深才見底？」三張小圖各是一個標的：X 軸＝當時已跌到的深度，Y 軸＝最終谷底（自峰頂起算）。實線＝<b>中位數</b>（一半的經驗比這淺、一半比這深），紫虛線＝<b>最慘 10%</b> 的情況（p10 深尾），紅虛線＝現在的位置。滑鼠移到圓點上可讀數字。",
+      guide2_now: "<b>現在的位置：</b>NDX 跌約 14%：歷史上跌到 −15% 左右時，最終谷底中位數約 −23%（通常還會再深一點）、最慘 10% 約 −38%。TAIEX 跌約 20% → 中位數約 −30%、深尾約 −56%。NVDA 跌約 22% → 中位數約 −37%、深尾約 −75%（個股波動遠大於指數）。",
+      guide2_tldr: "<b>一句話重點：</b>越早止跌、結局越溫和；但「跌 15–20% 還沒止跌」時，歷史經驗顯示進一步下探的空間會變大。這是分布、不是保證——同類回檔之後 1 年，中位數報酬仍是正的（NDX +31.2%）。",
+      guide3_read: "<b>怎麼讀：</b>LPPL 是偵測「泡沫臨界」的數學模型——當漲勢出現「越漲越快」的加速形態，模型會估出一個臨界時點 <b>tc</b>（轉折最可能發生的時間）。我們用「滾動窗口」每個月重複擬合一次，把每次估出的 tc 畫成長條：<b>長條越集中的月份，代表越多個窗口指向那裡</b>。信心＝通過篩選的擬合中，tc 落在窗口結束後 6 個月內的比例。",
+      guide3_honest: "<b>誠實聲明：</b>NDX 與 NVDA 的 tc 叢集（2026-10～12）是在峰頂<b>已經發生後</b>才擬合出來的，屬事後驗證性質；真正「往前看」的只有 TAIEX（估 2027-01 前後）。下方驗證表示範 1999 年 NDX：模型約領先 3–6 個月逐漸逼近真實峰頂（2000-03-27），誤差帶 ±3–6 個月。",
+      guide3_tldr: "<b>一句話重點：</b>LPPL 只回答「何時可能轉折」，不回答「會跌多深」。它的角色是輔助時點判斷，不是精確預言。",
+      guide4_read: "<b>怎麼讀：</b>這頁把前面所有證據整合成四個互斥的「劇本」，機率合計 100%：E1 不再加深（回檔不破 −15%）、E2 淺修正 −15~−25%、E3 深度修正 −25~−40%、E4 終結性崩盤 ≤−40%。E1 的精確定義＝未來 24 個月自峰頂起算的最大回檔<b>從未深過 −15%</b>——先漲上去之後若再回檔，只要不破 −15% 仍屬 E1；一旦跌破就歸 E2–E4。每條橫條中間的深色刻度＝<b>點機率</b>（單一最佳估計），淺色長條＝<b>80% 區間</b>（把模型自身的不確定性算進去後，機率有八成落在這個範圍）。滑鼠移上可讀數字。",
+      guide4_concl: "<b>現在的結論：</b>以 NDX 而言，最可能是 E2 淺修正（約 50%），但 E3＋E4 合計約 48%——「淺修正收場」與「還有更深一段」幾乎五五波。時間上：約 50% 的機率本輪終點出現在 2026Q4、累計到 2027H1 約 80–85%。台股類比的經驗更嚴峻：終點 ≤−25% 的機率約 97%。",
+      guide4_tldr: "<b>一句話重點：</b>模型不是預言，是把「歷史走到同樣位置後發生什麼」換算成機率。最可能劇本是淺修正，但深度下修的風險（約一半）大到不能忽視——下方表格的證據權重敏感度就是模型自己承認的最大不確定性。",
+      paths_cap: "資料：Yahoo Finance 日收盤＋Shiller 月資料（1929）。游標移到圖上可讀取各案例在該月數的回檔深度。",
+      cond_cap: "樣本：NDX 1985–2026 共 35 個 ≥10% 回檔、TAIEX 8 個 ≥15%、NVDA 17 個 ≥20%。紅虛線＝當前位置。1 年前向報酬中位數：NDX +31.2%、TAIEX +17.9%、NVDA +34.2%。",
+      lppl_cap: "信心指標＝通過篩選的擬合中，tc 落在窗口結束後 6 個月內的比例。NDX/NVDA 的 tc 叢集落在已發生峰頂附近（事後擬合性質）；TAIEX 的 2027-01 為真前向估計。",
+      scen_timing_cap: "時點分布：2026Q4 內見到本輪終點約 50%；累計至 2027H1 約 80–85%（LPPL tc 叢集＋歷史峰→谷 13–20 個月）。",
+      path_ndx2026: "NDX 2026（進行中）",
+      path_taiex2026: "TAIEX 2026（進行中）",
+      path_nvda2026: "NVDA 2026（進行中）",
+      path_ndx2000: "NDX 2000",
+      path_spx2000: "SPX 2000",
+      path_taiex2000: "TAIEX 2000",
+      path_csco2000: "CSCO 2000（個股）",
+      path_nikkei1989: "日經 1989",
+      path_spx1929: "SPX 1929",
+      path_spx1973: "SPX 1973",
+      path_spx1987: "SPX 1987",
+      path_spx2007: "SPX 2007",
+      path_ndx2021: "NDX 2021",
+      axis_x: "距峰頂時間",
+      axis_y: "自峰頂回檔深度",
+      axis_tick_x: "月",
+      tt_month: "第 {n} 個月",
+      tt_p1_row: "{l}：{v}%",
+      cond_ndx: "NASDAQ-100（n=35）",
+      cond_taiex: "TAIEX 加權指數（n=8）",
+      cond_nvda: "NVIDIA（n=17）",
+      cond_axis_x: "觸及深度",
+      cond_now: "現在 −{v}%",
+      cond_s_med: "中位數",
+      cond_s_tail: "深尾 p10",
+      cond_leg_med: "中位數終點",
+      cond_leg_tail: "深尾（10% 最深情境）",
+      cond_leg_now: "當前位置",
+      tt_cond: "{s}：觸及 −{d}% 後終點 {v}%",
+      lppl_ndx_l: "NDX（信心 1.0）",
+      lppl_ndx_n: "臨界點已於 2026-10-06 觸發",
+      lppl_nvda_l: "NVDA（信心 1.0）",
+      lppl_nvda_n: "tc 叢集＝現在（2026-11～12）",
+      lppl_taiex_l: "TAIEX（信心 0.39）",
+      lppl_taiex_n: "真前向估計：2027-01 前後",
+      lppl_pass: "（通過篩選 {v}/{t} 窗口）",
+      tt_lppl: "{l}：tc 落在 {m} 的窗口數 {v}/{t}",
+      val_h_end: "擬合窗口截止",
+      val_h_tc: "tc 估計",
+      val_h_n: "通過篩選擬合數",
+      val_note: "真實峰頂：2000-03-27。模型依窗口成熟逐漸逼近真實峰頂（誤差帶 ±3–6 個月）。",
+      scen_name_E1: "E1 不再加深（回檔不破 −15%）",
+      scen_name_E2: "E2 淺修正 −15~−25%",
+      scen_name_E3: "E3 深度修正 −25~−40%",
+      scen_name_E4: "E4 終結性崩盤 ≤−40%",
+      scen_chart_E1: "E1 不再加深（回檔不破 −15%）",
+      scen_chart_E2: "E2 淺修正 −15~−25%",
+      scen_chart_E3: "E3 深度修正 −25~−40%",
+      scen_chart_E4: "E4 終結性崩盤 ≤−40%",
+      scen_short_E1: "E1 不再加深",
+      scen_short_E2: "E2 淺修正",
+      scen_short_E3: "E3 深度修正",
+      scen_short_E4: "E4 終結性崩盤",
+      proto_E1: "1999 全年型",
+      proto_E2: "1998-07 / 2024-07 / 2025-02",
+      proto_E3: "2021-11 / 1987 / 1990",
+      proto_E4: "2000-03",
+      tt_scen_iv: "{n}：80% 區間 {lo}–{hi}%（原型 {p}）",
+      tt_scen_med: "{n}：中位數 {m}%（點機率 {pt}%）",
+      scen_note: "NDX 四情境為互斥且窮盡的分割，點機率合計 100%；區間為同一 Dirichlet 分布（k={k}）的邊際 80% 區間。",
+      th_scen: "情境",
+      th_ndx_pt: "NDX 點機率",
+      th_ndx_iv: "NDX 80% 區間",
+      taiex_e3: "TAIEX：E3 深度修正",
+      taiex_e4: "TAIEX：E4 ≤−40%",
+      taiex_p: "TAIEX：P(終點 ≤−25%)",
+      taiex_p_iv: "84.9–99.9%（經驗 5/5）",
+      timing_label: "時點：2026Q4 / 2027H1 / 之後",
+      timing_val: "{a}% / {b}% / {c}%（合計 100%）",
+      scen_sens: "證據流權重敏感度（P(E4)）：純經驗 6.7% ↔ 基準 23.9% ↔ 純 GSY 映射 48.8%——這個跨度是本模型最大的不確定性來源。",
+      gloss_intro: "看圖時卡住的詞都收在這裡。想深究方法與完整推論，請讀《量化類比推論報告》。",
+      gloss_g1: "標的與圖表名詞",
+      gloss_g2: "估值指標（上方四張數字卡）",
+      gloss_g3: "統計名詞",
+      gloss_g4: "模型名詞",
+      gloss_t_ndx: "<b>NDX</b>（NASDAQ-100）",
+      gloss_d_ndx: "美國那斯達克 100 指數，集中大型科技股。",
+      gloss_t_spx: "<b>SPX</b>（S&P 500）",
+      gloss_d_spx: "美國標普 500 大盤指數。",
+      gloss_t_taiex: "<b>TAIEX</b>",
+      gloss_d_taiex: "台灣加權股價指數。",
+      gloss_t_nvda: "<b>NVDA</b>",
+      gloss_d_nvda: "輝達（NVIDIA）個股。個股波動遠大於指數。",
+      gloss_t_ptd: "<b>峰頂／谷底／回檔</b>",
+      gloss_d_ptd: "回檔＝從最高點跌下來的幅度；谷底＝這一波的最低點；「終點深度」＝谷底相對峰頂的總跌幅。",
+      gloss_t_align: "<b>對齊（軌跡對齊）</b>",
+      gloss_d_align: "把每場崩盤都從「峰頂第 0 月」開始畫，不同年代的崩盤才能疊在同一張圖互相比較。",
+      gloss_t_cape: "<b>Shiller CAPE</b>",
+      gloss_d_cape: "股價 ÷ 過去十年平均通膨調整盈餘。越高＝越貴。40 以上在 150 年歷史中極罕見，過去只出現在 1929、2000 年前後。",
+      gloss_t_pct: "<b>百分位</b>",
+      gloss_d_pct: "「歷史上有多少比例的日子比現在便宜」。99 百分位＝只有 1% 的日子比現在更貴。",
+      gloss_t_ecy: "<b>ECY（超額 CAPE 收益率）</b>",
+      gloss_d_ecy: "1/CAPE 減 10 年公債利率＝「股票相對債券多給多少補償」。數字越低（負越多）＝股票相對越貴。",
+      gloss_t_mvgdp: "<b>市值 / GDP（Z.1）</b>",
+      gloss_d_mvgdp: "全美股市總市值除以 GDP（聯準會 Z.1 報告口徑，俗稱巴菲特指標）。2.55＝1945 年以來最高。",
+      gloss_t_gsy: "<b>GSY 泡沫特徵</b>",
+      gloss_d_gsy: "學術泡沫辨識法（Greenwood–Shleifer–You 2019）：兩年漲幅大＋近期加速＋達到歷史極端百分位，三者同時滿足時，歷史上常接著崩盤。",
+      gloss_t_med: "<b>中位數</b>",
+      gloss_d_med: "排序後中間那個值。不受少數極端案例拉扯，比平均更適合描述「典型經驗」。",
+      gloss_t_p10: "<b>p10（深尾）</b>",
+      gloss_d_p10: "最慘 10% 情況的分界線。p10＝−38% 代表：十次裡有一次會跌到 −38% 或更深。",
+      gloss_t_fwd: "<b>1 年前向報酬</b>",
+      gloss_d_fwd: "觸發條件之後持有一年的報酬。中位數＋31.2%＝一半的經驗一年後賺超過 31.2%。",
+      gloss_t_pi: "<b>點機率／80% 區間</b>",
+      gloss_d_pi: "點機率＝模型給的單一最佳估計；80% 區間＝把模型自身的不確定性算進去後，真值有八成落在這個範圍。",
+      gloss_t_lppl: "<b>LPPL</b>",
+      gloss_d_lppl: "對數週期冪律模型：偵測漲勢「越漲越快」的泡沫形態，並估出轉折時點。只預測「何時」，不預測「多深」。",
+      gloss_t_tc: "<b>tc（臨界時點）</b>",
+      gloss_d_tc: "LPPL 估計行情轉折最可能發生的時間。不是精確日期，是一段叢集範圍。",
+      gloss_t_roll: "<b>滾動窗口擬合</b>",
+      gloss_d_roll: "每個月往後推一次、用最近幾年資料重新擬合一次。多個窗口都指向同一時段＝較可信。",
+      gloss_t_conf: "<b>信心指標</b>",
+      gloss_d_conf: "通過篩選的擬合中，tc 落在窗口結束後 6 個月內的比例。1.0＝全部指向近期。",
+      gloss_t_dir: "<b>Dirichlet 後驗</b>",
+      gloss_d_dir: "把「四個劇本的機率」當成一個整體分布來估（合計必為 100%），避免各情境分開估時加總不等於 100%。",
+      gloss_t_e14: "<b>E1–E4 情境</b>",
+      gloss_d_e14: "E1＝未來 24 個月最大回檔不深於 −15%（不再加深；先漲後再回檔只要不破線都算）／E2 淺修正 −15~−25%／E3 深度修正 −25~−40%／E4 終結性崩盤 ≤−40%。",
+    },
+    hans: {
+      doc_title: "崩盘类比仪表板 · Crash Analog Dashboard",
+      doc_h1: "崩盘类比仪表板",
+      doc_subtitle: "2026 年 AI 行情 vs 1929/1973/1987/2000/2007/2021 · 数据截至 2026-11-06 · 作者 Charlie Chu · 数字可由 quant/ 管线重现",
+      doc_footer: "以四层量化管线（数据 → 指标 → 类比 → 统计）产出 · 非投资建议",
+      intro_p1: "💡 <b>白话导读：</b>这个仪表板在回答一个问题——“这波 AI 行情，像历史上哪些崩盘？之后会怎样？”目前两个关键事实：(1) 估值贵到百年历史的极端等级（CAPE 40.71，比 99% 的日子都贵）；(2) 市场已经开始跌（自 10 月峰顶 NDX 已回调约 14%、TAIEX 约 20%）。我们的估计方式不是预言，而是把“历史上走到类似位置之后，实际发生了什么”换算成概率。",
+      intro_p2: "上方四张数字卡＝市场体检摘要；四个标签页依次回答：<b>历史怎么跌 → 通常跌多深 → 模型说何时转折 → 综合概率多少</b>。每张图上方都有“这张图怎么看”的图解（可收合）；看不懂的名词请开最右边的“名词解释”标签页；鼠标移到图上可以读出数字。",
+      kpi1_label: "Shiller CAPE（2026-10）",
+      kpi1_tip: "股价 ÷ 过去十年平均通胀调整盈余，越高越贵。40.71＝1871 年以来第 99 百分位，比 99% 的日子都贵，属 1929／2000 年等级。",
+      kpi_cap_cape: "1871 年起 {p} 百分位",
+      kpi2_label: "非金融市值 / GDP（Z.1）",
+      kpi2_tip: "全美股市总市值 ÷ GDP（俗称巴菲特指标的美联储口径）。2.55＝1945 年以来最高；2000 年网络泡沫高点也只有 1.63。",
+      kpi2_cap: "1945 年以来最高（2000Q1 仅 1.63）",
+      kpi3_label: "名义 ECY = 1/CAPE − GS10",
+      kpi3_tip: "股票的盈余收益率（1/CAPE）减去 10 年国债利率＝“持有股票相对债券多赚多少”。负越多＝股票相对债券越贵。−2.78% 是史上第 3 低。",
+      kpi3_cap: "史上第 3 低（仅 3% 日子更贵）",
+      kpi4_label: "自 2026-10-06 峰顶回档",
+      kpi4_tip: "从 10 月 6 日高点跌下来的幅度（截至 2026-11-06）：NDX（纳斯达克 100）{n}、TAIEX（台股加权）{t}、NVDA（英伟达）{v}、SPX（标普 500）{s}。",
+      tab_paths: "崩溃轨迹对齐",
+      tab_cond: "条件化统计",
+      tab_lppl: "LPPL 临界时点",
+      tab_scen: "情境概率",
+      tab_gloss: "名词解释",
+      paths_h3: "历史崩盘轨迹（按距峰顶月数对齐；粗线＝2026 进行中）",
+      cond_h3: "触及 −X% 深度后的终点分布（中位数与深尾 p10）",
+      lppl_h3: "LPPL 临界时点 tc 分布（滚动窗口拟合）",
+      lppl_val_h3: "方法验证：NDX 1997–2000（真实峰顶 2000-03-27）",
+      scen_h3: "未来 12–24 个月情境概率（三条数据流整合，附推论依据）",
+      gloss_h3: "名词解释（白话版）",
+      guide_how: "这张图怎么看？",
+      guide1_read: "<b>怎么读：</b>每条线是一场崩盘“从最高点算起”的走势——往右＝距峰顶过了几个月，往下＝跌得越深。粗彩色线是 2026 进行中的三个标的，灰色虚线是历史案例（点上方标签可开关）。鼠标移到图上会出现直线，同时列出所有案例“在那个月份”各跌到多深。",
+      guide1_now: "<b>现在的位置：</b>这波截至 2026-11-06 才走到“第 1 个月”附近（NDX 约 −14%）。目前跌幅在历史上并不稀奇——真正分歧的是“接下来”：有的案例几个月内收复（如 1987、2021），有的持续下跌 2–3 年（如 2000、1973）。",
+      guide1_tldr: "<b>一句话重点：</b>现在的跌幅本身不稀奇，稀奇的是估值等级（见上方数字卡）。历史剧本走到这里之后分歧极大——所以才需要后面几页的统计，而不是只看这张图讲故事。",
+      guide2_read: "<b>怎么读：</b>这页回答一个很直觉的问题——“历史上跌到某个深度之后，<b>最后</b>到底跌到多深才见底？”三张小图各是一个标的：X 轴＝当时已跌到的深度，Y 轴＝最终谷底（自峰顶起算）。实线＝<b>中位数</b>（一半的经验比这浅、一半比这深），紫虚线＝<b>最惨 10%</b> 的情况（p10 深尾），红虚线＝现在的位置。鼠标移到圆点上可读数字。",
+      guide2_now: "<b>现在的位置：</b>NDX 跌约 14%：历史上跌到 −15% 左右时，最终谷底中位数约 −23%（通常还会再深一点）、最惨 10% 约 −38%。TAIEX 跌约 20% → 中位数约 −30%、深尾约 −56%。NVDA 跌约 22% → 中位数约 −37%、深尾约 −75%（个股波动远大于指数）。",
+      guide2_tldr: "<b>一句话重点：</b>越早止跌、结局越温和；但“跌 15–20% 还没止跌”时，历史经验显示进一步下探的空间会变大。这是分布、不是保证——同类回调之后 1 年，中位数报酬仍是正的（NDX +31.2%）。",
+      guide3_read: "<b>怎么读：</b>LPPL 是侦测“泡沫临界”的数学模型——当涨势出现“越涨越快”的加速形态，模型会估出一个临界时点 <b>tc</b>（转折最可能发生的时间）。我们用“滚动窗口”每个月重复拟合一次，把每次估出的 tc 画成长条：<b>长条越集中的月份，代表越多个窗口指向那里</b>。信心＝通过筛选的拟合中，tc 落在窗口结束后 6 个月内的比例。",
+      guide3_honest: "<b>诚实声明：</b>NDX 与 NVDA 的 tc 丛集（2026-10～12）是在峰顶<b>已经发生后</b>才拟合出来的，属事后验证性质；真正“往前看”的只有 TAIEX（估 2027-01 前后）。下方验证表示范 1999 年 NDX：模型约领先 3–6 个月逐渐逼近真实峰顶（2000-03-27），误差带 ±3–6 个月。",
+      guide3_tldr: "<b>一句话重点：</b>LPPL 只回答“何时可能转折”，不回答“会跌多深”。它的角色是辅助时点判断，不是精确预言。",
+      guide4_read: "<b>怎么读：</b>这页把前面所有证据整合成四个互斥的“剧本”，概率合计 100%：E1 不再加深（回调不破 −15%）、E2 浅修正 −15~−25%、E3 深度修正 −25~−40%、E4 终结性崩盘 ≤−40%。E1 的精确定义＝未来 24 个月自峰顶起算的最大回调<b>从未深过 −15%</b>——先涨上去之后若再回调，只要不破 −15% 仍属 E1；一旦跌破就归 E2–E4。每条横条中间的深色刻度＝<b>点概率</b>（单一最佳估计），浅色长条＝<b>80% 区间</b>（把模型自身的不确定性算进去后，概率有八成落在这个范围）。鼠标移上可读数字。",
+      guide4_concl: "<b>现在的结论：</b>以 NDX 而言，最可能是 E2 浅修正（约 50%），但 E3＋E4 合计约 48%——“浅修正收场”与“还有更深一段”几乎五五波。时间上：约 50% 的概率本轮终点出现在 2026Q4、累计到 2027H1 约 80–85%。台股类比的经验更严峻：终点 ≤−25% 的概率约 97%。",
+      guide4_tldr: "<b>一句话重点：</b>模型不是预言，是把“历史走到同样位置后发生什么”换算成概率。最可能剧本是浅修正，但深度下修的风险（约一半）大到不能忽视——下方表格的证据权重敏感度就是模型自己承认的最大不确定性。",
+      paths_cap: "数据：Yahoo Finance 日收盘＋Shiller 月数据（1929）。游标移到图上可读取各案例在该月数的回档深度。",
+      cond_cap: "样本：NDX 1985–2026 共 35 个 ≥10% 回调、TAIEX 8 个 ≥15%、NVDA 17 个 ≥20%。红虚线＝当前位置。1 年前向报酬中位数：NDX +31.2%、TAIEX +17.9%、NVDA +34.2%。",
+      lppl_cap: "信心指标＝通过筛选的拟合中，tc 落在窗口结束后 6 个月内的比例。NDX/NVDA 的 tc 丛集落在已发生峰顶附近（事后拟合性质）；TAIEX 的 2027-01 为真前向估计。",
+      scen_timing_cap: "时点分布：2026Q4 内见到本轮终点约 50%；累计至 2027H1 约 80–85%（LPPL tc 丛集＋历史峰→谷 13–20 个月）。",
+      path_ndx2026: "NDX 2026（进行中）",
+      path_taiex2026: "TAIEX 2026（进行中）",
+      path_nvda2026: "NVDA 2026（进行中）",
+      path_ndx2000: "NDX 2000",
+      path_spx2000: "SPX 2000",
+      path_taiex2000: "TAIEX 2000",
+      path_csco2000: "CSCO 2000（个股）",
+      path_nikkei1989: "日经 1989",
+      path_spx1929: "SPX 1929",
+      path_spx1973: "SPX 1973",
+      path_spx1987: "SPX 1987",
+      path_spx2007: "SPX 2007",
+      path_ndx2021: "NDX 2021",
+      axis_x: "距峰顶时间",
+      axis_y: "自峰顶回档深度",
+      axis_tick_x: "月",
+      tt_month: "第 {n} 个月",
+      tt_p1_row: "{l}：{v}%",
+      cond_ndx: "NASDAQ-100（n=35）",
+      cond_taiex: "TAIEX 加权指数（n=8）",
+      cond_nvda: "NVIDIA（n=17）",
+      cond_axis_x: "触及深度",
+      cond_now: "现在 −{v}%",
+      cond_s_med: "中位数",
+      cond_s_tail: "深尾 p10",
+      cond_leg_med: "中位数终点",
+      cond_leg_tail: "深尾（10% 最深情境）",
+      cond_leg_now: "当前位置",
+      tt_cond: "{s}：触及 −{d}% 后终点 {v}%",
+      lppl_ndx_l: "NDX（信心 1.0）",
+      lppl_ndx_n: "临界点已于 2026-10-06 触发",
+      lppl_nvda_l: "NVDA（信心 1.0）",
+      lppl_nvda_n: "tc 丛集＝现在（2026-11～12）",
+      lppl_taiex_l: "TAIEX（信心 0.39）",
+      lppl_taiex_n: "真前向估计：2027-01 前后",
+      lppl_pass: "（通过筛选 {v}/{t} 窗口）",
+      tt_lppl: "{l}：tc 落在 {m} 的窗口数 {v}/{t}",
+      val_h_end: "拟合窗口截止",
+      val_h_tc: "tc 估计",
+      val_h_n: "通过筛选拟合数",
+      val_note: "真实峰顶：2000-03-27。模型依窗口成熟逐渐逼近真实峰顶（误差带 ±3–6 个月）。",
+      scen_name_E1: "E1 不再加深（回档不破 −15%）",
+      scen_name_E2: "E2 浅修正 −15~−25%",
+      scen_name_E3: "E3 深度修正 −25~−40%",
+      scen_name_E4: "E4 终结性崩盘 ≤−40%",
+      scen_chart_E1: "E1 不再加深（回档不破 −15%）",
+      scen_chart_E2: "E2 浅修正 −15~−25%",
+      scen_chart_E3: "E3 深度修正 −25~−40%",
+      scen_chart_E4: "E4 终结性崩盘 ≤−40%",
+      scen_short_E1: "E1 不再加深",
+      scen_short_E2: "E2 浅修正",
+      scen_short_E3: "E3 深度修正",
+      scen_short_E4: "E4 终结性崩盘",
+      proto_E1: "1999 全年型",
+      proto_E2: "1998-07 / 2024-07 / 2025-02",
+      proto_E3: "2021-11 / 1987 / 1990",
+      proto_E4: "2000-03",
+      tt_scen_iv: "{n}：80% 区间 {lo}–{hi}%（原型 {p}）",
+      tt_scen_med: "{n}：中位数 {m}%（点概率 {pt}%）",
+      scen_note: "NDX 四情境为互斥且穷尽的分割，点概率合计 100%；区间为同一 Dirichlet 分布（k={k}）的边际 80% 区间。",
+      th_scen: "情境",
+      th_ndx_pt: "NDX 点概率",
+      th_ndx_iv: "NDX 80% 区间",
+      taiex_e3: "TAIEX：E3 深度修正",
+      taiex_e4: "TAIEX：E4 ≤−40%",
+      taiex_p: "TAIEX：P(终点 ≤−25%)",
+      taiex_p_iv: "84.9–99.9%（经验 5/5）",
+      timing_label: "时点：2026Q4 / 2027H1 / 之后",
+      timing_val: "{a}% / {b}% / {c}%（合计 100%）",
+      scen_sens: "证据流权重敏感度（P(E4)）：纯经验 6.7% ↔ 基准 23.9% ↔ 纯 GSY 映射 48.8%——这个跨度是本模型最大的不确定性来源。",
+      gloss_intro: "看图时卡住的词都收在这里。想深究方法与完整推论，请读《量化类比推论报告》。",
+      gloss_g1: "标的与图表名词",
+      gloss_g2: "估值指标（上方四张数字卡）",
+      gloss_g3: "统计名词",
+      gloss_g4: "模型名词",
+      gloss_t_ndx: "<b>NDX</b>（NASDAQ-100）",
+      gloss_d_ndx: "美国纳斯达克 100 指数，集中大型科技股。",
+      gloss_t_spx: "<b>SPX</b>（S&P 500）",
+      gloss_d_spx: "美国标普 500 大盘指数。",
+      gloss_t_taiex: "<b>TAIEX</b>",
+      gloss_d_taiex: "台湾加权股价指数。",
+      gloss_t_nvda: "<b>NVDA</b>",
+      gloss_d_nvda: "英伟达（NVIDIA）个股。个股波动远大于指数。",
+      gloss_t_ptd: "<b>峰顶／谷底／回档</b>",
+      gloss_d_ptd: "回档＝从最高点跌下来的幅度；谷底＝这一波的最低点；“终点深度”＝谷底相对峰顶的总跌幅。",
+      gloss_t_align: "<b>对齐（轨迹对齐）</b>",
+      gloss_d_align: "把每场崩盘都从“峰顶第 0 月”开始画，不同年代的崩盘才能叠在同一张图互相比较。",
+      gloss_t_cape: "<b>Shiller CAPE</b>",
+      gloss_d_cape: "股价 ÷ 过去十年平均通胀调整盈余。越高＝越贵。40 以上在 150 年历史中极罕见，过去只出现在 1929、2000 年前后。",
+      gloss_t_pct: "<b>百分位</b>",
+      gloss_d_pct: "“历史上有多少比例的日子比现在便宜”。99 百分位＝只有 1% 的日子比现在更贵。",
+      gloss_t_ecy: "<b>ECY（超额 CAPE 收益率）</b>",
+      gloss_d_ecy: "1/CAPE 减 10 年国债利率＝“股票相对债券多给多少补偿”。数字越低（负越多）＝股票相对越贵。",
+      gloss_t_mvgdp: "<b>市值 / GDP（Z.1）</b>",
+      gloss_d_mvgdp: "全美股市总市值除以 GDP（美联储 Z.1 报告口径，俗称巴菲特指标）。2.55＝1945 年以来最高。",
+      gloss_t_gsy: "<b>GSY 泡沫特征</b>",
+      gloss_d_gsy: "学术泡沫辨识法（Greenwood–Shleifer–You 2019）：两年涨幅大＋近期加速＋达到历史极端百分位，三者同时满足时，历史上常接着崩盘。",
+      gloss_t_med: "<b>中位数</b>",
+      gloss_d_med: "排序后中间那个值。不受少数极端案例拉扯，比平均更适合描述“典型经验”。",
+      gloss_t_p10: "<b>p10（深尾）</b>",
+      gloss_d_p10: "最惨 10% 情况的分界线。p10＝−38% 代表：十次里有一次会跌到 −38% 或更深。",
+      gloss_t_fwd: "<b>1 年前向报酬</b>",
+      gloss_d_fwd: "触发条件之后持有一年的报酬。中位数＋31.2%＝一半的经验一年后赚超过 31.2%。",
+      gloss_t_pi: "<b>点概率／80% 区间</b>",
+      gloss_d_pi: "点概率＝模型给的单一最佳估计；80% 区间＝把模型自身的不确定性算进去后，真值有八成落在这个范围。",
+      gloss_t_lppl: "<b>LPPL</b>",
+      gloss_d_lppl: "对数周期幂律模型：侦测涨势“越涨越快”的泡沫形态，并估出转折时点。只预测“何时”，不预测“多深”。",
+      gloss_t_tc: "<b>tc（临界时点）</b>",
+      gloss_d_tc: "LPPL 估计行情转折最可能发生的时间。不是精确日期，是一段丛集范围。",
+      gloss_t_roll: "<b>滚动窗口拟合</b>",
+      gloss_d_roll: "每个月往后推一次、用最近几年数据重新拟合一次。多个窗口都指向同一时段＝较可信。",
+      gloss_t_conf: "<b>信心指标</b>",
+      gloss_d_conf: "通过筛选的拟合中，tc 落在窗口结束后 6 个月内的比例。1.0＝全部指向近期。",
+      gloss_t_dir: "<b>Dirichlet 后验</b>",
+      gloss_d_dir: "把“四个剧本的概率”当成一个整体分布来估（合计必为 100%），避免各情境分开估时加总不等于 100%。",
+      gloss_t_e14: "<b>E1–E4 情境</b>",
+      gloss_d_e14: "E1＝未来 24 个月最大回调不深于 −15%（不再加深；先涨后再回调只要不破线都算）／E2 浅修正 −15~−25%／E3 深度修正 −25~−40%／E4 终结性崩盘 ≤−40%。",
+    },
+    en: {
+      doc_title: "Crash Analog Dashboard · 2026 AI Market vs Historical Crashes",
+      doc_h1: "Crash Analog Dashboard",
+      doc_subtitle: "2026 AI market vs the 1929/1973/1987/2000/2007/2021 crashes · Data as of 2026-11-06 · by Charlie Chu · all figures reproducible from the quant/ pipeline",
+      doc_footer: "Produced by a four-layer quant pipeline (data → indicators → analogs → statistics) · Not investment advice",
+      intro_p1: "💡 <b>In plain language:</b> this dashboard asks one question — “which historical crashes does the 2026 AI rally resemble, and what followed?” Two facts stand out: (1) valuations sit at century-class extremes (CAPE 40.71 — dearer than 99% of all days on record); (2) the market has already started falling (NDX about −14% and TAIEX about −20% off the October peak). Our estimates are not prophecy: we convert “what actually happened historically after similar setups” into probabilities.",
+      intro_p2: "The four cards above are the market’s health check; the four tabs answer, in order: <b>how history fell → how deep it usually went → when models see the turning point → the combined probabilities</b>. Every chart has a collapsible “How to read this chart” guide; open the Glossary tab (rightmost) for any term; hover over the charts to read exact numbers.",
+      kpi1_label: "Shiller CAPE (Oct 2026)",
+      kpi1_tip: "Price ÷ 10-year average inflation-adjusted earnings; higher = more expensive. 40.71 = 99th percentile since 1871 — dearer than 99% of all days, a 1929/2000-class reading.",
+      kpi_cap_cape: "since 1871: {p}th percentile",
+      kpi2_label: "Nonfinancial mkt cap / GDP (Z.1)",
+      kpi2_tip: "Total US equity market cap ÷ GDP (the Fed’s Z.1 gauge, aka the Buffett indicator). 2.55 = highest since 1945; the 2000 dot-com peak reached only 1.63.",
+      kpi2_cap: "highest since 1945 (2000Q1 was only 1.63)",
+      kpi3_label: "Nominal ECY = 1/CAPE − GS10",
+      kpi3_tip: "The earnings yield (1/CAPE) minus the 10-year Treasury yield = the extra compensation for holding stocks over bonds. The lower (more negative), the dearer stocks are relative to bonds. −2.78% is the 3rd lowest on record.",
+      kpi3_cap: "3rd lowest on record (only 3% of days were dearer)",
+      kpi4_label: "Drawdown from 2026-10-06 peak",
+      kpi4_tip: "Decline from the Oct 6 high (as of 2026-11-06): NDX (Nasdaq 100) {n}, TAIEX (Taiwan Weighted) {t}, NVDA (Nvidia) {v}, SPX (S&P 500) {s}.",
+      tab_paths: "Crash paths",
+      tab_cond: "Conditional stats",
+      tab_lppl: "LPPL timing",
+      tab_scen: "Scenario odds",
+      tab_gloss: "Glossary",
+      paths_h3: "Historical crash paths (aligned by months from peak; thick lines = live 2026)",
+      cond_h3: "Final-depth distribution after touching −X% (median vs deep-tail p10)",
+      lppl_h3: "LPPL critical-time tc distribution (rolling-window fits)",
+      lppl_val_h3: "Method check: NDX 1997–2000 (true peak 2000-03-27)",
+      scen_h3: "Scenario probabilities for the next 12–24 months (three evidence streams, with reasoning)",
+      gloss_h3: "Glossary (plain language)",
+      guide_how: "How to read this chart?",
+      guide1_read: "<b>How to read:</b> each line is one crash episode anchored at its peak — rightward = months since the peak; downward = deeper. Thick colored lines are the three live 2026 series; grey dashed lines are historical episodes (click the tags above to toggle). Hovering shows a line listing every visible episode’s depth at that month.",
+      guide1_now: "<b>Where we are:</b> as of 2026-11-06 this episode is only around “month 1” (NDX about −14%). The drawdown itself is not unusual so far — what diverges is what comes next: some episodes recovered within months (1987, 2021), others kept falling for 2–3 years (2000, 1973).",
+      guide1_tldr: "<b>Bottom line:</b> the drawdown so far is not the story — the valuation tier is (see the cards above). Historical scripts diverge hugely from here, which is why the next tabs quantify instead of narrate.",
+      guide2_read: "<b>How to read:</b> this tab answers an intuitive question — “after falling to a given depth, how deep did it <b>finally</b> get?” One small chart per instrument: x = depth already reached, y = the eventual trough (measured from the peak). Solid line = <b>median</b> (half the episodes ended shallower, half deeper); purple dashed = the <b>worst 10%</b> of cases (p10 deep tail); red dashed = where we are now. Hover the dots for numbers.",
+      guide2_now: "<b>Where we are:</b> NDX −14%: historically, after touching about −15%, the eventual trough had a median of about −23% (usually a bit deeper) and a worst-10% of about −38%. TAIEX −20% → median about −30%, deep tail about −56%. NVDA −22% → median about −37%, deep tail about −75% (single stocks swing far more than indices).",
+      guide2_tldr: "<b>Bottom line:</b> the earlier the decline stalls, the milder the ending; but when 15–20% is reached without a bottom, history says the room for further downside grows. This is a distribution, not a promise — the median 1-year forward return after similar episodes is still positive (NDX +31.2%).",
+      guide3_read: "<b>How to read:</b> LPPL is a mathematical model for bubble criticality — when a rally accelerates “faster and faster”, the model estimates a critical time <b>tc</b> (when the turn is most likely). We refit monthly over rolling windows and plot each window’s tc as a bar: <b>the more bars cluster in one month, the more windows point there</b>. Confidence = the share of screened fits whose tc lands within 6 months after the window ends.",
+      guide3_honest: "<b>Honest caveat:</b> the NDX and NVDA tc clusters (Oct–Dec 2026) were fitted <b>after</b> the peak had already happened — in-sample validation, not prophecy. Only TAIEX looks genuinely forward (estimated around Jan 2027). The table below replays NDX 1999: the model converged on the true peak (2000-03-27) with a ±3–6 month error band, leading by roughly 3–6 months.",
+      guide3_tldr: "<b>Bottom line:</b> LPPL answers “when might the turn come”, not “how deep will it fall”. It is a timing aid, not a precise prophecy.",
+      guide4_read: "<b>How to read:</b> this tab integrates all prior evidence into four mutually exclusive scripts summing to 100%: E1 no deeper (drawdown never breaks −15%), E2 shallow correction −15~−25%, E3 deep correction −25~−40%, E4 terminal crash ≤−40%. E1’s precise definition: over the next 24 months the maximum drawdown from the peak <b>never goes below −15%</b> — a rally followed by another pullback still counts as E1 as long as −15% holds; once broken, the outcome belongs to E2–E4. The dark tick on each bar = the <b>point probability</b> (single best estimate); the pale bar = the <b>80% interval</b> (the truth falls in this range 8 times out of 10 once model uncertainty is included). Hover for numbers.",
+      guide4_concl: "<b>What the model says now:</b> for NDX, E2 shallow correction is most likely (~50%), but E3+E4 together ≈48% — “a shallow correction and done” versus “a deeper leg is still coming” is nearly a coin flip. On timing: ~50% that this episode’s endpoint lands within 2026Q4, ~80–85% cumulatively by 2027H1. The Taiwan analog is harsher: ~97% probability the final depth breaks −25%.",
+      guide4_tldr: "<b>Bottom line:</b> the model is not a prophecy — it converts “what historically happened at similar setups” into probabilities. The most likely script is a shallow correction, but the risk of a deeper leg (~half) is too large to ignore — the evidence-weight sensitivity in the table below is the model’s own admission of its biggest uncertainty.",
+      paths_cap: "Data: Yahoo Finance daily closes + Shiller monthly (1929). Hover over the chart to read each episode’s drawdown at that month.",
+      cond_cap: "Sample: NDX 1985–2026, 35 drawdowns ≥10%; TAIEX, 8 ≥15%; NVDA, 17 ≥20%. Red dashed = current position. Median 1-year forward return after similar episodes: NDX +31.2%, TAIEX +17.9%, NVDA +34.2%.",
+      lppl_cap: "Confidence = the share of screened fits whose tc lands within 6 months after the window ends. The NDX/NVDA tc clusters sit near the already-occurred peak (in-sample character); TAIEX’s Jan 2027 is the genuine forward estimate.",
+      scen_timing_cap: "Timing: ~50% chance this episode’s endpoint arrives within 2026Q4; ~80–85% cumulatively by 2027H1 (LPPL tc cluster + historical peak-to-trough of 13–20 months).",
+      path_ndx2026: "NDX 2026 (ongoing)",
+      path_taiex2026: "TAIEX 2026 (ongoing)",
+      path_nvda2026: "NVDA 2026 (ongoing)",
+      path_ndx2000: "NDX 2000",
+      path_spx2000: "SPX 2000",
+      path_taiex2000: "TAIEX 2000",
+      path_csco2000: "CSCO 2000 (single stock)",
+      path_nikkei1989: "Nikkei 1989",
+      path_spx1929: "SPX 1929",
+      path_spx1973: "SPX 1973",
+      path_spx1987: "SPX 1987",
+      path_spx2007: "SPX 2007",
+      path_ndx2021: "NDX 2021",
+      axis_x: "Months from peak",
+      axis_y: "Drawdown from peak",
+      axis_tick_x: "M",
+      tt_month: "Month {n}",
+      tt_p1_row: "{l}: {v}%",
+      cond_ndx: "NASDAQ-100 (n=35)",
+      cond_taiex: "TAIEX (n=8)",
+      cond_nvda: "NVIDIA (n=17)",
+      cond_axis_x: "Depth touched",
+      cond_now: "Now −{v}%",
+      cond_s_med: "median",
+      cond_s_tail: "deep tail p10",
+      cond_leg_med: "Median outcome",
+      cond_leg_tail: "Deep tail (worst 10% of cases)",
+      cond_leg_now: "Where we are now",
+      tt_cond: "{s}: after touching −{d}%, final depth {v}%",
+      lppl_ndx_l: "NDX (confidence 1.0)",
+      lppl_ndx_n: "critical point already hit on 2026-10-06",
+      lppl_nvda_l: "NVDA (confidence 1.0)",
+      lppl_nvda_n: "tc cluster = now (Nov–Dec 2026)",
+      lppl_taiex_l: "TAIEX (confidence 0.39)",
+      lppl_taiex_n: "genuine forward estimate: around Jan 2027",
+      lppl_pass: "({v}/{t} windows passed screening)",
+      tt_lppl: "{l}: windows with tc in {m}: {v}/{t}",
+      val_h_end: "Window end",
+      val_h_tc: "tc estimate",
+      val_h_n: "Fits passing screen",
+      val_note: "True peak: 2000-03-27. The model converges toward the true peak as windows mature (±3–6 month error band).",
+      scen_name_E1: "E1 No deeper (drawdown stays above −15%)",
+      scen_name_E2: "E2 Shallow correction −15~−25%",
+      scen_name_E3: "E3 Deep correction −25~−40%",
+      scen_name_E4: "E4 Terminal crash ≤−40%",
+      scen_chart_E1: "E1 No deeper (>−15%)",
+      scen_chart_E2: "E2 Shallow −15~−25%",
+      scen_chart_E3: "E3 Deep −25~−40%",
+      scen_chart_E4: "E4 Terminal ≤−40%",
+      scen_short_E1: "E1 No deeper",
+      scen_short_E2: "E2 Shallow",
+      scen_short_E3: "E3 Deep",
+      scen_short_E4: "E4 Terminal",
+      proto_E1: "1999 melt-up year",
+      proto_E2: "1998-07 / 2024-07 / 2025-02",
+      proto_E3: "2021-11 / 1987 / 1990",
+      proto_E4: "2000-03",
+      tt_scen_iv: "{n}: 80% interval {lo}–{hi}% (prototype {p})",
+      tt_scen_med: "{n}: median {m}% (point probability {pt}%)",
+      scen_note: "The four NDX scenarios are mutually exclusive and exhaustive; point probabilities sum to 100%. The intervals are marginal 80% intervals of one Dirichlet distribution (k={k}).",
+      th_scen: "Scenario",
+      th_ndx_pt: "NDX point prob.",
+      th_ndx_iv: "NDX 80% interval",
+      taiex_e3: "TAIEX: E3 deep correction",
+      taiex_e4: "TAIEX: E4 ≤−40%",
+      taiex_p: "TAIEX: P(final depth ≤−25%)",
+      taiex_p_iv: "84.9–99.9% (empirical 5/5)",
+      timing_label: "Timing: 2026Q4 / 2027H1 / later",
+      timing_val: "{a}% / {b}% / {c}% (sums to 100%)",
+      scen_sens: "Evidence-weight sensitivity of P(E4): empirical only 6.7% ↔ baseline 23.9% ↔ pure GSY mapping 48.8% — this spread is the model’s single largest source of uncertainty.",
+      gloss_intro: "Every term used in the charts, in plain words. For methods and the full reasoning, read the quantitative analog report.",
+      gloss_g1: "Instruments & chart terms",
+      gloss_g2: "Valuation metrics (the four cards above)",
+      gloss_g3: "Statistical terms",
+      gloss_g4: "Model terms",
+      gloss_t_ndx: "<b>NDX</b> (NASDAQ-100)",
+      gloss_d_ndx: "The US Nasdaq-100 index, concentrated in large-cap tech.",
+      gloss_t_spx: "<b>SPX</b> (S&P 500)",
+      gloss_d_spx: "The US S&P 500 broad index.",
+      gloss_t_taiex: "<b>TAIEX</b>",
+      gloss_d_taiex: "Taiwan’s weighted stock index.",
+      gloss_t_nvda: "<b>NVDA</b>",
+      gloss_d_nvda: "NVIDIA single stock. Individual stocks swing far more than indices.",
+      gloss_t_ptd: "<b>Peak / trough / drawdown</b>",
+      gloss_d_ptd: "Drawdown = the fall from the highest point; the trough = the lowest point of this episode; “final depth” = the trough’s total decline from the peak.",
+      gloss_t_align: "<b>Alignment (path alignment)</b>",
+      gloss_d_align: "Every crash is drawn starting at “month 0 of its peak”, so episodes from different eras can be compared on one chart.",
+      gloss_t_cape: "<b>Shiller CAPE</b>",
+      gloss_d_cape: "Price ÷ 10-year average inflation-adjusted earnings. Higher = dearer. Above 40 is extremely rare in 150 years of history — previously seen around 1929 and 2000.",
+      gloss_t_pct: "<b>Percentile</b>",
+      gloss_d_pct: "“How many historical days were cheaper than today.” 99th percentile = only 1% of days were dearer.",
+      gloss_t_ecy: "<b>ECY (Excess CAPE Yield)</b>",
+      gloss_d_ecy: "1/CAPE minus the 10-year Treasury yield = the extra compensation stocks give over bonds. The lower (more negative), the dearer stocks are relative to bonds.",
+      gloss_t_mvgdp: "<b>Market cap / GDP (Z.1)</b>",
+      gloss_d_mvgdp: "Total US equity market value ÷ GDP (the Fed’s Z.1 report gauge, aka the Buffett indicator). 2.55 = highest since 1945.",
+      gloss_t_gsy: "<b>GSY bubble features</b>",
+      gloss_d_gsy: "The academic bubble test (Greenwood–Shleifer–You 2019): a large 2-year run-up + recent acceleration + an extreme historical percentile — when all three hold, crashes often followed.",
+      gloss_t_med: "<b>Median</b>",
+      gloss_d_med: "The middle value after sorting. Not distorted by a few extreme episodes — better than the average for describing a “typical” outcome.",
+      gloss_t_p10: "<b>p10 (deep tail)</b>",
+      gloss_d_p10: "The boundary of the worst 10% of cases. p10 = −38% means: once in ten, the fall reached −38% or deeper.",
+      gloss_t_fwd: "<b>1-year forward return</b>",
+      gloss_d_fwd: "Return over the year after the trigger condition. A median of +31.2% = half the episodes gained more than 31.2% within a year.",
+      gloss_t_pi: "<b>Point probability / 80% interval</b>",
+      gloss_d_pi: "Point probability = the model’s single best estimate; the 80% interval = the range the truth falls in 8 times out of 10 once model uncertainty is priced in.",
+      gloss_t_lppl: "<b>LPPL</b>",
+      gloss_d_lppl: "A log-periodic power-law model: detects the “accelerating” bubble pattern in rallies and estimates the turning time. It predicts “when”, not “how deep”.",
+      gloss_t_tc: "<b>tc (critical time)</b>",
+      gloss_d_tc: "LPPL’s estimate of when the turn is most likely. Not an exact date — a cluster range.",
+      gloss_t_roll: "<b>Rolling-window fitting</b>",
+      gloss_d_roll: "Refit once per month, each time on the latest few years of data. Many windows pointing at the same period = more credible.",
+      gloss_t_conf: "<b>Confidence</b>",
+      gloss_d_conf: "The share of screened fits whose tc lands within 6 months after the window ends. 1.0 = all of them point to the near term.",
+      gloss_t_dir: "<b>Dirichlet posterior</b>",
+      gloss_d_dir: "The four scenario probabilities are estimated as ONE distribution (they must sum to 100%), avoiding the sum-to-105% problem of estimating each scenario separately.",
+      gloss_t_e14: "<b>E1–E4 scenarios</b>",
+      gloss_d_e14: "E1 = max drawdown over the next 24 months never below −15% (no further deepening; rally-then-pullback counts while the line holds) / E2 shallow −15~−25% / E3 deep −25~−40% / E4 terminal crash ≤−40%.",
+    },
+  };
+
+  const LANGS = ["hant", "hans", "en"];
+  const detectLang = () => {
+    const l = (navigator.language || "").toLowerCase();
+    if (l === "zh-tw" || l === "zh-hk" || l === "zh-mo" || l.startsWith("zh-hant")) return "hant";
+    if (l === "zh-cn" || l === "zh-sg" || l.startsWith("zh-hans")) return "hans";
+    if (l.startsWith("en")) return "en";
+    return "hant";
+  };
+  let LANG = (() => {
+    try {
+      const s = localStorage.getItem("cad-lang");
+      if (s && LANGS.includes(s)) return s;
+    } catch (e) {}
+    return detectLang();
+  })();
+  const t = (k) => (I18N[LANG] && I18N[LANG][k] != null) ? I18N[LANG][k] : I18N.hant[k];
+  const tf = (k, vars) => t(k).replace(/\{(\w+)\}/g, (m, name) => (vars && vars[name] != null) ? vars[name] : m);
+
+  const applyLang = () => {
+    document.documentElement.lang = LANG === "hant" ? "zh-Hant" : LANG === "hans" ? "zh-Hans" : "en";
+    document.title = t("doc_title");
+    const h1 = document.querySelector("h1");
+    if (h1) h1.innerHTML = t("doc_h1");
+    document.querySelectorAll("[data-i18n]").forEach(el => { el.innerHTML = t(el.getAttribute("data-i18n")); });
+    document.querySelectorAll("[data-i18n-tip]").forEach(el => { el.setAttribute("data-tooltip", t(el.getAttribute("data-i18n-tip"))); });
+    ROOT.querySelectorAll(".cad-lang").forEach(b => b.classList.toggle("active", b.dataset.lang === LANG));
+  };
+  const setLang = (l) => {
+    if (!LANGS.includes(l)) return;
+    LANG = l;
+    try { localStorage.setItem("cad-lang", l); } catch (e) {}
+    applyLang();
+    buildLegend();
+    fillKPI();
+    drawPaths();
+    drawCond();
+    drawLppl();
+    drawScen();
+  };
+
   const cssVar = (name) => getComputedStyle(document.documentElement).getPropertyValue(name).trim() || "#888";
   let PAL = {};
   const refreshPalette = () => {
@@ -200,19 +744,19 @@ footer{margin-top:18px;color:var(--muted-foreground);font-size:12px}
   refreshPalette();
 
   const PATH_META = [
-    { ep: "NDX 2026 (live)", label: "NDX 2026（進行中）", live: true },
-    { ep: "TAIEX 2026 (live)", label: "TAIEX 2026（進行中）", live: true },
-    { ep: "NVDA 2026 (live)", label: "NVDA 2026（進行中）", live: true },
-    { ep: "NDX 2000", label: "NDX 2000" },
-    { ep: "SPX 2000", label: "SPX 2000" },
-    { ep: "TAIEX 2000", label: "TAIEX 2000" },
-    { ep: "CSCO 2000 (stock)", label: "CSCO 2000（個股）" },
-    { ep: "Nikkei 1989", label: "日經 1989" },
-    { ep: "SPX 1929 (monthly)", label: "SPX 1929" },
-    { ep: "SPX 1973", label: "SPX 1973" },
-    { ep: "SPX 1987", label: "SPX 1987" },
-    { ep: "SPX 2007", label: "SPX 2007" },
-    { ep: "NDX 2021", label: "NDX 2021" },
+    { ep: "NDX 2026 (live)", k: "ndx2026", live: true },
+    { ep: "TAIEX 2026 (live)", k: "taiex2026", live: true },
+    { ep: "NVDA 2026 (live)", k: "nvda2026", live: true },
+    { ep: "NDX 2000", k: "ndx2000" },
+    { ep: "SPX 2000", k: "spx2000" },
+    { ep: "TAIEX 2000", k: "taiex2000" },
+    { ep: "CSCO 2000 (stock)", k: "csco2000" },
+    { ep: "Nikkei 1989", k: "nikkei1989" },
+    { ep: "SPX 1929 (monthly)", k: "spx1929" },
+    { ep: "SPX 1973", k: "spx1973" },
+    { ep: "SPX 1987", k: "spx1987" },
+    { ep: "SPX 2007", k: "spx2007" },
+    { ep: "NDX 2021", k: "ndx2021" },
   ];
   const HOR = 60; // months shown
   const visible = new Set(PATH_META.map(d => d.ep));
@@ -224,7 +768,7 @@ footer{margin-top:18px;color:var(--muted-foreground);font-size:12px}
 
   function drawPaths() {
     const W = Math.max(pathsWrap.clientWidth, 320), H = Math.max(320, Math.min(430, W * 0.5));
-    const M = { t: 14, r: 14, b: 34, l: 46 };
+    const M = { t: 14, r: 14, b: 46, l: 46 };
     svgPaths.attr("viewBox", `0 0 ${W} ${H}`).attr("width", W).attr("height", H);
     svgPaths.selectAll("*").remove();
     const x = d3.scaleLinear().domain([0, HOR]).range([M.l, W - M.r]);
@@ -246,12 +790,12 @@ footer{margin-top:18px;color:var(--muted-foreground);font-size:12px}
     const xTicks = W < 420 ? [0, 12, 24, 36, 48] : [0, 6, 12, 18, 24, 30, 36, 42, 48, 54, 60];
     xTicks.forEach(v => {
       g.append("text").attr("x", x(v)).attr("y", H - M.b + 16).attr("text-anchor", "middle")
-        .attr("font-size", 11).attr("fill", PAL.mut).text(v + "月");
+        .attr("font-size", 11).attr("fill", PAL.mut).text(v + t("axis_tick_x"));
     });
     g.append("text").attr("class", "axis-title").attr("data-axis", "x").attr("x", W - M.r)
-      .attr("y", H - M.b + 16).attr("text-anchor", "end").attr("font-size", 11).attr("fill", PAL.fg).text("距峰頂時間");
+      .attr("y", H - M.b + 31).attr("text-anchor", "end").attr("font-size", 11).attr("fill", PAL.fg).text(t("axis_x"));
     g.append("text").attr("class", "axis-title").attr("data-axis", "y").attr("x", M.l)
-      .attr("y", M.t - 4).attr("text-anchor", "start").attr("font-size", 11).attr("fill", PAL.fg).text("自峰頂回檔深度");
+      .attr("y", M.t - 4).attr("text-anchor", "start").attr("font-size", 11).attr("fill", PAL.fg).text(t("axis_y"));
     const line = d3.line().x(d => x(d[0])).y(d => y(d[1]));
     const clipId = "cad-paths-clip";
     const defs = svgPaths.append("defs");
@@ -289,7 +833,7 @@ footer{margin-top:18px;color:var(--muted-foreground);font-size:12px}
         const pts = idx.get(m.ep);
         if (!pts || !pts.length) return;
         const i = Math.min(bis(pts, xv), pts.length - 1);
-        rows.push({ label: m.label, v: pts[i][1], live: m.live });
+        rows.push({ label: t("path_" + m.k), v: pts[i][1], live: m.live });
       });
       rows.sort((a, b) => a.v - b.v);
       svgPaths.selectAll("circle[data-chart-hover-marker]").remove();
@@ -299,8 +843,8 @@ footer{margin-top:18px;color:var(--muted-foreground);font-size:12px}
           .attr("cy", y(r.v)).attr("r", 3).attr("fill", col);
       });
       tooltip.hidden = false;
-      tooltip.innerHTML = `<b>第 ${xv} 個月</b><br>` + rows.map(r =>
-        `<span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:${r.live ? PAL.s[0] : PAL.mut};margin-right:5px;"></span>${r.label}：${r.v.toFixed(1)}%`).join("<br>");
+      tooltip.innerHTML = `<b>${tf("tt_month", { n: xv })}</b><br>` + rows.map(r =>
+        `<span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:${r.live ? PAL.s[0] : PAL.mut};margin-right:5px;"></span>${tf("tt_p1_row", { l: r.label, v: r.v.toFixed(1) })}`).join("<br>");
       const rect = pathsWrap.getBoundingClientRect();
       let tx = ev.clientX - rect.left + 14, ty = ev.clientY - rect.top + 14;
       if (tx + 190 > rect.width) tx -= 210;
@@ -313,33 +857,36 @@ footer{margin-top:18px;color:var(--muted-foreground);font-size:12px}
     });
   }
 
-  // legend toggle buttons
-  const legend = document.getElementById("cad-path-legend");
-  PATH_META.forEach((m, i) => {
-    const b = document.createElement("button");
-    b.type = "button"; b.setAttribute("aria-pressed", "true");
-    b.style.cssText = "background:none;border:none;cursor:pointer;padding:2px 6px;font:inherit;color:var(--foreground);display:inline-flex;align-items:center;gap:5px;";
-    const sw = document.createElement("span");
-    sw.style.cssText = `width:10px;height:10px;border-radius:2px;background:${m.live ? "var(--viz-series-" + (i % 3 + 1) + ")" : "var(--muted-foreground)"};opacity:${m.live ? 1 : 0.6};`;
-    b.appendChild(sw);
-    b.appendChild(document.createTextNode(m.label));
-    if (m.live) b.style.fontWeight = "500";
-    b.addEventListener("click", () => {
-      if (visible.has(m.ep) && visible.size > 1) { visible.delete(m.ep); b.setAttribute("aria-pressed", "false"); sw.style.opacity = 0.25; }
-      else { visible.add(m.ep); b.setAttribute("aria-pressed", "true"); sw.style.opacity = m.live ? 1 : 0.6; }
-      drawPaths();
+  // legend toggle buttons (rebuilt on language switch)
+  function buildLegend() {
+    const legend = document.getElementById("cad-path-legend");
+    legend.innerHTML = "";
+    PATH_META.forEach((m, i) => {
+      const b = document.createElement("button");
+      b.type = "button"; b.setAttribute("aria-pressed", "true");
+      b.style.cssText = "background:none;border:none;cursor:pointer;padding:2px 6px;font:inherit;color:var(--foreground);display:inline-flex;align-items:center;gap:5px;";
+      const sw = document.createElement("span");
+      sw.style.cssText = `width:10px;height:10px;border-radius:2px;background:${m.live ? "var(--viz-series-" + (i % 3 + 1) + ")" : "var(--muted-foreground)"};opacity:${m.live ? 1 : 0.6};`;
+      b.appendChild(sw);
+      b.appendChild(document.createTextNode(t("path_" + m.k)));
+      if (m.live) b.style.fontWeight = "500";
+      b.addEventListener("click", () => {
+        if (visible.has(m.ep) && visible.size > 1) { visible.delete(m.ep); b.setAttribute("aria-pressed", "false"); sw.style.opacity = 0.25; }
+        else { visible.add(m.ep); b.setAttribute("aria-pressed", "true"); sw.style.opacity = m.live ? 1 : 0.6; }
+        drawPaths();
+      });
+      legend.appendChild(b);
     });
-    legend.appendChild(b);
-  });
+  }
 
   // ────────────────────────────── panel 2: conditional small multiples
   function drawCond() {
     const wrap = document.getElementById("cad-cond-wrap");
     wrap.innerHTML = "";
     const assets = [
-      { key: "NDX", label: "NASDAQ-100（n=35）", cur: 14.7 },
-      { key: "TAIEX", label: "TAIEX 加權指數（n=8）", cur: 20.3 },
-      { key: "NVDA", label: "NVIDIA（n=17）", cur: 24.1 },
+      { key: "NDX", label: t("cond_ndx"), cur: 14.7 },
+      { key: "TAIEX", label: t("cond_taiex"), cur: 20.3 },
+      { key: "NVDA", label: t("cond_nvda"), cur: 24.1 },
     ];
     const cur = { NDX: (DATA.live.NDX || {}).drawdown_pct, TAIEX: (DATA.live.TAIEX || {}).drawdown_pct, NVDA: (DATA.live.NVDA || {}).drawdown_pct };
     assets.forEach(a => {
@@ -373,31 +920,30 @@ footer{margin-top:18px;color:var(--muted-foreground);font-size:12px}
       svg.append("text").attr("x", M.l).attr("y", 12).attr("font-size", 11).attr("fill", PAL.fg)
         .text(a.label);
       svg.append("text").attr("class", "axis-title").attr("data-axis", "x").attr("x", W - M.r)
-        .attr("y", H - M.b + 16).attr("text-anchor", "end").attr("font-size", 11).attr("fill", PAL.fg).text("觸及深度");
+        .attr("y", H - M.b + 29).attr("text-anchor", "end").attr("font-size", 11).attr("fill", PAL.fg).text(t("cond_axis_x"));
       const line = d3.line().x(d => x(d[0])).y(d => y(d[1]));
       const addSeries = (pts, col, dash, name) => {
         svg.append("path").attr("d", line(pts)).attr("fill", "none").attr("stroke", col)
           .attr("stroke-width", 2).attr("stroke-dasharray", dash);
         pts.forEach(p => {
           svg.append("circle").attr("cx", x(p[0])).attr("cy", y(p[1])).attr("r", 3.2).attr("fill", col)
-            .attr("data-tooltip", `${name}：觸及 −${p[0]}% 後終點 ${p[1].toFixed(1)}%`);
+            .attr("data-tooltip", tf("tt_cond", { s: name, d: p[0], v: p[1].toFixed(1) }));
         });
       };
-      addSeries(ptsP, PAL.s[5], "4 3", "深尾 p10");
-      addSeries(ptsM, PAL.s[0], null, "中位數");
+      addSeries(ptsP, PAL.s[5], "4 3", t("cond_s_tail"));
+      addSeries(ptsM, PAL.s[0], null, t("cond_s_med"));
       // current depth marker
       svg.append("line").attr("x1", x(a.cur)).attr("x2", x(a.cur)).attr("y1", M.t).attr("y2", H - M.b)
         .attr("stroke", PAL.red).attr("stroke-width", 1.2).attr("stroke-dasharray", "3 3");
       svg.append("text").attr("x", x(a.cur) + 4).attr("y", M.t + 12).attr("font-size", 11).attr("fill", PAL.red)
-        .text(`現在 −${a.cur.toFixed(1)}%`);
-      // legend once (on first)
+        .text(tf("cond_now", { v: a.cur.toFixed(1) }));
     });
     // single shared legend
     const lg = document.createElement("div");
     lg.className = "viz-row";
-    lg.innerHTML = `<button type="button" aria-pressed="true" style="background:none;border:none;cursor:pointer;font:inherit;color:var(--foreground);display:inline-flex;align-items:center;gap:5px;"><span style="width:12px;height:3px;background:var(--viz-series-1);"></span>中位數終點</button>
-      <button type="button" aria-pressed="true" style="background:none;border:none;cursor:pointer;font:inherit;color:var(--foreground);display:inline-flex;align-items:center;gap:5px;"><span style="width:12px;height:3px;background:var(--viz-series-6);"></span>深尾（10% 最深情境）</button>
-      <button type="button" aria-pressed="true" style="background:none;border:none;cursor:pointer;font:inherit;color:var(--foreground);display:inline-flex;align-items:center;gap:5px;"><span style="width:12px;height:0;border-top:2px dashed var(--destructive);"></span>當前位置</button>`;
+    lg.innerHTML = `<button type="button" aria-pressed="true" style="background:none;border:none;cursor:pointer;font:inherit;color:var(--foreground);display:inline-flex;align-items:center;gap:5px;"><span style="width:12px;height:3px;background:var(--viz-series-1);"></span>${t("cond_leg_med")}</button>
+      <button type="button" aria-pressed="true" style="background:none;border:none;cursor:pointer;font:inherit;color:var(--foreground);display:inline-flex;align-items:center;gap:5px;"><span style="width:12px;height:3px;background:var(--viz-series-6);"></span>${t("cond_leg_tail")}</button>
+      <button type="button" aria-pressed="true" style="background:none;border:none;cursor:pointer;font:inherit;color:var(--foreground);display:inline-flex;align-items:center;gap:5px;"><span style="width:12px;height:0;border-top:2px dashed var(--destructive);"></span>${t("cond_leg_now")}</button>`;
     wrap.appendChild(lg);
   }
 
@@ -406,9 +952,9 @@ footer{margin-top:18px;color:var(--muted-foreground);font-size:12px}
     const wrap = document.getElementById("cad-lppl-wrap");
     wrap.innerHTML = "";
     const rows = [
-      { key: "NDX", label: "NDX（信心 1.0）", note: "臨界點已於 2026-10-06 觸發" },
-      { key: "NVDA", label: "NVDA（信心 1.0）", note: "tc 叢集＝現在（2026-11～12）" },
-      { key: "TAIEX", label: "TAIEX（信心 0.39）", note: "真前向估計：2027-01 前後" },
+      { key: "NDX", lk: "lppl_ndx_l", nk: "lppl_ndx_n" },
+      { key: "NVDA", lk: "lppl_nvda_l", nk: "lppl_nvda_n" },
+      { key: "TAIEX", lk: "lppl_taiex_l", nk: "lppl_taiex_n" },
     ];
     rows.forEach(r => {
       const counts = (DATA.lppls[r.key] || {}).counts || {};
@@ -418,7 +964,7 @@ footer{margin-top:18px;color:var(--muted-foreground);font-size:12px}
       div.style.cssText = "position:relative;";
       wrap.appendChild(div);
       const svg = d3.select(div).append("svg").attr("viewBox", `0 0 ${W} ${H}`).attr("width", W).attr("height", H)
-        .attr("role", "img").attr("aria-label", r.label + " 的 tc 月份分布");
+        .attr("role", "img").attr("aria-label", t(r.lk) + " 的 tc 月份分布");
       const total = d3.sum(months, m => counts[m]);
       const maxV = d3.max(months, m => counts[m]);
       const bw = (W - M.l - M.r) / Math.max(months.length, 1);
@@ -429,21 +975,21 @@ footer{margin-top:18px;color:var(--muted-foreground);font-size:12px}
         const col = `var(--viz-series-${(i % 6) + 1})`;
         svg.append("rect").attr("x", M.l + i * bw + 3).attr("y", scale(v))
           .attr("width", Math.max(bw - 6, 8)).attr("height", Math.max(bh, 1)).attr("fill", col).attr("opacity", 0.85)
-          .attr("data-tooltip", `${r.label}：tc 落在 ${m} 的窗口數 ${v}/${total}`);
+          .attr("data-tooltip", tf("tt_lppl", { l: t(r.lk), m: m, v: v, t: total }));
         svg.append("text").attr("x", M.l + i * bw + bw / 2).attr("y", scale(v) - 4)
           .attr("text-anchor", "middle").attr("font-size", 11).attr("fill", PAL.fg).text(v);
         svg.append("text").attr("x", M.l + i * bw + bw / 2).attr("y", H - M.b + 15)
           .attr("text-anchor", "middle").attr("font-size", 11).attr("fill", PAL.mut).text(m);
       });
       svg.append("text").attr("x", M.l).attr("y", 12).attr("font-size", 11).attr("fill", PAL.fg)
-        .html(`${r.label}　<tspan fill="${PAL.mut}">${r.note}（通過篩選 ${total}/${(DATA.lppls[r.key] || {}).windows} 窗口）</tspan>`);
+        .html(`${t(r.lk)}　<tspan fill="${PAL.mut}">${t(r.nk)}${tf("lppl_pass", { v: total, t: (DATA.lppls[r.key] || {}).windows })}</tspan>`);
     });
     // validation table
     const val = document.getElementById("cad-lppl-val");
     const rowsV = (DATA.lppl_validation || []).map(w =>
       `<tr><td class="text-nowrap">${w.end}</td><td class="text-nowrap tabular-nums">${w.tc || "—"}</td><td class="tabular-nums">${w.qual}</td></tr>`);
-    val.innerHTML = `<table class="table table-sm"><thead><tr><th>擬合窗口截止</th><th>tc 估計</th><th>通過篩選擬合數</th></tr></thead><tbody>${rowsV.join("")}</tbody></table>
-      <p class="text-small text-muted">真實峰頂：2000-03-27。模型依窗口成熟逐漸逼近真實峰頂（誤差帶 ±3–6 個月）。</p>`;
+    val.innerHTML = `<table class="table table-sm"><thead><tr><th>${t("val_h_end")}</th><th>${t("val_h_tc")}</th><th>${t("val_h_n")}</th></tr></thead><tbody>${rowsV.join("")}</tbody></table>
+      <p class="text-small text-muted">${t("val_note")}</p>`;
   }
 
   // ────────────────────────────── panel 4: scenarios (coherent posterior)
@@ -453,12 +999,10 @@ footer{margin-top:18px;color:var(--muted-foreground);font-size:12px}
     const SC = DATA.scenarios;
     const scen = SC ? SC.ndx.map((r, i) => ({
       key: r.key, lo: r.lo * 100, hi: r.hi * 100, m: r.m * 100, pt: r.pt * 100,
-      name: { E1: "E1 不再加深（回檔不破 −15%）", E2: "E2 淺修正 −15~−25%",
-              E3: "E3 深度修正 −25~−40%", E4: "E4 終結性崩盤 ≤−40%" }[r.key],
-      proto: { E1: "1999 全年型", E2: "1998-07 / 2024-07 / 2025-02",
-               E3: "2021-11 / 1987 / 1990", E4: "2000-03" }[r.key],
-      // short on-chart label for narrow screens (full definition lives in the guide + glossary)
-      short: { E1: "E1 不再加深" }[r.key],
+      name: t("scen_name_" + r.key),
+      chart: t("scen_chart_" + r.key),
+      short: t("scen_short_" + r.key),
+      proto: t("proto_" + r.key),
     })) : [];
 
     const W = Math.max(wrap.clientWidth || 600, 320), rowH = 44, H = rowH * scen.length + 26;
@@ -466,7 +1010,7 @@ footer{margin-top:18px;color:var(--muted-foreground);font-size:12px}
     const M = { l: labelW, r: 62 };
     const x = d3.scaleLinear().domain([0, 70]).range([M.l, W - M.r]);
     const svg = d3.select(wrap).append("svg").attr("viewBox", `0 0 ${W} ${H}`).attr("width", W).attr("height", H)
-      .attr("role", "img").attr("aria-label", "NDX 四情境的 Dirichlet 後驗");
+      .attr("role", "img").attr("aria-label", "NDX scenarios (Dirichlet posterior)");
     [0, 10, 20, 30, 40, 50, 60, 70].forEach(v => {
       svg.append("text").attr("x", x(v)).attr("y", 14).attr("text-anchor", "middle")
         .attr("font-size", 11).attr("fill", PAL.mut).text(v + "%");
@@ -475,15 +1019,15 @@ footer{margin-top:18px;color:var(--muted-foreground);font-size:12px}
       const y = 28 + i * rowH;
       const col = `var(--viz-series-${i + 1})`;
       svg.append("text").attr("x", M.l - 8).attr("y", y + 14).attr("text-anchor", "end")
-        .attr("font-size", 11).attr("fill", PAL.fg).text((W < 420 && sc.short) ? sc.short : sc.name);
+        .attr("font-size", 11).attr("fill", PAL.fg).text((W < 420 && sc.short) ? sc.short : sc.chart);
       // 80% interval bar
       svg.append("rect").attr("x", x(sc.lo)).attr("y", y + 6).attr("width", Math.max(x(sc.hi) - x(sc.lo), 2))
         .attr("height", 9).attr("fill", col).attr("opacity", 0.45)
-        .attr("data-tooltip", `${sc.name}：80% 區間 ${sc.lo.toFixed(1)}–${sc.hi.toFixed(1)}%（原型 ${sc.proto}）`);
+        .attr("data-tooltip", tf("tt_scen_iv", { n: sc.name, lo: sc.lo.toFixed(1), hi: sc.hi.toFixed(1), p: sc.proto }));
       // median marker
       svg.append("rect").attr("x", x(sc.m) - 1.2).attr("y", y + 2).attr("width", 2.4)
         .attr("height", 17).attr("fill", col)
-        .attr("data-tooltip", `${sc.name}：中位數 ${sc.m.toFixed(1)}%（點機率 ${sc.pt.toFixed(1)}%）`);
+        .attr("data-tooltip", tf("tt_scen_med", { n: sc.name, m: sc.m.toFixed(1), pt: sc.pt.toFixed(1) }));
       svg.append("text").attr("x", x(sc.hi) + 6).attr("y", y + 14).attr("dy", "0.35em")
         .attr("font-size", 11).attr("fill", PAL.fg)
         .text(`${sc.pt.toFixed(1)}% [${sc.lo.toFixed(0)}–${sc.hi.toFixed(0)}]`);
@@ -491,40 +1035,40 @@ footer{margin-top:18px;color:var(--muted-foreground);font-size:12px}
     if (SC) {
       const note = document.createElement("p");
       note.className = "text-small text-muted";
-      note.textContent = "NDX 四情境為互斥且窮盡的分割，點機率合計 100%；區間為同一 Dirichlet 分布（k=" + SC.k + "）的邊際 80% 區間。";
+      note.textContent = tf("scen_note", { k: SC.k });
       wrap.appendChild(note);
     }
 
     const tb = document.getElementById("cad-scen-table");
-    const tRow = (k, name, pt, lo, hi) =>
-      `<tr><td>${name}</td><td class="tabular-nums text-nowrap">${pt.toFixed(1)}%</td><td class="tabular-nums text-nowrap">${lo == null ? "—" : lo.toFixed(1) + "–" + hi.toFixed(1) + "%"}</td></tr>`;
     const ndx = SC ? SC.ndx : [];
     const tw = SC ? SC.taiex : [];
-    tb.innerHTML = `<table class="table table-sm"><thead><tr><th>情境</th><th>NDX 點機率</th><th>NDX 80% 區間</th></tr></thead><tbody>
-      <tr><td>E1 不再加深（回檔不破 −15%）</td><td class="tabular-nums">${(ndx[0] || {}).pt != null ? ((ndx[0].pt * 100).toFixed(1) + "%") : "2.4%"}</td><td class="tabular-nums">0.1–6.3%</td></tr>
-      <tr><td>E2 淺修正 −15~−25%</td><td class="tabular-nums">${(ndx[1] || {}).pt != null ? ((ndx[1].pt * 100).toFixed(1) + "%") : "50.0%"}</td><td class="tabular-nums">37.0–63.0%</td></tr>
-      <tr><td>E3 深度修正 −25~−40%</td><td class="tabular-nums">${(ndx[2] || {}).pt != null ? ((ndx[2].pt * 100).toFixed(1) + "%") : "23.7%"}</td><td class="tabular-nums">13.3–35.2%</td></tr>
-      <tr><td>E4 終結性崩盤 ≤−40%</td><td class="tabular-nums">${(ndx[3] || {}).pt != null ? ((ndx[3].pt * 100).toFixed(1) + "%") : "23.9%"}</td><td class="tabular-nums">13.4–35.3%</td></tr>
-      <tr><td>TAIEX：E3 深度修正</td><td class="tabular-nums">${(tw[2] || {}).pt != null ? ((tw[2].pt * 100).toFixed(1) + "%") : "59.6%"}</td><td class="tabular-nums">37.8–79.0%</td></tr>
-      <tr><td>TAIEX：E4 ≤−40%</td><td class="tabular-nums">${(tw[3] || {}).pt != null ? ((tw[3].pt * 100).toFixed(1) + "%") : "40.4%"}</td><td class="tabular-nums">21.1–62.2%</td></tr>
-      <tr><td>TAIEX：P(終點 ≤−25%)</td><td class="tabular-nums">97.3%</td><td class="tabular-nums">84.9–99.9%（經驗 5/5）</td></tr>
-      <tr><td>時點：2026Q4 / 2027H1 / 之後</td><td class="tabular-nums" colspan="2">${SC ? Math.round(SC.timing["2026Q4"] * 100) + "% / " + Math.round(SC.timing["2027H1"] * 100) + "% / " + Math.round(SC.timing["2027H2+"] * 100) + "%（合計 100%）" : "50% / 32.5% / 17.5%"}</td></tr>
+    tb.innerHTML = `<table class="table table-sm"><thead><tr><th>${t("th_scen")}</th><th>${t("th_ndx_pt")}</th><th>${t("th_ndx_iv")}</th></tr></thead><tbody>
+      <tr><td>${t("scen_name_E1")}</td><td class="tabular-nums">${(ndx[0] || {}).pt != null ? ((ndx[0].pt * 100).toFixed(1) + "%") : "2.4%"}</td><td class="tabular-nums">0.1–6.3%</td></tr>
+      <tr><td>${t("scen_name_E2")}</td><td class="tabular-nums">${(ndx[1] || {}).pt != null ? ((ndx[1].pt * 100).toFixed(1) + "%") : "50.0%"}</td><td class="tabular-nums">37.0–63.0%</td></tr>
+      <tr><td>${t("scen_name_E3")}</td><td class="tabular-nums">${(ndx[2] || {}).pt != null ? ((ndx[2].pt * 100).toFixed(1) + "%") : "23.7%"}</td><td class="tabular-nums">13.3–35.2%</td></tr>
+      <tr><td>${t("scen_name_E4")}</td><td class="tabular-nums">${(ndx[3] || {}).pt != null ? ((ndx[3].pt * 100).toFixed(1) + "%") : "23.9%"}</td><td class="tabular-nums">13.4–35.3%</td></tr>
+      <tr><td>${t("taiex_e3")}</td><td class="tabular-nums">${(tw[2] || {}).pt != null ? ((tw[2].pt * 100).toFixed(1) + "%") : "59.6%"}</td><td class="tabular-nums">37.8–79.0%</td></tr>
+      <tr><td>${t("taiex_e4")}</td><td class="tabular-nums">${(tw[3] || {}).pt != null ? ((tw[3].pt * 100).toFixed(1) + "%") : "40.4%"}</td><td class="tabular-nums">21.1–62.2%</td></tr>
+      <tr><td>${t("taiex_p")}</td><td class="tabular-nums">97.3%</td><td class="tabular-nums">${t("taiex_p_iv")}</td></tr>
+      <tr><td>${t("timing_label")}</td><td class="tabular-nums" colspan="2">${SC ? tf("timing_val", { a: Math.round(SC.timing["2026Q4"] * 100), b: Math.round(SC.timing["2027H1"] * 100), c: Math.round(SC.timing["2027H2+"] * 100) }) : "50% / 32.5% / 17.5%"}</td></tr>
       </tbody></table>
-      <p class="text-small text-muted">證據流權重敏感度（P(E4)）：純經驗 6.7% ↔ 基準 23.9% ↔ 純 GSY 映射 48.8%——這個跨度是本模型最大的不確定性來源。</p>`;
+      <p class="text-small text-muted">${t("scen_sens")}</p>`;
   }
 
   // ────────────────────────────── wiring
   // fill KPI cards from DATA so the cards always agree with the charts
   const pct1 = (v) => (v < 0 ? "−" : "+") + Math.abs(v).toFixed(1) + "%";
   const byId = (id) => document.getElementById(id);
-  if (DATA.cape_now != null) byId("cad-v-cape").textContent = DATA.cape_now.toFixed(2);
-  if (DATA.cape_pct != null) byId("cad-c-cape").textContent = "1871 年起 " + Math.round(DATA.cape_pct) + " 百分位";
-  if (DATA.mv_gdp_now != null) byId("cad-v-mvgdp").textContent = DATA.mv_gdp_now.toFixed(2);
-  if (DATA.ecy_now != null) byId("cad-v-ecy").textContent = (DATA.ecy_now < 0 ? "−" : "+") + Math.abs(DATA.ecy_now).toFixed(2) + "%";
-  if (DATA.live && DATA.live.NDX) {
-    byId("cad-v-dd").textContent = "NDX " + pct1(DATA.live.NDX.drawdown_pct);
-    byId("cad-s-dd").textContent = ["TAIEX", "NVDA", "SPX"].map(k => k + " " + pct1(DATA.live[k].drawdown_pct)).join(" · ");
-    byId("cad-info-dd").setAttribute("data-tooltip", "從 10 月 6 日高點跌下來的幅度（截至 2026-11-06）：NDX（那斯達克 100）" + pct1(DATA.live.NDX.drawdown_pct) + "、TAIEX（台股加權）" + pct1(DATA.live.TAIEX.drawdown_pct) + "、NVDA（輝達）" + pct1(DATA.live.NVDA.drawdown_pct) + "、SPX（標普 500）" + pct1(DATA.live.SPX.drawdown_pct) + "。");
+  function fillKPI() {
+    if (DATA.cape_now != null) byId("cad-v-cape").textContent = DATA.cape_now.toFixed(2);
+    if (DATA.cape_pct != null) byId("cad-c-cape").textContent = tf("kpi_cap_cape", { p: Math.round(DATA.cape_pct) });
+    if (DATA.mv_gdp_now != null) byId("cad-v-mvgdp").textContent = DATA.mv_gdp_now.toFixed(2);
+    if (DATA.ecy_now != null) byId("cad-v-ecy").textContent = (DATA.ecy_now < 0 ? "−" : "+") + Math.abs(DATA.ecy_now).toFixed(2) + "%";
+    if (DATA.live && DATA.live.NDX) {
+      byId("cad-v-dd").textContent = "NDX " + pct1(DATA.live.NDX.drawdown_pct);
+      byId("cad-s-dd").textContent = ["TAIEX", "NVDA", "SPX"].map(k => k + " " + pct1(DATA.live[k].drawdown_pct)).join(" · ");
+      byId("cad-info-dd").setAttribute("data-tooltip", tf("kpi4_tip", { n: pct1(DATA.live.NDX.drawdown_pct), t: pct1(DATA.live.TAIEX.drawdown_pct), v: pct1(DATA.live.NVDA.drawdown_pct), s: pct1(DATA.live.SPX.drawdown_pct) }));
+    }
   }
 
   // generic data-tooltip handler (panels 2-4 marks + KPI info icons)
@@ -532,9 +1076,9 @@ footer{margin-top:18px;color:var(--muted-foreground);font-size:12px}
   gt.className = "tooltip"; gt.hidden = true; gt.style.position = "fixed";
   ROOT.appendChild(gt);
   ROOT.addEventListener("pointermove", (ev) => {
-    const t = ev.target.closest("[data-tooltip]");
-    if (!t) { gt.hidden = true; return; }
-    gt.textContent = t.getAttribute("data-tooltip");
+    const el = ev.target.closest("[data-tooltip]");
+    if (!el) { gt.hidden = true; return; }
+    gt.textContent = el.getAttribute("data-tooltip");
     gt.hidden = false;
     const pad = 12, r = gt.getBoundingClientRect();
     let tx = ev.clientX + pad, ty = ev.clientY + pad;
@@ -544,6 +1088,15 @@ footer{margin-top:18px;color:var(--muted-foreground);font-size:12px}
   });
   ROOT.addEventListener("pointerleave", () => { gt.hidden = true; });
 
+  // language pills
+  ROOT.addEventListener("click", (ev) => {
+    const b = ev.target.closest(".cad-lang");
+    if (b) setLang(b.dataset.lang);
+  });
+
+  applyLang();
+  buildLegend();
+  fillKPI();
   drawPaths();
   drawCond();
   drawLppl();
@@ -559,15 +1112,15 @@ footer{margin-top:18px;color:var(--muted-foreground);font-size:12px}
   ro2.observe(ROOT);
 
   // redraw hidden panels when their tab becomes visible
-  ROOT.querySelectorAll('[role="tab"]').forEach(t => {
-    t.addEventListener("click", () => {
+  ROOT.querySelectorAll('[role="tab"]').forEach(tb2 => {
+    tb2.addEventListener("click", () => {
       setTimeout(() => { drawCond(); drawLppl(); drawScen(); drawPaths(); }, 60);
     });
   });
 })();
 </script>
 
-<footer>以四層量化管線（資料 → 指標 → 類比 → 統計）產出 · 非投資建議</footer>
+<footer data-i18n="doc_footer">以四層量化管線（資料 → 指標 → 類比 → 統計）產出 · 非投資建議</footer>
 <script>
 document.addEventListener("click", (ev) => {
   const btn = ev.target.closest('.nav-link[role="tab"]');
