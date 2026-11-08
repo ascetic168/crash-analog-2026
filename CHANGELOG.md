@@ -187,3 +187,16 @@ Format based on [Keep a Changelog](https://keepachangelog.com/); versioning: pat
   landing page, not the dashboard; both now point directly to
   https://ascetic168.github.io/crash-analog-2026/quant/dashboard/ (verified live)
 - report PDF rebuilt and re-locked (AES-256 owner-lock); synced to the public repo
+
+## [0.1.18] - 2026-11-09
+
+### Fixed — report front matter: URL layout + wording
+- the two links (GitHub repo / live dashboard) each get their own paragraph
+  and their own line; URLs no longer share a line or wrap mid-string
+  (new a.url-sm style at 10.5pt — the 63-char dashboard URL did not fit
+  the ~352pt text column at 12pt)
+- wording corrected: the download claim now sits on the GitHub repo line
+  only (the online dashboard is view-only)
+- section 8 dashboard bullet: URL moved to its own indented line
+- PDF rebuilt, visual-judge pass (front matter + section 8); synced to
+  the public repo
