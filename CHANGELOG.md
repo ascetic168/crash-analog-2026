@@ -179,3 +179,11 @@ Format based on [Keep a Changelog](https://keepachangelog.com/); versioning: pat
   except the note string
 - report PDF rebuilt (pandoc → Edge → merge → qpdf owner-lock, 20 pages);
   dashboard + data + template + PDF synced to the public repo
+
+## [0.1.17] - 2026-11-09
+
+### Fixed — dashboard URL in the report
+- front matter and §8 linked readers to the site root, which serves the README
+  landing page, not the dashboard; both now point directly to
+  https://ascetic168.github.io/crash-analog-2026/quant/dashboard/ (verified live)
+- report PDF rebuilt and re-locked (AES-256 owner-lock); synced to the public repo
