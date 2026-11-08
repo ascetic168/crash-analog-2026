@@ -179,7 +179,7 @@ cover_content = {
     "summary": "以四層量化管線（資料 → 指標 → 類比 → 統計）比較 2026 年 AI 行情與 1929/1973/1987/2000/2007/2021 "
                "六次歷史崩盤：CAPE 40.71、非金融市值/GDP 史上最高、AI 基礎設施籃子兩年 +224%，"
                "LPPL 臨界時點與 GSY 崩盤機率變數的整合推論，以及跌幅 × 時點的機率矩陣。",
-    "meta": "經濟循環研究 · 報告日期：2026 年 11 月 8 日<br/>"
+    "meta": "作者：Charlie Chu（charliechu1688@gmail.com）· 經濟循環研究<br/>報告日期：2026 年 11 月 8 日 · "
             "資料：Shiller / FRED / Yahoo Finance · 全部可重現（quant/ 目錄）",
     "footer": "ECONOMIC CYCLES RESEARCH · 2026.11",
     "year": "2026",
@@ -203,7 +203,7 @@ for title, _key in H1S:
         toc.append([1, title, pages[title]])
 fdoc.set_toc(toc)
 stamp_page_numbers(fdoc, skip_first=1)
-fdoc.set_metadata({"title": TITLE, "author": "Z.ai", "creator": "Z.ai",
+fdoc.set_metadata({"title": TITLE, "author": "Charlie Chu", "creator": "Charlie Chu",
                    "subject": SUBJECT, "producer": "http://z.ai"})
 TMP = FINAL + ".tmp"
 fdoc.save(TMP, garbage=3, deflate=True)

@@ -102,3 +102,9 @@ Format based on [Keep a Changelog](https://keepachangelog.com/); versioning: pat
 - PDF rebuilt (19 pages), section-5 pages pass visual-judge
 - dashboard scenario panel now renders the posterior (interval bars +
   median ticks + coherent table); passes visual-judge
+
+## [0.1.10] - 2026-11-08
+
+### Changed — author attribution
+- report markdown front matter: 作者 Charlie Chu（charliechu1688@gmail.com）
+- PDF cover meta block and PDF metadata author field updated accordingly
