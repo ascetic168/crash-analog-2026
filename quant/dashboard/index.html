@@ -41,13 +41,33 @@ footer{margin-top:18px;color:var(--muted-foreground);font-size:12px}
 </head><body>
 <h1>崩盤類比儀表板</h1>
 <p class="muted">2026 年 AI 行情 vs 1929/1973/1987/2000/2007/2021 · 資料截至 2026-11-06 · 作者 Charlie Chu · 數字可由 quant/ 管線重現</p>
+<style>
+.cad-intro{margin-bottom:14px;font-size:13.5px}
+.cad-intro p{margin:6px 0}
+.cad-guide{border:1px solid var(--border);background:var(--card);border-radius:10px;margin:0 0 10px;font-size:13px}
+.cad-guide summary{cursor:pointer;padding:9px 12px;font-weight:500;user-select:none;list-style:none}
+.cad-guide summary::-webkit-details-marker{display:none}
+.cad-guide summary::before{content:"▾ ";color:var(--muted-foreground)}
+.cad-guide:not([open]) summary::before{content:"▸ "}
+.cad-guide-body{padding:0 12px 10px;color:var(--foreground)}
+.cad-guide-body p{margin:7px 0}
+.cad-guide-body ul{margin:6px 0;padding-left:20px}
+.cad-tldr{background:var(--muted);border-radius:8px;padding:7px 9px}
+.cad-info{cursor:help;color:var(--muted-foreground);font-size:12px;border-bottom:1px dotted var(--border);margin-left:4px}
+.cad-gloss-group td{font-weight:500;background:var(--muted);color:var(--foreground)}
+</style>
 <div id="crash-analog-dashboard">
 
+  <div class="card cad-intro">
+    <p>💡 <b>白話導讀：</b>這個儀表板在回答一個問題——「這波 AI 行情，像歷史上哪些崩盤？之後會怎樣？」目前兩個關鍵事實：(1) 估值貴到百年歷史的極端等級（CAPE 40.71，比 99% 的日子都貴）；(2) 市場已經開始跌（自 10 月峰頂 NDX 已回檔約 14%、TAIEX 約 20%）。我們的估計方式不是預言，而是把「歷史上走到類似位置之後，實際發生了什麼」換算成機率。</p>
+    <p>上方四張數字卡＝市場體檢摘要；四個頁籤依序回答：<b>歷史怎麼跌 → 通常跌多深 → 模型說何時轉折 → 綜合機率多少</b>。每張圖上方都有「這張圖怎麼看」的圖解（可收合）；看不懂的名詞請開最右邊的「名詞解釋」頁籤；滑鼠移到圖上可以讀出數字。</p>
+  </div>
+
   <div class="viz-grid" id="cad-stats">
-    <div class="card viz-stat"><span class="text-muted">Shiller CAPE（2026-10）</span><span class="viz-stat-value tabular-nums">40.71</span><span class="text-muted">1871 年起 99 百分位</span></div>
-    <div class="card viz-stat"><span class="text-muted">非金融市值 / GDP（Z.1）</span><span class="viz-stat-value tabular-nums">2.55</span><span class="text-muted">1945 年以來最高（2000Q1 僅 1.63）</span></div>
-    <div class="card viz-stat"><span class="text-muted">名目 ECY = 1/CAPE − GS10</span><span class="viz-stat-value tabular-nums">−2.78%</span><span class="text-muted">史上第 3 低（僅 3% 日子更貴）</span></div>
-    <div class="card viz-stat"><span class="text-muted">自 2026-10-06 峰頂回檔</span><span class="viz-stat-value tabular-nums">NDX −14.7%</span><span class="text-muted">TAIEX −20.3% · NVDA −24.1% · SPX −5.7%</span></div>
+    <div class="card viz-stat"><span class="text-muted">Shiller CAPE（2026-10）<span class="cad-info" data-tooltip="股價 ÷ 過去十年平均通膨調整盈餘，越高越貴。40.71＝1871 年以來第 99 百分位，比 99% 的日子都貴，屬 1929／2000 年等級。">ⓘ</span></span><span class="viz-stat-value tabular-nums" id="cad-v-cape">40.71</span><span class="text-muted" id="cad-c-cape">1871 年起 99 百分位</span></div>
+    <div class="card viz-stat"><span class="text-muted">非金融市值 / GDP（Z.1）<span class="cad-info" data-tooltip="全美股市總市值 ÷ GDP（俗稱巴菲特指標的聯準會口徑）。2.55＝1945 年以來最高；2000 年網路泡沫高點也只有 1.63。">ⓘ</span></span><span class="viz-stat-value tabular-nums" id="cad-v-mvgdp">2.55</span><span class="text-muted">1945 年以來最高（2000Q1 僅 1.63）</span></div>
+    <div class="card viz-stat"><span class="text-muted">名目 ECY = 1/CAPE − GS10<span class="cad-info" data-tooltip="股票的盈餘收益率（1/CAPE）減去 10 年公債利率＝「持有股票相對債券多賺多少」。負越多＝股票相對債券越貴。−2.78% 是史上第 3 低。">ⓘ</span></span><span class="viz-stat-value tabular-nums" id="cad-v-ecy">−2.78%</span><span class="text-muted">史上第 3 低（僅 3% 日子更貴）</span></div>
+    <div class="card viz-stat"><span class="text-muted">自 2026-10-06 峰頂回檔<span class="cad-info" id="cad-info-dd" data-tooltip="從 10 月 6 日高點跌下來的幅度（截至 2026-11-06）：NDX（那斯達克 100）−13.6%、TAIEX（台股加權）−20.3%、NVDA（輝達）−22.0%、SPX（標普 500）−5.7%。">ⓘ</span></span><span class="viz-stat-value tabular-nums" id="cad-v-dd">NDX −13.6%</span><span class="text-muted" id="cad-s-dd">TAIEX −20.3% · NVDA −22.0% · SPX −5.7%</span></div>
   </div>
 
   <div class="nav nav-pills" role="tablist" aria-label="儀表板面板">
@@ -55,10 +75,19 @@ footer{margin-top:18px;color:var(--muted-foreground);font-size:12px}
     <button class="nav-link" id="cad-tab-cond" role="tab" aria-controls="cad-panel-cond" aria-selected="false" type="button">條件化統計</button>
     <button class="nav-link" id="cad-tab-lppl" role="tab" aria-controls="cad-panel-lppl" aria-selected="false" type="button">LPPL 臨界時點</button>
     <button class="nav-link" id="cad-tab-scen" role="tab" aria-controls="cad-panel-scen" aria-selected="false" type="button">情境機率</button>
+    <button class="nav-link" id="cad-tab-gloss" role="tab" aria-controls="cad-panel-gloss" aria-selected="false" type="button">名詞解釋</button>
   </div>
 
   <div id="cad-panel-paths" role="tabpanel" aria-labelledby="cad-tab-paths">
     <h3>歷史崩盤軌跡（按距峰頂月數對齊；粗線＝2026 進行中）</h3>
+    <details class="cad-guide" open>
+      <summary>這張圖怎麼看？</summary>
+      <div class="cad-guide-body">
+        <p><b>怎麼讀：</b>每條線是一場崩盤「從最高點算起」的走勢——往右＝距峰頂過了幾個月，往下＝跌得越深。粗彩色線是 2026 進行中的三個標的，灰色虛線是歷史案例（點上方標籤可開關）。滑鼠移到圖上會出現直線，同時列出所有案例「在那個月份」各跌到多深。</p>
+        <p><b>現在的位置：</b>這波截至 2026-11-06 才走到「第 1 個月」附近（NDX 約 −14%）。目前跌幅在歷史上並不稀奇——真正分歧的是「接下來」：有的案例幾個月內收復（如 1987、2021），有的持續下跌 2–3 年（如 2000、1973）。</p>
+        <p class="cad-tldr"><b>一句話重點：</b>現在的跌幅本身不稀奇，稀奇的是估值等級（見上方數字卡）。歷史劇本走到這裡之後分歧極大——所以才需要後面幾頁的統計，而不是只看這張圖講故事。</p>
+      </div>
+    </details>
     <div class="viz-row" id="cad-path-legend" role="group" aria-label="切換顯示的崩盤案例"></div>
     <div id="cad-paths-wrap" style="position:relative;">
       <svg id="cad-paths-svg" role="img" aria-label="歷史崩盤後的回檔路徑折線圖，按距峰頂月數對齊"></svg>
@@ -69,12 +98,28 @@ footer{margin-top:18px;color:var(--muted-foreground);font-size:12px}
 
   <div id="cad-panel-cond" role="tabpanel" aria-labelledby="cad-tab-cond" hidden>
     <h3>觸及 −X% 深度後的終點分布（中位數與深尾 p10）</h3>
+    <details class="cad-guide" open>
+      <summary>這張圖怎麼看？</summary>
+      <div class="cad-guide-body">
+        <p><b>怎麼讀：</b>這頁回答一個很直覺的問題——「歷史上跌到某個深度之後，<b>最後</b>到底跌到多深才見底？」三張小圖各是一個標的：X 軸＝當時已跌到的深度，Y 軸＝最終谷底（自峰頂起算）。實線＝<b>中位數</b>（一半的經驗比這淺、一半比這深），紫虛線＝<b>最慘 10%</b> 的情況（p10 深尾），紅虛線＝現在的位置。滑鼠移到圓點上可讀數字。</p>
+        <p><b>現在的位置：</b>NDX 跌約 14%：歷史上跌到 −15% 左右時，最終谷底中位數約 −23%（通常還會再深一點）、最慘 10% 約 −38%。TAIEX 跌約 20% → 中位數約 −30%、深尾約 −56%。NVDA 跌約 22% → 中位數約 −37%、深尾約 −75%（個股波動遠大於指數）。</p>
+        <p class="cad-tldr"><b>一句話重點：</b>越早止跌、結局越溫和；但「跌 15–20% 還沒止跌」時，歷史經驗顯示進一步下探的空間會變大。這是分布、不是保證——同類回檔之後 1 年，中位數報酬仍是正的（NDX +31.2%）。</p>
+      </div>
+    </details>
     <div id="cad-cond-wrap"></div>
     <p class="text-small text-muted">樣本：NDX 1985–2026 共 35 個 ≥10% 回檔、TAIEX 8 個 ≥15%、NVDA 17 個 ≥20%。紅虛線＝當前位置。1 年前向報酬中位數：NDX +31.2%、TAIEX +17.9%、NVDA +34.2%。</p>
   </div>
 
   <div id="cad-panel-lppl" role="tabpanel" aria-labelledby="cad-tab-lppl" hidden>
     <h3>LPPL 臨界時點 tc 分布（滾動窗口擬合）</h3>
+    <details class="cad-guide" open>
+      <summary>這張圖怎麼看？</summary>
+      <div class="cad-guide-body">
+        <p><b>怎麼讀：</b>LPPL 是偵測「泡沫臨界」的數學模型——當漲勢出現「越漲越快」的加速形態，模型會估出一個臨界時點 <b>tc</b>（轉折最可能發生的時間）。我們用「滾動窗口」每個月重複擬合一次，把每次估出的 tc 畫成長條：<b>長條越集中的月份，代表越多個窗口指向那裡</b>。信心＝通過篩選的擬合中，tc 落在窗口結束後 6 個月內的比例。</p>
+        <p><b>誠實聲明：</b>NDX 與 NVDA 的 tc 叢集（2026-10～12）是在峰頂<b>已經發生後</b>才擬合出來的，屬事後驗證性質；真正「往前看」的只有 TAIEX（估 2027-01 前後）。下方驗證表示範 1999 年 NDX：模型約領先 3–6 個月逐漸逼近真實峰頂（2000-03-27），誤差帶 ±3–6 個月。</p>
+        <p class="cad-tldr"><b>一句話重點：</b>LPPL 只回答「何時可能轉折」，不回答「會跌多深」。它的角色是輔助時點判斷，不是精確預言。</p>
+      </div>
+    </details>
     <div id="cad-lppl-wrap"></div>
     <h3>方法驗證：NDX 1997–2000（真實峰頂 2000-03-27）</h3>
     <div id="cad-lppl-val"></div>
@@ -83,9 +128,51 @@ footer{margin-top:18px;color:var(--muted-foreground);font-size:12px}
 
   <div id="cad-panel-scen" role="tabpanel" aria-labelledby="cad-tab-scen" hidden>
     <h3>未來 12–24 個月情境機率（三條數據流整合，附推論依據）</h3>
+    <details class="cad-guide" open>
+      <summary>這張圖怎麼看？</summary>
+      <div class="cad-guide-body">
+        <p><b>怎麼讀：</b>這頁把前面所有證據整合成四個互斥的「劇本」，機率合計 100%：E1 不再加深（先漲後崩）、E2 淺修正 −15~−25%、E3 深度修正 −25~−40%、E4 終結性崩盤 ≤−40%。每條橫條中間的深色刻度＝<b>點機率</b>（單一最佳估計），淺色長條＝<b>80% 區間</b>（把模型自身的不確定性算進去後，機率有八成落在這個範圍）。滑鼠移上可讀數字。</p>
+        <p><b>現在的結論：</b>以 NDX 而言，最可能是 E2 淺修正（約 50%），但 E3＋E4 合計約 48%——「淺修正收場」與「還有更深一段」幾乎五五波。時間上：約 50% 的機率本輪終點出現在 2026Q4、累計到 2027H1 約 80–85%。台股類比的經驗更嚴峻：終點 ≤−25% 的機率約 97%。</p>
+        <p class="cad-tldr"><b>一句話重點：</b>模型不是預言，是把「歷史走到同樣位置後發生什麼」換算成機率。最可能劇本是淺修正，但深度下修的風險（約一半）大到不能忽視——下方表格的證據權重敏感度就是模型自己承認的最大不確定性。</p>
+      </div>
+    </details>
     <div id="cad-scen-wrap"></div>
     <div id="cad-scen-table"></div>
     <p class="text-small text-muted">時點分布：2026Q4 內見到本輪終點約 50%；累計至 2027H1 約 80–85%（LPPL tc 叢集＋歷史峰→谷 13–20 個月）。</p>
+  </div>
+
+  <div id="cad-panel-gloss" role="tabpanel" aria-labelledby="cad-tab-gloss" hidden>
+    <h3>名詞解釋（白話版）</h3>
+    <p class="text-small text-muted">看圖時卡住的詞都收在這裡。想深究方法與完整推論，請讀《量化類比推論報告》。</p>
+    <table class="table">
+      <tbody>
+        <tr class="cad-gloss-group"><td colspan="2">標的與圖表名詞</td></tr>
+        <tr><td class="text-nowrap"><b>NDX</b>（NASDAQ-100）</td><td>美國那斯達克 100 指數，集中大型科技股。</td></tr>
+        <tr><td class="text-nowrap"><b>SPX</b>（S&P 500）</td><td>美國標普 500 大盤指數。</td></tr>
+        <tr><td class="text-nowrap"><b>TAIEX</b></td><td>台灣加權股價指數。</td></tr>
+        <tr><td class="text-nowrap"><b>NVDA</b></td><td>輝達（NVIDIA）個股。個股波動遠大於指數。</td></tr>
+        <tr><td class="text-nowrap"><b>峰頂／谷底／回檔</b></td><td>回檔＝從最高點跌下來的幅度；谷底＝這一波的最低點；「終點深度」＝谷底相對峰頂的總跌幅。</td></tr>
+        <tr><td class="text-nowrap"><b>對齊（軌跡對齊）</b></td><td>把每場崩盤都從「峰頂第 0 月」開始畫，不同年代的崩盤才能疊在同一張圖互相比較。</td></tr>
+        <tr class="cad-gloss-group"><td colspan="2">估值指標（上方四張數字卡）</td></tr>
+        <tr><td class="text-nowrap"><b>Shiller CAPE</b></td><td>股價 ÷ 過去十年平均通膨調整盈餘。越高＝越貴。40 以上在 150 年歷史中極罕見，過去只出現在 1929、2000 年前後。</td></tr>
+        <tr><td class="text-nowrap"><b>百分位</b></td><td>「歷史上有多少比例的日子比現在便宜」。99 百分位＝只有 1% 的日子比現在更貴。</td></tr>
+        <tr><td class="text-nowrap"><b>ECY（超額 CAPE 收益率）</b></td><td>1/CAPE 減 10 年公債利率＝「股票相對債券多給多少補償」。數字越低（負越多）＝股票相對越貴。</td></tr>
+        <tr><td class="text-nowrap"><b>市值 / GDP（Z.1）</b></td><td>全美股市總市值除以 GDP（聯準會 Z.1 報告口徑，俗稱巴菲特指標）。2.55＝1945 年以來最高。</td></tr>
+        <tr><td class="text-nowrap"><b>GSY 泡沫特徵</b></td><td>學術泡沫辨識法（Greenwood–Shleifer–You 2019）：兩年漲幅大＋近期加速＋達到歷史極端百分位，三者同時滿足時，歷史上常接著崩盤。</td></tr>
+        <tr class="cad-gloss-group"><td colspan="2">統計名詞</td></tr>
+        <tr><td class="text-nowrap"><b>中位數</b></td><td>排序後中間那個值。不受少數極端案例拉扯，比平均更適合描述「典型經驗」。</td></tr>
+        <tr><td class="text-nowrap"><b>p10（深尾）</b></td><td>最慘 10% 情況的分界線。p10＝−38% 代表：十次裡有一次會跌到 −38% 或更深。</td></tr>
+        <tr><td class="text-nowrap"><b>1 年前向報酬</b></td><td>觸發條件之後持有一年的報酬。中位數＋31.2%＝一半的經驗一年後賺超過 31.2%。</td></tr>
+        <tr><td class="text-nowrap"><b>點機率／80% 區間</b></td><td>點機率＝模型給的單一最佳估計；80% 區間＝把模型自身的不確定性算進去後，真值有八成落在這個範圍。</td></tr>
+        <tr class="cad-gloss-group"><td colspan="2">模型名詞</td></tr>
+        <tr><td class="text-nowrap"><b>LPPL</b></td><td>對數週期冪律模型：偵測漲勢「越漲越快」的泡沫形態，並估出轉折時點。只預測「何時」，不預測「多深」。</td></tr>
+        <tr><td class="text-nowrap"><b>tc（臨界時點）</b></td><td>LPPL 估計行情轉折最可能發生的時間。不是精確日期，是一段叢集範圍。</td></tr>
+        <tr><td class="text-nowrap"><b>滾動窗口擬合</b></td><td>每個月往後推一次、用最近幾年資料重新擬合一次。多個窗口都指向同一時段＝較可信。</td></tr>
+        <tr><td class="text-nowrap"><b>信心指標</b></td><td>通過篩選的擬合中，tc 落在窗口結束後 6 個月內的比例。1.0＝全部指向近期。</td></tr>
+        <tr><td class="text-nowrap"><b>Dirichlet 後驗</b></td><td>把「四個劇本的機率」當成一個整體分布來估（合計必為 100%），避免各情境分開估時加總不等於 100%。</td></tr>
+        <tr><td class="text-nowrap"><b>E1–E4 情境</b></td><td>E1 不再加深（先漲後崩）／E2 淺修正 −15~−25%／E3 深度修正 −25~−40%／E4 終結性崩盤 ≤−40%。</td></tr>
+      </tbody>
+    </table>
   </div>
 
 </div>
@@ -425,6 +512,36 @@ footer{margin-top:18px;color:var(--muted-foreground);font-size:12px}
   }
 
   // ────────────────────────────── wiring
+  // fill KPI cards from DATA so the cards always agree with the charts
+  const pct1 = (v) => (v < 0 ? "−" : "+") + Math.abs(v).toFixed(1) + "%";
+  const byId = (id) => document.getElementById(id);
+  if (DATA.cape_now != null) byId("cad-v-cape").textContent = DATA.cape_now.toFixed(2);
+  if (DATA.cape_pct != null) byId("cad-c-cape").textContent = "1871 年起 " + Math.round(DATA.cape_pct) + " 百分位";
+  if (DATA.mv_gdp_now != null) byId("cad-v-mvgdp").textContent = DATA.mv_gdp_now.toFixed(2);
+  if (DATA.ecy_now != null) byId("cad-v-ecy").textContent = (DATA.ecy_now < 0 ? "−" : "+") + Math.abs(DATA.ecy_now).toFixed(2) + "%";
+  if (DATA.live && DATA.live.NDX) {
+    byId("cad-v-dd").textContent = "NDX " + pct1(DATA.live.NDX.drawdown_pct);
+    byId("cad-s-dd").textContent = ["TAIEX", "NVDA", "SPX"].map(k => k + " " + pct1(DATA.live[k].drawdown_pct)).join(" · ");
+    byId("cad-info-dd").setAttribute("data-tooltip", "從 10 月 6 日高點跌下來的幅度（截至 2026-11-06）：NDX（那斯達克 100）" + pct1(DATA.live.NDX.drawdown_pct) + "、TAIEX（台股加權）" + pct1(DATA.live.TAIEX.drawdown_pct) + "、NVDA（輝達）" + pct1(DATA.live.NVDA.drawdown_pct) + "、SPX（標普 500）" + pct1(DATA.live.SPX.drawdown_pct) + "。");
+  }
+
+  // generic data-tooltip handler (panels 2-4 marks + KPI info icons)
+  const gt = document.createElement("div");
+  gt.className = "tooltip"; gt.hidden = true; gt.style.position = "fixed";
+  ROOT.appendChild(gt);
+  ROOT.addEventListener("pointermove", (ev) => {
+    const t = ev.target.closest("[data-tooltip]");
+    if (!t) { gt.hidden = true; return; }
+    gt.textContent = t.getAttribute("data-tooltip");
+    gt.hidden = false;
+    const pad = 12, r = gt.getBoundingClientRect();
+    let tx = ev.clientX + pad, ty = ev.clientY + pad;
+    if (tx + r.width > window.innerWidth - 8) tx = ev.clientX - r.width - pad;
+    if (ty + r.height > window.innerHeight - 8) ty = ev.clientY - r.height - pad;
+    gt.style.left = tx + "px"; gt.style.top = ty + "px";
+  });
+  ROOT.addEventListener("pointerleave", () => { gt.hidden = true; });
+
   drawPaths();
   drawCond();
   drawLppl();

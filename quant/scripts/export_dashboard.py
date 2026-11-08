@@ -1,12 +1,15 @@
 # -*- coding: utf-8 -*-
-"""Export the inline dashboard fragment as a standalone, offline-capable HTML
-file (d3 embedded, self-contained light theme). Output: quant/dashboard/index.html
+"""Export the dashboard template as a standalone, offline-capable HTML file
+(d3 embedded, self-contained light theme). Output: quant/dashboard/index.html
 """
+import json
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 QUANT = HERE.parent
-FRAG = Path(r"C:\Users\charl\.zcode\v2\visualizations\b3dec255754e2cb0904fe24c83211394d9d3bdc7372c0cd180660d21c51b23f7\crash-analog-dashboard.html")
+REPO = QUANT.parent
+TEMPLATE = REPO / "pdf_build_quant" / "dashboard_template.html"
+DATAJS = QUANT / "output" / "dashboard_data.json"
 D3 = QUANT / "data" / "downloads" / "_d3.min.js"
 OUT = QUANT / "dashboard" / "index.html"
 D3_URL = "https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"
@@ -70,7 +73,11 @@ document.addEventListener("click", (ev) => {
 });
 """
 
-frag = FRAG.read_text(encoding="utf-8")
+frag = TEMPLATE.read_text(encoding="utf-8")
+# substitute the /*__DATA__*/ token with the bundled dashboard data
+data = json.loads(DATAJS.read_text(encoding="utf-8"))
+data_s = json.dumps(data, ensure_ascii=False, separators=(",", ":"))
+frag = frag.replace("const DATA = /*__DATA__*/{};", "const DATA = " + data_s + ";")
 # embed d3 inline for offline use
 d3js = D3.read_text(encoding="utf-8")
 frag = frag.replace('<script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>',

@@ -141,3 +141,26 @@ Format based on [Keep a Changelog](https://keepachangelog.com/); versioning: pat
 - front matter and section 8 now link to the public repo and the live
   dashboard (readers can view/download online); PDF re-encrypted and
   synced to the public repo
+
+## [0.1.15] - 2026-11-09
+
+### Added — beginner-friendly dashboard layer
+- template: plain-language intro card (what the page answers + how to use it);
+  collapsible "這張圖怎麼看？" guide above each of the 4 chart panels, open by
+  default (how to read the chart, where the market stands now, one-line takeaway)
+- new 5th tab 名詞解釋: plain-Chinese glossary, 4 groups / 19 terms (CAPE, ECY,
+  p10 deep tail, LPPL/tc, Dirichlet posterior, E1–E4, …)
+- KPI cards get ⓘ hover tooltips; panels 2–4 dormant data-tooltip marks are now
+  wired to a delegated pointer handler (bug fix: hover tooltips actually display)
+- KPI stat-card values now filled from bundled data at render time so the cards
+  always agree with the charts (fixes stale hardcoded NDX −14.7% / NVDA −24.1%
+  vs pipeline data −13.6% / −22.0%)
+
+### Changed — export chain
+- export_dashboard.py reads the in-repo template (pdf_build_quant/
+  dashboard_template.html) and substitutes /*__DATA__*/ with quant/output/
+  dashboard_data.json; drops the out-of-repo .zcode fragment dependency
+  (regression gate: re-export byte-identical to 0.1.14 output before edits)
+- QA: all 5 tabs browser-verified (render, tooltips, guide collapse, legacy
+  panel-1 hover, 390px narrow layout) + visual-judge 5/5 pass; synced to the
+  public repo docs/
