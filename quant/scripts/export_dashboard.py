@@ -9,6 +9,15 @@ QUANT = HERE.parent
 FRAG = Path(r"C:\Users\charl\.zcode\v2\visualizations\b3dec255754e2cb0904fe24c83211394d9d3bdc7372c0cd180660d21c51b23f7\crash-analog-dashboard.html")
 D3 = QUANT / "data" / "downloads" / "_d3.min.js"
 OUT = QUANT / "dashboard" / "index.html"
+D3_URL = "https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"
+
+if not D3.exists():
+    import requests
+    D3.parent.mkdir(parents=True, exist_ok=True)
+    _r = requests.get(D3_URL, timeout=60)
+    _r.raise_for_status()
+    D3.write_bytes(_r.content)
+    print(f"cached d3 -> {D3} ({len(_r.content):,} bytes)")
 
 THEME = """
 :root{
