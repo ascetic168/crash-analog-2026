@@ -164,3 +164,18 @@ Format based on [Keep a Changelog](https://keepachangelog.com/); versioning: pat
 - QA: all 5 tabs browser-verified (render, tooltips, guide collapse, legacy
   panel-1 hover, 390px narrow layout) + visual-judge 5/5 pass; synced to the
   public repo docs/
+
+## [0.1.16] - 2026-11-09
+
+### Changed — E1 scenario label made unambiguous
+- E1 display label 「不再加深（先漲後崩）」→「不再加深（回檔不破 −15%）」 across the
+  dashboard (chart label, scenario table, panel guide, glossary) and the report
+  (scenario matrix + label-history note); the definition is unchanged: NDX eventual
+  max drawdown over the next 24 months never deeper than −15%
+- dashboard: narrow screens (<420px) switch to a short on-chart label to avoid
+  overflow; the panel guide and glossary spell out the full definition
+- build_scenario_posterior.py partition note updated; data chain regenerated
+  (scenario_posterior.json / dashboard_data.json) — verified numerically identical
+  except the note string
+- report PDF rebuilt (pandoc → Edge → merge → qpdf owner-lock, 20 pages);
+  dashboard + data + template + PDF synced to the public repo

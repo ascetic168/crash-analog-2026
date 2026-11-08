@@ -88,7 +88,7 @@
     <details class="cad-guide" open>
       <summary>這張圖怎麼看？</summary>
       <div class="cad-guide-body">
-        <p><b>怎麼讀：</b>這頁把前面所有證據整合成四個互斥的「劇本」，機率合計 100%：E1 不再加深（先漲後崩）、E2 淺修正 −15~−25%、E3 深度修正 −25~−40%、E4 終結性崩盤 ≤−40%。每條橫條中間的深色刻度＝<b>點機率</b>（單一最佳估計），淺色長條＝<b>80% 區間</b>（把模型自身的不確定性算進去後，機率有八成落在這個範圍）。滑鼠移上可讀數字。</p>
+        <p><b>怎麼讀：</b>這頁把前面所有證據整合成四個互斥的「劇本」，機率合計 100%：E1 不再加深（回檔不破 −15%）、E2 淺修正 −15~−25%、E3 深度修正 −25~−40%、E4 終結性崩盤 ≤−40%。E1 的精確定義＝未來 24 個月自峰頂起算的最大回檔<b>從未深過 −15%</b>——先漲上去之後若再回檔，只要不破 −15% 仍屬 E1；一旦跌破就歸 E2–E4。每條橫條中間的深色刻度＝<b>點機率</b>（單一最佳估計），淺色長條＝<b>80% 區間</b>（把模型自身的不確定性算進去後，機率有八成落在這個範圍）。滑鼠移上可讀數字。</p>
         <p><b>現在的結論：</b>以 NDX 而言，最可能是 E2 淺修正（約 50%），但 E3＋E4 合計約 48%——「淺修正收場」與「還有更深一段」幾乎五五波。時間上：約 50% 的機率本輪終點出現在 2026Q4、累計到 2027H1 約 80–85%。台股類比的經驗更嚴峻：終點 ≤−25% 的機率約 97%。</p>
         <p class="cad-tldr"><b>一句話重點：</b>模型不是預言，是把「歷史走到同樣位置後發生什麼」換算成機率。最可能劇本是淺修正，但深度下修的風險（約一半）大到不能忽視——下方表格的證據權重敏感度就是模型自己承認的最大不確定性。</p>
       </div>
@@ -127,7 +127,7 @@
         <tr><td class="text-nowrap"><b>滾動窗口擬合</b></td><td>每個月往後推一次、用最近幾年資料重新擬合一次。多個窗口都指向同一時段＝較可信。</td></tr>
         <tr><td class="text-nowrap"><b>信心指標</b></td><td>通過篩選的擬合中，tc 落在窗口結束後 6 個月內的比例。1.0＝全部指向近期。</td></tr>
         <tr><td class="text-nowrap"><b>Dirichlet 後驗</b></td><td>把「四個劇本的機率」當成一個整體分布來估（合計必為 100%），避免各情境分開估時加總不等於 100%。</td></tr>
-        <tr><td class="text-nowrap"><b>E1–E4 情境</b></td><td>E1 不再加深（先漲後崩）／E2 淺修正 −15~−25%／E3 深度修正 −25~−40%／E4 終結性崩盤 ≤−40%。</td></tr>
+        <tr><td class="text-nowrap"><b>E1–E4 情境</b></td><td>E1＝未來 24 個月最大回檔不深於 −15%（不再加深；先漲後再回檔只要不破線都算）／E2 淺修正 −15~−25%／E3 深度修正 −25~−40%／E4 終結性崩盤 ≤−40%。</td></tr>
       </tbody>
     </table>
   </div>
@@ -408,10 +408,12 @@
     const SC = DATA.scenarios;
     const scen = SC ? SC.ndx.map((r, i) => ({
       key: r.key, lo: r.lo * 100, hi: r.hi * 100, m: r.m * 100, pt: r.pt * 100,
-      name: { E1: "E1 不再加深（先漲後崩）", E2: "E2 淺修正 −15~−25%",
+      name: { E1: "E1 不再加深（回檔不破 −15%）", E2: "E2 淺修正 −15~−25%",
               E3: "E3 深度修正 −25~−40%", E4: "E4 終結性崩盤 ≤−40%" }[r.key],
       proto: { E1: "1999 全年型", E2: "1998-07 / 2024-07 / 2025-02",
                E3: "2021-11 / 1987 / 1990", E4: "2000-03" }[r.key],
+      // short on-chart label for narrow screens (full definition lives in the guide + glossary)
+      short: { E1: "E1 不再加深" }[r.key],
     })) : [];
 
     const W = Math.max(wrap.clientWidth || 600, 320), rowH = 44, H = rowH * scen.length + 26;
@@ -428,7 +430,7 @@
       const y = 28 + i * rowH;
       const col = `var(--viz-series-${i + 1})`;
       svg.append("text").attr("x", M.l - 8).attr("y", y + 14).attr("text-anchor", "end")
-        .attr("font-size", 11).attr("fill", PAL.fg).text(sc.name);
+        .attr("font-size", 11).attr("fill", PAL.fg).text((W < 420 && sc.short) ? sc.short : sc.name);
       // 80% interval bar
       svg.append("rect").attr("x", x(sc.lo)).attr("y", y + 6).attr("width", Math.max(x(sc.hi) - x(sc.lo), 2))
         .attr("height", 9).attr("fill", col).attr("opacity", 0.45)
@@ -454,7 +456,7 @@
     const ndx = SC ? SC.ndx : [];
     const tw = SC ? SC.taiex : [];
     tb.innerHTML = `<table class="table table-sm"><thead><tr><th>情境</th><th>NDX 點機率</th><th>NDX 80% 區間</th></tr></thead><tbody>
-      <tr><td>E1 不再加深（先漲後崩）</td><td class="tabular-nums">${(ndx[0] || {}).pt != null ? ((ndx[0].pt * 100).toFixed(1) + "%") : "2.4%"}</td><td class="tabular-nums">0.1–6.3%</td></tr>
+      <tr><td>E1 不再加深（回檔不破 −15%）</td><td class="tabular-nums">${(ndx[0] || {}).pt != null ? ((ndx[0].pt * 100).toFixed(1) + "%") : "2.4%"}</td><td class="tabular-nums">0.1–6.3%</td></tr>
       <tr><td>E2 淺修正 −15~−25%</td><td class="tabular-nums">${(ndx[1] || {}).pt != null ? ((ndx[1].pt * 100).toFixed(1) + "%") : "50.0%"}</td><td class="tabular-nums">37.0–63.0%</td></tr>
       <tr><td>E3 深度修正 −25~−40%</td><td class="tabular-nums">${(ndx[2] || {}).pt != null ? ((ndx[2].pt * 100).toFixed(1) + "%") : "23.7%"}</td><td class="tabular-nums">13.3–35.2%</td></tr>
       <tr><td>E4 終結性崩盤 ≤−40%</td><td class="tabular-nums">${(ndx[3] || {}).pt != null ? ((ndx[3].pt * 100).toFixed(1) + "%") : "23.9%"}</td><td class="tabular-nums">13.4–35.3%</td></tr>
