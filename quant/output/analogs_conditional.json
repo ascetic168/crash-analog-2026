@@ -1,0 +1,2036 @@
+{
+  "as_of": "2026-11-06",
+  "conditional": {
+    "NDX": {
+      "10": {
+        "n_episodes": 35,
+        "n_with_forward_1y": 32,
+        "median_eventual_max_dd": -14.2,
+        "mean_eventual_max_dd": -18.5,
+        "p10_eventual_max_dd": -30.939999999999998,
+        "median_months_to_trough": 0.4,
+        "median_fwd_1y": 24.6,
+        "detail": [
+          {
+            "peak": "1986-07-03",
+            "touch": "1986-07-15",
+            "eventual_max_dd": -18.0,
+            "months_to_trough": 2.0,
+            "cape_at_episode_start": 13.619995534083806,
+            "fwd_6m": 12.2,
+            "fwd_1y": 33.2,
+            "fwd_2y": 28.9
+          },
+          {
+            "peak": "1987-10-05",
+            "touch": "1987-10-16",
+            "eventual_max_dd": -39.9,
+            "months_to_trough": 0.3,
+            "cape_at_episode_start": 15.530055563627315,
+            "fwd_6m": -5.5,
+            "fwd_1y": -4.3,
+            "fwd_2y": 22.7
+          },
+          {
+            "peak": "1989-10-09",
+            "touch": "1989-12-18",
+            "eventual_max_dd": -16.5,
+            "months_to_trough": 1.4,
+            "cape_at_episode_start": 17.64085385279795,
+            "fwd_6m": 12.3,
+            "fwd_1y": -5.5,
+            "fwd_2y": 42.1
+          },
+          {
+            "peak": "1990-07-16",
+            "touch": "1990-08-02",
+            "eventual_max_dd": -32.9,
+            "months_to_trough": 2.3,
+            "cape_at_episode_start": 17.747171587070245,
+            "fwd_6m": 7.1,
+            "fwd_1y": 25.8,
+            "fwd_2y": 42.0
+          },
+          {
+            "peak": "1991-04-17",
+            "touch": "1991-06-24",
+            "eventual_max_dd": -11.5,
+            "months_to_trough": 0.0,
+            "cape_at_episode_start": 18.15534589519802,
+            "fwd_6m": 22.4,
+            "fwd_1y": 17.7,
+            "fwd_2y": 42.6
+          },
+          {
+            "peak": "1992-02-12",
+            "touch": "1992-04-02",
+            "eventual_max_dd": -18.5,
+            "months_to_trough": 2.8,
+            "cape_at_episode_start": 19.582982970386748,
+            "fwd_6m": -4.2,
+            "fwd_1y": 7.4,
+            "fwd_2y": 20.6
+          },
+          {
+            "peak": "1993-01-14",
+            "touch": "1993-02-22",
+            "eventual_max_dd": -14.2,
+            "months_to_trough": 2.1,
+            "cape_at_episode_start": 20.323410802995706,
+            "fwd_6m": 9.0,
+            "fwd_1y": 20.6,
+            "fwd_2y": 26.1
+          },
+          {
+            "peak": "1994-03-17",
+            "touch": "1994-04-04",
+            "eventual_max_dd": -15.9,
+            "months_to_trough": 2.7,
+            "cape_at_episode_start": 20.83337588946042,
+            "fwd_6m": 1.9,
+            "fwd_1y": 17.7,
+            "fwd_2y": 64.6
+          },
+          {
+            "peak": "1995-09-11",
+            "touch": "1995-10-09",
+            "eventual_max_dd": -10.3,
+            "months_to_trough": 0.0,
+            "cape_at_episode_start": 23.946007075299875,
+            "fwd_6m": 11.7,
+            "fwd_1y": 37.9,
+            "fwd_2y": 109.9
+          },
+          {
+            "peak": "1995-11-03",
+            "touch": "1995-12-18",
+            "eventual_max_dd": -14.0,
+            "months_to_trough": 0.7,
+            "cape_at_episode_start": 24.34758688111483,
+            "fwd_6m": 21.5,
+            "fwd_1y": 52.6,
+            "fwd_2y": 76.4
+          },
+          {
+            "peak": "1996-06-05",
+            "touch": "1996-07-15",
+            "eventual_max_dd": -14.4,
+            "months_to_trough": 0.3,
+            "cape_at_episode_start": 25.96667355833387,
+            "fwd_6m": 42.4,
+            "fwd_1y": 74.5,
+            "fwd_2y": 138.9
+          },
+          {
+            "peak": "1997-01-22",
+            "touch": "1997-03-17",
+            "eventual_max_dd": -15.3,
+            "months_to_trough": 0.5,
+            "cape_at_episode_start": 28.332870129950386,
+            "fwd_6m": 33.2,
+            "fwd_1y": 40.3,
+            "fwd_2y": 148.1
+          },
+          {
+            "peak": "1997-10-09",
+            "touch": "1997-10-27",
+            "eventual_max_dd": -18.2,
+            "months_to_trough": 1.9,
+            "cape_at_episode_start": 32.901498179798125,
+            "fwd_6m": 24.7,
+            "fwd_1y": 38.4,
+            "fwd_2y": 151.2
+          },
+          {
+            "peak": "1998-07-20",
+            "touch": "1998-08-04",
+            "eventual_max_dd": -23.0,
+            "months_to_trough": 2.1,
+            "cape_at_episode_start": 38.25964508524857,
+            "fwd_6m": 53.9,
+            "fwd_1y": 67.3,
+            "fwd_2y": 174.7
+          },
+          {
+            "peak": "1999-02-01",
+            "touch": "1999-02-17",
+            "eventual_max_dd": -11.4,
+            "months_to_trough": 0.4,
+            "cape_at_episode_start": 40.40015922925997,
+            "fwd_6m": 23.6,
+            "fwd_1y": 118.1,
+            "fwd_2y": 17.0
+          },
+          {
+            "peak": "1999-04-09",
+            "touch": "1999-04-19",
+            "eventual_max_dd": -11.9,
+            "months_to_trough": 0.0,
+            "cape_at_episode_start": 42.70450951689217,
+            "fwd_6m": 20.1,
+            "fwd_1y": 82.1,
+            "fwd_2y": -0.7
+          },
+          {
+            "peak": "1999-04-26",
+            "touch": "1999-05-25",
+            "eventual_max_dd": -11.6,
+            "months_to_trough": 0.0,
+            "cape_at_episode_start": 42.70450951689217,
+            "fwd_6m": 55.5,
+            "fwd_1y": 55.0,
+            "fwd_2y": -1.9
+          },
+          {
+            "peak": "1999-07-16",
+            "touch": "1999-08-04",
+            "eventual_max_dd": -12.0,
+            "months_to_trough": 0.2,
+            "cape_at_episode_start": 43.82803599280541,
+            "fwd_6m": 75.8,
+            "fwd_1y": 64.2,
+            "fwd_2y": -21.7
+          },
+          {
+            "peak": "2000-01-03",
+            "touch": "2000-01-06",
+            "eventual_max_dd": -11.9,
+            "months_to_trough": 0.0,
+            "cape_at_episode_start": 43.77257814693801,
+            "fwd_6m": 13.5,
+            "fwd_1y": -32.1,
+            "fwd_2y": -49.9
+          },
+          {
+            "peak": "2000-01-21",
+            "touch": "2000-01-28",
+            "eventual_max_dd": -10.5,
+            "months_to_trough": 0.0,
+            "cape_at_episode_start": 43.77257814693801,
+            "fwd_6m": 0.9,
+            "fwd_1y": -23.6,
+            "fwd_2y": -54.6
+          },
+          {
+            "peak": "2000-03-27",
+            "touch": "2000-04-03",
+            "eventual_max_dd": -82.9,
+            "months_to_trough": 30.1,
+            "cape_at_episode_start": 43.22074843996588,
+            "fwd_6m": -17.8,
+            "fwd_1y": -65.7,
+            "fwd_2y": -65.8
+          },
+          {
+            "peak": "2015-11-03",
+            "touch": "2016-01-13",
+            "eventual_max_dd": -16.3,
+            "months_to_trough": 0.9,
+            "cape_at_episode_start": 26.225851890971935,
+            "fwd_6m": 9.1,
+            "fwd_1y": 21.0,
+            "fwd_2y": 61.6
+          },
+          {
+            "peak": "2018-01-26",
+            "touch": "2018-02-08",
+            "eventual_max_dd": -10.2,
+            "months_to_trough": 0.0,
+            "cape_at_episode_start": 33.30734382803067,
+            "fwd_6m": 18.4,
+            "fwd_1y": 9.6,
+            "fwd_2y": 49.1
+          },
+          {
+            "peak": "2018-03-12",
+            "touch": "2018-04-02",
+            "eventual_max_dd": -10.4,
+            "months_to_trough": 0.0,
+            "cape_at_episode_start": 31.808409057643125,
+            "fwd_6m": 19.4,
+            "fwd_1y": 17.3,
+            "fwd_2y": 19.5
+          },
+          {
+            "peak": "2018-08-29",
+            "touch": "2018-10-24",
+            "eventual_max_dd": -23.0,
+            "months_to_trough": 2.0,
+            "cape_at_episode_start": 32.39027688030113,
+            "fwd_6m": 14.7,
+            "fwd_1y": 17.3,
+            "fwd_2y": 72.2
+          },
+          {
+            "peak": "2019-05-03",
+            "touch": "2019-06-03",
+            "eventual_max_dd": -11.1,
+            "months_to_trough": 0.0,
+            "cape_at_episode_start": 29.24203093693986,
+            "fwd_6m": 18.3,
+            "fwd_1y": 39.1,
+            "fwd_2y": 93.9
+          },
+          {
+            "peak": "2020-02-19",
+            "touch": "2020-02-27",
+            "eventual_max_dd": -28.0,
+            "months_to_trough": 0.7,
+            "cape_at_episode_start": 30.729689264735757,
+            "fwd_6m": 41.4,
+            "fwd_1y": 53.0,
+            "fwd_2y": 68.2
+          },
+          {
+            "peak": "2020-09-02",
+            "touch": "2020-09-08",
+            "eventual_max_dd": -12.8,
+            "months_to_trough": 0.5,
+            "cape_at_episode_start": 30.839426043811255,
+            "fwd_6m": 11.1,
+            "fwd_1y": 41.1,
+            "fwd_2y": 11.3
+          },
+          {
+            "peak": "2021-02-12",
+            "touch": "2021-03-08",
+            "eventual_max_dd": -10.9,
+            "months_to_trough": 0.0,
+            "cape_at_episode_start": 35.10390717196983,
+            "fwd_6m": 27.0,
+            "fwd_1y": 7.9,
+            "fwd_2y": -0.7
+          },
+          {
+            "peak": "2021-11-19",
+            "touch": "2022-01-20",
+            "eventual_max_dd": -35.6,
+            "months_to_trough": 11.2,
+            "cape_at_episode_start": 38.582627497719216,
+            "fwd_6m": -16.2,
+            "fwd_1y": -21.7,
+            "fwd_2y": 16.6
+          },
+          {
+            "peak": "2024-07-10",
+            "touch": "2024-08-02",
+            "eventual_max_dd": -13.6,
+            "months_to_trough": 0.2,
+            "cape_at_episode_start": 35.443553078907236,
+            "fwd_6m": 16.5,
+            "fwd_1y": 23.4,
+            "fwd_2y": 53.3
+          },
+          {
+            "peak": "2025-02-19",
+            "touch": "2025-03-10",
+            "eventual_max_dd": -22.9,
+            "months_to_trough": 1.0,
+            "cape_at_episode_start": 37.18717559369688,
+            "fwd_6m": 22.7,
+            "fwd_1y": 28.4
+          },
+          {
+            "peak": "2025-10-29",
+            "touch": "2026-03-27",
+            "eventual_max_dd": -12.1,
+            "months_to_trough": 0.1,
+            "cape_at_episode_start": 39.205692171126515,
+            "fwd_6m": 32.3
+          },
+          {
+            "peak": "2026-06-02",
+            "touch": "2026-07-29",
+            "eventual_max_dd": -11.3,
+            "months_to_trough": 0.0,
+            "cape_at_episode_start": 40.150169734732664
+          },
+          {
+            "peak": "2026-10-06",
+            "touch": "2026-11-02",
+            "eventual_max_dd": -14.7,
+            "months_to_trough": 0.1,
+            "cape_at_episode_start": 40.710608577487044
+          }
+        ]
+      },
+      "15": {
+        "n_episodes": 15,
+        "n_with_forward_1y": 15,
+        "median_eventual_max_dd": -22.9,
+        "mean_eventual_max_dd": -27.1,
+        "p10_eventual_max_dd": -38.18,
+        "median_months_to_trough": 0.2,
+        "median_fwd_1y": 31.2,
+        "detail": [
+          {
+            "peak": "1986-07-03",
+            "touch": "1986-09-11",
+            "eventual_max_dd": -18.0,
+            "months_to_trough": 0.1,
+            "cape_at_episode_start": 13.619995534083806,
+            "fwd_6m": 33.8,
+            "fwd_1y": 49.0,
+            "fwd_2y": 26.7
+          },
+          {
+            "peak": "1987-10-05",
+            "touch": "1987-10-19",
+            "eventual_max_dd": -39.9,
+            "months_to_trough": 0.2,
+            "cape_at_episode_start": 15.530055563627315,
+            "fwd_6m": 12.0,
+            "fwd_1y": 13.7,
+            "fwd_2y": 48.8
+          },
+          {
+            "peak": "1989-10-09",
+            "touch": "1990-01-30",
+            "eventual_max_dd": -16.5,
+            "months_to_trough": 0.0,
+            "cape_at_episode_start": 17.64085385279795,
+            "fwd_6m": 13.3,
+            "fwd_1y": 16.0,
+            "fwd_2y": 71.2
+          },
+          {
+            "peak": "1990-07-16",
+            "touch": "1990-08-06",
+            "eventual_max_dd": -32.9,
+            "months_to_trough": 2.2,
+            "cape_at_episode_start": 17.747171587070245,
+            "fwd_6m": 22.6,
+            "fwd_1y": 36.4,
+            "fwd_2y": 51.2
+          },
+          {
+            "peak": "1992-02-12",
+            "touch": "1992-04-27",
+            "eventual_max_dd": -18.5,
+            "months_to_trough": 2.0,
+            "cape_at_episode_start": 19.582982970386748,
+            "fwd_6m": 8.1,
+            "fwd_1y": 11.7,
+            "fwd_2y": 25.3
+          },
+          {
+            "peak": "1994-03-17",
+            "touch": "1994-04-20",
+            "eventual_max_dd": -15.9,
+            "months_to_trough": 2.1,
+            "cape_at_episode_start": 20.83337588946042,
+            "fwd_6m": 13.4,
+            "fwd_1y": 26.3,
+            "fwd_2y": 78.1
+          },
+          {
+            "peak": "1997-01-22",
+            "touch": "1997-04-02",
+            "eventual_max_dd": -15.3,
+            "months_to_trough": 0.0,
+            "cape_at_episode_start": 28.332870129950386,
+            "fwd_6m": 42.0,
+            "fwd_1y": 56.9,
+            "fwd_2y": 173.8
+          },
+          {
+            "peak": "1997-10-09",
+            "touch": "1997-12-18",
+            "eventual_max_dd": -18.2,
+            "months_to_trough": 0.2,
+            "cape_at_episode_start": 32.901498179798125,
+            "fwd_6m": 27.0,
+            "fwd_1y": 79.5,
+            "fwd_2y": 247.5
+          },
+          {
+            "peak": "1998-07-20",
+            "touch": "1998-08-31",
+            "eventual_max_dd": -23.0,
+            "months_to_trough": 1.2,
+            "cape_at_episode_start": 38.25964508524857,
+            "fwd_6m": 68.8,
+            "fwd_1y": 110.2,
+            "fwd_2y": 257.6
+          },
+          {
+            "peak": "2000-03-27",
+            "touch": "2000-04-10",
+            "eventual_max_dd": -82.9,
+            "months_to_trough": 29.9,
+            "cape_at_episode_start": 43.22074843996588,
+            "fwd_6m": -20.3,
+            "fwd_1y": -60.0,
+            "fwd_2y": -65.9
+          },
+          {
+            "peak": "2015-11-03",
+            "touch": "2016-02-08",
+            "eventual_max_dd": -16.3,
+            "months_to_trough": 0.0,
+            "cape_at_episode_start": 26.225851890971935,
+            "fwd_6m": 20.8,
+            "fwd_1y": 31.2,
+            "fwd_2y": 59.2
+          },
+          {
+            "peak": "2018-08-29",
+            "touch": "2018-12-17",
+            "eventual_max_dd": -23.0,
+            "months_to_trough": 0.2,
+            "cape_at_episode_start": 32.39027688030113,
+            "fwd_6m": 16.7,
+            "fwd_1y": 33.0,
+            "fwd_2y": 97.8
+          },
+          {
+            "peak": "2020-02-19",
+            "touch": "2020-03-09",
+            "eventual_max_dd": -28.0,
+            "months_to_trough": 0.4,
+            "cape_at_episode_start": 30.729689264735757,
+            "fwd_6m": 43.4,
+            "fwd_1y": 61.0,
+            "fwd_2y": 72.9
+          },
+          {
+            "peak": "2021-11-19",
+            "touch": "2022-01-27",
+            "eventual_max_dd": -35.6,
+            "months_to_trough": 11.0,
+            "cape_at_episode_start": 38.582627497719216,
+            "fwd_6m": -10.0,
+            "fwd_1y": -13.1,
+            "fwd_2y": 24.4
+          },
+          {
+            "peak": "2025-02-19",
+            "touch": "2025-04-03",
+            "eventual_max_dd": -22.9,
+            "months_to_trough": 0.2,
+            "cape_at_episode_start": 37.18717559369688,
+            "fwd_6m": 33.8,
+            "fwd_1y": 29.8
+          }
+        ]
+      },
+      "20": {
+        "n_episodes": 8,
+        "n_with_forward_1y": 8,
+        "median_eventual_max_dd": -30.45,
+        "mean_eventual_max_dd": -36.0,
+        "p10_eventual_max_dd": -52.8,
+        "median_months_to_trough": 0.75,
+        "median_fwd_1y": 40.1,
+        "detail": [
+          {
+            "peak": "1987-10-05",
+            "touch": "1987-10-19",
+            "eventual_max_dd": -39.9,
+            "months_to_trough": 0.2,
+            "cape_at_episode_start": 15.530055563627315,
+            "fwd_6m": 12.0,
+            "fwd_1y": 13.7,
+            "fwd_2y": 48.8
+          },
+          {
+            "peak": "1990-07-16",
+            "touch": "1990-08-17",
+            "eventual_max_dd": -32.9,
+            "months_to_trough": 1.8,
+            "cape_at_episode_start": 17.747171587070245,
+            "fwd_6m": 26.2,
+            "fwd_1y": 42.0,
+            "fwd_2y": 52.6
+          },
+          {
+            "peak": "1998-07-20",
+            "touch": "1998-08-31",
+            "eventual_max_dd": -23.0,
+            "months_to_trough": 1.2,
+            "cape_at_episode_start": 38.25964508524857,
+            "fwd_6m": 68.8,
+            "fwd_1y": 110.2,
+            "fwd_2y": 257.6
+          },
+          {
+            "peak": "2000-03-27",
+            "touch": "2000-04-12",
+            "eventual_max_dd": -82.9,
+            "months_to_trough": 29.8,
+            "cape_at_episode_start": 43.22074843996588,
+            "fwd_6m": -17.3,
+            "fwd_1y": -52.8,
+            "fwd_2y": -62.8
+          },
+          {
+            "peak": "2018-08-29",
+            "touch": "2018-12-21",
+            "eventual_max_dd": -23.0,
+            "months_to_trough": 0.1,
+            "cape_at_episode_start": 32.39027688030113,
+            "fwd_6m": 27.8,
+            "fwd_1y": 43.5,
+            "fwd_2y": 109.9
+          },
+          {
+            "peak": "2020-02-19",
+            "touch": "2020-03-12",
+            "eventual_max_dd": -28.0,
+            "months_to_trough": 0.3,
+            "cape_at_episode_start": 30.729689264735757,
+            "fwd_6m": 52.6,
+            "fwd_1y": 78.1,
+            "fwd_2y": 83.1
+          },
+          {
+            "peak": "2021-11-19",
+            "touch": "2022-03-14",
+            "eventual_max_dd": -35.6,
+            "months_to_trough": 9.5,
+            "cape_at_episode_start": 38.582627497719216,
+            "fwd_6m": -7.0,
+            "fwd_1y": -6.5,
+            "fwd_2y": 38.1
+          },
+          {
+            "peak": "2025-02-19",
+            "touch": "2025-04-04",
+            "eventual_max_dd": -22.9,
+            "months_to_trough": 0.1,
+            "cape_at_episode_start": 37.18717559369688,
+            "fwd_6m": 42.5,
+            "fwd_1y": 38.2
+          }
+        ]
+      },
+      "25": {
+        "n_episodes": 5,
+        "n_with_forward_1y": 5,
+        "median_eventual_max_dd": -35.6,
+        "mean_eventual_max_dd": -43.9,
+        "p10_eventual_max_dd": -65.7,
+        "median_months_to_trough": 1.6,
+        "median_fwd_1y": 13.7,
+        "detail": [
+          {
+            "peak": "1987-10-05",
+            "touch": "1987-10-19",
+            "eventual_max_dd": -39.9,
+            "months_to_trough": 0.2,
+            "cape_at_episode_start": 15.530055563627315,
+            "fwd_6m": 12.0,
+            "fwd_1y": 13.7,
+            "fwd_2y": 48.8
+          },
+          {
+            "peak": "1990-07-16",
+            "touch": "1990-08-23",
+            "eventual_max_dd": -32.9,
+            "months_to_trough": 1.6,
+            "cape_at_episode_start": 17.747171587070245,
+            "fwd_6m": 39.5,
+            "fwd_1y": 60.8,
+            "fwd_2y": 65.8
+          },
+          {
+            "peak": "2000-03-27",
+            "touch": "2000-04-14",
+            "eventual_max_dd": -82.9,
+            "months_to_trough": 29.8,
+            "cape_at_episode_start": 43.22074843996588,
+            "fwd_6m": 2.2,
+            "fwd_1y": -46.6,
+            "fwd_2y": -57.9
+          },
+          {
+            "peak": "2020-02-19",
+            "touch": "2020-03-12",
+            "eventual_max_dd": -28.0,
+            "months_to_trough": 0.3,
+            "cape_at_episode_start": 30.729689264735757,
+            "fwd_6m": 52.6,
+            "fwd_1y": 78.1,
+            "fwd_2y": 83.1
+          },
+          {
+            "peak": "2021-11-19",
+            "touch": "2022-05-09",
+            "eventual_max_dd": -35.6,
+            "months_to_trough": 7.7,
+            "cape_at_episode_start": 38.582627497719216,
+            "fwd_6m": -11.4,
+            "fwd_1y": 8.3,
+            "fwd_2y": 48.6
+          }
+        ]
+      },
+      "30": {
+        "n_episodes": 4,
+        "n_with_forward_1y": 4,
+        "median_eventual_max_dd": -37.75,
+        "mean_eventual_max_dd": -47.8,
+        "p10_eventual_max_dd": -70.0,
+        "median_months_to_trough": 3.35,
+        "median_fwd_1y": 28.65,
+        "detail": [
+          {
+            "peak": "1987-10-05",
+            "touch": "1987-10-20",
+            "eventual_max_dd": -39.9,
+            "months_to_trough": 0.2,
+            "cape_at_episode_start": 15.530055563627315,
+            "fwd_6m": 20.1,
+            "fwd_1y": 25.3,
+            "fwd_2y": 60.5
+          },
+          {
+            "peak": "1990-07-16",
+            "touch": "1990-10-10",
+            "eventual_max_dd": -32.9,
+            "months_to_trough": 0.0,
+            "cape_at_episode_start": 17.747171587070245,
+            "fwd_6m": 60.0,
+            "fwd_1y": 64.7,
+            "fwd_2y": 80.3
+          },
+          {
+            "peak": "2000-03-27",
+            "touch": "2000-04-14",
+            "eventual_max_dd": -82.9,
+            "months_to_trough": 29.8,
+            "cape_at_episode_start": 43.22074843996588,
+            "fwd_6m": 2.2,
+            "fwd_1y": -46.6,
+            "fwd_2y": -57.9
+          },
+          {
+            "peak": "2021-11-19",
+            "touch": "2022-06-13",
+            "eventual_max_dd": -35.6,
+            "months_to_trough": 6.5,
+            "cape_at_episode_start": 38.582627497719216,
+            "fwd_6m": 4.8,
+            "fwd_1y": 32.0,
+            "fwd_2y": 73.4
+          }
+        ]
+      }
+    },
+    "TAIEX": {
+      "10": {
+        "n_episodes": 8,
+        "n_with_forward_1y": 6,
+        "median_eventual_max_dd": -28.7,
+        "mean_eventual_max_dd": -31.8,
+        "p10_eventual_max_dd": -51.989999999999995,
+        "median_months_to_trough": 4.4,
+        "median_fwd_1y": 0.40000000000000036,
+        "detail": [
+          {
+            "peak": "1997-08-26",
+            "touch": "1997-09-09",
+            "eventual_max_dd": -45.9,
+            "months_to_trough": 16.9,
+            "cape_at_episode_start": 32.586283486713185,
+            "fwd_6m": -2.1,
+            "fwd_1y": -24.1,
+            "fwd_2y": -11.6
+          },
+          {
+            "peak": "2000-02-17",
+            "touch": "2000-03-13",
+            "eventual_max_dd": -66.2,
+            "months_to_trough": 18.7,
+            "cape_at_episode_start": 42.185635887917336,
+            "fwd_6m": -16.1,
+            "fwd_1y": -36.3,
+            "fwd_2y": -30.9
+          },
+          {
+            "peak": "2018-01-23",
+            "touch": "2018-10-11",
+            "eventual_max_dd": -16.6,
+            "months_to_trough": 2.8,
+            "cape_at_episode_start": 33.30734382803067,
+            "fwd_6m": 10.2,
+            "fwd_1y": 11.1,
+            "fwd_2y": 31.4
+          },
+          {
+            "peak": "2020-01-14",
+            "touch": "2020-03-11",
+            "eventual_max_dd": -28.7,
+            "months_to_trough": 0.3,
+            "cape_at_episode_start": 30.9852203002307,
+            "fwd_6m": 16.4,
+            "fwd_1y": 48.5,
+            "fwd_2y": 58.5
+          },
+          {
+            "peak": "2022-01-04",
+            "touch": "2022-04-25",
+            "eventual_max_dd": -31.6,
+            "months_to_trough": 6.0,
+            "cape_at_episode_start": 36.936758070297444,
+            "fwd_6m": -23.8,
+            "fwd_1y": -7.5,
+            "fwd_2y": 19.5
+          },
+          {
+            "peak": "2024-07-11",
+            "touch": "2024-08-02",
+            "eventual_max_dd": -28.7,
+            "months_to_trough": 8.2,
+            "cape_at_episode_start": 35.443553078907236,
+            "fwd_6m": 8.7,
+            "fwd_1y": 8.3,
+            "fwd_2y": 99.3
+          },
+          {
+            "peak": "2026-06-22",
+            "touch": "2026-07-17",
+            "eventual_max_dd": -16.4,
+            "months_to_trough": 0.4,
+            "cape_at_episode_start": 40.150169734732664
+          },
+          {
+            "peak": "2026-10-06",
+            "touch": "2026-11-03",
+            "eventual_max_dd": -20.3,
+            "months_to_trough": 0.1,
+            "cape_at_episode_start": 40.710608577487044
+          }
+        ]
+      },
+      "15": {
+        "n_episodes": 8,
+        "n_with_forward_1y": 6,
+        "median_eventual_max_dd": -28.7,
+        "mean_eventual_max_dd": -31.8,
+        "p10_eventual_max_dd": -51.989999999999995,
+        "median_months_to_trough": 3.9,
+        "median_fwd_1y": 8.950000000000001,
+        "detail": [
+          {
+            "peak": "1997-08-26",
+            "touch": "1997-10-02",
+            "eventual_max_dd": -45.9,
+            "months_to_trough": 16.1,
+            "cape_at_episode_start": 32.586283486713185,
+            "fwd_6m": 6.0,
+            "fwd_1y": -24.3,
+            "fwd_2y": -9.5
+          },
+          {
+            "peak": "2000-02-17",
+            "touch": "2000-03-15",
+            "eventual_max_dd": -66.2,
+            "months_to_trough": 18.6,
+            "cape_at_episode_start": 42.185635887917336,
+            "fwd_6m": -17.2,
+            "fwd_1y": -33.5,
+            "fwd_2y": -31.1
+          },
+          {
+            "peak": "2018-01-23",
+            "touch": "2018-10-25",
+            "eventual_max_dd": -16.6,
+            "months_to_trough": 2.3,
+            "cape_at_episode_start": 33.30734382803067,
+            "fwd_6m": 16.0,
+            "fwd_1y": 18.6,
+            "fwd_2y": 35.5
+          },
+          {
+            "peak": "2020-01-14",
+            "touch": "2020-03-13",
+            "eventual_max_dd": -28.7,
+            "months_to_trough": 0.2,
+            "cape_at_episode_start": 30.9852203002307,
+            "fwd_6m": 25.1,
+            "fwd_1y": 60.5,
+            "fwd_2y": 70.5
+          },
+          {
+            "peak": "2022-01-04",
+            "touch": "2022-05-12",
+            "eventual_max_dd": -31.6,
+            "months_to_trough": 5.5,
+            "cape_at_episode_start": 36.936758070297444,
+            "fwd_6m": -10.3,
+            "fwd_1y": -0.7,
+            "fwd_2y": 32.6
+          },
+          {
+            "peak": "2024-07-11",
+            "touch": "2024-08-05",
+            "eventual_max_dd": -28.7,
+            "months_to_trough": 8.1,
+            "cape_at_episode_start": 35.443553078907236,
+            "fwd_6m": 16.8,
+            "fwd_1y": 19.3,
+            "fwd_2y": 125.0
+          },
+          {
+            "peak": "2026-06-22",
+            "touch": "2026-07-29",
+            "eventual_max_dd": -16.4,
+            "months_to_trough": 0.0,
+            "cape_at_episode_start": 40.150169734732664
+          },
+          {
+            "peak": "2026-10-06",
+            "touch": "2026-11-05",
+            "eventual_max_dd": -20.3,
+            "months_to_trough": 0.0,
+            "cape_at_episode_start": 40.710608577487044
+          }
+        ]
+      },
+      "20": {
+        "n_episodes": 6,
+        "n_with_forward_1y": 5,
+        "median_eventual_max_dd": -30.15,
+        "mean_eventual_max_dd": -36.9,
+        "p10_eventual_max_dd": -56.05,
+        "median_months_to_trough": 1.95,
+        "median_fwd_1y": 17.9,
+        "detail": [
+          {
+            "peak": "1997-08-26",
+            "touch": "1997-10-16",
+            "eventual_max_dd": -45.9,
+            "months_to_trough": 15.7,
+            "cape_at_episode_start": 32.586283486713185,
+            "fwd_6m": 9.8,
+            "fwd_1y": -15.0,
+            "fwd_2y": -2.2
+          },
+          {
+            "peak": "2000-02-17",
+            "touch": "2000-06-29",
+            "eventual_max_dd": -66.2,
+            "months_to_trough": 15.1,
+            "cape_at_episode_start": 42.185635887917336,
+            "fwd_6m": -41.6,
+            "fwd_1y": -39.9,
+            "fwd_2y": -36.5
+          },
+          {
+            "peak": "2020-01-14",
+            "touch": "2020-03-16",
+            "eventual_max_dd": -28.7,
+            "months_to_trough": 0.1,
+            "cape_at_episode_start": 30.9852203002307,
+            "fwd_6m": 33.5,
+            "fwd_1y": 67.9,
+            "fwd_2y": 74.3
+          },
+          {
+            "peak": "2022-01-04",
+            "touch": "2022-07-01",
+            "eventual_max_dd": -31.6,
+            "months_to_trough": 3.8,
+            "cape_at_episode_start": 36.936758070297444,
+            "fwd_6m": -1.4,
+            "fwd_1y": 17.9,
+            "fwd_2y": 60.8
+          },
+          {
+            "peak": "2024-07-11",
+            "touch": "2025-04-07",
+            "eventual_max_dd": -28.7,
+            "months_to_trough": 0.1,
+            "cape_at_episode_start": 35.443553078907236,
+            "fwd_6m": 41.5,
+            "fwd_1y": 72.8
+          },
+          {
+            "peak": "2026-10-06",
+            "touch": "2026-11-06",
+            "eventual_max_dd": -20.3,
+            "months_to_trough": 0.0,
+            "cape_at_episode_start": 40.710608577487044
+          }
+        ]
+      },
+      "25": {
+        "n_episodes": 5,
+        "n_with_forward_1y": 5,
+        "median_eventual_max_dd": -31.6,
+        "mean_eventual_max_dd": -40.2,
+        "p10_eventual_max_dd": -58.08,
+        "median_months_to_trough": 1.0,
+        "median_fwd_1y": 18.1,
+        "detail": [
+          {
+            "peak": "1997-08-26",
+            "touch": "1997-10-20",
+            "eventual_max_dd": -45.9,
+            "months_to_trough": 15.5,
+            "cape_at_episode_start": 32.586283486713185,
+            "fwd_6m": 16.3,
+            "fwd_1y": -6.4,
+            "fwd_2y": 4.8
+          },
+          {
+            "peak": "2000-02-17",
+            "touch": "2000-08-30",
+            "eventual_max_dd": -66.2,
+            "months_to_trough": 13.1,
+            "cape_at_episode_start": 42.185635887917336,
+            "fwd_6m": -24.8,
+            "fwd_1y": -40.3,
+            "fwd_2y": -36.8
+          },
+          {
+            "peak": "2020-01-14",
+            "touch": "2020-03-19",
+            "eventual_max_dd": -28.7,
+            "months_to_trough": 0.0,
+            "cape_at_episode_start": 30.9852203002307,
+            "fwd_6m": 48.3,
+            "fwd_1y": 85.1,
+            "fwd_2y": 101.1
+          },
+          {
+            "peak": "2022-01-04",
+            "touch": "2022-09-26",
+            "eventual_max_dd": -31.6,
+            "months_to_trough": 1.0,
+            "cape_at_episode_start": 36.936758070297444,
+            "fwd_6m": 15.5,
+            "fwd_1y": 18.1,
+            "fwd_2y": 65.9
+          },
+          {
+            "peak": "2024-07-11",
+            "touch": "2025-04-09",
+            "eventual_max_dd": -28.7,
+            "months_to_trough": 0.0,
+            "cape_at_episode_start": 35.443553078907236,
+            "fwd_6m": 57.0,
+            "fwd_1y": 100.4
+          }
+        ]
+      },
+      "30": {
+        "n_episodes": 3,
+        "n_with_forward_1y": 3,
+        "median_eventual_max_dd": -45.9,
+        "mean_eventual_max_dd": -47.9,
+        "p10_eventual_max_dd": -62.14,
+        "median_months_to_trough": 5.4,
+        "median_fwd_1y": 14.8,
+        "detail": [
+          {
+            "peak": "1997-08-26",
+            "touch": "1998-08-24",
+            "eventual_max_dd": -45.9,
+            "months_to_trough": 5.4,
+            "cape_at_episode_start": 32.586283486713185,
+            "fwd_6m": -10.3,
+            "fwd_1y": 14.8,
+            "fwd_2y": 16.4
+          },
+          {
+            "peak": "2000-02-17",
+            "touch": "2000-09-18",
+            "eventual_max_dd": -66.2,
+            "months_to_trough": 12.5,
+            "cape_at_episode_start": 42.185635887917336,
+            "fwd_6m": -16.3,
+            "fwd_1y": -45.4,
+            "fwd_2y": -35.1
+          },
+          {
+            "peak": "2022-01-04",
+            "touch": "2022-10-13",
+            "eventual_max_dd": -31.6,
+            "months_to_trough": 0.4,
+            "cape_at_episode_start": 36.936758070297444,
+            "fwd_6m": 23.4,
+            "fwd_1y": 31.0,
+            "fwd_2y": 78.8
+          }
+        ]
+      }
+    },
+    "NVDA": {
+      "10": {
+        "n_episodes": 17,
+        "n_with_forward_1y": 15,
+        "median_eventual_max_dd": -36.9,
+        "mean_eventual_max_dd": -44.4,
+        "p10_eventual_max_dd": -74.72,
+        "median_months_to_trough": 2.3,
+        "median_fwd_1y": 25.3,
+        "detail": [
+          {
+            "peak": "1999-02-24",
+            "touch": "1999-03-03",
+            "eventual_max_dd": -31.1,
+            "months_to_trough": 1.8,
+            "cape_at_episode_start": 40.40015922925997,
+            "fwd_6m": 31.0,
+            "fwd_1y": 189.0,
+            "fwd_2y": 327.8
+          },
+          {
+            "peak": "1999-08-31",
+            "touch": "1999-09-14",
+            "eventual_max_dd": -35.6,
+            "months_to_trough": 0.3,
+            "cape_at_episode_start": 41.930712159940455,
+            "fwd_6m": 342.7,
+            "fwd_1y": 457.8,
+            "fwd_2y": 509.1
+          },
+          {
+            "peak": "1999-12-31",
+            "touch": "2000-01-06",
+            "eventual_max_dd": -21.0,
+            "months_to_trough": 0.8,
+            "cape_at_episode_start": 44.197939761040566,
+            "fwd_6m": 181.0,
+            "fwd_1y": 80.1,
+            "fwd_2y": 576.1
+          },
+          {
+            "peak": "2000-03-13",
+            "touch": "2000-03-14",
+            "eventual_max_dd": -53.9,
+            "months_to_trough": 1.0,
+            "cape_at_episode_start": 43.22074843996588,
+            "fwd_6m": 26.0,
+            "fwd_1y": 3.6,
+            "fwd_2y": 83.9
+          },
+          {
+            "peak": "2000-06-21",
+            "touch": "2000-06-23",
+            "eventual_max_dd": -67.8,
+            "months_to_trough": 5.9,
+            "cape_at_episode_start": 42.78197156707147,
+            "fwd_6m": -52.6,
+            "fwd_1y": 23.3,
+            "fwd_2y": -38.8
+          },
+          {
+            "peak": "2001-06-07",
+            "touch": "2001-06-19",
+            "eventual_max_dd": -51.9,
+            "months_to_trough": 3.4,
+            "cape_at_episode_start": 33.06853441111278,
+            "fwd_6m": 49.3,
+            "fwd_1y": -44.7,
+            "fwd_2y": -44.5
+          },
+          {
+            "peak": "2002-01-03",
+            "touch": "2002-01-11",
+            "eventual_max_dd": -89.7,
+            "months_to_trough": 8.9,
+            "cape_at_episode_start": 30.277204433096014,
+            "fwd_6m": -68.4,
+            "fwd_1y": -80.4,
+            "fwd_2y": -59.6
+          },
+          {
+            "peak": "2006-12-19",
+            "touch": "2007-01-05",
+            "eventual_max_dd": -26.7,
+            "months_to_trough": 2.3,
+            "cape_at_episode_start": 27.282689787571677,
+            "fwd_6m": 29.4,
+            "fwd_1y": 33.7,
+            "fwd_2y": -60.5
+          },
+          {
+            "peak": "2007-10-17",
+            "touch": "2007-10-25",
+            "eventual_max_dd": -85.1,
+            "months_to_trough": 12.9,
+            "cape_at_episode_start": 27.320648130462015,
+            "fwd_6m": -41.9,
+            "fwd_1y": -81.0,
+            "fwd_2y": -62.1
+          },
+          {
+            "peak": "2018-10-01",
+            "touch": "2018-10-10",
+            "eventual_max_dd": -56.1,
+            "months_to_trough": 2.5,
+            "cape_at_episode_start": 31.037961078006507,
+            "fwd_6m": -21.7,
+            "fwd_1y": -25.2,
+            "fwd_2y": 125.5
+          },
+          {
+            "peak": "2020-02-19",
+            "touch": "2020-02-24",
+            "eventual_max_dd": -37.6,
+            "months_to_trough": 0.7,
+            "cape_at_episode_start": 30.729689264735757,
+            "fwd_6m": 86.4,
+            "fwd_1y": 112.6,
+            "fwd_2y": 248.5
+          },
+          {
+            "peak": "2021-02-16",
+            "touch": "2021-02-25",
+            "eventual_max_dd": -24.4,
+            "months_to_trough": 0.4,
+            "cape_at_episode_start": 35.10390717196983,
+            "fwd_6m": 67.0,
+            "fwd_1y": 81.7,
+            "fwd_2y": 75.3
+          },
+          {
+            "peak": "2021-11-29",
+            "touch": "2021-12-06",
+            "eventual_max_dd": -66.4,
+            "months_to_trough": 10.2,
+            "cape_at_episode_start": 38.582627497719216,
+            "fwd_6m": -37.4,
+            "fwd_1y": -46.7,
+            "fwd_2y": 51.7
+          },
+          {
+            "peak": "2024-06-18",
+            "touch": "2024-06-24",
+            "eventual_max_dd": -27.0,
+            "months_to_trough": 1.4,
+            "cape_at_episode_start": 34.81054878004298,
+            "fwd_6m": 18.7,
+            "fwd_1y": 25.3,
+            "fwd_2y": 68.8
+          },
+          {
+            "peak": "2025-01-06",
+            "touch": "2025-01-13",
+            "eventual_max_dd": -36.9,
+            "months_to_trough": 2.7,
+            "cape_at_episode_start": 37.1292198521989,
+            "fwd_6m": 23.8,
+            "fwd_1y": 39.5
+          },
+          {
+            "peak": "2025-10-29",
+            "touch": "2025-11-18",
+            "eventual_max_dd": -20.2,
+            "months_to_trough": 4.3,
+            "cape_at_episode_start": 39.205692171126515,
+            "fwd_6m": 22.6
+          },
+          {
+            "peak": "2026-10-06",
+            "touch": "2026-10-16",
+            "eventual_max_dd": -24.1,
+            "months_to_trough": 0.7,
+            "cape_at_episode_start": 40.710608577487044
+          }
+        ]
+      },
+      "15": {
+        "n_episodes": 17,
+        "n_with_forward_1y": 15,
+        "median_eventual_max_dd": -36.9,
+        "mean_eventual_max_dd": -44.4,
+        "p10_eventual_max_dd": -74.72,
+        "median_months_to_trough": 1.9,
+        "median_fwd_1y": 27.5,
+        "detail": [
+          {
+            "peak": "1999-02-24",
+            "touch": "1999-03-04",
+            "eventual_max_dd": -31.1,
+            "months_to_trough": 1.7,
+            "cape_at_episode_start": 40.40015922925997,
+            "fwd_6m": 33.9,
+            "fwd_1y": 195.3,
+            "fwd_2y": 337.2
+          },
+          {
+            "peak": "1999-08-31",
+            "touch": "1999-09-20",
+            "eventual_max_dd": -35.6,
+            "months_to_trough": 0.1,
+            "cape_at_episode_start": 41.930712159940455,
+            "fwd_6m": 324.7,
+            "fwd_1y": 466.5,
+            "fwd_2y": 391.6
+          },
+          {
+            "peak": "1999-12-31",
+            "touch": "2000-01-27",
+            "eventual_max_dd": -21.0,
+            "months_to_trough": 0.1,
+            "cape_at_episode_start": 44.197939761040566,
+            "fwd_6m": 174.0,
+            "fwd_1y": 164.0,
+            "fwd_2y": 580.2
+          },
+          {
+            "peak": "2000-03-13",
+            "touch": "2000-03-14",
+            "eventual_max_dd": -53.9,
+            "months_to_trough": 1.0,
+            "cape_at_episode_start": 43.22074843996588,
+            "fwd_6m": 26.0,
+            "fwd_1y": 3.6,
+            "fwd_2y": 83.9
+          },
+          {
+            "peak": "2000-06-21",
+            "touch": "2000-06-27",
+            "eventual_max_dd": -67.8,
+            "months_to_trough": 5.8,
+            "cape_at_episode_start": 42.78197156707147,
+            "fwd_6m": -49.6,
+            "fwd_1y": 27.5,
+            "fwd_2y": -52.1
+          },
+          {
+            "peak": "2001-06-07",
+            "touch": "2001-07-05",
+            "eventual_max_dd": -51.9,
+            "months_to_trough": 2.9,
+            "cape_at_episode_start": 33.06853441111278,
+            "fwd_6m": 67.2,
+            "fwd_1y": -54.4,
+            "fwd_2y": -43.5
+          },
+          {
+            "peak": "2002-01-03",
+            "touch": "2002-01-14",
+            "eventual_max_dd": -89.7,
+            "months_to_trough": 8.8,
+            "cape_at_episode_start": 30.277204433096014,
+            "fwd_6m": -66.7,
+            "fwd_1y": -79.3,
+            "fwd_2y": -59.4
+          },
+          {
+            "peak": "2006-12-19",
+            "touch": "2007-01-18",
+            "eventual_max_dd": -26.7,
+            "months_to_trough": 1.9,
+            "cape_at_episode_start": 27.282689787571677,
+            "fwd_6m": 44.1,
+            "fwd_1y": 17.6,
+            "fwd_2y": -62.2
+          },
+          {
+            "peak": "2007-10-17",
+            "touch": "2007-10-29",
+            "eventual_max_dd": -85.1,
+            "months_to_trough": 12.7,
+            "cape_at_episode_start": 27.320648130462015,
+            "fwd_6m": -39.9,
+            "fwd_1y": -75.3,
+            "fwd_2y": -62.6
+          },
+          {
+            "peak": "2018-10-01",
+            "touch": "2018-10-10",
+            "eventual_max_dd": -56.1,
+            "months_to_trough": 2.5,
+            "cape_at_episode_start": 31.037961078006507,
+            "fwd_6m": -21.7,
+            "fwd_1y": -25.2,
+            "fwd_2y": 125.5
+          },
+          {
+            "peak": "2020-02-19",
+            "touch": "2020-02-25",
+            "eventual_max_dd": -37.6,
+            "months_to_trough": 0.7,
+            "cape_at_episode_start": 30.729689264735757,
+            "fwd_6m": 94.8,
+            "fwd_1y": 103.5,
+            "fwd_2y": 269.7
+          },
+          {
+            "peak": "2021-02-16",
+            "touch": "2021-03-03",
+            "eventual_max_dd": -24.4,
+            "months_to_trough": 0.2,
+            "cape_at_episode_start": 35.10390717196983,
+            "fwd_6m": 78.5,
+            "fwd_1y": 85.4,
+            "fwd_2y": 86.9
+          },
+          {
+            "peak": "2021-11-29",
+            "touch": "2021-12-13",
+            "eventual_max_dd": -66.4,
+            "months_to_trough": 10.0,
+            "cape_at_episode_start": 38.582627497719216,
+            "fwd_6m": -44.4,
+            "fwd_1y": -35.8,
+            "fwd_2y": 71.0
+          },
+          {
+            "peak": "2024-06-18",
+            "touch": "2024-07-24",
+            "eventual_max_dd": -27.0,
+            "months_to_trough": 0.5,
+            "cape_at_episode_start": 34.81054878004298,
+            "fwd_6m": 24.9,
+            "fwd_1y": 52.1,
+            "fwd_2y": 81.3
+          },
+          {
+            "peak": "2025-01-06",
+            "touch": "2025-01-27",
+            "eventual_max_dd": -36.9,
+            "months_to_trough": 2.2,
+            "cape_at_episode_start": 37.1292198521989,
+            "fwd_6m": 46.5,
+            "fwd_1y": 59.2
+          },
+          {
+            "peak": "2025-10-29",
+            "touch": "2025-12-12",
+            "eventual_max_dd": -20.2,
+            "months_to_trough": 3.5,
+            "cape_at_episode_start": 39.205692171126515,
+            "fwd_6m": 17.4
+          },
+          {
+            "peak": "2026-10-06",
+            "touch": "2026-11-02",
+            "eventual_max_dd": -24.1,
+            "months_to_trough": 0.1,
+            "cape_at_episode_start": 40.710608577487044
+          }
+        ]
+      },
+      "20": {
+        "n_episodes": 17,
+        "n_with_forward_1y": 15,
+        "median_eventual_max_dd": -36.9,
+        "mean_eventual_max_dd": -44.4,
+        "p10_eventual_max_dd": -74.72,
+        "median_months_to_trough": 1.1,
+        "median_fwd_1y": 34.2,
+        "detail": [
+          {
+            "peak": "1999-02-24",
+            "touch": "1999-03-24",
+            "eventual_max_dd": -31.1,
+            "months_to_trough": 1.1,
+            "cape_at_episode_start": 40.40015922925997,
+            "fwd_6m": -4.6,
+            "fwd_1y": 390.5,
+            "fwd_2y": 605.3
+          },
+          {
+            "peak": "1999-08-31",
+            "touch": "1999-09-21",
+            "eventual_max_dd": -35.6,
+            "months_to_trough": 0.1,
+            "cape_at_episode_start": 41.930712159940455,
+            "fwd_6m": 346.5,
+            "fwd_1y": 553.4,
+            "fwd_2y": 407.7
+          },
+          {
+            "peak": "1999-12-31",
+            "touch": "2000-01-28",
+            "eventual_max_dd": -21.0,
+            "months_to_trough": 0.1,
+            "cape_at_episode_start": 44.197939761040566,
+            "fwd_6m": 189.0,
+            "fwd_1y": 171.9,
+            "fwd_2y": 627.6
+          },
+          {
+            "peak": "2000-03-13",
+            "touch": "2000-03-14",
+            "eventual_max_dd": -53.9,
+            "months_to_trough": 1.0,
+            "cape_at_episode_start": 43.22074843996588,
+            "fwd_6m": 26.0,
+            "fwd_1y": 3.6,
+            "fwd_2y": 83.9
+          },
+          {
+            "peak": "2000-06-21",
+            "touch": "2000-06-28",
+            "eventual_max_dd": -67.8,
+            "months_to_trough": 5.8,
+            "cape_at_episode_start": 42.78197156707147,
+            "fwd_6m": -47.4,
+            "fwd_1y": 34.2,
+            "fwd_2y": -49.8
+          },
+          {
+            "peak": "2001-06-07",
+            "touch": "2001-07-09",
+            "eventual_max_dd": -51.9,
+            "months_to_trough": 2.8,
+            "cape_at_episode_start": 33.06853441111278,
+            "fwd_6m": 73.2,
+            "fwd_1y": -52.3,
+            "fwd_2y": -35.1
+          },
+          {
+            "peak": "2002-01-03",
+            "touch": "2002-02-15",
+            "eventual_max_dd": -89.7,
+            "months_to_trough": 7.8,
+            "cape_at_episode_start": 30.277204433096014,
+            "fwd_6m": -82.1,
+            "fwd_1y": -79.0,
+            "fwd_2y": -59.4
+          },
+          {
+            "peak": "2006-12-19",
+            "touch": "2007-01-29",
+            "eventual_max_dd": -26.7,
+            "months_to_trough": 1.5,
+            "cape_at_episode_start": 27.282689787571677,
+            "fwd_6m": 46.6,
+            "fwd_1y": 26.3,
+            "fwd_2y": -58.8
+          },
+          {
+            "peak": "2007-10-17",
+            "touch": "2007-11-12",
+            "eventual_max_dd": -85.1,
+            "months_to_trough": 12.3,
+            "cape_at_episode_start": 27.320648130462015,
+            "fwd_6m": -27.1,
+            "fwd_1y": -75.6,
+            "fwd_2y": -55.2
+          },
+          {
+            "peak": "2018-10-01",
+            "touch": "2018-10-19",
+            "eventual_max_dd": -56.1,
+            "months_to_trough": 2.2,
+            "cape_at_episode_start": 31.037961078006507,
+            "fwd_6m": -18.5,
+            "fwd_1y": -16.5,
+            "fwd_2y": 137.1
+          },
+          {
+            "peak": "2020-02-19",
+            "touch": "2020-03-09",
+            "eventual_max_dd": -37.6,
+            "months_to_trough": 0.2,
+            "cape_at_episode_start": 30.729689264735757,
+            "fwd_6m": 107.4,
+            "fwd_1y": 104.3,
+            "fwd_2y": 275.9
+          },
+          {
+            "peak": "2021-02-16",
+            "touch": "2021-03-08",
+            "eventual_max_dd": -24.4,
+            "months_to_trough": 0.0,
+            "cape_at_episode_start": 35.10390717196983,
+            "fwd_6m": 92.8,
+            "fwd_1y": 85.8,
+            "fwd_2y": 109.0
+          },
+          {
+            "peak": "2021-11-29",
+            "touch": "2022-01-13",
+            "eventual_max_dd": -66.4,
+            "months_to_trough": 9.0,
+            "cape_at_episode_start": 38.582627497719216,
+            "fwd_6m": -42.9,
+            "fwd_1y": -36.4,
+            "fwd_2y": 106.2
+          },
+          {
+            "peak": "2024-06-18",
+            "touch": "2024-07-30",
+            "eventual_max_dd": -27.0,
+            "months_to_trough": 0.3,
+            "cape_at_episode_start": 34.81054878004298,
+            "fwd_6m": 20.2,
+            "fwd_1y": 72.9,
+            "fwd_2y": 88.3
+          },
+          {
+            "peak": "2025-01-06",
+            "touch": "2025-01-27",
+            "eventual_max_dd": -36.9,
+            "months_to_trough": 2.2,
+            "cape_at_episode_start": 37.1292198521989,
+            "fwd_6m": 46.5,
+            "fwd_1y": 59.2
+          },
+          {
+            "peak": "2025-10-29",
+            "touch": "2026-03-30",
+            "eventual_max_dd": -20.2,
+            "months_to_trough": 0.0,
+            "cape_at_episode_start": 39.205692171126515,
+            "fwd_6m": 38.6
+          },
+          {
+            "peak": "2026-10-06",
+            "touch": "2026-11-05",
+            "eventual_max_dd": -24.1,
+            "months_to_trough": 0.0,
+            "cape_at_episode_start": 40.710608577487044
+          }
+        ]
+      },
+      "25": {
+        "n_episodes": 13,
+        "n_with_forward_1y": 13,
+        "median_eventual_max_dd": -51.9,
+        "mean_eventual_max_dd": -51.2,
+        "p10_eventual_max_dd": -81.63999999999999,
+        "median_months_to_trough": 1.0,
+        "median_fwd_1y": 10.4,
+        "detail": [
+          {
+            "peak": "1999-02-24",
+            "touch": "1999-04-23",
+            "eventual_max_dd": -31.1,
+            "months_to_trough": 0.1,
+            "cape_at_episode_start": 40.40015922925997,
+            "fwd_6m": 25.0,
+            "fwd_1y": 367.4,
+            "fwd_2y": 855.0
+          },
+          {
+            "peak": "1999-08-31",
+            "touch": "1999-09-23",
+            "eventual_max_dd": -35.6,
+            "months_to_trough": 0.0,
+            "cape_at_episode_start": 41.930712159940455,
+            "fwd_6m": 387.8,
+            "fwd_1y": 608.5,
+            "fwd_2y": 441.1
+          },
+          {
+            "peak": "2000-03-13",
+            "touch": "2000-03-14",
+            "eventual_max_dd": -53.9,
+            "months_to_trough": 1.0,
+            "cape_at_episode_start": 43.22074843996588,
+            "fwd_6m": 26.0,
+            "fwd_1y": 3.6,
+            "fwd_2y": 83.9
+          },
+          {
+            "peak": "2000-06-21",
+            "touch": "2000-06-29",
+            "eventual_max_dd": -67.8,
+            "months_to_trough": 5.7,
+            "cape_at_episode_start": 42.78197156707147,
+            "fwd_6m": -44.1,
+            "fwd_1y": 58.2,
+            "fwd_2y": -41.4
+          },
+          {
+            "peak": "2001-06-07",
+            "touch": "2001-07-16",
+            "eventual_max_dd": -51.9,
+            "months_to_trough": 2.6,
+            "cape_at_episode_start": 33.06853441111278,
+            "fwd_6m": 68.7,
+            "fwd_1y": -42.8,
+            "fwd_2y": -37.8
+          },
+          {
+            "peak": "2002-01-03",
+            "touch": "2002-02-19",
+            "eventual_max_dd": -89.7,
+            "months_to_trough": 7.6,
+            "cape_at_episode_start": 30.277204433096014,
+            "fwd_6m": -76.4,
+            "fwd_1y": -76.0,
+            "fwd_2y": -56.0
+          },
+          {
+            "peak": "2006-12-19",
+            "touch": "2007-03-05",
+            "eventual_max_dd": -26.7,
+            "months_to_trough": 0.4,
+            "cape_at_episode_start": 27.282689787571677,
+            "fwd_6m": 82.0,
+            "fwd_1y": 10.4,
+            "fwd_2y": -56.9
+          },
+          {
+            "peak": "2007-10-17",
+            "touch": "2007-11-26",
+            "eventual_max_dd": -85.1,
+            "months_to_trough": 11.8,
+            "cape_at_episode_start": 27.320648130462015,
+            "fwd_6m": -21.7,
+            "fwd_1y": -74.2,
+            "fwd_2y": -55.7
+          },
+          {
+            "peak": "2018-10-01",
+            "touch": "2018-10-24",
+            "eventual_max_dd": -56.1,
+            "months_to_trough": 2.0,
+            "cape_at_episode_start": 31.037961078006507,
+            "fwd_6m": -3.9,
+            "fwd_1y": -0.9,
+            "fwd_2y": 174.3
+          },
+          {
+            "peak": "2020-02-19",
+            "touch": "2020-03-12",
+            "eventual_max_dd": -37.6,
+            "months_to_trough": 0.1,
+            "cape_at_episode_start": 30.729689264735757,
+            "fwd_6m": 125.1,
+            "fwd_1y": 138.1,
+            "fwd_2y": 309.5
+          },
+          {
+            "peak": "2021-11-29",
+            "touch": "2022-01-20",
+            "eventual_max_dd": -66.4,
+            "months_to_trough": 8.8,
+            "cape_at_episode_start": 38.582627497719216,
+            "fwd_6m": -26.2,
+            "fwd_1y": -26.1,
+            "fwd_2y": 146.7
+          },
+          {
+            "peak": "2024-06-18",
+            "touch": "2024-08-05",
+            "eventual_max_dd": -27.0,
+            "months_to_trough": 0.1,
+            "cape_at_episode_start": 34.81054878004298,
+            "fwd_6m": 24.3,
+            "fwd_1y": 77.5,
+            "fwd_2y": 118.6
+          },
+          {
+            "peak": "2025-01-06",
+            "touch": "2025-03-06",
+            "eventual_max_dd": -36.9,
+            "months_to_trough": 1.0,
+            "cape_at_episode_start": 37.1292198521989,
+            "fwd_6m": 51.1,
+            "fwd_1y": 60.9
+          }
+        ]
+      },
+      "30": {
+        "n_episodes": 11,
+        "n_with_forward_1y": 11,
+        "median_eventual_max_dd": -53.9,
+        "mean_eventual_max_dd": -55.6,
+        "p10_eventual_max_dd": -85.1,
+        "median_months_to_trough": 2.0,
+        "median_fwd_1y": 26.6,
+        "detail": [
+          {
+            "peak": "1999-02-24",
+            "touch": "1999-04-26",
+            "eventual_max_dd": -31.1,
+            "months_to_trough": 0.0,
+            "cape_at_episode_start": 40.40015922925997,
+            "fwd_6m": 37.4,
+            "fwd_1y": 413.7,
+            "fwd_2y": 800.8
+          },
+          {
+            "peak": "1999-08-31",
+            "touch": "1999-09-24",
+            "eventual_max_dd": -35.6,
+            "months_to_trough": 0.0,
+            "cape_at_episode_start": 41.930712159940455,
+            "fwd_6m": 414.1,
+            "fwd_1y": 679.3,
+            "fwd_2y": 562.1
+          },
+          {
+            "peak": "2000-03-13",
+            "touch": "2000-03-16",
+            "eventual_max_dd": -53.9,
+            "months_to_trough": 1.0,
+            "cape_at_episode_start": 43.22074843996588,
+            "fwd_6m": 50.6,
+            "fwd_1y": 26.6,
+            "fwd_2y": 124.1
+          },
+          {
+            "peak": "2000-06-21",
+            "touch": "2000-06-29",
+            "eventual_max_dd": -67.8,
+            "months_to_trough": 5.7,
+            "cape_at_episode_start": 42.78197156707147,
+            "fwd_6m": -44.1,
+            "fwd_1y": 58.2,
+            "fwd_2y": -41.4
+          },
+          {
+            "peak": "2001-06-07",
+            "touch": "2001-07-23",
+            "eventual_max_dd": -51.9,
+            "months_to_trough": 2.3,
+            "cape_at_episode_start": 33.06853441111278,
+            "fwd_6m": 86.9,
+            "fwd_1y": -52.8,
+            "fwd_2y": -36.4
+          },
+          {
+            "peak": "2002-01-03",
+            "touch": "2002-02-22",
+            "eventual_max_dd": -89.7,
+            "months_to_trough": 7.5,
+            "cape_at_episode_start": 30.277204433096014,
+            "fwd_6m": -75.4,
+            "fwd_1y": -74.2,
+            "fwd_2y": -51.6
+          },
+          {
+            "peak": "2007-10-17",
+            "touch": "2008-01-07",
+            "eventual_max_dd": -85.1,
+            "months_to_trough": 10.4,
+            "cape_at_episode_start": 27.320648130462015,
+            "fwd_6m": -55.0,
+            "fwd_1y": -68.0,
+            "fwd_2y": -31.2
+          },
+          {
+            "peak": "2018-10-01",
+            "touch": "2018-10-24",
+            "eventual_max_dd": -56.1,
+            "months_to_trough": 2.0,
+            "cape_at_episode_start": 31.037961078006507,
+            "fwd_6m": -3.9,
+            "fwd_1y": -0.9,
+            "fwd_2y": 174.3
+          },
+          {
+            "peak": "2020-02-19",
+            "touch": "2020-03-12",
+            "eventual_max_dd": -37.6,
+            "months_to_trough": 0.1,
+            "cape_at_episode_start": 30.729689264735757,
+            "fwd_6m": 125.1,
+            "fwd_1y": 138.1,
+            "fwd_2y": 309.5
+          },
+          {
+            "peak": "2021-11-29",
+            "touch": "2022-01-25",
+            "eventual_max_dd": -66.4,
+            "months_to_trough": 8.6,
+            "cape_at_episode_start": 38.582627497719216,
+            "fwd_6m": -23.7,
+            "fwd_1y": -13.4,
+            "fwd_2y": 176.4
+          },
+          {
+            "peak": "2025-01-06",
+            "touch": "2025-04-03",
+            "eventual_max_dd": -36.9,
+            "months_to_trough": 0.0,
+            "cape_at_episode_start": 37.1292198521989,
+            "fwd_6m": 84.3,
+            "fwd_1y": 74.3
+          }
+        ]
+      }
+    },
+    "NDX_high_cape": {
+      "n_episodes_10pct": 15,
+      "detail_10pct": [
+        {
+          "peak": "1998-07-20",
+          "touch": "1998-08-04",
+          "eventual_max_dd": -23.0,
+          "months_to_trough": 2.1,
+          "cape_at_episode_start": 38.25964508524857,
+          "fwd_6m": 53.9,
+          "fwd_1y": 67.3,
+          "fwd_2y": 174.7
+        },
+        {
+          "peak": "1999-02-01",
+          "touch": "1999-02-17",
+          "eventual_max_dd": -11.4,
+          "months_to_trough": 0.4,
+          "cape_at_episode_start": 40.40015922925997,
+          "fwd_6m": 23.6,
+          "fwd_1y": 118.1,
+          "fwd_2y": 17.0
+        },
+        {
+          "peak": "1999-04-09",
+          "touch": "1999-04-19",
+          "eventual_max_dd": -11.9,
+          "months_to_trough": 0.0,
+          "cape_at_episode_start": 42.70450951689217,
+          "fwd_6m": 20.1,
+          "fwd_1y": 82.1,
+          "fwd_2y": -0.7
+        },
+        {
+          "peak": "1999-04-26",
+          "touch": "1999-05-25",
+          "eventual_max_dd": -11.6,
+          "months_to_trough": 0.0,
+          "cape_at_episode_start": 42.70450951689217,
+          "fwd_6m": 55.5,
+          "fwd_1y": 55.0,
+          "fwd_2y": -1.9
+        },
+        {
+          "peak": "1999-07-16",
+          "touch": "1999-08-04",
+          "eventual_max_dd": -12.0,
+          "months_to_trough": 0.2,
+          "cape_at_episode_start": 43.82803599280541,
+          "fwd_6m": 75.8,
+          "fwd_1y": 64.2,
+          "fwd_2y": -21.7
+        },
+        {
+          "peak": "2000-01-03",
+          "touch": "2000-01-06",
+          "eventual_max_dd": -11.9,
+          "months_to_trough": 0.0,
+          "cape_at_episode_start": 43.77257814693801,
+          "fwd_6m": 13.5,
+          "fwd_1y": -32.1,
+          "fwd_2y": -49.9
+        },
+        {
+          "peak": "2000-01-21",
+          "touch": "2000-01-28",
+          "eventual_max_dd": -10.5,
+          "months_to_trough": 0.0,
+          "cape_at_episode_start": 43.77257814693801,
+          "fwd_6m": 0.9,
+          "fwd_1y": -23.6,
+          "fwd_2y": -54.6
+        },
+        {
+          "peak": "2000-03-27",
+          "touch": "2000-04-03",
+          "eventual_max_dd": -82.9,
+          "months_to_trough": 30.1,
+          "cape_at_episode_start": 43.22074843996588,
+          "fwd_6m": -17.8,
+          "fwd_1y": -65.7,
+          "fwd_2y": -65.8
+        },
+        {
+          "peak": "2021-02-12",
+          "touch": "2021-03-08",
+          "eventual_max_dd": -10.9,
+          "months_to_trough": 0.0,
+          "cape_at_episode_start": 35.10390717196983,
+          "fwd_6m": 27.0,
+          "fwd_1y": 7.9,
+          "fwd_2y": -0.7
+        },
+        {
+          "peak": "2021-11-19",
+          "touch": "2022-01-20",
+          "eventual_max_dd": -35.6,
+          "months_to_trough": 11.2,
+          "cape_at_episode_start": 38.582627497719216,
+          "fwd_6m": -16.2,
+          "fwd_1y": -21.7,
+          "fwd_2y": 16.6
+        },
+        {
+          "peak": "2024-07-10",
+          "touch": "2024-08-02",
+          "eventual_max_dd": -13.6,
+          "months_to_trough": 0.2,
+          "cape_at_episode_start": 35.443553078907236,
+          "fwd_6m": 16.5,
+          "fwd_1y": 23.4,
+          "fwd_2y": 53.3
+        },
+        {
+          "peak": "2025-02-19",
+          "touch": "2025-03-10",
+          "eventual_max_dd": -22.9,
+          "months_to_trough": 1.0,
+          "cape_at_episode_start": 37.18717559369688,
+          "fwd_6m": 22.7,
+          "fwd_1y": 28.4
+        },
+        {
+          "peak": "2025-10-29",
+          "touch": "2026-03-27",
+          "eventual_max_dd": -12.1,
+          "months_to_trough": 0.1,
+          "cape_at_episode_start": 39.205692171126515,
+          "fwd_6m": 32.3
+        },
+        {
+          "peak": "2026-06-02",
+          "touch": "2026-07-29",
+          "eventual_max_dd": -11.3,
+          "months_to_trough": 0.0,
+          "cape_at_episode_start": 40.150169734732664
+        },
+        {
+          "peak": "2026-10-06",
+          "touch": "2026-11-02",
+          "eventual_max_dd": -14.7,
+          "months_to_trough": 0.1,
+          "cape_at_episode_start": 40.710608577487044
+        }
+      ],
+      "n_episodes_20pct": 4,
+      "detail_20pct": [
+        {
+          "peak": "1998-07-20",
+          "touch": "1998-08-31",
+          "eventual_max_dd": -23.0,
+          "months_to_trough": 1.2,
+          "cape_at_episode_start": 38.25964508524857,
+          "fwd_6m": 68.8,
+          "fwd_1y": 110.2,
+          "fwd_2y": 257.6
+        },
+        {
+          "peak": "2000-03-27",
+          "touch": "2000-04-12",
+          "eventual_max_dd": -82.9,
+          "months_to_trough": 29.8,
+          "cape_at_episode_start": 43.22074843996588,
+          "fwd_6m": -17.3,
+          "fwd_1y": -52.8,
+          "fwd_2y": -62.8
+        },
+        {
+          "peak": "2021-11-19",
+          "touch": "2022-03-14",
+          "eventual_max_dd": -35.6,
+          "months_to_trough": 9.5,
+          "cape_at_episode_start": 38.582627497719216,
+          "fwd_6m": -7.0,
+          "fwd_1y": -6.5,
+          "fwd_2y": 38.1
+        },
+        {
+          "peak": "2025-02-19",
+          "touch": "2025-04-04",
+          "eventual_max_dd": -22.9,
+          "months_to_trough": 0.1,
+          "cape_at_episode_start": 37.18717559369688,
+          "fwd_6m": 42.5,
+          "fwd_1y": 38.2
+        }
+      ]
+    }
+  }
+}
