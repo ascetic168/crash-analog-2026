@@ -213,16 +213,17 @@ n = len(pymupdf.open(FINAL))
 print(f"final OK: {FINAL} pages={n} bookmarks={len(toc) - 1}")
 
 # ─────────────────────────────────────────────── 5) protect with qpdf
-# no printing, no copy/extract, no modification; AES-256
-ENC_PW = "1031126"
+# owner-lock: opens WITHOUT a password (empty user pw), but printing,
+# copy/extract and modification are disabled; AES-256
+OWNER_PW = "1031126"
 subprocess.run([
     "qpdf",
-    "--encrypt", ENC_PW, ENC_PW, "256",
+    "--encrypt", "", OWNER_PW, "256",
     "--print=none", "--modify=none", "--extract=n",
     "--", FINAL, FINAL + ".enc",
 ], check=True, capture_output=True)
 os.replace(FINAL + ".enc", FINAL)
 chk = pymupdf.open(FINAL)
-assert chk.needs_pass, "encryption did not take effect"
-assert chk.authenticate(ENC_PW) > 0, "password check failed"
-print(f"protected OK: print/copy/modify disabled, AES-256, pages={len(chk)}")
+assert not chk.needs_pass, "PDF should open without a password"
+assert chk.authenticate(OWNER_PW) > 0, "owner password check failed"
+print(f"protected OK: opens freely, print/copy/modify disabled, AES-256, pages={len(chk)}")

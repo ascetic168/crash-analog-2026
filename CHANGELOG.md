@@ -117,3 +117,20 @@ Format based on [Keep a Changelog](https://keepachangelog.com/); versioning: pat
 - final PDF is now encrypted with qpdf (AES-256, R=6): printing, copying and
   modification disabled; password protected; the encryption step is part of
   build_pdf.py so rebuilds stay protected
+
+## [0.1.13] - 2026-11-08
+
+### Changed — PDF owner-lock (no password to read)
+- final PDF encryption switched from password-to-open to owner-lock:
+  opens freely, copy/extract/print/modify still disabled (AES-256, R=6)
+  per publishing decision
+
+### Added — public GitHub repo
+- published https://github.com/ascetic168/crash-analog-2026 (fresh, clean
+  initial commit; private history stays local)
+- contents: pipeline scripts, raw data (~9MB), all computed outputs,
+  standalone dashboard (d3 embedded), owner-locked report PDF,
+  bilingual README, MIT license
+- GitHub Pages enabled from /docs: dashboard live URL
+- author attribution: Charlie Chu (charliechu1688@gmail.com) on cover,
+  front matter, PDF metadata, public commits
