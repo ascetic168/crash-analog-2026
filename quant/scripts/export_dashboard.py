@@ -90,10 +90,10 @@ OUT.write_text(f"""<!doctype html>
 <title>崩盤類比儀表板 · Crash Analog Dashboard</title>
 <style>{THEME}</style>
 </head><body>
-<h1>崩盤類比儀表板</h1>
-<p class="muted">2026 年 AI 行情 vs 1929/1973/1987/2000/2007/2021 · 資料截至 2026-11-06 · 作者 Charlie Chu · 數字可由 quant/ 管線重現</p>
+<h1 data-i18n="doc_h1">崩盤類比儀表板</h1>
+<p class="muted" data-i18n="doc_subtitle">2026 年 AI 行情 vs 1929/1973/1987/2000/2007/2021 · 資料截至 2026-11-06 · 作者 Charlie Chu · 數字可由 quant/ 管線重現</p>
 {frag}
-<footer>以四層量化管線（資料 → 指標 → 類比 → 統計）產出 · 非投資建議</footer>
+<footer data-i18n="doc_footer">以四層量化管線（資料 → 指標 → 類比 → 統計）產出 · 非投資建議</footer>
 <script>{TABS_JS}</script>
 </body></html>""", encoding="utf-8")
 print(f"standalone dashboard: {OUT} ({OUT.stat().st_size:,} bytes)")

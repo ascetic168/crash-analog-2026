@@ -200,3 +200,27 @@ Format based on [Keep a Changelog](https://keepachangelog.com/); versioning: pat
 - section 8 dashboard bullet: URL moved to its own indented line
 - PDF rebuilt, visual-judge pass (front matter + section 8); synced to
   the public repo
+
+## [0.1.19] - 2026-11-09
+
+### Added — trilingual dashboard (繁體中文 / 简体中文 / English)
+- every visible string (h1, subtitle, intro, per-chart guides, KPI cards,
+  tabs, chart labels, hover tooltips, tables, glossary, footer) moved into
+  an I18N dictionary (162 keys × 3 languages); t()/tf() lookups with
+  fallback to Traditional Chinese
+- language switcher: three pills at the top right; setLang re-renders all
+  charts, tables and static text; document lang attribute and <title> follow
+- initial language precedence: saved choice (localStorage "cad-lang") >
+  browser language (navigator.language: zh-TW/HK/MO → Hant, zh-CN/SG →
+  Hans, en* → English, anything else → Hant) > Traditional Chinese
+- English uses compact scenario chart labels to fit the label column;
+  per-language short labels below 420px viewport
+
+### Fixed — x-axis title collision (pre-existing)
+- paths + conditional charts: the x-axis title was drawn at the same
+  baseline and position as the last tick label (double-printed glyphs);
+  the title now sits on its own line below the ticks (bottom margins
+  34→46 / 30→40)
+- QA: detection/switch/persistence verified in-browser across tabs and
+  languages; 390px EN shows no overflow; visual-judge pass on 6 shots;
+  synced to the public repo
