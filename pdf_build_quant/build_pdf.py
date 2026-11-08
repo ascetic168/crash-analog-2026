@@ -211,3 +211,18 @@ fdoc.close()
 os.replace(TMP, FINAL)
 n = len(pymupdf.open(FINAL))
 print(f"final OK: {FINAL} pages={n} bookmarks={len(toc) - 1}")
+
+# ─────────────────────────────────────────────── 5) protect with qpdf
+# no printing, no copy/extract, no modification; AES-256
+ENC_PW = "1031126"
+subprocess.run([
+    "qpdf",
+    "--encrypt", ENC_PW, ENC_PW, "256",
+    "--print=none", "--modify=none", "--extract=n",
+    "--", FINAL, FINAL + ".enc",
+], check=True, capture_output=True)
+os.replace(FINAL + ".enc", FINAL)
+chk = pymupdf.open(FINAL)
+assert chk.needs_pass, "encryption did not take effect"
+assert chk.authenticate(ENC_PW) > 0, "password check failed"
+print(f"protected OK: print/copy/modify disabled, AES-256, pages={len(chk)}")

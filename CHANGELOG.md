@@ -108,3 +108,12 @@ Format based on [Keep a Changelog](https://keepachangelog.com/); versioning: pat
 ### Changed — author attribution
 - report markdown front matter: 作者 Charlie Chu（charliechu1688@gmail.com）
 - PDF cover meta block and PDF metadata author field updated accordingly
+
+## [0.1.11] - 2026-11-08
+
+### Changed — front matter layout + PDF protection
+- report front matter: each metadata line (報告日期/資料截至/方法/白話結論)
+  is now its own paragraph; author line removed from page 3 (cover keeps it)
+- final PDF is now encrypted with qpdf (AES-256, R=6): printing, copying and
+  modification disabled; password protected; the encryption step is part of
+  build_pdf.py so rebuilds stay protected
