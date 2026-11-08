@@ -134,3 +134,10 @@ Format based on [Keep a Changelog](https://keepachangelog.com/); versioning: pat
 - GitHub Pages enabled from /docs: dashboard live URL
 - author attribution: Charlie Chu (charliechu1688@gmail.com) on cover,
   front matter, PDF metadata, public commits
+
+## [0.1.14] - 2026-11-08
+
+### Added — repo links in the report
+- front matter and section 8 now link to the public repo and the live
+  dashboard (readers can view/download online); PDF re-encrypted and
+  synced to the public repo
