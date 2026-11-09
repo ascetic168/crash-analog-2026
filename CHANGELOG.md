@@ -246,3 +246,34 @@ Format based on [Keep a Changelog](https://keepachangelog.com/); versioning: pat
 - series context: daily closing briefs stay untracked like their two
   predecessors (美股 2026-11-06, 台股 2026-11-09); only the CHANGELOG and
   this issue's files are committed
+
+## [0.1.21] - 2026-11-10
+
+### Changed — stabilization-fund verification: TW brief revised, US brief linkage updated
+- 台股收盤報告_20261109 → **11/10 修訂版** (9 pages): the pending
+  11/9-evening verification is resolved with TWSE/TAIFEX data + news:
+  - hypothesis「自營商買超異常放大＝護盤鐵證」**否證**: T86 shows
+    自營商(自行買賣) net -4.3萬張 (台積電/聯電/0050 all net-sold)
+  - fingerprint relocated: 八大公股買超 102.3億元 (連八買, concentrated in
+    large ETFs per media), 投信 +313.1億 (連20買), 五大壽險 +214.9億 —
+    domestic three-way ≈630億 vs 外資 -900.5億 (連八賣, Nov cumulative
+    7,957.1億): the +4.94% rally was domestic + short-restriction squeeze,
+    NOT institutional, NOT foreign
+  - TAIFEX TXF: 外資淨空 101,771口 (+1,841) = record high — no covering
+    evidence; new 表2 資金流向驗證 (7 rows), stage table renumbered 表3
+  - 成交值 8,770億 confirmed by FMTQIK (below crash-day 9,871–13,211億);
+    margin-leverage warning (only ~12% cleared vs -24% drawdown)
+  - sections 五/七 updated with the US-close result (NVDA -4.27%,
+    SOX +6.85% — risk ring-fenced to the single stock)
+- 美股收盤報告_20261109: section 五 bullet 3 replaced by the verified
+  flow data; sources line extended
+- pipeline: html_build/tw_institutional_verify.py (T86 per-stock
+  aggregation stocks-only, FMTQIK market stats, MI_MIB probe) + TAIFEX
+  futContractsDateDown CSV fetch (TXF by investor type 11/02–11/09);
+  both TWSE endpoints need relaxed TLS (their cert chain lacks SKI)
+- QA: visual-judge full 10-page pass with 2 fails repaired (表2/表3
+  number collision → renumber; footer stranded on near-blank p10 →
+  sources/footer tightened, 9 pages) + 2-page re-check pass; US brief
+  3-page re-check pass
+- repo: 台股 brief now tracked (was untracked); both revised briefs
+  committed; 美股 2026-11-06 briefs remain untracked
