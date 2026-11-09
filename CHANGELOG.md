@@ -224,3 +224,25 @@ Format based on [Keep a Changelog](https://keepachangelog.com/); versioning: pat
 - QA: detection/switch/persistence verified in-browser across tabs and
   languages; 390px EN shows no overflow; visual-judge pass on 6 shots;
   synced to the public repo
+
+## [0.1.20] - 2026-11-10
+
+### Added — US closing brief 2026-11-09 (daily report series)
+- 美股收盤報告_20261109.html/.pdf: the Jensen Huang matter priced for the
+  first time — NVDA -4.27% (open -6.45%, morning low -8.79%, recovered
+  intraday; YTD turned negative at -4.2%; -25.3% off the 10/6 peak;
+  SOX -31.4% off its 6/22 record) inside a broad oil-led rebound
+  (crude ~-4%: S&P +2.35%, Nasdaq +2.74%, Dow +1,104 pts, SOX +6.85%,
+  VIX -22.3% back under 20 at 19.92; 10Y flat 4.86%)
+- narrative anchored to the 11/8 board statement (independent
+  investigation, "no reason to believe" secrets compromised) and the
+  台股收盤報告 2026-11-09 watchlist item "US open is the first test";
+  Taiwan linkage section for the Tue 11/10 open (TSM ADR +3.51%,
+  supply-chain catch-up risk, gap 39,701–40,347 as the failure line)
+- pipeline: fetch_close.py now records meta regularMarketTime (stale-data
+  guard); new generator html_build/gen_report_20261109.py; thousands
+  separator in the quote-table change column; stage-table range column
+  no-wrap — visual-judge 7/7 pass, 2-page repair re-check pass
+- series context: daily closing briefs stay untracked like their two
+  predecessors (美股 2026-11-06, 台股 2026-11-09); only the CHANGELOG and
+  this issue's files are committed
