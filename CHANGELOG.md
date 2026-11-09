@@ -249,6 +249,11 @@ Format based on [Keep a Changelog](https://keepachangelog.com/); versioning: pat
 
 ## [0.1.21] - 2026-11-10
 
+> **Superseded by [0.1.22]**: this entry revised the published 台股收盤報告_20261109 in
+> place — against the owner's policy that published daily briefs are immutable.
+> 0.1.22 restores the TW brief to its exact 11/9 published state and moves the
+> stabilization-fund findings to the standalone 國安基金動向_20261109.
+
 ### Changed — stabilization-fund verification: TW brief revised, US brief linkage updated
 - 台股收盤報告_20261109 → **11/10 修訂版** (9 pages): the pending
   11/9-evening verification is resolved with TWSE/TAIFEX data + news:
@@ -277,3 +282,35 @@ Format based on [Keep a Changelog](https://keepachangelog.com/); versioning: pat
   3-page re-check pass
 - repo: 台股 brief now tracked (was untracked); both revised briefs
   committed; 美股 2026-11-06 briefs remain untracked
+
+## [0.1.22] - 2026-11-10
+
+### Fixed/Added — published briefs are immutable: TW brief restored, findings moved to a standalone report
+- **policy (owner directive)**: once published, daily briefs are historical
+  documents and must never be edited afterwards; follow-up verification is
+  published as a separate standalone report
+- **台股收盤報告_20261109 restored to its exact 11/9 published state**:
+  tw_gen_report.py reverted to the original generator (verified: rewritten
+  file was byte-equal to the 11/9 version at 20,459 bytes) and regenerated
+  against the untouched 13:44 data snapshots (tw_mis_close.json /
+  tw_yahoo_intraday.json); script re-CRLF'd so the template string matches
+  the published output — HTML restored at exactly 27,456 bytes and PDF
+  reprinted at exactly 521,549 bytes (both byte-size equal to the
+  published originals; Edge print-to-pdf is deterministic for identical
+  input)
+- **國安基金動向_20261109** (new standalone brief, 7 pages, same design
+  system): the full 11/9 stabilization-fund verification from the reverted
+  revision — flow-verification table (外資現貨 -900.5億/台指期淨空
+  101,771口新高/投信 +313.1億/自營商 -312.1億/公股 +102.3億/壽險 +214.9億),
+  hypothesis denial (self-operated discretionary accounts net -4.3萬張),
+  fingerprint relocation (state-bank ETF buying, 分點口徑 caveat),
+  TXF net-short trajectory chart + table (11/2–11/9), turnover calendar,
+  scenario-matrix implications, watchlist, honest boundaries
+- 美股收盤報告_20261109: cross-references updated to point at the new
+  standalone report (was pointing at the reverted TW revision)
+- QA: NAF brief visual-judge 7-page pass (1 repair: last x-axis date
+  label 11/9 was clipped → per-label text-anchor); US brief us-7/us-6
+  citation re-check pass; restoration verified by marker grep (original
+  strings present, revision strings absent) + byte sizes
+- lesson codified in the NAF footer: 發布後的每日收盤報告為歷史文件、
+  不作事後修改——後續查證一律獨立成篇
