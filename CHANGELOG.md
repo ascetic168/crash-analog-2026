@@ -5,6 +5,21 @@ All notable changes to the 經濟循環 (economic cycles) workspace.
 Format based on [Keep a Changelog](https://keepachangelog.com/); versioning: patch-only bumps
 (0.1.x) unless a minor bump is agreed with the owner.
 
+## [0.1.23] - 2026-11-21
+
+### Added — historical evidence boundary frozen before the follow-up report
+- policy extension of 0.1.22 to the flagship report: the 11/8 quantitative
+  analog report and all published briefs are now treated as immutable
+  historical evidence; the 11/12–11/20 developments (Huang resignation,
+  NVDA earnings, renewed crash) get a separate follow-up report
+- committed the pending 11/9 snapshot so the record is complete:
+  - 量化類比推論報告_20261108.md §九 event-log appendix (dated 11/9;
+   正文數字不動，資料仍截至 11/6)
+  - AI股市泡沫名家觀點與結論 (.md/.pdf, 11/7)
+  - 美股收盤報告_20261106 (.html/.pdf)
+- tagged `freeze-20261109`: everything at or before this tag is the
+  pre-event foresight record; the follow-up report cites this boundary
+
 ## [0.1.0] - 2026-11-08
 
 ### Added — quant pipeline scaffold + data layer
