@@ -5,6 +5,54 @@ All notable changes to the 經濟循環 (economic cycles) workspace.
 Format based on [Keep a Changelog](https://keepachangelog.com/); versioning: patch-only bumps
 (0.1.x) unless a minor bump is agreed with the owner.
 
+## [0.1.24] - 2026-11-21
+
+### Added — follow-up report: 11/12–11/20 priced against the frozen 11/8 forecast
+- **量化類比推論更新報告_20261121** (.md/.pdf, 19 pages, same design system):
+  independent follow-up to the frozen 11/8 report (per the 0.1.22/0.1.23
+  immutability policy; fulfils the 11/8 appendix promise "probabilities to be
+  re-estimated after the 11/17 NVDA earnings")
+  - event log 11/10–11/20: policy rebound peaked after 3 sessions (11/9–11/11);
+    Huang resignation 11/12 (key-man tail realized at the top grade, NVDA
+    closed below the −30% line that day); "perfect earnings sold" 11/17–11/20
+    (rev +103% y/y beat, stock −19.2% in 3 sessions; NDX −5.6% and TAIEX
+    −6.23% on 11/20; FSC tightened short limits again)
+  - honest scorecard: 10/11 directional calls from the frozen 11/8 report hit;
+    one trigger-table direction was wrong (strong earnings = shallow path) and
+    the table is rewritten per GSY's profits-peak signature
+  - updated posterior: NDX E1 (>−15%) dead since 11/19 → three-way partition
+    E2 33.9% / E3 39.2% / E4 26.9%; P(NDX terminal ≤−25%) 47.6% → **66.1%**
+    [53.6, 78.1]; TAIEX ≤−25% realized 11/20 (now −27.7%); NVDA −47.5% has
+    factually locked its terminal ≤−40% (median path −49.7%, tail −79.9%);
+    AI-infra basket −41.3% crossed the GSY −40% crash line (the 11/8
+    "50–80% within 2y" statement realized in 6 weeks); trough timing:
+    2026-12 40% / 2027Q1 40% / later 20% (pooled touch→trough median 1.0m,
+    LPPL NVDA cluster 13/18 on 2026-11)
+- **charts switched from absolute index levels to percent-from-peak**
+  (owner directive: different eras have incomparable peak levels; % from own
+  peak is the cross-era common ruler):
+  - LPPL figures re-normalized (距自身峰頂 %), incl. new side-by-side
+    `lppl_compare_norm.png` (1999 validation vs 2026 live, shared y-axis)
+  - scenario/conditional tables in the update report are %-only — no index
+    point conversions anywhere (the 11/8 report's §5.1 point table stays as
+    the frozen historical record)
+  - aligned-paths live lines now stop at the actual latest close instead of
+    carrying the last value forward to the full horizon (the flat extension
+    read as a forecast, which it was not)
+- update pipeline (method-identical to the frozen originals; outputs to
+  `quant/output_update/`, originals never overwritten):
+  `build_analogs_update.py` (incl. `live_snapshot.json` first-close-crossing
+  dates), `build_stats_layer_update.py` (GSY basket drawdown check + LPPL
+  refits + normalized charts), `build_scenario_posterior_update.py`
+  (three-way Dirichlet posterior + cohort-based timing quantiles)
+- `pdf_build_quant/build_pdf_update.py` + `report_style_update.html` (adds
+  `tr { break-inside: avoid }` so table rows no longer split across pages);
+  cover uses ASCII hyphens (msjh.ttc lacks U+2212 glyphs) — 19 pages,
+  9 bookmarks, TOC page numbers 17/17, AES-256 owner-lock
+- QA: visual-judge full 19-page pass after repairs (cover minus tofu +
+  kicker clipping; two TOC page numbers missing; E3 table row split across
+  pages 11→12)
+
 ## [0.1.23] - 2026-11-21
 
 ### Added — historical evidence boundary frozen before the follow-up report

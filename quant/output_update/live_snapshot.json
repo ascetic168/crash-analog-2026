@@ -1,0 +1,70 @@
+{
+  "as_of": "2026-11-20",
+  "peak_date": "2026-10-06",
+  "live": {
+    "NDX": {
+      "peak_date": "2026-10-06",
+      "peak_close": 31224.47,
+      "last_date": "2026-11-20",
+      "last_close": 25028.98,
+      "drawdown_pct": -19.84,
+      "drawdown_intraday_pct": -19.84,
+      "first_close_at_or_below": {
+        "10": "2026-11-02",
+        "15": "2026-11-19",
+        "20": null,
+        "25": null,
+        "30": null
+      },
+      "days_from_peak": 45
+    },
+    "TAIEX": {
+      "peak_date": "2026-10-06",
+      "peak_close": 49822.55,
+      "last_date": "2026-11-20",
+      "last_close": 36033.29,
+      "drawdown_pct": -27.68,
+      "drawdown_intraday_pct": -27.68,
+      "first_close_at_or_below": {
+        "10": "2026-11-03",
+        "15": "2026-11-05",
+        "20": "2026-11-06",
+        "25": "2026-11-20",
+        "30": null
+      },
+      "days_from_peak": 45
+    },
+    "NVDA": {
+      "peak_date": "2026-10-06",
+      "peak_close": 239.24,
+      "last_date": "2026-11-20",
+      "last_close": 125.53,
+      "drawdown_pct": -47.53,
+      "drawdown_intraday_pct": -47.53,
+      "first_close_at_or_below": {
+        "10": "2026-10-16",
+        "15": "2026-11-02",
+        "20": "2026-11-05",
+        "25": "2026-11-09",
+        "30": "2026-11-12"
+      },
+      "days_from_peak": 45
+    },
+    "SPX": {
+      "peak_date": "2026-10-06",
+      "peak_close": 7818.93,
+      "last_date": "2026-11-20",
+      "last_close": 6910.39,
+      "drawdown_pct": -11.62,
+      "drawdown_intraday_pct": -11.62,
+      "first_close_at_or_below": {
+        "10": "2026-11-20",
+        "15": null,
+        "20": null,
+        "25": null,
+        "30": null
+      },
+      "days_from_peak": 45
+    }
+  }
+}
