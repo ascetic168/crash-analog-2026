@@ -5,6 +5,27 @@ All notable changes to the 經濟循環 (economic cycles) workspace.
 Format based on [Keep a Changelog](https://keepachangelog.com/); versioning: patch-only bumps
 (0.1.x) unless a minor bump is agreed with the owner.
 
+## [0.1.25] - 2026-11-22
+
+### Changed — 11/21 follow-up report: trough forecast stated explicitly (front & back)
+- owner feedback: the conclusions were still too veiled; the "when does this bust
+  bottom out, with what probabilities" statement now leads the report and is echoed
+  at the end:
+  - new front section「核心預測（先讀這節）」right after the front matter: one-sentence
+    verdict + trough-timing table (2026-12 40% / 2027Q1 40% / later 20%, median
+    2026-12-20) + depth table (NVDA ≤−40% locked; TAIEX 60% in-band / 40% breaks
+    −40%; NDX E2/E3/E4 33.9/39.2/26.9, aggregate P(≤−25%) 66.1% [53.6–78.1]) +
+    the trigger list that would move these probabilities
+  - new final section「十、結語：把預測說清楚」: the three testable statements
+    (timing, depth, falsifiability) + next scheduled update (~2027-02)
+  - dashboard link paragraph now states the dashboard is updated to the 11-20
+    snapshot (matches 0.1.26)
+- TAIEX interval corrections to match the pipeline arithmetic exactly:
+  E3 band interval [37.8%, 79.0%] (was 78.9 in the new front table), E4 lower bound
+  21.1% in §5.2 aggregate row (was 21.0) — dashboard and report now agree
+- PDF rebuilt (22 pages, 11 bookmarks, TOC re-numbered, cover summary adds the
+  80% Dec-2026–Q1-2027 trough window); visual-judge pass on the six affected pages
+
 ## [0.1.24] - 2026-11-21
 
 ### Added — follow-up report: 11/12–11/20 priced against the frozen 11/8 forecast
