@@ -5,6 +5,32 @@ All notable changes to the 經濟循環 (economic cycles) workspace.
 Format based on [Keep a Changelog](https://keepachangelog.com/); versioning: patch-only bumps
 (0.1.x) unless a minor bump is agreed with the owner.
 
+## [0.1.26] - 2026-11-22
+
+### Changed — live dashboard refreshed to the 2026-11-20 snapshot (was stuck on 11-06)
+- `quant/dashboard/index.html` re-exported from the update pipeline (companion to the
+  11/21 report): live drawdowns NDX −19.8% / TAIEX −27.7% / NVDA −47.5% / SPX −11.6%,
+  intro/guides rewritten around the trough question ("80% the trough lands in
+  Dec 2026–Q1 2027"), all three languages (zh-Hant/zh-Hans/en) updated
+- scenario tab moved to the three-way partition: E1 rendered struck-through
+  ("eliminated 11/19"), E2 33.9% / E3 39.2% / E4 26.9% bars + table, aggregate
+  P(NDX ≤−25%) 66.1% [53.6–78.1], TAIEX 60/40 with ≤−25% marked realized,
+  NVDA ≤−40% locked, trough-timing row 2026-12 40% / 2027Q1 40% / later 20%;
+  sensitivity note updated (P(E4) 12.5% ↔ 26.9% ↔ 50.0%)
+- conditional-stats charts: per-asset x-domains — NVDA extended to −52% so the
+  −47.5% "now" marker sits inside the frame; TAIEX marker at −27.7%
+- LPPL tab: NVDA tc cluster "13/18 on 2026-11 (hit)", TAIEX confidence 0.56 with
+  the honest "re-read as trough-time candidate" caveat
+- pipeline: scenario numbers are pre-scaled to percent with Python rounding in
+  `bundle_dashboard_data_update.py` so the dashboard displays exactly the report's
+  printed values (JS float re-multiplication previously showed 39.3% vs report 39.2%);
+  new `bundle_dashboard_data_update.py` + `export_dashboard_update.py` read
+  `quant/output_update/` + `live_snapshot.json` (original 11/8 scripts untouched);
+  valuation KPI cards intentionally unchanged (Shiller/Z.1 layer not re-run, per the
+  report's data-boundary note)
+- QA: local browser pass across three languages × five tabs (KPI cards, scenario
+  table values vs report, NVDA domain fix, LPPL labels, glossary E2–E4 row)
+
 ## [0.1.25] - 2026-11-22
 
 ### Changed — 11/21 follow-up report: trough forecast stated explicitly (front & back)

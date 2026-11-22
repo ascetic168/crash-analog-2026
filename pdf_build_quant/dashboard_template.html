@@ -32,7 +32,7 @@
     <div class="card viz-stat"><span class="text-muted"><span data-i18n="kpi1_label"></span><span class="cad-info" data-i18n-tip="kpi1_tip">ⓘ</span></span><span class="viz-stat-value tabular-nums" id="cad-v-cape">40.71</span><span class="text-muted" id="cad-c-cape"></span></div>
     <div class="card viz-stat"><span class="text-muted"><span data-i18n="kpi2_label"></span><span class="cad-info" data-i18n-tip="kpi2_tip">ⓘ</span></span><span class="viz-stat-value tabular-nums" id="cad-v-mvgdp">2.55</span><span class="text-muted" data-i18n="kpi2_cap"></span></div>
     <div class="card viz-stat"><span class="text-muted"><span data-i18n="kpi3_label"></span><span class="cad-info" data-i18n-tip="kpi3_tip">ⓘ</span></span><span class="viz-stat-value tabular-nums" id="cad-v-ecy">−2.78%</span><span class="text-muted" data-i18n="kpi3_cap"></span></div>
-    <div class="card viz-stat"><span class="text-muted"><span data-i18n="kpi4_label"></span><span class="cad-info" id="cad-info-dd">ⓘ</span></span><span class="viz-stat-value tabular-nums" id="cad-v-dd">NDX −13.6%</span><span class="text-muted" id="cad-s-dd">TAIEX −20.3% · NVDA −22.0% · SPX −5.7%</span></div>
+    <div class="card viz-stat"><span class="text-muted"><span data-i18n="kpi4_label"></span><span class="cad-info" id="cad-info-dd">ⓘ</span></span><span class="viz-stat-value tabular-nums" id="cad-v-dd">NDX −19.8%</span><span class="text-muted" id="cad-s-dd">TAIEX −27.7% · NVDA −47.5% · SPX −11.6%</span></div>
   </div>
 
   <div class="nav nav-pills" role="tablist" aria-label="儀表板面板">
@@ -155,9 +155,9 @@
     hant: {
       doc_title: "崩盤類比儀表板 · Crash Analog Dashboard",
       doc_h1: "崩盤類比儀表板",
-      doc_subtitle: "2026 年 AI 行情 vs 1929/1973/1987/2000/2007/2021 · 資料截至 2026-11-06 · 作者 Charlie Chu · 數字可由 quant/ 管線重現",
+      doc_subtitle: "2026 年 AI 行情 vs 1929/1973/1987/2000/2007/2021 · 資料截至 2026-11-20（11/21 更新報告配套）· 作者 Charlie Chu · 數字可由 quant/ 管線重現",
       doc_footer: "以四層量化管線（資料 → 指標 → 類比 → 統計）產出 · 非投資建議",
-      intro_p1: "💡 <b>白話導讀：</b>這個儀表板在回答一個問題——「這波 AI 行情，像歷史上哪些崩盤？之後會怎樣？」目前兩個關鍵事實：(1) 估值貴到百年歷史的極端等級（CAPE 40.71，比 99% 的日子都貴）；(2) 市場已經開始跌（自 10 月峰頂 NDX 已回檔約 14%、TAIEX 約 20%）。我們的估計方式不是預言，而是把「歷史上走到類似位置之後，實際發生了什麼」換算成機率。",
+      intro_p1: "💡 <b>白話導讀：</b>這個儀表板在回答一個問題——「這波 AI 泡沫破裂，何時落底、會落多深？」兩個關鍵事實：(1) 估值貴到百年歷史的極端等級（CAPE 40.71，比 99% 的日子都貴）；(2) 破裂已經發生——截至 11-20，自 10/6 峰頂 NDX −19.8%、TAIEX −27.7%、NVDA −47.5%。本儀表板不預言，只把「歷史上走到類似位置之後實際發生了什麼」換算成機率：<b>合計 80% 的機率，本輪谷底落在 2026-12 ～ 2027Q1</b>。",
       intro_p2: "上方四張數字卡＝市場體檢摘要；四個頁籤依序回答：<b>歷史怎麼跌 → 通常跌多深 → 模型說何時轉折 → 綜合機率多少</b>。每張圖上方都有「這張圖怎麼看」的圖解（可收合）；看不懂的名詞請開最右邊的「名詞解釋」頁籤；滑鼠移到圖上可以讀出數字。",
       kpi1_label: "Shiller CAPE（2026-10）",
       kpi1_tip: "股價 ÷ 過去十年平均通膨調整盈餘，越高越貴。40.71＝1871 年以來第 99 百分位，比 99% 的日子都貴，屬 1929／2000 年等級。",
@@ -169,7 +169,7 @@
       kpi3_tip: "股票的盈餘收益率（1/CAPE）減去 10 年公債利率＝「持有股票相對債券多賺多少」。負越多＝股票相對債券越貴。−2.78% 是史上第 3 低。",
       kpi3_cap: "史上第 3 低（僅 3% 日子更貴）",
       kpi4_label: "自 2026-10-06 峰頂回檔",
-      kpi4_tip: "從 10 月 6 日高點跌下來的幅度（截至 2026-11-06）：NDX（那斯達克 100）{n}、TAIEX（台股加權）{t}、NVDA（輝達）{v}、SPX（標普 500）{s}。",
+      kpi4_tip: "從 10 月 6 日高點跌下來的幅度（截至 2026-11-20）：NDX（那斯達克 100）{n}、TAIEX（台股加權）{t}、NVDA（輝達）{v}、SPX（標普 500）{s}。",
       tab_paths: "崩盤軌跡對齊",
       tab_cond: "條件化統計",
       tab_lppl: "LPPL 臨界時點",
@@ -179,25 +179,25 @@
       cond_h3: "觸及 −X% 深度後的終點分布（中位數與深尾 p10）",
       lppl_h3: "LPPL 臨界時點 tc 分布（滾動窗口擬合）",
       lppl_val_h3: "方法驗證：NDX 1997–2000（真實峰頂 2000-03-27）",
-      scen_h3: "未來 12–24 個月情境機率（三條數據流整合，附推論依據）",
+      scen_h3: "NDX 終點深度機率（三元分割；E1 已於 11/19 出局）",
       gloss_h3: "名詞解釋（白話版）",
       guide_how: "這張圖怎麼看？",
       guide1_read: "<b>怎麼讀：</b>每條線是一場崩盤「從最高點算起」的走勢——往右＝距峰頂過了幾個月，往下＝跌得越深。粗彩色線是 2026 進行中的三個標的，灰色虛線是歷史案例（點上方標籤可開關）。滑鼠移到圖上會出現直線，同時列出所有案例「在那個月份」各跌到多深。",
-      guide1_now: "<b>現在的位置：</b>這波截至 2026-11-06 才走到「第 1 個月」附近（NDX 約 −14%）。目前跌幅在歷史上並不稀奇——真正分歧的是「接下來」：有的案例幾個月內收復（如 1987、2021），有的持續下跌 2–3 年（如 2000、1973）。",
+      guide1_now: "<b>現在的位置：</b>截至 2026-11-20，這波走到第 1.5 個月：NDX −19.8%、TAIEX −27.7%（11/9–11/11 的政策反彈三天即觸頂回落）、NVDA −47.5%。歷史上走到類似位置之後分歧極大——有的幾個月內收復（1987、2021），有的持續下跌 2–3 年（2000、1973）。",
       guide1_tldr: "<b>一句話重點：</b>現在的跌幅本身不稀奇，稀奇的是估值等級（見上方數字卡）。歷史劇本走到這裡之後分歧極大——所以才需要後面幾頁的統計，而不是只看這張圖講故事。",
       guide2_read: "<b>怎麼讀：</b>這頁回答一個很直覺的問題——「歷史上跌到某個深度之後，<b>最後</b>到底跌到多深才見底？」三張小圖各是一個標的：X 軸＝當時已跌到的深度，Y 軸＝最終谷底（自峰頂起算）。實線＝<b>中位數</b>（一半的經驗比這淺、一半比這深），紫虛線＝<b>最慘 10%</b> 的情況（p10 深尾），紅虛線＝現在的位置。滑鼠移到圓點上可讀數字。",
-      guide2_now: "<b>現在的位置：</b>NDX 跌約 14%：歷史上跌到 −15% 左右時，最終谷底中位數約 −23%（通常還會再深一點）、最慘 10% 約 −38%。TAIEX 跌約 20% → 中位數約 −30%、深尾約 −56%。NVDA 跌約 22% → 中位數約 −37%、深尾約 −75%（個股波動遠大於指數）。",
-      guide2_tldr: "<b>一句話重點：</b>越早止跌、結局越溫和；但「跌 15–20% 還沒止跌」時，歷史經驗顯示進一步下探的空間會變大。這是分布、不是保證——同類回檔之後 1 年，中位數報酬仍是正的（NDX +31.2%）。",
+      guide2_now: "<b>現在的位置：</b>NDX −19.8%（以「觸及 −20%」為條件）：終點中位數 −30.4%、最慘 10% −52.8%。TAIEX −27.7%（觸及 −25%）：中位數 −30.1%、深尾 −56.0%——距中位數終點只剩約 3 個百分點。NVDA −47.5%（已過 −40%）：中位數 −49.7%、深尾 −79.9%（個股波動遠大於指數）。",
+      guide2_tldr: "<b>一句話重點：</b>越早止跌、結局越溫和；跌得越深才落底，條件統計給的終點越深。這是分布、不是保證——以「觸及 −20%」為條件，其後 1 年 NDX 中位數報酬仍是正的（+40.1%）。",
       guide3_read: "<b>怎麼讀：</b>LPPL 是偵測「泡沫臨界」的數學模型——當漲勢出現「越漲越快」的加速形態，模型會估出一個臨界時點 <b>tc</b>（轉折最可能發生的時間）。我們用「滾動窗口」每個月重複擬合一次，把每次估出的 tc 畫成長條：<b>長條越集中的月份，代表越多個窗口指向那裡</b>。信心＝通過篩選的擬合中，tc 落在窗口結束後 6 個月內的比例。",
-      guide3_honest: "<b>誠實聲明：</b>NDX 與 NVDA 的 tc 叢集（2026-10～12）是在峰頂<b>已經發生後</b>才擬合出來的，屬事後驗證性質；真正「往前看」的只有 TAIEX（估 2027-01 前後）。下方驗證表示範 1999 年 NDX：模型約領先 3–6 個月逐漸逼近真實峰頂（2000-03-27），誤差帶 ±3–6 個月。",
+      guide3_honest: "<b>誠實聲明：</b>11/8 版估 NVDA tc＝2026-11 中旬——其後 11/17–11/20 的最深跌段<b>命中</b>了該叢集（13/18 個窗口落在 2026-11）。NDX 的 tc 仍屬峰頂後擬合的事後性質。TAIEX 的 2027-01 叢集（信心 0.56）原是「起跌時點」估計；因台股 11 月已起跌，現<b>事後改讀為「谷底時點」候選</b>——這是重新詮釋，不是新的前向預測。",
       guide3_tldr: "<b>一句話重點：</b>LPPL 只回答「何時可能轉折」，不回答「會跌多深」。它的角色是輔助時點判斷，不是精確預言。",
-      guide4_read: "<b>怎麼讀：</b>這頁把前面所有證據整合成四個互斥的「劇本」，機率合計 100%：E1 不再加深（回檔不破 −15%）、E2 淺修正 −15~−25%、E3 深度修正 −25~−40%、E4 終結性崩盤 ≤−40%。E1 的精確定義＝未來 24 個月自峰頂起算的最大回檔<b>從未深過 −15%</b>——先漲上去之後若再回檔，只要不破 −15% 仍屬 E1；一旦跌破就歸 E2–E4。每條橫條中間的深色刻度＝<b>點機率</b>（單一最佳估計），淺色長條＝<b>80% 區間</b>（把模型自身的不確定性算進去後，機率有八成落在這個範圍）。滑鼠移上可讀數字。",
-      guide4_concl: "<b>現在的結論：</b>以 NDX 而言，最可能是 E2 淺修正（約 50%），但 E3＋E4 合計約 48%——「淺修正收場」與「還有更深一段」幾乎五五波。時間上：約 50% 的機率本輪終點出現在 2026Q4、累計到 2027H1 約 80–85%。台股類比的經驗更嚴峻：終點 ≤−25% 的機率約 97%。",
-      guide4_tldr: "<b>一句話重點：</b>模型不是預言，是把「歷史走到同樣位置後發生什麼」換算成機率。最可能劇本是淺修正，但深度下修的風險（約一半）大到不能忽視——下方表格的證據權重敏感度就是模型自己承認的最大不確定性。",
+      guide4_read: "<b>怎麼讀：</b>這頁把證據整合成互斥的「劇本」，機率合計 100%。11/8 版的四情境中，E1（不再加深，不破 −15%）已於 11/19 出局（NDX 收盤破線），剩三個：E2 淺修正 −15~−25%、E3 深度修正 −25~−40%、E4 終結性崩盤 ≤−40%（皆以 NDX 未來 24 個月自峰頂的最大回檔為終點定義）。每條橫條中間的深色刻度＝<b>點機率</b>（單一最佳估計），淺色長條＝<b>80% 區間</b>（把模型自身的不確定性算進去後，機率有八成落在這個範圍）。滑鼠移上可讀數字。",
+      guide4_concl: "<b>現在的結論：</b>NDX 最可能是 E3 深度修正（39.2%），P(終點 ≤−25%)＝66.1% [53.6–78.1]；「就此止跌」的 E2 只剩 33.9%。落底時點：2026-12 見谷 40%、2027Q1 40%、之後 20%——合計 80% 在 2026-12～2027Q1（中位數約 2026-12-20）。台股：終點在 −25~−40% 帶內收場 60%、破 −40% 40%（≤−25% 已於 11/20 兌現）。NVDA：終點 ≤−40% 已鎖定（現 −47.5%）。",
+      guide4_tldr: "<b>一句話重點：</b>破裂已確認，機率回答的是「多深、何時」：NDX 終點深於 −25% 的機率約三分之二（66.1%）、八成機率在 2026-12～2027Q1 之間落底。最大的模型不確定性仍是「純歷史統計 vs GSY 產業崩盤映射」的權重之爭（見下方敏感度：P(E4) 12.5% ↔ 50%）。",
       paths_cap: "資料：Yahoo Finance 日收盤＋Shiller 月資料（1929）。游標移到圖上可讀取各案例在該月數的回檔深度。",
-      cond_cap: "樣本：NDX 1985–2026 共 35 個 ≥10% 回檔、TAIEX 8 個 ≥15%、NVDA 17 個 ≥20%。紅虛線＝當前位置。1 年前向報酬中位數：NDX +31.2%、TAIEX +17.9%、NVDA +34.2%。",
-      lppl_cap: "信心指標＝通過篩選的擬合中，tc 落在窗口結束後 6 個月內的比例。NDX/NVDA 的 tc 叢集落在已發生峰頂附近（事後擬合性質）；TAIEX 的 2027-01 為真前向估計。",
-      scen_timing_cap: "時點分布：2026Q4 內見到本輪終點約 50%；累計至 2027H1 約 80–85%（LPPL tc 叢集＋歷史峰→谷 13–20 個月）。",
+      cond_cap: "樣本：NDX 1985–2026 共 35 個 ≥10% 回檔、TAIEX 8 個 ≥15%、NVDA 17 個 ≥20%。紅虛線＝當前位置（NDX −19.8%、TAIEX −27.7%、NVDA −47.5%）。以當前位置為條件的 1 年前向報酬中位數：NDX（−20% 群組）+40.1%、TAIEX（−25% 群組）+18.1%、NVDA（−30% 群組）+26.6%。",
+      lppl_cap: "信心指標＝通過篩選的擬合中，tc 落在窗口結束後 6 個月內的比例（資料至 11-20）。NVDA 的 2026-11 叢集已被 11/17–11/20 的最深跌段命中；TAIEX 的 2027-01 由「起跌時點」事後改讀為「谷底時點」候選。",
+      scen_timing_cap: "落底時點分布（11/21 更新）：2026-12 見谷 40%、2027Q1 40%、2027Q2 之後 20%——合計 80% 在 2026-12～2027Q1（條件統計「觸及→谷底」中位數 1.0 個月 ≈ 2026-12-20；LPPL tc 叢集＋1987 型快速崩盤「峰→谷 3.3 個月」支持 Q1）。",
       path_ndx2026: "NDX 2026（進行中）",
       path_taiex2026: "TAIEX 2026（進行中）",
       path_nvda2026: "NVDA 2026（進行中）",
@@ -230,9 +230,9 @@
       lppl_ndx_l: "NDX（信心 1.0）",
       lppl_ndx_n: "臨界點已於 2026-10-06 觸發",
       lppl_nvda_l: "NVDA（信心 1.0）",
-      lppl_nvda_n: "tc 叢集＝現在（2026-11～12）",
-      lppl_taiex_l: "TAIEX（信心 0.39）",
-      lppl_taiex_n: "真前向估計：2027-01 前後",
+      lppl_nvda_n: "tc 叢集 13/18 落在 2026-11（已命中）",
+      lppl_taiex_l: "TAIEX（信心 0.56）",
+      lppl_taiex_n: "2027-01 叢集（10/18 窗口）——改讀為谷底時點候選",
       lppl_pass: "（通過篩選 {v}/{t} 窗口）",
       tt_lppl: "{l}：tc 落在 {m} 的窗口數 {v}/{t}",
       val_h_end: "擬合窗口截止",
@@ -257,17 +257,21 @@
       proto_E4: "2000-03",
       tt_scen_iv: "{n}：80% 區間 {lo}–{hi}%（原型 {p}）",
       tt_scen_med: "{n}：中位數 {m}%（點機率 {pt}%）",
-      scen_note: "NDX 四情境為互斥且窮盡的分割，點機率合計 100%；區間為同一 Dirichlet 分布（k={k}）的邊際 80% 區間。",
+      scen_note: "NDX 三情境為互斥且窮盡的分割（E1 已出局，點機率合計 100%）；區間為同一 Dirichlet 分布（k={k}）的邊際 80% 區間。",
+      scen_name_E1_dead: "E1 不再加深（11/19 收盤破 −15%，出局）",
+      row_ndx_le25: "NDX：P(終點 ≤−25%)",
+      row_nvda_le40: "NVDA：終點 ≤−40%",
+      val_nvda_locked: "已鎖定（現值 −47.5%；歷史中位數終點 −49.7%、深尾 −79.9%）",
       th_scen: "情境",
       th_ndx_pt: "NDX 點機率",
       th_ndx_iv: "NDX 80% 區間",
-      taiex_e3: "TAIEX：E3 深度修正",
-      taiex_e4: "TAIEX：E4 ≤−40%",
-      taiex_p: "TAIEX：P(終點 ≤−25%)",
-      taiex_p_iv: "84.9–99.9%（經驗 5/5）",
-      timing_label: "時點：2026Q4 / 2027H1 / 之後",
+      taiex_e3: "TAIEX：E3 深度修正（−25~−40%）",
+      taiex_e4: "TAIEX：E4 終結性崩盤（≤−40%）",
+      taiex_p: "TAIEX：終點 ≤−25%",
+      taiex_p_iv: "已兌現（2026-11-20 收盤 −27.7%）",
+      timing_label: "落底時點：2026-12 / 2027Q1 / 之後",
       timing_val: "{a}% / {b}% / {c}%（合計 100%）",
-      scen_sens: "證據流權重敏感度（P(E4)）：純經驗 6.7% ↔ 基準 23.9% ↔ 純 GSY 映射 48.8%——這個跨度是本模型最大的不確定性來源。",
+      scen_sens: "證據流權重敏感度（更新後 P(E4)）：純經驗 12.5% ↔ 基準 26.9% ↔ 純 GSY 映射 50.0%——分歧已從 11/8 版的 42pp 縮到 38pp，但仍是本模型最大的不確定性來源。",
       gloss_intro: "看圖時卡住的詞都收在這裡。想深究方法與完整推論，請讀《量化類比推論報告》。",
       gloss_g1: "標的與圖表名詞",
       gloss_g2: "估值指標（上方四張數字卡）",
@@ -312,16 +316,16 @@
       gloss_t_conf: "<b>信心指標</b>",
       gloss_d_conf: "通過篩選的擬合中，tc 落在窗口結束後 6 個月內的比例。1.0＝全部指向近期。",
       gloss_t_dir: "<b>Dirichlet 後驗</b>",
-      gloss_d_dir: "把「四個劇本的機率」當成一個整體分布來估（合計必為 100%），避免各情境分開估時加總不等於 100%。",
-      gloss_t_e14: "<b>E1–E4 情境</b>",
-      gloss_d_e14: "E1＝未來 24 個月最大回檔不深於 −15%（不再加深；先漲後再回檔只要不破線都算）／E2 淺修正 −15~−25%／E3 深度修正 −25~−40%／E4 終結性崩盤 ≤−40%。",
+      gloss_d_dir: "把「數個劇本的機率」當成一個整體分布來估（合計必為 100%），避免各情境分開估時加總不等於 100%。",
+      gloss_t_e14: "<b>E2–E4 情境</b>",
+      gloss_d_e14: "11/8 版的 E1（不再加深，不破 −15%）已於 2026-11-19 出局。現存三情境（終點＝NDX 未來 24 個月自峰頂的最大回檔）：E2 淺修正 −15~−25%／E3 深度修正 −25~−40%／E4 終結性崩盤 ≤−40%。",
     },
     hans: {
       doc_title: "崩盘类比仪表板 · Crash Analog Dashboard",
       doc_h1: "崩盘类比仪表板",
-      doc_subtitle: "2026 年 AI 行情 vs 1929/1973/1987/2000/2007/2021 · 数据截至 2026-11-06 · 作者 Charlie Chu · 数字可由 quant/ 管线重现",
+      doc_subtitle: "2026 年 AI 行情 vs 1929/1973/1987/2000/2007/2021 · 数据截至 2026-11-20（11/21 更新报告配套）· 作者 Charlie Chu · 数字可由 quant/ 管线重现",
       doc_footer: "以四层量化管线（数据 → 指标 → 类比 → 统计）产出 · 非投资建议",
-      intro_p1: "💡 <b>白话导读：</b>这个仪表板在回答一个问题——“这波 AI 行情，像历史上哪些崩盘？之后会怎样？”目前两个关键事实：(1) 估值贵到百年历史的极端等级（CAPE 40.71，比 99% 的日子都贵）；(2) 市场已经开始跌（自 10 月峰顶 NDX 已回调约 14%、TAIEX 约 20%）。我们的估计方式不是预言，而是把“历史上走到类似位置之后，实际发生了什么”换算成概率。",
+      intro_p1: "💡 <b>白话导读：</b>这个仪表板在回答一个问题——“这波 AI 泡沫破裂，何时见底、会跌多深？”两个关键事实：(1) 估值贵到百年历史的极端等级（CAPE 40.71，比 99% 的日子都贵）；(2) 破裂已经发生——截至 11-20，自 10/6 峰顶 NDX −19.8%、TAIEX −27.7%、NVDA −47.5%。本仪表板不预言，只把“历史上走到类似位置之后实际发生了什么”换算成概率：<b>合计 80% 的概率，本轮谷底落在 2026-12 ～ 2027Q1</b>。",
       intro_p2: "上方四张数字卡＝市场体检摘要；四个标签页依次回答：<b>历史怎么跌 → 通常跌多深 → 模型说何时转折 → 综合概率多少</b>。每张图上方都有“这张图怎么看”的图解（可收合）；看不懂的名词请开最右边的“名词解释”标签页；鼠标移到图上可以读出数字。",
       kpi1_label: "Shiller CAPE（2026-10）",
       kpi1_tip: "股价 ÷ 过去十年平均通胀调整盈余，越高越贵。40.71＝1871 年以来第 99 百分位，比 99% 的日子都贵，属 1929／2000 年等级。",
@@ -333,7 +337,7 @@
       kpi3_tip: "股票的盈余收益率（1/CAPE）减去 10 年国债利率＝“持有股票相对债券多赚多少”。负越多＝股票相对债券越贵。−2.78% 是史上第 3 低。",
       kpi3_cap: "史上第 3 低（仅 3% 日子更贵）",
       kpi4_label: "自 2026-10-06 峰顶回档",
-      kpi4_tip: "从 10 月 6 日高点跌下来的幅度（截至 2026-11-06）：NDX（纳斯达克 100）{n}、TAIEX（台股加权）{t}、NVDA（英伟达）{v}、SPX（标普 500）{s}。",
+      kpi4_tip: "从 10 月 6 日高点跌下来的幅度（截至 2026-11-20）：NDX（纳斯达克 100）{n}、TAIEX（台股加权）{t}、NVDA（英伟达）{v}、SPX（标普 500）{s}。",
       tab_paths: "崩溃轨迹对齐",
       tab_cond: "条件化统计",
       tab_lppl: "LPPL 临界时点",
@@ -343,25 +347,25 @@
       cond_h3: "触及 −X% 深度后的终点分布（中位数与深尾 p10）",
       lppl_h3: "LPPL 临界时点 tc 分布（滚动窗口拟合）",
       lppl_val_h3: "方法验证：NDX 1997–2000（真实峰顶 2000-03-27）",
-      scen_h3: "未来 12–24 个月情境概率（三条数据流整合，附推论依据）",
+      scen_h3: "NDX 终点深度概率（三元分割；E1 已于 11/19 出局）",
       gloss_h3: "名词解释（白话版）",
       guide_how: "这张图怎么看？",
       guide1_read: "<b>怎么读：</b>每条线是一场崩盘“从最高点算起”的走势——往右＝距峰顶过了几个月，往下＝跌得越深。粗彩色线是 2026 进行中的三个标的，灰色虚线是历史案例（点上方标签可开关）。鼠标移到图上会出现直线，同时列出所有案例“在那个月份”各跌到多深。",
-      guide1_now: "<b>现在的位置：</b>这波截至 2026-11-06 才走到“第 1 个月”附近（NDX 约 −14%）。目前跌幅在历史上并不稀奇——真正分歧的是“接下来”：有的案例几个月内收复（如 1987、2021），有的持续下跌 2–3 年（如 2000、1973）。",
+      guide1_now: "<b>现在的位置：</b>截至 2026-11-20，这波走到第 1.5 个月：NDX −19.8%、TAIEX −27.7%（11/9–11/11 的政策反弹三天即触顶回落）、NVDA −47.5%。历史上走到类似位置之后分歧极大——有的几个月内收复（1987、2021），有的持续下跌 2–3 年（2000、1973）。",
       guide1_tldr: "<b>一句话重点：</b>现在的跌幅本身不稀奇，稀奇的是估值等级（见上方数字卡）。历史剧本走到这里之后分歧极大——所以才需要后面几页的统计，而不是只看这张图讲故事。",
       guide2_read: "<b>怎么读：</b>这页回答一个很直觉的问题——“历史上跌到某个深度之后，<b>最后</b>到底跌到多深才见底？”三张小图各是一个标的：X 轴＝当时已跌到的深度，Y 轴＝最终谷底（自峰顶起算）。实线＝<b>中位数</b>（一半的经验比这浅、一半比这深），紫虚线＝<b>最惨 10%</b> 的情况（p10 深尾），红虚线＝现在的位置。鼠标移到圆点上可读数字。",
-      guide2_now: "<b>现在的位置：</b>NDX 跌约 14%：历史上跌到 −15% 左右时，最终谷底中位数约 −23%（通常还会再深一点）、最惨 10% 约 −38%。TAIEX 跌约 20% → 中位数约 −30%、深尾约 −56%。NVDA 跌约 22% → 中位数约 −37%、深尾约 −75%（个股波动远大于指数）。",
-      guide2_tldr: "<b>一句话重点：</b>越早止跌、结局越温和；但“跌 15–20% 还没止跌”时，历史经验显示进一步下探的空间会变大。这是分布、不是保证——同类回调之后 1 年，中位数报酬仍是正的（NDX +31.2%）。",
+      guide2_now: "<b>现在的位置：</b>NDX −19.8%（以“触及 −20%”为条件）：终点中位数 −30.4%、最惨 10% −52.8%。TAIEX −27.7%（触及 −25%）：中位数 −30.1%、深尾 −56.0%——距中位数终点只剩约 3 个百分点。NVDA −47.5%（已过 −40%）：中位数 −49.7%、深尾 −79.9%（个股波动远大于指数）。",
+      guide2_tldr: "<b>一句话重点：</b>越早止跌、结局越温和；跌得越深才见底，条件统计给的终点越深。这是分布、不是保证——以“触及 −20%”为条件，其后 1 年 NDX 中位数报酬仍是正的（+40.1%）。",
       guide3_read: "<b>怎么读：</b>LPPL 是侦测“泡沫临界”的数学模型——当涨势出现“越涨越快”的加速形态，模型会估出一个临界时点 <b>tc</b>（转折最可能发生的时间）。我们用“滚动窗口”每个月重复拟合一次，把每次估出的 tc 画成长条：<b>长条越集中的月份，代表越多个窗口指向那里</b>。信心＝通过筛选的拟合中，tc 落在窗口结束后 6 个月内的比例。",
-      guide3_honest: "<b>诚实声明：</b>NDX 与 NVDA 的 tc 丛集（2026-10～12）是在峰顶<b>已经发生后</b>才拟合出来的，属事后验证性质；真正“往前看”的只有 TAIEX（估 2027-01 前后）。下方验证表示范 1999 年 NDX：模型约领先 3–6 个月逐渐逼近真实峰顶（2000-03-27），误差带 ±3–6 个月。",
+      guide3_honest: "<b>诚实声明：</b>11/8 版估 NVDA tc＝2026-11 中旬——其后 11/17–11/20 的最深跌段<b>命中</b>了该丛集（13/18 个窗口落在 2026-11）。NDX 的 tc 仍属峰顶后拟合的事后性质。TAIEX 的 2027-01 丛集（信心 0.56）原是“起跌时点”估计；因台股 11 月已起跌，现<b>事后改读为“谷底时点”候选</b>——这是重新诠释，不是新的前向预测。",
       guide3_tldr: "<b>一句话重点：</b>LPPL 只回答“何时可能转折”，不回答“会跌多深”。它的角色是辅助时点判断，不是精确预言。",
-      guide4_read: "<b>怎么读：</b>这页把前面所有证据整合成四个互斥的“剧本”，概率合计 100%：E1 不再加深（回调不破 −15%）、E2 浅修正 −15~−25%、E3 深度修正 −25~−40%、E4 终结性崩盘 ≤−40%。E1 的精确定义＝未来 24 个月自峰顶起算的最大回调<b>从未深过 −15%</b>——先涨上去之后若再回调，只要不破 −15% 仍属 E1；一旦跌破就归 E2–E4。每条横条中间的深色刻度＝<b>点概率</b>（单一最佳估计），浅色长条＝<b>80% 区间</b>（把模型自身的不确定性算进去后，概率有八成落在这个范围）。鼠标移上可读数字。",
-      guide4_concl: "<b>现在的结论：</b>以 NDX 而言，最可能是 E2 浅修正（约 50%），但 E3＋E4 合计约 48%——“浅修正收场”与“还有更深一段”几乎五五波。时间上：约 50% 的概率本轮终点出现在 2026Q4、累计到 2027H1 约 80–85%。台股类比的经验更严峻：终点 ≤−25% 的概率约 97%。",
-      guide4_tldr: "<b>一句话重点：</b>模型不是预言，是把“历史走到同样位置后发生什么”换算成概率。最可能剧本是浅修正，但深度下修的风险（约一半）大到不能忽视——下方表格的证据权重敏感度就是模型自己承认的最大不确定性。",
+      guide4_read: "<b>怎么读：</b>这页把证据整合成互斥的“剧本”，概率合计 100%。11/8 版的四情境中，E1（不再加深，不破 −15%）已于 11/19 出局（NDX 收盘破线），剩三个：E2 浅修正 −15~−25%、E3 深度修正 −25~−40%、E4 终结性崩盘 ≤−40%（皆以 NDX 未来 24 个月自峰顶的最大回调为终点定义）。每条横条中间的深色刻度＝<b>点概率</b>（单一最佳估计），浅色长条＝<b>80% 区间</b>（把模型自身的不确定性算进去后，概率有八成落在这个范围）。鼠标移上可读数字。",
+      guide4_concl: "<b>现在的结论：</b>NDX 最可能是 E3 深度修正（39.2%），P(终点 ≤−25%)＝66.1% [53.6–78.1]；“就此止跌”的 E2 只剩 33.9%。见底时点：2026-12 见谷 40%、2027Q1 40%、之后 20%——合计 80% 在 2026-12～2027Q1（中位数约 2026-12-20）。台股：终点在 −25~−40% 带内收场 60%、破 −40% 40%（≤−25% 已于 11/20 兑现）。NVDA：终点 ≤−40% 已锁定（现 −47.5%）。",
+      guide4_tldr: "<b>一句话重点：</b>破裂已确认，概率回答的是“多深、何时”：NDX 终点深于 −25% 的概率约三分之二（66.1%）、八成概率在 2026-12～2027Q1 之间见底。最大的模型不确定性仍是“纯历史统计 vs GSY 产业崩盘映射”的权重之争（见下方敏感度：P(E4) 12.5% ↔ 50%）。",
       paths_cap: "数据：Yahoo Finance 日收盘＋Shiller 月数据（1929）。游标移到图上可读取各案例在该月数的回档深度。",
-      cond_cap: "样本：NDX 1985–2026 共 35 个 ≥10% 回调、TAIEX 8 个 ≥15%、NVDA 17 个 ≥20%。红虚线＝当前位置。1 年前向报酬中位数：NDX +31.2%、TAIEX +17.9%、NVDA +34.2%。",
-      lppl_cap: "信心指标＝通过筛选的拟合中，tc 落在窗口结束后 6 个月内的比例。NDX/NVDA 的 tc 丛集落在已发生峰顶附近（事后拟合性质）；TAIEX 的 2027-01 为真前向估计。",
-      scen_timing_cap: "时点分布：2026Q4 内见到本轮终点约 50%；累计至 2027H1 约 80–85%（LPPL tc 丛集＋历史峰→谷 13–20 个月）。",
+      cond_cap: "样本：NDX 1985–2026 共 35 个 ≥10% 回调、TAIEX 8 个 ≥15%、NVDA 17 个 ≥20%。红虚线＝当前位置（NDX −19.8%、TAIEX −27.7%、NVDA −47.5%）。以当前位置为条件的 1 年前向报酬中位数：NDX（−20% 群组）+40.1%、TAIEX（−25% 群组）+18.1%、NVDA（−30% 群组）+26.6%。",
+      lppl_cap: "信心指标＝通过筛选的拟合中，tc 落在窗口结束后 6 个月内的比例（数据至 11-20）。NVDA 的 2026-11 丛集已被 11/17–11/20 的最深跌段命中；TAIEX 的 2027-01 由“起跌时点”事后改读为“谷底时点”候选。",
+      scen_timing_cap: "见底时点分布（11/21 更新）：2026-12 见谷 40%、2027Q1 40%、2027Q2 之后 20%——合计 80% 在 2026-12～2027Q1（条件统计“触及→谷底”中位数 1.0 个月 ≈ 2026-12-20；LPPL tc 丛集＋1987 型快速崩盘“峰→谷 3.3 个月”支持 Q1）。",
       path_ndx2026: "NDX 2026（进行中）",
       path_taiex2026: "TAIEX 2026（进行中）",
       path_nvda2026: "NVDA 2026（进行中）",
@@ -394,9 +398,9 @@
       lppl_ndx_l: "NDX（信心 1.0）",
       lppl_ndx_n: "临界点已于 2026-10-06 触发",
       lppl_nvda_l: "NVDA（信心 1.0）",
-      lppl_nvda_n: "tc 丛集＝现在（2026-11～12）",
-      lppl_taiex_l: "TAIEX（信心 0.39）",
-      lppl_taiex_n: "真前向估计：2027-01 前后",
+      lppl_nvda_n: "tc 丛集 13/18 落在 2026-11（已命中）",
+      lppl_taiex_l: "TAIEX（信心 0.56）",
+      lppl_taiex_n: "2027-01 丛集（10/18 窗口）——改读为谷底时点候选",
       lppl_pass: "（通过筛选 {v}/{t} 窗口）",
       tt_lppl: "{l}：tc 落在 {m} 的窗口数 {v}/{t}",
       val_h_end: "拟合窗口截止",
@@ -421,17 +425,21 @@
       proto_E4: "2000-03",
       tt_scen_iv: "{n}：80% 区间 {lo}–{hi}%（原型 {p}）",
       tt_scen_med: "{n}：中位数 {m}%（点概率 {pt}%）",
-      scen_note: "NDX 四情境为互斥且穷尽的分割，点概率合计 100%；区间为同一 Dirichlet 分布（k={k}）的边际 80% 区间。",
+      scen_note: "NDX 三情境为互斥且穷尽的分割（E1 已出局，点概率合计 100%）；区间为同一 Dirichlet 分布（k={k}）的边际 80% 区间。",
+      scen_name_E1_dead: "E1 不再加深（11/19 收盘破 −15%，出局）",
+      row_ndx_le25: "NDX：P(终点 ≤−25%)",
+      row_nvda_le40: "NVDA：终点 ≤−40%",
+      val_nvda_locked: "已锁定（现值 −47.5%；历史中位数终点 −49.7%、深尾 −79.9%）",
       th_scen: "情境",
       th_ndx_pt: "NDX 点概率",
       th_ndx_iv: "NDX 80% 区间",
-      taiex_e3: "TAIEX：E3 深度修正",
-      taiex_e4: "TAIEX：E4 ≤−40%",
-      taiex_p: "TAIEX：P(终点 ≤−25%)",
-      taiex_p_iv: "84.9–99.9%（经验 5/5）",
-      timing_label: "时点：2026Q4 / 2027H1 / 之后",
+      taiex_e3: "TAIEX：E3 深度修正（−25~−40%）",
+      taiex_e4: "TAIEX：E4 终结性崩盘（≤−40%）",
+      taiex_p: "TAIEX：终点 ≤−25%",
+      taiex_p_iv: "已兑现（2026-11-20 收盘 −27.7%）",
+      timing_label: "见底时点：2026-12 / 2027Q1 / 之后",
       timing_val: "{a}% / {b}% / {c}%（合计 100%）",
-      scen_sens: "证据流权重敏感度（P(E4)）：纯经验 6.7% ↔ 基准 23.9% ↔ 纯 GSY 映射 48.8%——这个跨度是本模型最大的不确定性来源。",
+      scen_sens: "证据流权重敏感度（更新后 P(E4)）：纯经验 12.5% ↔ 基准 26.9% ↔ 纯 GSY 映射 50.0%——分歧已从 11/8 版的 42pp 缩到 38pp，但仍是本模型最大的不确定性来源。",
       gloss_intro: "看图时卡住的词都收在这里。想深究方法与完整推论，请读《量化类比推论报告》。",
       gloss_g1: "标的与图表名词",
       gloss_g2: "估值指标（上方四张数字卡）",
@@ -476,16 +484,16 @@
       gloss_t_conf: "<b>信心指标</b>",
       gloss_d_conf: "通过筛选的拟合中，tc 落在窗口结束后 6 个月内的比例。1.0＝全部指向近期。",
       gloss_t_dir: "<b>Dirichlet 后验</b>",
-      gloss_d_dir: "把“四个剧本的概率”当成一个整体分布来估（合计必为 100%），避免各情境分开估时加总不等于 100%。",
-      gloss_t_e14: "<b>E1–E4 情境</b>",
-      gloss_d_e14: "E1＝未来 24 个月最大回调不深于 −15%（不再加深；先涨后再回调只要不破线都算）／E2 浅修正 −15~−25%／E3 深度修正 −25~−40%／E4 终结性崩盘 ≤−40%。",
+      gloss_d_dir: "把“数个剧本的概率”当成一个整体分布来估（合计必为 100%），避免各情境分开估时加总不等于 100%。",
+      gloss_t_e14: "<b>E2–E4 情境</b>",
+      gloss_d_e14: "11/8 版的 E1（不再加深，不破 −15%）已于 2026-11-19 出局。现存三情境（终点＝NDX 未来 24 个月自峰顶的最大回调）：E2 浅修正 −15~−25%／E3 深度修正 −25~−40%／E4 终结性崩盘 ≤−40%。",
     },
     en: {
       doc_title: "Crash Analog Dashboard · 2026 AI Market vs Historical Crashes",
       doc_h1: "Crash Analog Dashboard",
-      doc_subtitle: "2026 AI market vs the 1929/1973/1987/2000/2007/2021 crashes · Data as of 2026-11-06 · by Charlie Chu · all figures reproducible from the quant/ pipeline",
+      doc_subtitle: "2026 AI market vs the 1929/1973/1987/2000/2007/2021 crashes · Data as of 2026-11-20 (companion to the 11/21 update report) · by Charlie Chu · all figures reproducible from the quant/ pipeline",
       doc_footer: "Produced by a four-layer quant pipeline (data → indicators → analogs → statistics) · Not investment advice",
-      intro_p1: "💡 <b>In plain language:</b> this dashboard asks one question — “which historical crashes does the 2026 AI rally resemble, and what followed?” Two facts stand out: (1) valuations sit at century-class extremes (CAPE 40.71 — dearer than 99% of all days on record); (2) the market has already started falling (NDX about −14% and TAIEX about −20% off the October peak). Our estimates are not prophecy: we convert “what actually happened historically after similar setups” into probabilities.",
+      intro_p1: "💡 <b>In plain language:</b> this dashboard asks one question — “when will this AI-bubble bust bottom out, and how deep will it get?” Two facts stand out: (1) valuations sit at century-class extremes (CAPE 40.71 — dearer than 99% of all days on record); (2) the bust is underway — as of Nov 20, NDX −19.8%, TAIEX −27.7% and NVDA −47.5% from the Oct 6 peak. We do not prophesy; we convert “what actually happened historically after similar setups” into probabilities: <b>an 80% combined chance the trough lands between Dec 2026 and Q1 2027</b>.",
       intro_p2: "The four cards above are the market’s health check; the four tabs answer, in order: <b>how history fell → how deep it usually went → when models see the turning point → the combined probabilities</b>. Every chart has a collapsible “How to read this chart” guide; open the Glossary tab (rightmost) for any term; hover over the charts to read exact numbers.",
       kpi1_label: "Shiller CAPE (Oct 2026)",
       kpi1_tip: "Price ÷ 10-year average inflation-adjusted earnings; higher = more expensive. 40.71 = 99th percentile since 1871 — dearer than 99% of all days, a 1929/2000-class reading.",
@@ -497,7 +505,7 @@
       kpi3_tip: "The earnings yield (1/CAPE) minus the 10-year Treasury yield = the extra compensation for holding stocks over bonds. The lower (more negative), the dearer stocks are relative to bonds. −2.78% is the 3rd lowest on record.",
       kpi3_cap: "3rd lowest on record (only 3% of days were dearer)",
       kpi4_label: "Drawdown from 2026-10-06 peak",
-      kpi4_tip: "Decline from the Oct 6 high (as of 2026-11-06): NDX (Nasdaq 100) {n}, TAIEX (Taiwan Weighted) {t}, NVDA (Nvidia) {v}, SPX (S&P 500) {s}.",
+      kpi4_tip: "Decline from the Oct 6 high (as of 2026-11-20): NDX (Nasdaq 100) {n}, TAIEX (Taiwan Weighted) {t}, NVDA (Nvidia) {v}, SPX (S&P 500) {s}.",
       tab_paths: "Crash paths",
       tab_cond: "Conditional stats",
       tab_lppl: "LPPL timing",
@@ -507,25 +515,25 @@
       cond_h3: "Final-depth distribution after touching −X% (median vs deep-tail p10)",
       lppl_h3: "LPPL critical-time tc distribution (rolling-window fits)",
       lppl_val_h3: "Method check: NDX 1997–2000 (true peak 2000-03-27)",
-      scen_h3: "Scenario probabilities for the next 12–24 months (three evidence streams, with reasoning)",
+      scen_h3: "NDX final-depth probabilities (three-way partition; E1 eliminated on Nov 19)",
       gloss_h3: "Glossary (plain language)",
       guide_how: "How to read this chart?",
       guide1_read: "<b>How to read:</b> each line is one crash episode anchored at its peak — rightward = months since the peak; downward = deeper. Thick colored lines are the three live 2026 series; grey dashed lines are historical episodes (click the tags above to toggle). Hovering shows a line listing every visible episode’s depth at that month.",
-      guide1_now: "<b>Where we are:</b> as of 2026-11-06 this episode is only around “month 1” (NDX about −14%). The drawdown itself is not unusual so far — what diverges is what comes next: some episodes recovered within months (1987, 2021), others kept falling for 2–3 years (2000, 1973).",
+      guide1_now: "<b>Where we are:</b> as of 2026-11-20 this episode is around month 1.5: NDX −19.8%, TAIEX −27.7% (the 11/9–11/11 policy rebound peaked after just three sessions), NVDA −47.5%. History diverges hugely from here — some episodes recovered within months (1987, 2021), others kept falling for 2–3 years (2000, 1973).",
       guide1_tldr: "<b>Bottom line:</b> the drawdown so far is not the story — the valuation tier is (see the cards above). Historical scripts diverge hugely from here, which is why the next tabs quantify instead of narrate.",
       guide2_read: "<b>How to read:</b> this tab answers an intuitive question — “after falling to a given depth, how deep did it <b>finally</b> get?” One small chart per instrument: x = depth already reached, y = the eventual trough (measured from the peak). Solid line = <b>median</b> (half the episodes ended shallower, half deeper); purple dashed = the <b>worst 10%</b> of cases (p10 deep tail); red dashed = where we are now. Hover the dots for numbers.",
-      guide2_now: "<b>Where we are:</b> NDX −14%: historically, after touching about −15%, the eventual trough had a median of about −23% (usually a bit deeper) and a worst-10% of about −38%. TAIEX −20% → median about −30%, deep tail about −56%. NVDA −22% → median about −37%, deep tail about −75% (single stocks swing far more than indices).",
-      guide2_tldr: "<b>Bottom line:</b> the earlier the decline stalls, the milder the ending; but when 15–20% is reached without a bottom, history says the room for further downside grows. This is a distribution, not a promise — the median 1-year forward return after similar episodes is still positive (NDX +31.2%).",
+      guide2_now: "<b>Where we are:</b> NDX −19.8% (conditioned on “touched −20%”): eventual-trough median −30.4%, worst-10% −52.8%. TAIEX −27.7% (touched −25%): median −30.1%, deep tail −56.0% — only about 3 points below the median trough. NVDA −47.5% (already past −40%): median −49.7%, deep tail −79.9% (single stocks swing far more than indices).",
+      guide2_tldr: "<b>Bottom line:</b> the earlier the decline stalls, the milder the ending; the deeper it falls before bottoming, the deeper the conditional endpoint. This is a distribution, not a promise — conditioned on “touched −20%”, the median 1-year forward NDX return is still positive (+40.1%).",
       guide3_read: "<b>How to read:</b> LPPL is a mathematical model for bubble criticality — when a rally accelerates “faster and faster”, the model estimates a critical time <b>tc</b> (when the turn is most likely). We refit monthly over rolling windows and plot each window’s tc as a bar: <b>the more bars cluster in one month, the more windows point there</b>. Confidence = the share of screened fits whose tc lands within 6 months after the window ends.",
-      guide3_honest: "<b>Honest caveat:</b> the NDX and NVDA tc clusters (Oct–Dec 2026) were fitted <b>after</b> the peak had already happened — in-sample validation, not prophecy. Only TAIEX looks genuinely forward (estimated around Jan 2027). The table below replays NDX 1999: the model converged on the true peak (2000-03-27) with a ±3–6 month error band, leading by roughly 3–6 months.",
+      guide3_honest: "<b>Honest caveat:</b> the 11/8 report placed NVDA’s tc in mid-November 2026 — and the deepest leg of 11/17–11/20 <b>hit that cluster</b> (13/18 windows land on Nov 2026). NDX’s tc remains in-sample, fitted after the peak. TAIEX’s Jan 2027 cluster (confidence 0.56) was originally a “turn timing” estimate; since Taiwan has already turned down, it is <b>re-read after the fact as a trough-time candidate</b> — a reinterpretation, not a new forward forecast.",
       guide3_tldr: "<b>Bottom line:</b> LPPL answers “when might the turn come”, not “how deep will it fall”. It is a timing aid, not a precise prophecy.",
-      guide4_read: "<b>How to read:</b> this tab integrates all prior evidence into four mutually exclusive scripts summing to 100%: E1 no deeper (drawdown never breaks −15%), E2 shallow correction −15~−25%, E3 deep correction −25~−40%, E4 terminal crash ≤−40%. E1’s precise definition: over the next 24 months the maximum drawdown from the peak <b>never goes below −15%</b> — a rally followed by another pullback still counts as E1 as long as −15% holds; once broken, the outcome belongs to E2–E4. The dark tick on each bar = the <b>point probability</b> (single best estimate); the pale bar = the <b>80% interval</b> (the truth falls in this range 8 times out of 10 once model uncertainty is included). Hover for numbers.",
-      guide4_concl: "<b>What the model says now:</b> for NDX, E2 shallow correction is most likely (~50%), but E3+E4 together ≈48% — “a shallow correction and done” versus “a deeper leg is still coming” is nearly a coin flip. On timing: ~50% that this episode’s endpoint lands within 2026Q4, ~80–85% cumulatively by 2027H1. The Taiwan analog is harsher: ~97% probability the final depth breaks −25%.",
-      guide4_tldr: "<b>Bottom line:</b> the model is not a prophecy — it converts “what historically happened at similar setups” into probabilities. The most likely script is a shallow correction, but the risk of a deeper leg (~half) is too large to ignore — the evidence-weight sensitivity in the table below is the model’s own admission of its biggest uncertainty.",
+      guide4_read: "<b>How to read:</b> this tab integrates the evidence into mutually exclusive scripts summing to 100%. Of the 11/8 report’s four scenarios, E1 (no deeper, −15% holds) was eliminated on Nov 19 (NDX closed below the line), leaving three: E2 shallow correction −15~−25%, E3 deep correction −25~−40%, E4 terminal crash ≤−40% (each defined by NDX’s maximum drawdown from the peak over the next 24 months). The dark tick on each bar = the <b>point probability</b> (single best estimate); the pale bar = the <b>80% interval</b> (the truth falls in this range 8 times out of 10 once model uncertainty is included). Hover for numbers.",
+      guide4_concl: "<b>What the model says now:</b> for NDX, E3 deep correction is most likely (39.2%); P(final depth ≤−25%) = 66.1% [53.6–78.1]; the “stops here” case E2 is down to 33.9%. Trough timing: Dec 2026 40%, Q1 2027 40%, later 20% — an 80% combined chance the trough lands in Dec 2026–Q1 2027 (median around 2026-12-20). TAIEX: 60% it finishes inside the −25~−40% band, 40% it breaks −40% (≤−25% already realized on 11/20). NVDA: terminal ≤−40% is locked in (now −47.5%).",
+      guide4_tldr: "<b>Bottom line:</b> the bust is confirmed; the probabilities answer “how deep, and when”: a two-thirds chance (66.1%) NDX’s final depth passes −25%, and an 80% chance the trough arrives between Dec 2026 and Q1 2027. The model’s biggest uncertainty remains the weight fight between pure historical statistics and the GSY industry-crash mapping (see sensitivity below: P(E4) 12.5% ↔ 50%).",
       paths_cap: "Data: Yahoo Finance daily closes + Shiller monthly (1929). Hover over the chart to read each episode’s drawdown at that month.",
-      cond_cap: "Sample: NDX 1985–2026, 35 drawdowns ≥10%; TAIEX, 8 ≥15%; NVDA, 17 ≥20%. Red dashed = current position. Median 1-year forward return after similar episodes: NDX +31.2%, TAIEX +17.9%, NVDA +34.2%.",
-      lppl_cap: "Confidence = the share of screened fits whose tc lands within 6 months after the window ends. The NDX/NVDA tc clusters sit near the already-occurred peak (in-sample character); TAIEX’s Jan 2027 is the genuine forward estimate.",
-      scen_timing_cap: "Timing: ~50% chance this episode’s endpoint arrives within 2026Q4; ~80–85% cumulatively by 2027H1 (LPPL tc cluster + historical peak-to-trough of 13–20 months).",
+      cond_cap: "Sample: NDX 1985–2026, 35 drawdowns ≥10%; TAIEX, 8 ≥15%; NVDA, 17 ≥20%. Red dashed = current position (NDX −19.8%, TAIEX −27.7%, NVDA −47.5%). Median 1-year forward return conditioned on the current depth: NDX (−20% group) +40.1%, TAIEX (−25% group) +18.1%, NVDA (−30% group) +26.6%.",
+      lppl_cap: "Confidence = the share of screened fits whose tc lands within 6 months after the window ends (data through Nov 20). NVDA’s Nov 2026 cluster was hit by the deepest leg of 11/17–11/20; TAIEX’s Jan 2027 has been re-read after the fact from “turn timing” to “trough-time candidate”.",
+      scen_timing_cap: "Trough-timing distribution (updated 11/21): Dec 2026 40%, Q1 2027 40%, after Q2 2027 20% — an 80% combined chance the trough lands in Dec 2026–Q1 2027 (conditional-statistics touch→trough median of 1.0 month ≈ 2026-12-20; the LPPL tc clusters plus the 1987-style fast-crash peak→trough of 3.3 months support Q1).",
       path_ndx2026: "NDX 2026 (ongoing)",
       path_taiex2026: "TAIEX 2026 (ongoing)",
       path_nvda2026: "NVDA 2026 (ongoing)",
@@ -558,9 +566,9 @@
       lppl_ndx_l: "NDX (confidence 1.0)",
       lppl_ndx_n: "critical point already hit on 2026-10-06",
       lppl_nvda_l: "NVDA (confidence 1.0)",
-      lppl_nvda_n: "tc cluster = now (Nov–Dec 2026)",
-      lppl_taiex_l: "TAIEX (confidence 0.39)",
-      lppl_taiex_n: "genuine forward estimate: around Jan 2027",
+      lppl_nvda_n: "tc cluster: 13/18 windows on Nov 2026 (hit)",
+      lppl_taiex_l: "TAIEX (confidence 0.56)",
+      lppl_taiex_n: "Jan 2027 cluster (10/18 windows) — re-read as a trough-time candidate",
       lppl_pass: "({v}/{t} windows passed screening)",
       tt_lppl: "{l}: windows with tc in {m}: {v}/{t}",
       val_h_end: "Window end",
@@ -585,17 +593,21 @@
       proto_E4: "2000-03",
       tt_scen_iv: "{n}: 80% interval {lo}–{hi}% (prototype {p})",
       tt_scen_med: "{n}: median {m}% (point probability {pt}%)",
-      scen_note: "The four NDX scenarios are mutually exclusive and exhaustive; point probabilities sum to 100%. The intervals are marginal 80% intervals of one Dirichlet distribution (k={k}).",
+      scen_note: "The three NDX scenarios are mutually exclusive and exhaustive (E1 eliminated; point probabilities sum to 100%). The intervals are marginal 80% intervals of one Dirichlet distribution (k={k}).",
+      scen_name_E1_dead: "E1 No deeper (broke −15% on Nov 19 — eliminated)",
+      row_ndx_le25: "NDX: P(final depth ≤−25%)",
+      row_nvda_le40: "NVDA: final depth ≤−40%",
+      val_nvda_locked: "Locked in (now −47.5%; historical median endpoint −49.7%, deep tail −79.9%)",
       th_scen: "Scenario",
       th_ndx_pt: "NDX point prob.",
       th_ndx_iv: "NDX 80% interval",
-      taiex_e3: "TAIEX: E3 deep correction",
-      taiex_e4: "TAIEX: E4 ≤−40%",
-      taiex_p: "TAIEX: P(final depth ≤−25%)",
-      taiex_p_iv: "84.9–99.9% (empirical 5/5)",
-      timing_label: "Timing: 2026Q4 / 2027H1 / later",
+      taiex_e3: "TAIEX: E3 deep correction (−25~−40%)",
+      taiex_e4: "TAIEX: E4 terminal crash (≤−40%)",
+      taiex_p: "TAIEX: final depth ≤−25%",
+      taiex_p_iv: "Realized (2026-11-20 close −27.7%)",
+      timing_label: "Trough timing: Dec 2026 / Q1 2027 / later",
       timing_val: "{a}% / {b}% / {c}% (sums to 100%)",
-      scen_sens: "Evidence-weight sensitivity of P(E4): empirical only 6.7% ↔ baseline 23.9% ↔ pure GSY mapping 48.8% — this spread is the model’s single largest source of uncertainty.",
+      scen_sens: "Evidence-weight sensitivity of the updated P(E4): empirical only 12.5% ↔ baseline 26.9% ↔ pure GSY mapping 50.0% — the spread narrowed from 42pp (11/8) to 38pp but remains the model’s single largest source of uncertainty.",
       gloss_intro: "Every term used in the charts, in plain words. For methods and the full reasoning, read the quantitative analog report.",
       gloss_g1: "Instruments & chart terms",
       gloss_g2: "Valuation metrics (the four cards above)",
@@ -640,9 +652,9 @@
       gloss_t_conf: "<b>Confidence</b>",
       gloss_d_conf: "The share of screened fits whose tc lands within 6 months after the window ends. 1.0 = all of them point to the near term.",
       gloss_t_dir: "<b>Dirichlet posterior</b>",
-      gloss_d_dir: "The four scenario probabilities are estimated as ONE distribution (they must sum to 100%), avoiding the sum-to-105% problem of estimating each scenario separately.",
-      gloss_t_e14: "<b>E1–E4 scenarios</b>",
-      gloss_d_e14: "E1 = max drawdown over the next 24 months never below −15% (no further deepening; rally-then-pullback counts while the line holds) / E2 shallow −15~−25% / E3 deep −25~−40% / E4 terminal crash ≤−40%.",
+      gloss_d_dir: "The scenario probabilities are estimated as ONE distribution (they must sum to 100%), avoiding the sum-to-105% problem of estimating each scenario separately.",
+      gloss_t_e14: "<b>E2–E4 scenarios</b>",
+      gloss_d_e14: "The 11/8 report’s E1 (no deeper than −15%) was eliminated on 2026-11-19. The three remaining scenarios (final depth = NDX max drawdown from the peak over the next 24 months): E2 shallow −15~−25% / E3 deep −25~−40% / E4 terminal crash ≤−40%.",
     },
   };
 
@@ -839,9 +851,9 @@
     const wrap = document.getElementById("cad-cond-wrap");
     wrap.innerHTML = "";
     const assets = [
-      { key: "NDX", label: t("cond_ndx"), cur: 14.7 },
-      { key: "TAIEX", label: t("cond_taiex"), cur: 20.3 },
-      { key: "NVDA", label: t("cond_nvda"), cur: 24.1 },
+      { key: "NDX", label: t("cond_ndx"), cur: 19.8, xdom: [8, 32], ticks: [10, 15, 20, 25, 30] },
+      { key: "TAIEX", label: t("cond_taiex"), cur: 27.7, xdom: [8, 32], ticks: [10, 15, 20, 25, 30] },
+      { key: "NVDA", label: t("cond_nvda"), cur: 47.5, xdom: [8, 52], ticks: [10, 20, 30, 40, 50] },
     ];
     const cur = { NDX: (DATA.live.NDX || {}).drawdown_pct, TAIEX: (DATA.live.TAIEX || {}).drawdown_pct, NVDA: (DATA.live.NVDA || {}).drawdown_pct };
     assets.forEach(a => {
@@ -856,7 +868,7 @@
       Object.entries((DATA.conditional[a.key] || {})).forEach(([d, s]) => {
         ptsM.push([+d, s.median_eventual_max_dd]); ptsP.push([+d, s.p10_eventual_max_dd]);
       });
-      const x = d3.scaleLinear().domain([8, 32]).range([M.l, W - M.r]);
+      const x = d3.scaleLinear().domain(a.xdom).range([M.l, W - M.r]);
       const y = d3.scaleLinear().domain([d3.min(ptsP.map(p => p[1])) - 5, -8]).range([H - M.b, M.t]);
       svg.append("rect").attr("data-chart-frame", "").attr("x", M.l).attr("y", M.t)
         .attr("width", W - M.l - M.r).attr("height", H - M.t - M.b)
@@ -868,7 +880,7 @@
         svg.append("text").attr("x", M.l - 5).attr("y", y(v)).attr("dy", "0.32em").attr("text-anchor", "end")
           .attr("font-size", 11).attr("fill", PAL.mut).text(v + "%");
       });
-      (W < 420 ? [10, 20, 30] : [10, 15, 20, 25, 30]).forEach(v => {
+      (W < 420 ? a.ticks.filter((_, i) => i % 2 === 0) : a.ticks).forEach(v => {
         svg.append("text").attr("x", x(v)).attr("y", H - M.b + 16).attr("text-anchor", "middle")
           .attr("font-size", 11).attr("fill", PAL.mut).text("−" + v + "%");
       });
@@ -952,8 +964,10 @@
     const wrap = document.getElementById("cad-scen-wrap");
     wrap.innerHTML = "";
     const SC = DATA.scenarios;
+    // scenario numbers arrive pre-scaled to percent (bundled via Python rounding,
+    // identical to the report's printed values) — no re-multiplication here
     const scen = SC ? SC.ndx.map((r, i) => ({
-      key: r.key, lo: r.lo * 100, hi: r.hi * 100, m: r.m * 100, pt: r.pt * 100,
+      key: r.key, lo: r.lo, hi: r.hi, m: r.m, pt: r.pt,
       name: t("scen_name_" + r.key),
       chart: t("scen_chart_" + r.key),
       short: t("scen_short_" + r.key),
@@ -997,15 +1011,18 @@
     const tb = document.getElementById("cad-scen-table");
     const ndx = SC ? SC.ndx : [];
     const tw = SC ? SC.taiex : [];
+    const agg = SC ? (SC.ndx_le25 || {}) : {};
+    const pctf = (v) => v != null ? v.toFixed(1) + "%" : "—";
+    const ivf = (r) => r && r.lo != null ? `${r.lo.toFixed(1)}–${r.hi.toFixed(1)}%` : "—";
     tb.innerHTML = `<table class="table table-sm"><thead><tr><th>${t("th_scen")}</th><th>${t("th_ndx_pt")}</th><th>${t("th_ndx_iv")}</th></tr></thead><tbody>
-      <tr><td>${t("scen_name_E1")}</td><td class="tabular-nums">${(ndx[0] || {}).pt != null ? ((ndx[0].pt * 100).toFixed(1) + "%") : "2.4%"}</td><td class="tabular-nums">0.1–6.3%</td></tr>
-      <tr><td>${t("scen_name_E2")}</td><td class="tabular-nums">${(ndx[1] || {}).pt != null ? ((ndx[1].pt * 100).toFixed(1) + "%") : "50.0%"}</td><td class="tabular-nums">37.0–63.0%</td></tr>
-      <tr><td>${t("scen_name_E3")}</td><td class="tabular-nums">${(ndx[2] || {}).pt != null ? ((ndx[2].pt * 100).toFixed(1) + "%") : "23.7%"}</td><td class="tabular-nums">13.3–35.2%</td></tr>
-      <tr><td>${t("scen_name_E4")}</td><td class="tabular-nums">${(ndx[3] || {}).pt != null ? ((ndx[3].pt * 100).toFixed(1) + "%") : "23.9%"}</td><td class="tabular-nums">13.4–35.3%</td></tr>
-      <tr><td>${t("taiex_e3")}</td><td class="tabular-nums">${(tw[2] || {}).pt != null ? ((tw[2].pt * 100).toFixed(1) + "%") : "59.6%"}</td><td class="tabular-nums">37.8–79.0%</td></tr>
-      <tr><td>${t("taiex_e4")}</td><td class="tabular-nums">${(tw[3] || {}).pt != null ? ((tw[3].pt * 100).toFixed(1) + "%") : "40.4%"}</td><td class="tabular-nums">21.1–62.2%</td></tr>
-      <tr><td>${t("taiex_p")}</td><td class="tabular-nums">97.3%</td><td class="tabular-nums">${t("taiex_p_iv")}</td></tr>
-      <tr><td>${t("timing_label")}</td><td class="tabular-nums" colspan="2">${SC ? tf("timing_val", { a: Math.round(SC.timing["2026Q4"] * 100), b: Math.round(SC.timing["2027H1"] * 100), c: Math.round(SC.timing["2027H2+"] * 100) }) : "50% / 32.5% / 17.5%"}</td></tr>
+      <tr><td colspan="3"><s>${t("scen_name_E1")}</s>　<span class="text-muted">${t("scen_name_E1_dead")}</span></td></tr>
+      ${ndx.map(r => `<tr><td>${t("scen_name_" + r.key)}</td><td class="tabular-nums">${pctf(r.pt)}</td><td class="tabular-nums">${ivf(r)}</td></tr>`).join("")}
+      <tr><td>${t("row_ndx_le25")}</td><td class="tabular-nums">${pctf(agg.pt)}</td><td class="tabular-nums">${ivf(agg)}</td></tr>
+      <tr><td>${t("taiex_e3")}</td><td class="tabular-nums">${pctf((tw[1] || {}).pt)}</td><td class="tabular-nums">${ivf(tw[1])}</td></tr>
+      <tr><td>${t("taiex_e4")}</td><td class="tabular-nums">${pctf((tw[2] || {}).pt)}</td><td class="tabular-nums">${ivf(tw[2])}</td></tr>
+      <tr><td>${t("taiex_p")}</td><td class="tabular-nums" colspan="2">${t("taiex_p_iv")}</td></tr>
+      <tr><td>${t("row_nvda_le40")}</td><td class="tabular-nums" colspan="2">${t("val_nvda_locked")}</td></tr>
+      <tr><td>${t("timing_label")}</td><td class="tabular-nums" colspan="2">${SC && SC.timing ? tf("timing_val", { a: Math.round(SC.timing.a * 100), b: Math.round(SC.timing.b * 100), c: Math.round(SC.timing.c * 100) }) : "40% / 40% / 20%"}</td></tr>
       </tbody></table>
       <p class="text-small text-muted">${t("scen_sens")}</p>`;
   }
