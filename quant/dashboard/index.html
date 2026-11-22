@@ -224,7 +224,7 @@ footer{margin-top:18px;color:var(--muted-foreground);font-size:12px}
       cond_h3: "觸及 −X% 深度後的終點分布（中位數與深尾 p10）",
       lppl_h3: "LPPL 臨界時點 tc 分布（滾動窗口擬合）",
       lppl_val_h3: "方法驗證：NDX 1997–2000（真實峰頂 2000-03-27）",
-      scen_h3: "NDX 終點深度機率（三元分割；E1 已於 11/19 出局）",
+      scen_h3: "NDX／TAIEX 終點深度機率（三元分割；E1 已於 11/19 出局）",
       gloss_h3: "名詞解釋（白話版）",
       guide_how: "這張圖怎麼看？",
       guide1_read: "<b>怎麼讀：</b>每條線是一場崩盤「從最高點算起」的走勢——往右＝距峰頂過了幾個月，往下＝跌得越深。粗彩色線是 2026 進行中的三個標的，灰色虛線是歷史案例（點上方標籤可開關）。滑鼠移到圖上會出現直線，同時列出所有案例「在那個月份」各跌到多深。",
@@ -236,7 +236,7 @@ footer{margin-top:18px;color:var(--muted-foreground);font-size:12px}
       guide3_read: "<b>怎麼讀：</b>LPPL 是偵測「泡沫臨界」的數學模型——當漲勢出現「越漲越快」的加速形態，模型會估出一個臨界時點 <b>tc</b>（轉折最可能發生的時間）。我們用「滾動窗口」每個月重複擬合一次，把每次估出的 tc 畫成長條：<b>長條越集中的月份，代表越多個窗口指向那裡</b>。信心＝通過篩選的擬合中，tc 落在窗口結束後 6 個月內的比例。",
       guide3_honest: "<b>誠實聲明：</b>11/8 版估 NVDA tc＝2026-11 中旬——其後 11/17–11/20 的最深跌段<b>命中</b>了該叢集（13/18 個窗口落在 2026-11）。NDX 的 tc 仍屬峰頂後擬合的事後性質。TAIEX 的 2027-01 叢集（信心 0.56）原是「起跌時點」估計；因台股 11 月已起跌，現<b>事後改讀為「谷底時點」候選</b>——這是重新詮釋，不是新的前向預測。",
       guide3_tldr: "<b>一句話重點：</b>LPPL 只回答「何時可能轉折」，不回答「會跌多深」。它的角色是輔助時點判斷，不是精確預言。",
-      guide4_read: "<b>怎麼讀：</b>這頁把證據整合成互斥的「劇本」，機率合計 100%。11/8 版的四情境中，E1（不再加深，不破 −15%）已於 11/19 出局（NDX 收盤破線），剩三個：E2 淺修正 −15~−25%、E3 深度修正 −25~−40%、E4 終結性崩盤 ≤−40%（皆以 NDX 未來 24 個月自峰頂的最大回檔為終點定義）。每條橫條中間的深色刻度＝<b>點機率</b>（單一最佳估計），淺色長條＝<b>80% 區間</b>（把模型自身的不確定性算進去後，機率有八成落在這個範圍）。滑鼠移上可讀數字。",
+      guide4_read: "<b>怎麼讀：</b>這頁把證據整合成互斥的「劇本」，機率合計 100%。11/8 版的四情境中，E1（不再加深，不破 −15%）已於 11/19 出局（NDX 收盤破線），剩三個：E2 淺修正 −15~−25%、E3 深度修正 −25~−40%、E4 終結性崩盤 ≤−40%（同一套深度帶，分別套在 NDX 與 TAIEX 各自未來 24 個月自峰頂的最大回檔上；圖分兩組）。每條橫條中間的深色刻度＝<b>點機率</b>（單一最佳估計），淺色長條＝<b>80% 區間</b>（把模型自身的不確定性算進去後，機率有八成落在這個範圍）。滑鼠移上可讀數字。",
       guide4_concl: "<b>現在的結論：</b>NDX 最可能是 E3 深度修正（39.2%），P(終點 ≤−25%)＝66.1% [53.6–78.1]；「就此止跌」的 E2 只剩 33.9%。落底時點：2026-12 見谷 40%、2027Q1 40%、之後 20%——合計 80% 在 2026-12～2027Q1（中位數約 2026-12-20）。台股：終點在 −25~−40% 帶內收場 60%、破 −40% 40%（≤−25% 已於 11/20 兌現）。NVDA：終點 ≤−40% 已鎖定（現 −47.5%）。",
       guide4_tldr: "<b>一句話重點：</b>破裂已確認，機率回答的是「多深、何時」：NDX 終點深於 −25% 的機率約三分之二（66.1%）、八成機率在 2026-12～2027Q1 之間落底。最大的模型不確定性仍是「純歷史統計 vs GSY 產業崩盤映射」的權重之爭（見下方敏感度：P(E4) 12.5% ↔ 50%）。",
       paths_cap: "資料：Yahoo Finance 日收盤＋Shiller 月資料（1929）。游標移到圖上可讀取各案例在該月數的回檔深度。",
@@ -301,8 +301,11 @@ footer{margin-top:18px;color:var(--muted-foreground);font-size:12px}
       proto_E3: "2021-11 / 1987 / 1990",
       proto_E4: "2000-03",
       tt_scen_iv: "{n}：80% 區間 {lo}–{hi}%（原型 {p}）",
+      tt_scen_iv_np: "{n}：80% 區間 {lo}–{hi}%",
       tt_scen_med: "{n}：中位數 {m}%（點機率 {pt}%）",
-      scen_note: "NDX 三情境為互斥且窮盡的分割（E1 已出局，點機率合計 100%）；區間為同一 Dirichlet 分布（k={k}）的邊際 80% 區間。",
+      scen_note: "NDX 與 TAIEX 各自的三情境為互斥且窮盡的分割（E1 已出局，點機率合計 100%）；區間為各標的後驗 Dirichlet 分布（k={k}）的邊際 80% 區間。",
+      scen_section_ndx: "NDX 終點深度（未來 24 個月自峰頂）",
+      scen_section_taiex: "TAIEX 終點深度（未來 24 個月自峰頂）",
       scen_name_E1_dead: "E1 不再加深（11/19 收盤破 −15%，出局）",
       row_ndx_le25: "NDX：P(終點 ≤−25%)",
       row_nvda_le40: "NVDA：終點 ≤−40%",
@@ -392,7 +395,7 @@ footer{margin-top:18px;color:var(--muted-foreground);font-size:12px}
       cond_h3: "触及 −X% 深度后的终点分布（中位数与深尾 p10）",
       lppl_h3: "LPPL 临界时点 tc 分布（滚动窗口拟合）",
       lppl_val_h3: "方法验证：NDX 1997–2000（真实峰顶 2000-03-27）",
-      scen_h3: "NDX 终点深度概率（三元分割；E1 已于 11/19 出局）",
+      scen_h3: "NDX／TAIEX 终点深度概率（三元分割；E1 已于 11/19 出局）",
       gloss_h3: "名词解释（白话版）",
       guide_how: "这张图怎么看？",
       guide1_read: "<b>怎么读：</b>每条线是一场崩盘“从最高点算起”的走势——往右＝距峰顶过了几个月，往下＝跌得越深。粗彩色线是 2026 进行中的三个标的，灰色虚线是历史案例（点上方标签可开关）。鼠标移到图上会出现直线，同时列出所有案例“在那个月份”各跌到多深。",
@@ -404,7 +407,7 @@ footer{margin-top:18px;color:var(--muted-foreground);font-size:12px}
       guide3_read: "<b>怎么读：</b>LPPL 是侦测“泡沫临界”的数学模型——当涨势出现“越涨越快”的加速形态，模型会估出一个临界时点 <b>tc</b>（转折最可能发生的时间）。我们用“滚动窗口”每个月重复拟合一次，把每次估出的 tc 画成长条：<b>长条越集中的月份，代表越多个窗口指向那里</b>。信心＝通过筛选的拟合中，tc 落在窗口结束后 6 个月内的比例。",
       guide3_honest: "<b>诚实声明：</b>11/8 版估 NVDA tc＝2026-11 中旬——其后 11/17–11/20 的最深跌段<b>命中</b>了该丛集（13/18 个窗口落在 2026-11）。NDX 的 tc 仍属峰顶后拟合的事后性质。TAIEX 的 2027-01 丛集（信心 0.56）原是“起跌时点”估计；因台股 11 月已起跌，现<b>事后改读为“谷底时点”候选</b>——这是重新诠释，不是新的前向预测。",
       guide3_tldr: "<b>一句话重点：</b>LPPL 只回答“何时可能转折”，不回答“会跌多深”。它的角色是辅助时点判断，不是精确预言。",
-      guide4_read: "<b>怎么读：</b>这页把证据整合成互斥的“剧本”，概率合计 100%。11/8 版的四情境中，E1（不再加深，不破 −15%）已于 11/19 出局（NDX 收盘破线），剩三个：E2 浅修正 −15~−25%、E3 深度修正 −25~−40%、E4 终结性崩盘 ≤−40%（皆以 NDX 未来 24 个月自峰顶的最大回调为终点定义）。每条横条中间的深色刻度＝<b>点概率</b>（单一最佳估计），浅色长条＝<b>80% 区间</b>（把模型自身的不确定性算进去后，概率有八成落在这个范围）。鼠标移上可读数字。",
+      guide4_read: "<b>怎么读：</b>这页把证据整合成互斥的“剧本”，概率合计 100%。11/8 版的四情境中，E1（不再加深，不破 −15%）已于 11/19 出局（NDX 收盘破线），剩三个：E2 浅修正 −15~−25%、E3 深度修正 −25~−40%、E4 终结性崩盘 ≤−40%（同一套深度带，分别套在 NDX 与 TAIEX 各自未来 24 个月自峰顶的最大回调上；图分两组）。每条横条中间的深色刻度＝<b>点概率</b>（单一最佳估计），浅色长条＝<b>80% 区间</b>（把模型自身的不确定性算进去后，概率有八成落在这个范围）。鼠标移上可读数字。",
       guide4_concl: "<b>现在的结论：</b>NDX 最可能是 E3 深度修正（39.2%），P(终点 ≤−25%)＝66.1% [53.6–78.1]；“就此止跌”的 E2 只剩 33.9%。见底时点：2026-12 见谷 40%、2027Q1 40%、之后 20%——合计 80% 在 2026-12～2027Q1（中位数约 2026-12-20）。台股：终点在 −25~−40% 带内收场 60%、破 −40% 40%（≤−25% 已于 11/20 兑现）。NVDA：终点 ≤−40% 已锁定（现 −47.5%）。",
       guide4_tldr: "<b>一句话重点：</b>破裂已确认，概率回答的是“多深、何时”：NDX 终点深于 −25% 的概率约三分之二（66.1%）、八成概率在 2026-12～2027Q1 之间见底。最大的模型不确定性仍是“纯历史统计 vs GSY 产业崩盘映射”的权重之争（见下方敏感度：P(E4) 12.5% ↔ 50%）。",
       paths_cap: "数据：Yahoo Finance 日收盘＋Shiller 月数据（1929）。游标移到图上可读取各案例在该月数的回档深度。",
@@ -469,8 +472,11 @@ footer{margin-top:18px;color:var(--muted-foreground);font-size:12px}
       proto_E3: "2021-11 / 1987 / 1990",
       proto_E4: "2000-03",
       tt_scen_iv: "{n}：80% 区间 {lo}–{hi}%（原型 {p}）",
+      tt_scen_iv_np: "{n}：80% 区间 {lo}–{hi}%",
       tt_scen_med: "{n}：中位数 {m}%（点概率 {pt}%）",
-      scen_note: "NDX 三情境为互斥且穷尽的分割（E1 已出局，点概率合计 100%）；区间为同一 Dirichlet 分布（k={k}）的边际 80% 区间。",
+      scen_note: "NDX 与 TAIEX 各自的三情境为互斥且穷尽的分割（E1 已出局，点概率合计 100%）；区间为各标的后验 Dirichlet 分布（k={k}）的边际 80% 区间。",
+      scen_section_ndx: "NDX 终点深度（未来 24 个月自峰顶）",
+      scen_section_taiex: "TAIEX 终点深度（未来 24 个月自峰顶）",
       scen_name_E1_dead: "E1 不再加深（11/19 收盘破 −15%，出局）",
       row_ndx_le25: "NDX：P(终点 ≤−25%)",
       row_nvda_le40: "NVDA：终点 ≤−40%",
@@ -560,7 +566,7 @@ footer{margin-top:18px;color:var(--muted-foreground);font-size:12px}
       cond_h3: "Final-depth distribution after touching −X% (median vs deep-tail p10)",
       lppl_h3: "LPPL critical-time tc distribution (rolling-window fits)",
       lppl_val_h3: "Method check: NDX 1997–2000 (true peak 2000-03-27)",
-      scen_h3: "NDX final-depth probabilities (three-way partition; E1 eliminated on Nov 19)",
+      scen_h3: "NDX / TAIEX final-depth probabilities (three-way partition; E1 eliminated on Nov 19)",
       gloss_h3: "Glossary (plain language)",
       guide_how: "How to read this chart?",
       guide1_read: "<b>How to read:</b> each line is one crash episode anchored at its peak — rightward = months since the peak; downward = deeper. Thick colored lines are the three live 2026 series; grey dashed lines are historical episodes (click the tags above to toggle). Hovering shows a line listing every visible episode’s depth at that month.",
@@ -572,7 +578,7 @@ footer{margin-top:18px;color:var(--muted-foreground);font-size:12px}
       guide3_read: "<b>How to read:</b> LPPL is a mathematical model for bubble criticality — when a rally accelerates “faster and faster”, the model estimates a critical time <b>tc</b> (when the turn is most likely). We refit monthly over rolling windows and plot each window’s tc as a bar: <b>the more bars cluster in one month, the more windows point there</b>. Confidence = the share of screened fits whose tc lands within 6 months after the window ends.",
       guide3_honest: "<b>Honest caveat:</b> the 11/8 report placed NVDA’s tc in mid-November 2026 — and the deepest leg of 11/17–11/20 <b>hit that cluster</b> (13/18 windows land on Nov 2026). NDX’s tc remains in-sample, fitted after the peak. TAIEX’s Jan 2027 cluster (confidence 0.56) was originally a “turn timing” estimate; since Taiwan has already turned down, it is <b>re-read after the fact as a trough-time candidate</b> — a reinterpretation, not a new forward forecast.",
       guide3_tldr: "<b>Bottom line:</b> LPPL answers “when might the turn come”, not “how deep will it fall”. It is a timing aid, not a precise prophecy.",
-      guide4_read: "<b>How to read:</b> this tab integrates the evidence into mutually exclusive scripts summing to 100%. Of the 11/8 report’s four scenarios, E1 (no deeper, −15% holds) was eliminated on Nov 19 (NDX closed below the line), leaving three: E2 shallow correction −15~−25%, E3 deep correction −25~−40%, E4 terminal crash ≤−40% (each defined by NDX’s maximum drawdown from the peak over the next 24 months). The dark tick on each bar = the <b>point probability</b> (single best estimate); the pale bar = the <b>80% interval</b> (the truth falls in this range 8 times out of 10 once model uncertainty is included). Hover for numbers.",
+      guide4_read: "<b>How to read:</b> this tab integrates the evidence into mutually exclusive scripts summing to 100%. Of the 11/8 report’s four scenarios, E1 (no deeper, −15% holds) was eliminated on Nov 19 (NDX closed below the line), leaving three: E2 shallow correction −15~−25%, E3 deep correction −25~−40%, E4 terminal crash ≤−40% (one common set of depth bands, applied to each instrument’s own maximum drawdown from the peak over the next 24 months; the chart shows two groups, NDX and TAIEX). The dark tick on each bar = the <b>point probability</b> (single best estimate); the pale bar = the <b>80% interval</b> (the truth falls in this range 8 times out of 10 once model uncertainty is included). Hover for numbers.",
       guide4_concl: "<b>What the model says now:</b> for NDX, E3 deep correction is most likely (39.2%); P(final depth ≤−25%) = 66.1% [53.6–78.1]; the “stops here” case E2 is down to 33.9%. Trough timing: Dec 2026 40%, Q1 2027 40%, later 20% — an 80% combined chance the trough lands in Dec 2026–Q1 2027 (median around 2026-12-20). TAIEX: 60% it finishes inside the −25~−40% band, 40% it breaks −40% (≤−25% already realized on 11/20). NVDA: terminal ≤−40% is locked in (now −47.5%).",
       guide4_tldr: "<b>Bottom line:</b> the bust is confirmed; the probabilities answer “how deep, and when”: a two-thirds chance (66.1%) NDX’s final depth passes −25%, and an 80% chance the trough arrives between Dec 2026 and Q1 2027. The model’s biggest uncertainty remains the weight fight between pure historical statistics and the GSY industry-crash mapping (see sensitivity below: P(E4) 12.5% ↔ 50%).",
       paths_cap: "Data: Yahoo Finance daily closes + Shiller monthly (1929). Hover over the chart to read each episode’s drawdown at that month.",
@@ -637,8 +643,11 @@ footer{margin-top:18px;color:var(--muted-foreground);font-size:12px}
       proto_E3: "2021-11 / 1987 / 1990",
       proto_E4: "2000-03",
       tt_scen_iv: "{n}: 80% interval {lo}–{hi}% (prototype {p})",
+      tt_scen_iv_np: "{n}: 80% interval {lo}–{hi}%",
       tt_scen_med: "{n}: median {m}% (point probability {pt}%)",
-      scen_note: "The three NDX scenarios are mutually exclusive and exhaustive (E1 eliminated; point probabilities sum to 100%). The intervals are marginal 80% intervals of one Dirichlet distribution (k={k}).",
+      scen_note: "For each of NDX and TAIEX, the three scenarios are mutually exclusive and exhaustive (E1 eliminated; point probabilities sum to 100%). The intervals are marginal 80% intervals of each instrument’s Dirichlet posterior (k={k}).",
+      scen_section_ndx: "NDX final depth (next 24 months from the peak)",
+      scen_section_taiex: "TAIEX final depth (next 24 months from the peak)",
       scen_name_E1_dead: "E1 No deeper (broke −15% on Nov 19 — eliminated)",
       row_ndx_le25: "NDX: P(final depth ≤−25%)",
       row_nvda_le40: "NVDA: final depth ≤−40%",
@@ -1012,41 +1021,58 @@ footer{margin-top:18px;color:var(--muted-foreground);font-size:12px}
     wrap.innerHTML = "";
     const SC = DATA.scenarios;
     // scenario numbers arrive pre-scaled to percent (bundled via Python rounding,
-    // identical to the report's printed values) — no re-multiplication here
-    const scen = SC ? SC.ndx.map((r, i) => ({
+    // identical to the report's printed values) — no re-multiplication here.
+    // Two groups (NDX / TAIEX), one common set of E2–E4 depth bands. TAIEX bars
+    // carry no historical-prototype tooltip (prototypes are NDX-specific).
+    const mkRow = (r, withProto) => ({
       key: r.key, lo: r.lo, hi: r.hi, m: r.m, pt: r.pt,
       name: t("scen_name_" + r.key),
       chart: t("scen_chart_" + r.key),
       short: t("scen_short_" + r.key),
-      proto: t("proto_" + r.key),
-    })) : [];
+      proto: withProto ? t("proto_" + r.key) : null,
+    });
+    const groups = [
+      { section: t("scen_section_ndx"), rows: SC ? SC.ndx.map(r => mkRow(r, true)) : [] },
+      { section: t("scen_section_taiex"), rows: SC ? SC.taiex.map(r => mkRow(r, false)) : [] },
+    ];
 
-    const W = Math.max(wrap.clientWidth || 600, 320), rowH = 44, H = rowH * scen.length + 26;
+    const W = Math.max(wrap.clientWidth || 600, 320);
+    const rowH = 44, headH = 20;
+    const nRows = groups.reduce((n, g) => n + g.rows.length, 0);
+    const H = 28 + headH * groups.length + rowH * nRows + 22;
     const labelW = Math.min(210, Math.max(130, W * 0.36));
-    const M = { l: labelW, r: 62 };
-    const x = d3.scaleLinear().domain([0, 70]).range([M.l, W - M.r]);
+    const M = { l: labelW, r: 100 };
+    const x = d3.scaleLinear().domain([0, 88]).range([M.l, W - M.r]);
     const svg = d3.select(wrap).append("svg").attr("viewBox", `0 0 ${W} ${H}`).attr("width", W).attr("height", H)
-      .attr("role", "img").attr("aria-label", "NDX scenarios (Dirichlet posterior)");
-    [0, 10, 20, 30, 40, 50, 60, 70].forEach(v => {
+      .attr("role", "img").attr("aria-label", "NDX / TAIEX scenarios (Dirichlet posterior)");
+    [0, 10, 20, 30, 40, 50, 60, 70, 80].forEach(v => {
       svg.append("text").attr("x", x(v)).attr("y", 14).attr("text-anchor", "middle")
         .attr("font-size", 11).attr("fill", PAL.mut).text(v + "%");
     });
-    scen.forEach((sc, i) => {
-      const y = 28 + i * rowH;
-      const col = `var(--viz-series-${i + 1})`;
-      svg.append("text").attr("x", M.l - 8).attr("y", y + 14).attr("text-anchor", "end")
-        .attr("font-size", 11).attr("fill", PAL.fg).text((W < 420 && sc.short) ? sc.short : sc.chart);
-      // 80% interval bar
-      svg.append("rect").attr("x", x(sc.lo)).attr("y", y + 6).attr("width", Math.max(x(sc.hi) - x(sc.lo), 2))
-        .attr("height", 9).attr("fill", col).attr("opacity", 0.45)
-        .attr("data-tooltip", tf("tt_scen_iv", { n: sc.name, lo: sc.lo.toFixed(1), hi: sc.hi.toFixed(1), p: sc.proto }));
-      // median marker
-      svg.append("rect").attr("x", x(sc.m) - 1.2).attr("y", y + 2).attr("width", 2.4)
-        .attr("height", 17).attr("fill", col)
-        .attr("data-tooltip", tf("tt_scen_med", { n: sc.name, m: sc.m.toFixed(1), pt: sc.pt.toFixed(1) }));
-      svg.append("text").attr("x", x(sc.hi) + 6).attr("y", y + 14).attr("dy", "0.35em")
-        .attr("font-size", 11).attr("fill", PAL.fg)
-        .text(`${sc.pt.toFixed(1)}% [${sc.lo.toFixed(0)}–${sc.hi.toFixed(0)}]`);
+    let yCur = 28;
+    groups.forEach(g => {
+      svg.append("text").attr("x", M.l).attr("y", yCur + 12)
+        .attr("font-size", 11).attr("font-weight", "500").attr("fill", PAL.fg).text(g.section);
+      yCur += headH;
+      g.rows.forEach((sc, i) => {
+        const y = yCur;
+        const col = `var(--viz-series-${i + 1})`;
+        svg.append("text").attr("x", M.l - 8).attr("y", y + 14).attr("text-anchor", "end")
+          .attr("font-size", 11).attr("fill", PAL.fg).text((W < 420 && sc.short) ? sc.short : sc.chart);
+        // 80% interval bar
+        svg.append("rect").attr("x", x(sc.lo)).attr("y", y + 6).attr("width", Math.max(x(sc.hi) - x(sc.lo), 2))
+          .attr("height", 9).attr("fill", col).attr("opacity", 0.45)
+          .attr("data-tooltip", sc.proto ? tf("tt_scen_iv", { n: sc.name, lo: sc.lo.toFixed(1), hi: sc.hi.toFixed(1), p: sc.proto })
+                                         : tf("tt_scen_iv_np", { n: sc.name, lo: sc.lo.toFixed(1), hi: sc.hi.toFixed(1) }));
+        // median marker
+        svg.append("rect").attr("x", x(sc.m) - 1.2).attr("y", y + 2).attr("width", 2.4)
+          .attr("height", 17).attr("fill", col)
+          .attr("data-tooltip", tf("tt_scen_med", { n: sc.name, m: sc.m.toFixed(1), pt: sc.pt.toFixed(1) }));
+        svg.append("text").attr("x", x(sc.hi) + 6).attr("y", y + 14).attr("dy", "0.35em")
+          .attr("font-size", 11).attr("fill", PAL.fg)
+          .text(`${sc.pt.toFixed(1)}% [${sc.lo.toFixed(0)}–${sc.hi.toFixed(0)}]`);
+        yCur += rowH;
+      });
     });
     if (SC) {
       const note = document.createElement("p");

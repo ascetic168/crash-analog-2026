@@ -5,6 +5,25 @@ All notable changes to the 經濟循環 (economic cycles) workspace.
 Format based on [Keep a Changelog](https://keepachangelog.com/); versioning: patch-only bumps
 (0.1.x) unless a minor bump is agreed with the owner.
 
+## [0.1.28] - 2026-11-22
+
+### Added — scenario chart now shows TAIEX alongside NDX
+- owner request: the 情境機率 chart plotted NDX only even though the table already
+  carried TAIEX rows; the chart is now two labelled groups — NDX 終點深度 and
+  TAIEX 終點深度 (next 24 months from each peak) — each with the three
+  E2/E3/E4 bars (point probability tick + 80% interval)
+- TAIEX bars: E2 0.0% [0–15] (already past −25%, so a shallow finish is nearly
+  impossible), E3 60.0% [38–79], E4 40.0% [21–62]; no historical-prototype
+  tooltip on TAIEX bars (prototypes are NDX-specific) — a prototype-free
+  tooltip variant (tt_scen_iv_np) was added
+- x-domain widened to 88% (ticks to 80%) and right margin to 100px so the
+  TAIEX E3 interval label (79.0%) fits; scenario colors stay per-band across
+  both groups for comparability
+- i18n: new section-header keys + updated heading/note/read-guide in all three
+  languages (note now says each instrument's own Dirichlet posterior)
+- verified in local browser (bars, labels, note text); data came from the
+  existing `scenarios.taiex` in the bundle — no pipeline change
+
 ## [0.1.27] - 2026-11-22
 
 ### Fixed — crash-paths tab drew empty: every series cut to a single point
