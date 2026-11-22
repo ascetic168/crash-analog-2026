@@ -5,6 +5,21 @@ All notable changes to the 經濟循環 (economic cycles) workspace.
 Format based on [Keep a Changelog](https://keepachangelog.com/); versioning: patch-only bumps
 (0.1.x) unless a minor bump is agreed with the owner.
 
+## [0.1.27] - 2026-11-22
+
+### Fixed — crash-paths tab drew empty: every series cut to a single point
+- owner report on the live dashboard: the 崩盤軌跡對齊 tab showed no data
+- root cause: the v0.1.24 update pipeline anchors every path at the peak day
+  itself (month 0, drawdown exactly 0.0), and the template's recovery-cut logic
+  (`findIndex(p => p[1] >= 0)`) matched at index 0 for all 13 series, truncating
+  each to one degenerate point (`M46,29.9Z`) — an empty-looking chart. The 11/8
+  data started at the first post-peak close (already negative), so the cut never
+  fired there; the regression shipped with the 0.1.26 refresh
+- fix: the recovery cut now skips the leading anchor (`i > 0 && p[1] >= 0`)
+- verified: 13/13 series drawn (live = 2 pts ending at the actual 11-20 close,
+  historical = 25–61 pts); short thick live lines are the intended 0.1.24 design
+  (stop at latest close, no flat extension); checked locally and re-deployed
+
 ## [0.1.26] - 2026-11-22
 
 ### Changed — live dashboard refreshed to the 2026-11-20 snapshot (was stuck on 11-06)

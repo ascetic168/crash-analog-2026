@@ -773,9 +773,11 @@
     const idx = new Map(); // ep -> points (for hover)
     PATH_META.forEach((m, i) => {
       if (!visible.has(m.ep)) return;
-      // the analog story ends at recovery: cut the path at its first non-negative month
+      // the analog story ends at recovery: cut the path at its first non-negative month.
+      // (i > 0: the update pipeline anchors every series at the peak day itself, where
+      //  drawdown is exactly 0.0 — that anchor must never count as the recovery point)
       const all = (DATA.paths[m.ep] || []).filter(p => p[0] <= HOR);
-      const cut = all.findIndex(p => p[1] >= 0);
+      const cut = all.findIndex((p, i) => i > 0 && p[1] >= 0);
       const pts = cut >= 0 ? all.slice(0, cut + 1) : all;
       idx.set(m.ep, pts);
       const col = m.live ? PAL.s[i % 3] : PAL.mut;
