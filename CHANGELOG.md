@@ -5,6 +5,44 @@ All notable changes to the 經濟循環 (economic cycles) workspace.
 Format based on [Keep a Changelog](https://keepachangelog.com/); versioning: patch-only bumps
 (0.1.x) unless a minor bump is agreed with the owner.
 
+## [0.1.29] - 2026-11-24
+
+### Added — "big up days inside the decline" event study: the dot-com contrast list
+
+- owner question on 2026-11-24 (US + TAIEX surging on Jensen Huang's reinstatement):
+  did the dot-com cycle also have big rallies inside an ongoing decline — when,
+  what triggered them, and what happened next?
+- new pipeline `quant/scripts/build_bear_rallies.py` → `quant/output_rallies/`:
+  day-level event study (big up day = NDX ≥5% / TAIEX ≥3.5% / CSCO ≥10% 1-day gain;
+  aftermath = further gain to the pre-rally reference low, first close below it),
+  zig-zag rally episodes (≥10% legs), cross-history base rates by drawdown depth
+  (NDX 1985–, Composite 1971–, SPX 1970–, TAIEX 1997–), threshold robustness grid,
+  live-snapshot classification of the 2026-11-23/24 rallies; CSCO/NVDA leader-stock
+  tables; three figures (marked bear charts ×2 at print size 6.9in/220dpi, forward-
+  path fan); report tables are emitted as markdown fragments so no number is
+  hand-copied into the report
+- headline result: 63 big up days inside the two dot-com bears (NDX 41 days / 24
+  waves, TAIEX 22 / 12) — all 63 were later followed by a close below the pre-rally
+  low; medians: +3.4% more upside, 9 trading days to the break (NDX)
+- new report 《跌勢中的大漲_dotcom對照_20261124.md》+ PDF (30 pages, owner-locked):
+  per-wave narrative for all 24 NDX waves with contemporaneous sourcing (CNN
+  Moneyline transcripts for each date, CNET, LA Times, Taipei Times), leader-stock
+  contrast (Dell/Intel/Microsoft/Cisco call-driven rallies, none marked the bottom),
+  TAIEX section with the two 2000 stabilization-fund interventions, base rates and
+  the honest "this cannot be transferred 1:1 to today" limits; three checkable
+  statements (NDX vs 25,028.98 at 20/60 trading days, NVDA vs 125.53) left for
+  scoring; no scenario probabilities changed (endpoint-depth definitions untouched)
+- PDF pipeline `pdf_build_quant/build_pdf_rallies.py` + `report_style_rallies.html`:
+  same Edge/pandoc/cover/qpdf chain as the 11/21 report; H1 uses break-before
+  instead of the markdown page-break divs (a trailing div printed a blank page),
+  colgroups stripped so tables size by content (nowrap headers + fixed pandoc
+  widths had clipped the last column and printed scrollbars), date/label nowrap
+  spans, wide-table class, TOC page numbers adjusted for the two-page TOC
+- visuals: two-page render reviewed (page-image pass); fixes applied for header
+  orphans, figure text size, blank pages, mid-token breaks; final build verified
+  programmatically (0 words past the right margin, 0 split date tokens, no
+  near-empty body page)
+
 ## [0.1.28] - 2026-11-22
 
 ### Added — scenario chart now shows TAIEX alongside NDX
